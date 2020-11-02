@@ -70,6 +70,10 @@ nav ul li a{
 	margin: 40px;
 }
 
+.anchor{
+	position: relative;
+	top: -80px;
+}
 
 .boxshadow{
 	margin: 13px 0;
@@ -79,13 +83,49 @@ nav ul li a{
 	box-shadow: 12px 10px 5px rgba(0,0,0,.4);
 }
 
-.aboutpic{
-	margin: 10px 10px 10px 10px;
 
-	width: 300px;
-	float: right;
+	
+.about-info{
+	color: grey;
+	size: 30px;
 }
 
-p{
-	
+.about-info h1{
+	color: white;
+	size: 30px;
+}
+
+.music-info{
+	color: grey;
+	size: 30px;
+}
+
+.music-info h1{
+	color: white;
+	size: 30px;
+}
+
+.photography-info{
+	color: grey;
+	size: 30px;
+}
+
+.photography-info h1{
+	color: white;
+	size: 30px;
+}
+
+.web-development-info{
+	color: grey;
+	size: 30px;
+}
+
+.web-development-info h1{
+	color: white;
+	size: 30px;
+}
+
+.footerpic{
+	justify-content: center;
+	width: 100%;
 }
