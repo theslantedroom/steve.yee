@@ -3,6 +3,10 @@ body{
 	color: white;
 }
 
+.strong{
+	font-weight:bold;
+}
+
 a:link {
 	text-decoration: none;
 }
@@ -83,11 +87,12 @@ nav ul li a{
 	box-shadow: 12px 10px 5px rgba(0,0,0,.4);
 }
 
-
+/*NAV Links*/
 	
 .about-info{
 	color: grey;
 	size: 30px;
+	margin: 15px 10px 50px 10px
 }
 
 .about-info h1{
@@ -98,6 +103,7 @@ nav ul li a{
 .music-info{
 	color: grey;
 	size: 30px;
+	margin: 5px 10px
 }
 
 .music-info h1{
@@ -105,19 +111,71 @@ nav ul li a{
 	size: 30px;
 }
 
+.musiclinks{
+	margin: 0px;
+	float: right;
+}
+
+.musiclinks ul li{
+	font-size: 20px;
+	display: inline-block;
+	border-radius: 5px;
+	padding: 0px 3px;
+	border: 2px solid white;
+}
+
+
+.concertbanner{
+	width: 100%;
+}
+
 .photography-info{
 	color: grey;
 	size: 30px;
+	width: 100%;
+	min-width: 650px;
+	justify-content: center;
+	margin: 5px 10px
 }
 
 .photography-info h1{
 	color: white;
 	size: 30px;
+
+}
+
+
+.cat{
+	width: 200px;
+	border-radius: 5px;
+	margin: 5px 15px 2px 2px;
+	float: left;
+}
+
+.baby{
+	width: 30%;
+	border-radius: 5px;
+	margin: 5px 15px 2px 2px;	
+}
+
+.bug{
+	width: 30%;
+	border-radius: 5px;
+	margin: 5px 15px 2px 2px;
+}
+
+.fly{
+	width: 30%;
+	border-radius: 5px;
+	margin: 5px 15px 2px 2px;
+	
 }
 
 .web-development-info{
+	clear: both;
 	color: grey;
 	size: 30px;
+	margin: 5px 10px
 }
 
 .web-development-info h1{
@@ -125,7 +183,12 @@ nav ul li a{
 	size: 30px;
 }
 
+
+
 .footerpic{
-	justify-content: center;
-	width: 100%;
+	display: block;
+	 margin-left: auto;
+ 	 margin-right: auto;
+	width: 50%;
 }
+
