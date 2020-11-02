@@ -68,9 +68,7 @@ nav ul li a{
 	right: 20px;
 	top: 50%
 	margin: 40px;
-
 }
-
 
 
 .boxshadow{
@@ -86,5 +84,8 @@ nav ul li a{
 
 	width: 300px;
 	float: right;
+}
 
+p{
+	
 }
