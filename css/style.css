@@ -134,6 +134,7 @@ nav ul li a{
 	size: 30px;
 	width: 100%;
 	min-width: 650px;
+	max-width: 1800px;
 	justify-content: center;
 	margin: 5px 10px
 }
