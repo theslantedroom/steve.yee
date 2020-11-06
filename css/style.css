@@ -65,6 +65,8 @@ nav .nametag{
 	margin-top: -33px;
 	position: absolute;
 }
+
+
 .nametag:hover{
 	color: grey;
 
