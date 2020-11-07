@@ -307,3 +307,15 @@ footer{
 	text-align: center;
 	padding: 15px 10px 500px 10px
 }
+
+
+.magicbutton{
+	padding: 30px;
+	cursor: pointer;
+
+}
+
+.magicbutton:hover{
+	padding: 40px;
+
+}
