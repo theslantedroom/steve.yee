@@ -73,7 +73,7 @@ background-size: 10% 100%;
 	border: 1px solid black;
 	border-radius: 10px ;
     flex-direction: row;
-    background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/knob.jpg");
+    background-image: url("../img/knob.JPG");
     background-size: contain;
     background-repeat: no-repeat;
     width: 6%;
@@ -94,7 +94,7 @@ background-size: 10% 100%;
 
 .fader{
 	width: 5%;
-	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/fader.JPG");
+	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/fader.JPG");
     background-size: contain;
     background-repeat: no-repeat;
     padding-bottom: 26%;
