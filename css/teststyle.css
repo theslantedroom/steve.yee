@@ -41,13 +41,13 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 	width:100%;
 	padding-bottom: 29%;
 	margin: 0px 0px 0px 0px;
-	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/VU_Meter.jpg);
+	background-image: url(../img/VU_Meter.JPG);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .vuMeter:hover{
-	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/VU_Meter2.jpg);
+	background-image: url(../img/VU_Meter2.JPG);
 	cursor: crosshair;
  
 }
@@ -94,14 +94,14 @@ background-size: 10% 100%;
 
 .fader{
 	width: 5%;
-	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/fader.JPG");
+	background-image: url("../img/fader.JPG");
     background-size: contain;
     background-repeat: no-repeat;
     padding-bottom: 26%;
 }
 
 .fader:hover{
-	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/fader.JPG");
+	background-image: url("../img/fader.JPG");
 	transform: rotate(180deg);
 }
 
