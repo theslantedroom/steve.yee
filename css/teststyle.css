@@ -73,7 +73,7 @@ background-size: 10% 100%;
 	border: 1px solid black;
 	border-radius: 10px ;
     flex-direction: row;
-    background-image: url("../img/knob.jpg");
+    background-image: url("img/knob.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     width: 6%;
