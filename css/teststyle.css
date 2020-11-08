@@ -12,7 +12,8 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 #holder {
 	background: radial-gradient(circle, rgba(7,15,15,1) 0%, 
 	rgba(77,10,10,1) 0%, rgba(28,111,110,1) 92%, rgba(14,114,120,1) 100%);
-    min-height: 100%;
+	border: 2px solid black;
+	border-radius: 30px;
     position:relative;
     display: block;
   
@@ -26,12 +27,10 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 
 #headertop{
 	background: rgb(7,15,15);
-
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     padding-top: 0%; 
-
     top: 0px;
    
 }
@@ -39,10 +38,10 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 .vuMeter{
 	position: relative;
 	width:100%;
-	padding-bottom: 29%;
+	padding-bottom: 27%;
 	margin: 0px 0px 0px 0px;
 	background-image: url("../img/VU_Meter.jpg");
-    background-size: contain;
+    background-size:100% 100%;
     background-repeat: no-repeat;
 }
 
@@ -66,6 +65,15 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 display: flex;
 justify-content: space-around;
 background-size: 10% 100%;
+    border: 3px solid rgba(164,170,32,1);
+    padding: 0px 0px;
+    border-radius: 14px;
+}
+
+#body:hover {
+
+    border: 3px solid rgba(28,111,110,1);
+
 }
 
 
@@ -88,7 +96,9 @@ background-size: 10% 100%;
 	justify-content: space-around;
     background-color: white;
     background-size: 10% 100%;
-    border: 10px solid grey;
+    border: 13px solid grey;
+    padding: 0px 10px;
+    border-radius: 30px;
 
 }
 
