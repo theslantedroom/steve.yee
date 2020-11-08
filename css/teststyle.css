@@ -63,35 +63,48 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 
 
 #body {
-
-   width: 100%;
-   height: 200px;
- 
- 
+display: flex;
+justify-content: space-around;
+background-size: 10% 100%;
 }
 
 
-#filling {
-	border: 10px solid black;
+.knobs {
+	border: 1px solid black;
 	border-radius: 10px ;
-   flex-direction: row;
-   background-image: url("../img/knob.jpg");
-   background-size: 10% ;
-   height: 100px;
+    flex-direction: row;
+    background-image: url("../img/knob.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 6%;
+    padding-bottom: 7.5%;
 }
 
+.knobs:hover {
 
-#footer{
-	color: green;
+}
+#faderBank{
 	display: flex;
-	flex-direction: row;
-    background-image: url("../img/fader.jpg");
-    background-color: green;
+	justify-content: space-around;
+    background-color: white;
     background-size: 10% 100%;
-    height: 300px;
     border: 10px solid grey;
 
 }
+
+.fader{
+	width: 5%;
+	background-image: url("../img/fader.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 26%;
+}
+
+.fader:hover{
+	background-image: url("../img/fader.jpg");
+	transform: rotate(180deg);
+}
+
 
 .goBack{
 	width: 70px;
