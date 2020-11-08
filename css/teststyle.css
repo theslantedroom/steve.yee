@@ -41,13 +41,13 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 	width:100%;
 	padding-bottom: 29%;
 	margin: 0px 0px 0px 0px;
-	background-image: url("../img/VU_Meter.JPG");
+	background-image: url("../img/VU_Meter.jpg");
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .vuMeter:hover{
-	background-image: url("../img/VU_Meter2.JPG");
+	background-image: url("../img/VU_Meter2.jpg");
 	cursor: crosshair;
  
 }
