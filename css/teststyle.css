@@ -41,13 +41,13 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 	width:100%;
 	padding-bottom: 29%;
 	margin: 0px 0px 0px 0px;
-	background-image: url(https://github.com/theslantedroom/steve.yee/blob/master/img/VU_Meter.jpg);
+	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/VU_Meter.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .vuMeter:hover{
-	background-image: url(https://github.com/theslantedroom/steve.yee/blob/master/img/VU_Meter2.jpg);
+	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/VU_Meter2.jpg);
 	cursor: crosshair;
  
 }
@@ -73,7 +73,7 @@ background-size: 10% 100%;
 	border: 1px solid black;
 	border-radius: 10px ;
     flex-direction: row;
-    background-image: url("https://github.com/theslantedroom/steve.yee/blob/master/img/knob.jpg");
+    background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/knob.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     width: 6%;
@@ -94,14 +94,14 @@ background-size: 10% 100%;
 
 .fader{
 	width: 5%;
-	background-image: url("https://github.com/theslantedroom/steve.yee/blob/master/img/fader.JPG");
+	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/fader.JPG");
     background-size: contain;
     background-repeat: no-repeat;
     padding-bottom: 26%;
 }
 
 .fader:hover{
-	background-image: url("https://github.com/theslantedroom/steve.yee/blob/master/img/fader.JPG");
+	background-image: url("https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/fader.JPG");
 	transform: rotate(180deg);
 }
 
@@ -129,7 +129,7 @@ a.button {
 
 a.button:hover {
 	padding: 15px;
-	background-image: url(../img/nasa.jpg);
+	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/nasa.jpg);
 	background-size: 100%;
 	color: white;
  
