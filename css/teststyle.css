@@ -41,13 +41,13 @@ background: radial-gradient(circle, rgba(7,15,15,1) 0%,
 	width:100%;
 	padding-bottom: 29%;
 	margin: 0px 0px 0px 0px;
-	background-image: url(../img/VU_meter.jpg);
+	background-image: url(../img/VU_Meter.jpg);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .vuMeter:hover{
-	background-image: url(../img/VU_meter2.jpg);
+	background-image: url(../img/VU_Meter2.jpg);
 	cursor: crosshair;
  
 }
@@ -73,7 +73,7 @@ background-size: 10% 100%;
 	border: 1px solid black;
 	border-radius: 10px ;
     flex-direction: row;
-    background-image: url("img/knob.jpg");
+    background-image: url("../img/knob.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     width: 6%;
