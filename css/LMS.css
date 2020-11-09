@@ -138,14 +138,18 @@ background-image: url(../img/01b.jpg);
 }
 
 #enemyCard{
+display: flex;
+justify-content: space-around;
 color: red;
+
+
+#enemy1{
+color: gold;
 width: 20vw;
 height: 31vw;
 background-size: 100%;
 background-repeat: no-repeat;
-
 }
-
 
 
 .peasant{
