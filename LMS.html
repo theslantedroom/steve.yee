@@ -25,9 +25,71 @@
   <input type="submit" value="Submit">
 	</div>
 
-	<div class="javaTest">
-		<button onclick="player1.stats();">Run Java</button>
+	<div class="healthButton">
+		<button onclick="player1.stats();">How are you feeling?</button>
 	</div>
+
+			<div id="hud">
+
+		
+			<table id="table" style="width:100%">
+			  <tr>
+			  	<th></th>
+			    <th>player1</th>
+			    <th>player2</th>
+		
+			  </tr>
+			  <tr>
+			  	<td>healthMa/health</td>
+			    <td id="p1health">20</td>
+				<td>n/a</td>
+			  </tr>
+			  <tr>
+			    <td>defense</td>
+				<td></td>
+				<td>n/a</td>
+			  </tr>
+			  <tr>
+			    <td>attackRoll</td>
+			    <td></td>
+				<td>n/a</td>
+
+			  </tr>
+			   <tr>
+			    <td>damageBonus</td>
+			    <td></td>
+				<td>n/a</td>
+
+			  </tr>
+			   <tr>
+			    <td>weapon</td>
+			    <td></td>
+				<td>n/a</td>
+
+			  </tr>
+			</table>
+
+
+				<div id="rollButton">
+					<a href="#" onclick="rollDie()">ROLL</a>
+					<p id="rollResult">waiting for a roll</p>
+				</div>
+		
+		</div>
+
+
+
+	<div class="peasant">Peasant
+<button onclick="peasantTalk()">Talk</button>
+	</div>
+
+	<div class="tv">
+
+		<p>Log:</p>
+		<p id="tvLog">....</p>
+
+	</div>
+
 
 
 </div>

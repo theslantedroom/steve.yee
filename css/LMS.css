@@ -27,9 +27,57 @@
 	justify-content: center;
 
 }
-.javaTest{
+.healthButton{
 	border: 2px solid black;
-	width: 50px;
 	background-color: white;
 	padding: 10px;
+}
+
+.peasant{
+	position: absolute;
+	left: 45%;
+	top: 70%;
+	border: 1px solid yellow;
+	background-image: url(../img/character1a.png);
+	height: 100px;
+	width: 100px;
+	/*background: no-repeat;*/
+}
+
+.peasant:hover{cursor: crosshair;}
+
+.tv{
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	border: 2px solid black;
+	background-color: white;
+	padding: 10px;
+}
+
+#hud ul {
+
+	background-color: rgb(255, 153, 204);
+}
+
+#table {
+	background-color: rgb(255, 153, 204);
+ 	padding: 15px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 2px;
+}
+th {
+  text-align: left;
+}
+
+#rollButton{
+	background-color: rgb(255, 153, 204);
+ 	padding: 15px;
+ 	width: 70px;
 }
