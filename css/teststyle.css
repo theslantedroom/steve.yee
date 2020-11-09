@@ -135,14 +135,22 @@ a.button {
     color: initial;
     border: 2px solid black;
     padding: 5px;
+    margin: 4px;
 }
 
 a.button:hover {
-	padding: 15px;
+	
 	background-image: url(https://raw.githubusercontent.com/theslantedroom/steve.yee/master/img/nasa.jpg);
 	background-size: 100%;
 	color: white;
  
+}
+
+.linkButtons{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
 }
 
 footer{

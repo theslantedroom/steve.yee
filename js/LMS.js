@@ -1,3 +1,6 @@
+
+
+
 var player1 = {
 	name: 'player1',
 	alive: true,
@@ -12,3 +15,4 @@ var player1 = {
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
 	},
 };
+
