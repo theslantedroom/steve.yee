@@ -66,4 +66,20 @@ function rollDie(){
 		console.log("miss with " + randomNumber);
 		document.getElementById("result").innerHTML = 'Miss';
 	};
+};
+
+// change Sex
+function changeSexMaleP1(){
+		console.log('change sex');
+		document.getElementById("player1").className = "player01a";
+		document.getElementById("genderButtonM").innerHTML = 'You the MAN';
+		document.getElementById("genderButtonF").innerHTML = 'woman weak';
 }
+
+function changeSexFemaleP1(){
+		console.log('change sex');
+		document.getElementById("player1").className = "player01b";
+		document.getElementById("genderButtonM").innerHTML = 'man weak';
+		document.getElementById("genderButtonF").innerHTML = 'You the WOMAN';
+}
+

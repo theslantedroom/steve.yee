@@ -18,21 +18,16 @@
 
 <div class="playArea">
 
-	<div class="form">
-  <label for="player1">First name:</label><br>
-  <input type="text" id="player1" name="player1" value="Player 1"><br>
-  <label for="warCry">Your War cry:</label><br>
-  <input type="text" id="lname" name="lname" value="To Victory!">
-  <input type="submit" value="Submit">
-	</div>
+
 
 	<div class="healthButton">
 		<button onclick="player1.stats();">How are you feeling?</button>
 	</div>
 
-			<div id="hud">
+<!-- HUD -->
+<div id="hud">
 
-		
+<!-- Statistics -->
 			<table id="table" style="width:100%">
 			  <tr>
 			  	<th></th>
@@ -70,39 +65,56 @@
 			  </tr>
 			</table>
 
-			
-				<div id="rollButton">
-					<a href="#" onclick="rollDie()">ROLL</a>
-					<p id="rollResult">your roll</p>
-					<p>must beat</p>
-					<p id="enemyDefense">6 Def</p>
-					<p id="result">result</p>
-				</div>
-			
-		
-		</div>
+</div>
 
 
+<!-- Console TV -->
+<div class="tv">
 
-	<div class="peasant">Peasant
+	<p>Log:</p>
+	<p id="tvLog">....Peasant has 6 defence. Roll higher than 6 to hit him.</p>
+
+</div>
+
+
+<!-- Talk -->
+<div class="peasant">Peasant
 <button onclick="peasantTalk()">Talk</button>
+</div>
+
+<div class="floatingButton">
+<button onclick="changeSexMaleP1()"><span id="genderButtonM">Male</span></button>
+</div>
+<div class="floatingButton">
+<button onclick="changeSexFemaleP1()"><span id="genderButtonF">Female</span></button>
+</div>
+
+
+
+<!-- Character  Card -->
+<div id="charCard">
+	<div class="player01a" id="player1">Player1</div>
+</div>
+
+
+<!-- roll -->
+	<div id="rollBar">
+		<a href="#" onclick="rollDie()">ROLL</a>
+		<p id="rollResult">your roll</p>
+		<p>must beat</p>
+		<p id="enemyDefense">6 Def</p>
+		<p id="result">result</p>
 	</div>
 
-	<div class="enemy">
-	<img src="img/peasant.jpg" alt="peasant">
-	</div>
 
-
-
+<!-- Enemy Card -->
+<div id="enemyCard" class="peasant">
+<img src="img/peasant.jpg" alt="peasant">
+</div>
 
 
 </div>
-	<div class="tv">
 
-		<p>Log:</p>
-		<p id="tvLog">....Peasant has 6 defence. Roll higher than 6 to hit him.</p>
-
-	</div>
 
 <script src=js/LMS.js> </script>
 </body>

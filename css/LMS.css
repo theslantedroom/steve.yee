@@ -3,9 +3,11 @@ body{
 }
 
 .playArea{
+ margin: auto;
 	padding: 10px;
 	position: absolute;
-	background-image: url(../img/grass.jpg);
+	background-color: grey;
+	background-image: url(#);
 	border: 2px solid black;
 	top: 30px;
 	bottom: 50px;
@@ -51,17 +53,16 @@ body{
 .peasant:hover{cursor: crosshair;}
 
 .tv{
+	margin: auto;
 	text-align: left;	
 	background-color: rgb(153, 204, 255);
-	position: absolute;
 	width: 95%;
-	bottom:40px;
 	border: 2px solid black;
 	padding: 0px 10px;
 }
 
 #hud{
-	margin: 10px;
+	margin: auto;
 	width: 70%;
 }
 #hud ul {
@@ -84,15 +85,44 @@ th {
   text-align: left;
 }
 
-#rollButton{
+
+
+
+
+
+/*CHARACTER CARD*/
+#charCard{
+	display: flex;
+	justify-content: space-around;
+}
+
+#player1{
+color: gold;
+width: 20vw;
+height: 31vw;
+background-size: 100%;
+background-repeat: no-repeat;
+}
+
+.player01a{	
+background-image: url(../img/01a.jpg);
+}
+
+.player01b{	
+background-image: url(../img/01b.jpg);
+}
+
+/*rollbar*/
+#rollBar{
+	margin: auto;
 	border: 1px solid black;
 	font-weight: bold;
 	background-color: rgb(225, 253, 204);
- 	padding: 1px;
- 	width: 80%;	
+ 	padding: 0px 10px;
+ 	width: 95%;	
 }
 
-#rollButton a{
+#rollBar a{
 	border: 1px solid black;
 	display: inline-block;
 	width: 50px;
@@ -100,25 +130,37 @@ th {
 	margin: 20px 50px 20px 10px;
 }
 
-#rollButton p{
+#rollBar p{
 	border: 1px solid black;
 	display: inline-block;
 	width: 50px;
 	padding: 10px 10px;
 }
 
+#enemyCard{
+color: red;
+width: 20vw;
+height: 31vw;
+background-size: 100%;
+background-repeat: no-repeat;
 
-.enemy{
-	display: flex;
-	flex-direction: row-reverse;
 }
 
-.enemy img{
-	position: absolute;
-	right: 35px;
-	bottom: 100px;
-	border: 1px solid white;
-	height: auto;
-	width: 20%;
+
+
+.peasant{
+background-image: url(../img/01a.jpg);
 }
 
+
+
+
+/*toggle hidden*/
+
+.hidden{
+	display: 	none;
+}
+
+.visibleBlock{
+	display: 	block;
+}
