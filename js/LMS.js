@@ -1,8 +1,24 @@
 
-
+var enemyDefense = 6;
 
 var player1 = {
 	name: 'player1',
+	alive: true,
+	healthMa: 20,
+	health: 20,
+	defense: 4,
+	attackRoll: 0,
+	damageBonus: 0,
+	weapon: 'none',
+
+	stats: function(){
+		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
+	},
+};
+
+
+var enemy = {
+	name: 'Peasant',
 	alive: true,
 	healthMa: 20,
 	health: 20,
@@ -37,4 +53,17 @@ function rollDie(){
 	randomNumber = Math.floor((Math.random() * 20) + 1);
 	console.log(randomNumber);
 	document.getElementById("rollResult").innerHTML = randomNumber;
+
+	if (randomNumber > enemyDefense ) {
+		console.log("hit with " + randomNumber);
+		document.getElementById("result").innerHTML = 'HIT';
+		enemy.health = enemy.health - 2;
+		document.getElementById("tvLog").innerHTML = "You  hit the peasant, health is down to " + enemy.health;
+
+		document.getElementById("enemyHealth").innerHTML = enemy.health;
+
+	} else	{
+		console.log("miss with " + randomNumber);
+		document.getElementById("result").innerHTML = 'Miss';
+	};
 }

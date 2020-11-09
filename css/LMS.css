@@ -85,12 +85,27 @@ th {
 }
 
 #rollButton{
+	border: 1px solid black;
 	font-weight: bold;
 	background-color: rgb(225, 253, 204);
- 	padding: 15px;
- 	width: 70px;
+ 	padding: 1px;
+ 	width: 80%;	
 }
 
+#rollButton a{
+	border: 1px solid black;
+	display: inline-block;
+	width: 50px;
+	padding: 20px 10px 20px 10px;
+	margin: 20px 50px 20px 10px;
+}
+
+#rollButton p{
+	border: 1px solid black;
+	display: inline-block;
+	width: 50px;
+	padding: 10px 10px;
+}
 
 
 .enemy{
@@ -106,3 +121,4 @@ th {
 	height: auto;
 	width: 20%;
 }
+
