@@ -5,7 +5,7 @@
 	<link rel="icon" href="img/profile2.jpg">
 
 	<!-- css Animate -->
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+
 		<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/LMS.css">
 
@@ -13,6 +13,7 @@
 </head>
 
 <header>Hmmm.. lets seee what we can do..</header>
+
 <body>
 
 <div class="playArea">
@@ -36,7 +37,7 @@
 			  <tr>
 			  	<th></th>
 			    <th>player1</th>
-			    <th>player2</th>
+			    <th>Peasant</th>
 		
 			  </tr>
 			  <tr>
@@ -72,7 +73,7 @@
 
 				<div id="rollButton">
 					<a href="#" onclick="rollDie()">ROLL</a>
-					<p id="rollResult">waiting for a roll</p>
+					<p id="rollResult">waiting</p>
 				</div>
 		
 		</div>
@@ -83,17 +84,21 @@
 <button onclick="peasantTalk()">Talk</button>
 	</div>
 
-	<div class="tv">
-
-		<p>Log:</p>
-		<p id="tvLog">....</p>
-
+	<div class="enemy">
+	<img src="img/peasant.jpg" alt="peasant">
 	</div>
 
 
 
-</div>
 
+
+</div>
+	<div class="tv">
+
+		<p>Log:</p>
+		<p id="tvLog">....Peasant has 6 defence. Roll higher than 6 to hit him.</p>
+
+	</div>
 
 <script src=js/LMS.js> </script>
 </body>
