@@ -39,18 +39,6 @@ body{
 	padding: 10px;
 }
 
-.peasant{
-	position: absolute;
-	left: 45%;
-	top: 2%;
-	border: 1px solid yellow;
-	background-image: url(../img/character1a.png);
-	height: 100px;
-	width: 100px;
-	/*background: no-repeat;*/
-}
-
-.peasant:hover{cursor: crosshair;}
 
 .tv{
 	margin: auto;
@@ -94,10 +82,11 @@ th {
 #charCard{
 	display: flex;
 	justify-content: space-around;
+	color: gold;
 }
 
 #player1{
-color: gold;
+border: 1px solid black;
 width: 20vw;
 height: 31vw;
 background-size: 100%;
@@ -137,14 +126,17 @@ background-image: url(../img/01b.jpg);
 	padding: 10px 10px;
 }
 
-#enemyCard{
+#enemyCard {
 display: flex;
 justify-content: space-around;
 color: red;
 
+}
 
-#enemy1{
-color: gold;
+
+#enemy1 {
+border: 3px solid black;
+box-sizing: border-box;
 width: 20vw;
 height: 31vw;
 background-size: 100%;
@@ -153,7 +145,7 @@ background-repeat: no-repeat;
 
 
 .peasant{
-background-image: url(../img/01a.jpg);
+background-image: url(../img/W03.jpg);
 }
 
 
