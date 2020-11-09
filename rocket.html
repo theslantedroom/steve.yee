@@ -2,37 +2,54 @@
 <html>
 <head>
 	<title>JavaScript Rocket</title>
+
+	
+
 		<!-- css -->
 
 	<link rel="stylesheet" type="text/css" href="css/rocket.css">
 </head>
 
 
-<body>
-
-	<h1>JS Rocket Launch!</h1>
+<body class="body-state1">
 
 
-		<div class="state1">
-			<h1>	</h1>
-			<a href="#" class="button" onclick="startCountDown();">LAUNCH</a>
-				 <form class="goBack" action="index.html">
+
+	<h1>JS Rocket</h1>
+	 			<form class="goBack" action="index.html">
    				 <input type="submit" value="Go Back" />
 				 </form>
-		</div>		
 
-	
+<div class="earth">		
+		<div class="state1">
+			<h1>Prepare for Launch</h1>
+			<a href="#" class="button" onclick="changeState(2)n();">LAUNCH</a>	
+		</div>	
+		<div class="state2">
+			<h1>10</h1>
+			<a href="#" class="button" onclick="changeState(1);">ABORT</a>	
+		</div>	
+		<div class="state3">
+			<h1>Lift off</h1>
+			
+		</div>	
+		<div class="state4">
+			<h1>Well done</h1>
+			<a href="#" class="button" onclick="changeState(1);">Do it Again</a>	
+		</div>	
+		<div class="state5">
+			<h1>Oh no</h1>
+			<a href="#" class="button" onclick="changeState(1);">try again</a>	
+		</div>	
 
 
-<div class="earth">	
-
-	<div class="right">
 		<div class="rocket">
 		</div>		
-	</div>
 
 
 </div>
+
+<script src=js/rocket.js> </script>
 
 </body>
 
