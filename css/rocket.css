@@ -36,7 +36,8 @@ a{
 	background-repeat: no-repeat; 
 }
 
-.rocket.flying{
+body.body-state3 .rocket,
+body.body-state4 .rocket{
 		bottom: 1000px;
 }
 
