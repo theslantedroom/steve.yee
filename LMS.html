@@ -79,84 +79,6 @@
 
 </div>
 
-<!-- roll -->
-
-	<div id="rollBar">
-
-		<div id="start">
-			<div class="lighter"><p>Tap your face to change characters</p></div>
-			<div><p>Tap weapons and Armor to swap</p></div>
-			<div><p>defeat as enemies</p></div>
-			<div class="border"><button onclick="start()">READY</button></div>
-		</div>
-
-
-		<div id="player1Turn" class="hidden">
-			<div class="lighter"><p>-</p></div>
-			<div><p>-</p></div>
-			<div><p>You stand ready..</p></div>
-			<div class="border"><button onclick="player1AttackRoll()">ATTACK</button></div>
-		</div>
-
-		<div id="player1Damage" class="hidden">
-			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUp"></div>
-			<div class="lighter" id="player1DamageLog"><p></p></div>
-			<div><p>you hit</p></div>
-			<div><p>Roll your damage</p></div>
-			<div class="border"><button onclick="player1Damage()">Deal Damage</button></div>
-		</div>
-
-		<div id="player1Critical" class="hidden">
-			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUp"></div>
-			<div class="lighter" id="player1CriticalLog"><p></p></div>
-			<div><p>CRITICAL HIT!</p></div>
-			<div><p>Roll your damage</p></div>
-			<div class="border"><button onclick="player1Critical()">Deal Critical Damage</button></div>
-		</div>
-
-		<div id="logSlide" class="hidden">
-			<div class="lighter"><p id="rollResult">you connect a solid blow</p> </div>
-			<div><p id="result">....</p></div>
-			<div><p id="tvLog">....</p></div>
-			<div class="border"><button onclick="logSlide()">continue to enemy turn...</button></div>
-		</div>
-
-		<div id="logSlideE" class="hidden">
-			<div class="lighter"><p id="rollResultE">...</p> </div>
-			<div><p id="resultE">....</p></div>
-			<div><p id="tvLogE">....loge.</p></div>
-			<div class="border"><button onclick="logSlideE()">continue to your turn...</button></div>
-		</div>
-
-
-
-
-		<div id="enemyTurn" class="hidden">
-			<div class="lighter"><p>-</p></div>
-			<div><p>-</p></div>
-			<div><p>The enemy attacks</p></div>
-			<div class="border"><button onclick="enemyAttack()">Brace your self</button></div>
-		</div>
-
-		<div id="killLog" class="hidden">
-			<div class="lighter"><p id="rollResultK">...</p> </div>
-			<div><p id="resultK">....</p></div>
-			<div><p id="tvLogK">killloge.</p></div>
-			<div class="border"><button onclick="nextEnemy()">continue...</button></div>
-		</div>
-
-		<div id="next" class="hidden">
-		<p>Another one aproaches. Prepare <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
-		</div>
-
-	
-		
-		<div id="player1Dead" class="hidden">
-		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathPopup"></span> times</p>
-		</div>
-
-	</div>
-
 
 	<div class="playArea">
 		<!-- Character  Card -->
@@ -188,6 +110,84 @@
 		</div>
 
 	</div>
+
+<!-- roll -->
+
+	<div id="rollBar">
+
+		<div id="start">
+			<div class="lighter"><p>new game</p></div>
+			<div><p>Tap weapons and Armor to swap</p></div>
+			<div><p>defeat as enemies</p></div>
+			<div class="border"><button onclick="start()">READY</button></div>
+		</div>
+
+
+		<div id="player1Turn" class="hidden">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>You stand ready..</p></div>
+			<div class="border"><button onclick="player1AttackRoll()">ATTACK</button></div>
+		</div>
+
+		<div id="player1Damage" class="hidden">
+			<div class="lighter"><p id="player1DamageLog"></p></div>
+			<div><p>you hit</p></div>
+			<div><p>Roll your damage</p></div>
+			<div class="border"><button onclick="player1Damage()">Deal Damage</button></div>
+			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUp"></div>
+		</div>
+
+		<div id="player1Critical" class="hidden">
+			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUpC"></div>
+			<div class="lighter"><p id="player1CriticalLog"></p></div>
+			<div><p>CRITICAL HIT!</p></div>
+			<div><p>Roll your damage</p></div>
+			<div class="border"><button onclick="player1Critical()">Deal Critical Damage</button></div>
+		</div>
+
+		<div id="logSlide" class="hidden">
+			<div class="lighter"><p id="rollResult">you connect a solid blow</p> </div>
+			<div><p id="result">....</p></div>
+			<div><p id="tvLog">....</p></div>
+			<div class="border"><button onclick="logSlide()">continue to enemy turn...</button></div>
+		</div>
+
+		<div id="logSlideE" class="hidden">
+			<div class="lighter"><p id="rollResultE">...</p> </div>
+			<div><p id="resultE">....</p></div>
+			<div><p id="tvLogE">....loge.</p></div>
+			<div class="border"><button onclick="logSlideE()">continue to your turn...</button></div>
+		</div>
+
+
+		<div id="enemyTurn" class="hidden">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>The enemy attacks</p></div>
+			<div class="border"><button onclick="enemyAttack()">Brace your self</button></div>
+		</div>
+
+		<div id="killLog" class="hidden">
+			<div class="lighter"><p id="rollResultK">...</p> </div>
+			<div><p id="resultK">....</p></div>
+			<div><p id="tvLogK">killloge.</p></div>
+			<div class="border"><button onclick="nextEnemy()">continue...</button></div>
+		</div>
+
+		<div id="next" class="hidden">
+		<p>Another one aproaches. Prepare <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
+		</div>
+
+	
+		
+		<div id="player1Dead" class="hidden">
+		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathPopup"></span> times</p>
+		</div>
+
+	</div>
+
+
 
 
 

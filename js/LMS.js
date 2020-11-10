@@ -23,7 +23,7 @@ var enemy = {
 	name: 'Peasant',
 	alive: true,
 	healthMa: 20,
-	health: 20,
+	health: 1,
 	defense: 6,
 	attackBonus: 'n/a',
 	damageBonus: 'n/a',
@@ -40,6 +40,7 @@ var enemy = {
 function swapWeapon(){
 document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
 document.getElementById('weaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
 };
 
 
@@ -294,6 +295,8 @@ function enemyAttack(){
 function player1AttackRoll(){
 	document.getElementById("player1Turn").className = "hidden";
 	attackRoll = Math.floor((Math.random() * 20) + 1);
+	attackRoll = 20;
+	swapWeapon();
 	
 	console.log('player1AttackRoll ' + attackRoll);
 	document.getElementById("rollResult").innerHTML = 'Your attack roll is ' + attackRoll;
@@ -322,8 +325,22 @@ function player1AttackRoll(){
 		document.getElementById("logSlide").className = "visibleBlock";
 	};
 
-// killed him
-	if (enemy.health <= 0 && attackRoll !=20) {
+
+};
+
+function player1Damage(){
+		document.getElementById("player1DamageLog").innerHTML = 'HIT';
+		attackDamage = Math.floor((Math.random() * player1.weapon) + 1);
+		console.log('player1 deals ' + attackDamage + ' damage');
+		enemy.health = enemy.health - attackDamage;
+		document.getElementById("rollResult").innerHTML = 'Your attack deals damage';
+		document.getElementById("result").innerHTML = 'a deep wound';
+		document.getElementById("tvLog").innerHTML = "You hit " + attackDamage + " down to " + enemy.health;
+		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+		document.getElementById("logSlide").className = "visibleBlock";
+		document.getElementById("player1Damage").className = "hidden";
+
+		if (enemy.health <= 0) {
 		killCount = killCount + 1;
 		enemy.health = 0;
 		console.log('killed enemy');
@@ -338,37 +355,8 @@ function player1AttackRoll(){
 
 		document.getElementById("killLog").className = "visibleBlock";
 		document.getElementById("logSlide").className = "hidden";
-// kill wil crit
-	} else if (enemy.health <= 0 && attackRoll ==20) {
-		killCount = killCount + 1;
-		enemy.health = 0;
-		console.log('killed enemy with Crit');
 
-		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + attackRoll;
-		document.getElementById("resultK").innerHTML = 'CRITICAL HIT';
-		document.getElementById("tvLogK").innerHTML = 'Your blow for (' + attackDamage +' x 2) kills the enemy';
-		
-		document.getElementById("killScore").innerHTML = killCount;
-		document.getElementById("killpopup").innerHTML = killCount;
-		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-
-		document.getElementById("killLog").className = "visibleBlock";
-		document.getElementById("logSlide").className = "hidden";
-		document.getElementById("player1Critical").className = "hidden";
-	};	
-};
-
-function player1Damage(){
-		document.getElementById("player1DamageLog").innerHTML = 'HIT';
-		attackDamage = Math.floor((Math.random() * player1.weapon) + 1);
-		console.log('player1 deals ' + attackDamage + ' damage');
-		enemy.health = enemy.health - attackDamage;
-		document.getElementById("rollResult").innerHTML = 'Your attack deals damage';
-		document.getElementById("result").innerHTML = 'a deep wound';
-		document.getElementById("tvLog").innerHTML = "You hit " + attackDamage + " down to " + enemy.health;
-		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-		document.getElementById("logSlide").className = "visibleBlock";
-		document.getElementById("player1Damage").className = "hidden";
+	};
 };
 
 function player1Critical(){
@@ -388,6 +376,25 @@ function player1Critical(){
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 		document.getElementById("logSlide").className = "visibleBlock";
 		document.getElementById("player1Critical").className = "hidden";
+
+		// killed him
+	if (enemy.health <= 0) {
+		killCount = killCount + 1;
+		enemy.health = 0;
+		console.log('killed enemy with Crit');
+
+		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + attackRoll;
+		document.getElementById("resultK").innerHTML = 'CRITICAL HIT';
+		document.getElementById("tvLogK").innerHTML = 'Your blow for (' + attackDamage +' x 2) kills the enemy';
+		
+		document.getElementById("killScore").innerHTML = killCount;
+		document.getElementById("killpopup").innerHTML = killCount;
+		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+
+		document.getElementById("killLog").className = "visibleBlock";
+		document.getElementById("logSlide").className = "hidden";
+		document.getElementById("player1Critical").className = "hidden";
+	};	
 };
 
 
