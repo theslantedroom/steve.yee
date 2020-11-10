@@ -295,7 +295,6 @@ function enemyAttack(){
 function player1AttackRoll(){
 	document.getElementById("player1Turn").className = "hidden";
 	attackRoll = Math.floor((Math.random() * 20) + 1);
-	attackRoll = 20;
 	swapWeapon();
 	
 	console.log('player1AttackRoll ' + attackRoll);
