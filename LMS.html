@@ -68,7 +68,7 @@
 
 			  </tr>
 			   <tr>
-			    <td>weapon</td>
+			    <td>Weapon Die</td>
 			    <td id="player1.weapon"></td>
 				<td id="enemy.weapon"></td>
 
@@ -82,9 +82,9 @@
 	<div id="rollBar">
 
 		<div id="start">
-			<div class="lighter"><p>-</p></div>
-			<div><p>-</p></div>
+			<div class="lighter"><p>new game</p></div>
 			<div><p>You see a peasant</p></div>
+			<div><p>defeat as many as possible</p></div>
 			<div class="border"><button onclick="start()">READY</button></div>
 		</div>
 
@@ -140,30 +140,30 @@
 	</div>
 
 
-
-<!-- Talk -->
-
-
-
-
-
 	<div class="playArea">
 		<!-- Character  Card -->
 		<div id="charCard">
 			<div class="player01a" id="player1">Player1
-			<div id="player1HealthCounter"></div>
-			<div id="player1DefenseCounter"></div>
+				<div id="player1HealthCounter"></div>
+				<div id="player1DefenseCounter"></div>
+				<div id="player1Weapon" onclick="nextWeapon()"></div>
 			</div>
 		</div>
 
+		
+
+
+
 		<div id="centerLine">V.S.</div>
+
+
 
 		<!-- Enemy Card -->
 		<div id="enemyCard">
-				<div class="peasant" id="enemy1">Enemy1
+			<div class="peasant" id="enemy1">Enemy1
 				<div id="enemyHealthCounter"></div>
 				<div id="enemyDefenseCounter"></div>
-				</div>
+			</div>
 		</div>
 
 	</div>

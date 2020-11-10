@@ -6,10 +6,10 @@ var player1 = {
 	alive: true,
 	healthMa: 20,
 	health: 20,
-	defense: 15,
+	defense: 5,
 	attackRoll: 'n/a',
 	damageBonus: 'n/a',
-	weapon: 'Long Sword 1d8',
+	weapon: 8,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -23,10 +23,10 @@ var enemy = {
 	alive: true,
 	healthMa: 20,
 	health: 20,
-	defense: 1,
+	defense: 6,
 	attackRoll: 'n/a',
 	damageBonus: 'n/a',
-	weapon: 'Dagger 1d4',
+	weapon: 4,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -144,12 +144,17 @@ function enemyAttack(){
 	randomNumber = Math.floor((Math.random() * 20) + 1);
 	console.log(randomNumber);
 	document.getElementById("rollResultE").innerHTML = 'Enemy attack roll is ' + randomNumber;
-
+// hit
 	if (randomNumber > player1.defense ) {
-		console.log("hit  player with " + randomNumber);
+		console.log("hit  player with attackroll " + randomNumber);
 		document.getElementById("resultE").innerHTML = 'OUCH!!';
-		player1.health = player1.health - 5;
-		document.getElementById("tvLogE").innerHTML = "You  got hit, health is down to " + player1.health;
+
+	randomNumber = Math.floor((Math.random() * enemy.weapon) + 1);
+	console.log(randomNumber + 'enemy Damage');
+
+
+		player1.health = player1.health - randomNumber;
+		document.getElementById("tvLogE").innerHTML = "You  got hit " + randomNumber +" down to " + player1.health;
 		document.getElementById("player1HealthCounter").innerHTML = player1.health;
 	
 // MIss
@@ -176,11 +181,7 @@ function enemyAttack(){
 
 	document.getElementById("logSlideE").className = "visibleBlock";
 	document.getElementById("enemyTurn").className = "hidden";
-
-
 };
-
-
 
 
 
@@ -194,10 +195,16 @@ function rollDie(){
 
 // HIT
 	if (randomNumber > enemy.defense ) {
-		console.log("hit with " + randomNumber);
+		console.log("hit with attack roll " + randomNumber);
 		document.getElementById("result").innerHTML = 'HIT';
-		enemy.health = enemy.health - 5;
-		document.getElementById("tvLog").innerHTML = "You hit the peasant down to " + enemy.health;
+	
+
+		// player1 damage
+		randomNumber = Math.floor((Math.random() * player1.weapon) + 1);
+		console.log(randomNumber + 'player Damage');
+		enemy.health = enemy.health - randomNumber;
+
+		document.getElementById("tvLog").innerHTML = "You hit the enemy " + randomNumber + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 		document.getElementById("ready").className = "hidden";
 		document.getElementById("logSlide").className = "visibleBlock";
@@ -216,7 +223,7 @@ function rollDie(){
 		killCount = killCount + 1;
 		enemy.health = 0;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-		document.getElementById("tvLogK").innerHTML = 'Your blow kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Your blow for ' + randomNumber +' kills the enemy';
 		document.getElementById("resultK").innerHTML = 'HIT';
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + randomNumber;
@@ -229,13 +236,28 @@ function rollDie(){
 // enemy turn
 		console.log('enemyturn');
 		document.getElementById("logSlide").className = "visibleBlock";
-
-
-	};
-
-
-	
+	};	
 };
+
+// weapon swap
+
+var player1Weapon = 1;
+
+function nextWeapon(){
+	player1Weapon += 1;
+	
+
+	if (player1Weapon >= 31) {
+		player1Weapon = 1;
+
+	}
+	swapWeapon();
+};
+
+function swapWeapon(){
+document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+};
+
 
 
 

@@ -135,6 +135,16 @@ th {
 	font-weight: lighter;
 }
 
+#enemyTurn {
+	border: 1px solid black;
+	background-color: rgb(255, 153, 153);
+}
+
+#logSlideE{
+	border: 1px solid black;
+	background-color: rgb(255, 153, 153);
+}
+
 .lighter{
 	font-size: 30px;
 	font-weight: lighter;
@@ -166,7 +176,6 @@ th {
 	font-weight: bold;
 	color: black;
 	text-align: center;
-
 	position: absolute;
 	background-color: white;
 	position: bottom;
@@ -178,6 +187,18 @@ th {
     left: 39%;
 }
 
+#player1Weapon{
+	cursor: pointer;
+	background-image: url(../img/market/w1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 41.5%;
+    left: 8%;
+}
 
 #player1DefenseCounter{
 	font-size: 6.2vw;
