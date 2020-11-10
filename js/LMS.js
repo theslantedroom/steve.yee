@@ -204,7 +204,7 @@ function rollDie(){
 		console.log(randomNumber + 'player Damage');
 		enemy.health = enemy.health - randomNumber;
 
-		document.getElementById("tvLog").innerHTML = "You hit the enemy " + randomNumber + " down to " + enemy.health;
+		document.getElementById("tvLog").innerHTML = "You hit " + randomNumber + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 		document.getElementById("ready").className = "hidden";
 		document.getElementById("logSlide").className = "visibleBlock";
