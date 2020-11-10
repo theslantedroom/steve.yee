@@ -344,9 +344,9 @@ function player1Damage(){
 		enemy.health = 0;
 		console.log('killed enemy');
 
-		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + attackRoll;
-		document.getElementById("resultK").innerHTML = 'HIT';
-		document.getElementById("tvLogK").innerHTML = 'Your blow for ' + attackDamage +' kills the enemy';
+		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage + '';
+		document.getElementById("resultK").innerHTML = 'oh the Blood!!';
+		document.getElementById("tvLogK").innerHTML = 'Sweet Victory for ' + attackDamage +' kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
@@ -382,9 +382,9 @@ function player1Critical(){
 		enemy.health = 0;
 		console.log('killed enemy with Crit');
 
-		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + attackRoll;
-		document.getElementById("resultK").innerHTML = 'CRITICAL HIT';
-		document.getElementById("tvLogK").innerHTML = 'Your blow for (' + attackDamage +' x 2) kills the enemy';
+		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage;
+		document.getElementById("resultK").innerHTML = 'CRITICAL HIT - Great Glory';
+		document.getElementById("tvLogK").innerHTML = 'Your blow for ' + attackDamage +' doubles and kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
