@@ -6,7 +6,7 @@ var player1 = {
 	alive: true,
 	healthMa: 20,
 	health: 20,
-	defense: 10,
+	defense: 15,
 	attackRoll: 'n/a',
 	damageBonus: 'n/a',
 	weapon: 'Long Sword 1d8',
@@ -23,7 +23,7 @@ var enemy = {
 	alive: true,
 	healthMa: 20,
 	health: 20,
-	defense: 6,
+	defense: 1,
 	attackRoll: 'n/a',
 	damageBonus: 'n/a',
 	weapon: 'Dagger 1d4',
@@ -56,12 +56,13 @@ document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
 // document.getElementById("enemy.kills").innerHTML = deathCount;
 
 
-
+var gamesPlayed = 0;
 var killCount = 0;
 var deathCount = 0;
 
 document.getElementById("deathScore").innerHTML = deathCount;
 document.getElementById("killScore").innerHTML = killCount;
+document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
 
 // enemyturn popup
 function enemyTurn(){
@@ -82,8 +83,7 @@ function start(){
 function tryAgain(){
 	console.log('tryagain');
 	nextEnemy();
-	var killCount = 0;
-	var deathCount = 0;
+	killCount = 0;
 	player1.health = 20;
 	document.getElementById("player1HealthCounter").innerHTML = player1.health;
 	document.getElementById("player1Dead").className = "hidden";
@@ -91,6 +91,12 @@ function tryAgain(){
 	document.getElementById("next").className = "hidden";
 	document.getElementById("ready").className = "hidden";
 	document.getElementById("start").className = "visibleBlock";
+
+	document.getElementById("deathScore").innerHTML = deathCount;
+	document.getElementById("killScore").innerHTML = killCount;
+	gamesPlayed = gamesPlayed + 1;
+	document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
+
 };
 
 function logSlide(){
@@ -118,6 +124,9 @@ function nextEnemy(){
 	document.getElementById("tvLog").innerHTML = "and see an angry peasant";
 	document.getElementById("next").className = "visibleBlock";
 	document.getElementById("killLog").className = "hidden";
+
+	document.getElementById("deathScore").innerHTML = deathCount;
+	document.getElementById("killScore").innerHTML = killCount;
 
 };
 
