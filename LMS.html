@@ -12,15 +12,26 @@
 
 </head>
 
-<header>Hmmm.. lets seee what we can do..</header>
-
-<body>
-
+<header>Hmmm.. lets seee what we can do..
+<!-- sex -->
+	<div class="floatingButton">
+		<button onclick="changeSexMaleP1()"><span id="genderButtonM">Male</span></button>
+	</div>
+	<div class="floatingButton">
+		<button onclick="changeSexFemaleP1()"><span id="genderButtonF">Female</span></button>
+	</div>
 
 	<div class="healthButton">
 		<button onclick="player1.stats();">How are you feeling?</button>
 	</div>
 
+
+</header>
+
+<body>
+
+
+	
 
 
 <!-- HUD -->
@@ -35,13 +46,13 @@
 			  </tr>
 
 			  <tr>
-			  	<td></td>
-			    <td></td>
+			  	<td>Kills</td>
+			    <td id="killScore"></td>
 				<td></td>
 			  </tr>
 			  <tr>
-			    <td></td>
-				<td ></td>
+			    <td>Deaths</td>
+				<td  id="deathScore" ></td>
 				<td ></td>
 			  </tr>
 			  <tr>
@@ -69,17 +80,56 @@
 <!-- roll -->
 
 	<div id="rollBar">
-		<div id="ready">
-		<p>ready to attack<br><a href="#" onclick="rollDie()">ROLL</a></p>
+
+		<div id="start">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>You see a peasant</p></div>
+			<div class="border"><button onclick="start()">READY</button></div>
+		</div>
+
+
+		<div id="ready" class="hidden">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>You stand ready..</p></div>
+			<div class="border"><button onclick="rollDie()">ATTACK</button></div>
+		</div>
+
+		<div id="logSlide" class="hidden">
+			<div class="lighter"><p id="rollResult">...</p> </div>
+			<div><p id="result">....</p></div>
+			<div><p id="tvLog">....</p></div>
+			<div class="border"><button onclick="logSlide()">continue...</button></div>
+		</div>
+
+		<div id="logSlideE" class="hidden">
+			<div class="lighter"><p id="rollResultE">...</p> </div>
+			<div><p id="resultE">....</p></div>
+			<div><p id="tvLogE">....loge.</p></div>
+			<div class="border"><button onclick="logSlideE()">continue...</button></div>
+		</div>
+
+
+		<div id="enemyTurn" class="hidden">
+			<div class="lighter"><p>-</p></div>
+			<div><p>-</p></div>
+			<div><p>The enemy attacks</p></div>
+			<div class="border"><button onclick="enemyAttack()">Brace your self</button></div>
+		</div>
+
+		<div id="killLog" class="hidden">
+			<div class="lighter"><p id="rollResultK">...</p> </div>
+			<div><p id="resultK">....</p></div>
+			<div><p id="tvLogK">killloge.</p></div>
+			<div class="border"><button onclick="nextEnemy()">continue...</button></div>
 		</div>
 
 		<div id="next" class="hidden">
-		<p>Another one aproaches. Prepare <br> <button onclick="nextEnemy()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
+		<p>Another one aproaches. Prepare <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
 		</div>
 
-		<div id="enemyTurn" class="hidden">
-		<p>The enemy attacks<br> <button onclick="enemyAttack()">Brace your self</button></p>
-		</div>
+	
 		
 		<div id="player1Dead" class="hidden">
 		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathPopup"></span> times</p>
@@ -91,68 +141,39 @@
 
 
 
-<!-- Console TV -->
-<div class="tv">
-
-	<p>Log: <span id="rollResult">...</span> </p>
-	<p id="result">....</p>
-
-
-
-	<p id="tvLog">....Peasant has 6 defence. Roll higher than 6 to hit him.</p>
-
-		
-
-
-
-
-
-
-</div>
-
-
 <!-- Talk -->
-<div class="peasant">Peasant
-<button onclick="peasantTalk()">Talk</button>
-</div>
-
-<div class="floatingButton">
-<button onclick="changeSexMaleP1()"><span id="genderButtonM">Male</span></button>
-</div>
-<div class="floatingButton">
-<button onclick="changeSexFemaleP1()"><span id="genderButtonF">Female</span></button>
-</div>
 
 
 
 
-<div class="playArea">
 
+	<div class="playArea">
+		<!-- Character  Card -->
+		<div id="charCard">
+			<div class="player01a" id="player1">Player1
+			<div id="player1HealthCounter"></div>
+			<div id="player1DefenseCounter"></div>
+			</div>
+		</div>
 
-	<!-- Character  Card -->
-<div id="charCard">
-	<div class="player01a" id="player1">Player1
-	<div id="player1HealthCounter"></div>
-	<div id="player1DefenseCounter"></div>
+		<div id="centerLine">V.S.</div>
+
+		<!-- Enemy Card -->
+		<div id="enemyCard">
+				<div class="peasant" id="enemy1">Enemy1
+				<div id="enemyHealthCounter"></div>
+				<div id="enemyDefenseCounter"></div>
+				</div>
+		</div>
+
 	</div>
-</div>
+
+
+
+
 
 
 </body>
-
-
-
-<div id="centerLine">V.S.</div>
-
-<!-- Enemy Card -->
-<div id="enemyCard">
-		<div class="peasant" id="enemy1">Enemy1
-		<div id="enemyHealthCounter"></div>
-		<div id="enemyDefenseCounter"></div>
-		</div>
-</div>
-
-
 
 <form class="goBack" action="index.html">
     <input type="submit" value="Go Back" />

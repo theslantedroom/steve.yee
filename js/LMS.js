@@ -60,9 +60,23 @@ document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
 var killCount = 0;
 var deathCount = 0;
 
+document.getElementById("deathScore").innerHTML = deathCount;
+document.getElementById("killScore").innerHTML = killCount;
+
 // enemyturn popup
 function enemyTurn(){
 	console.log('enemyturn');
+};
+
+
+// START
+
+function start(){
+	console.log('start');
+	document.getElementById("start").className = "hidden";
+	document.getElementById("ready").className = "visibleBlock";
+	document.getElementById("tvLog").innerHTML = "START";
+
 };
 
 function tryAgain(){
@@ -73,46 +87,23 @@ function tryAgain(){
 	player1.health = 20;
 	document.getElementById("player1HealthCounter").innerHTML = player1.health;
 	document.getElementById("player1Dead").className = "hidden";
+	document.getElementById("logSlideE").className = "hidden";
+	document.getElementById("next").className = "hidden";
+	document.getElementById("ready").className = "hidden";
+	document.getElementById("start").className = "visibleBlock";
+};
+
+function logSlide(){
+	console.log('logSlide');
+	document.getElementById("logSlide").className = "hidden";
+	document.getElementById("enemyTurn").className = "visibleBlock";
 
 };
 
-//enemy ATTACK
-
-function enemyAttack(){
-	console.log('enemyattack');
-	document.getElementById("enemyTurn").className = "hidden";
-	randomNumber = Math.floor((Math.random() * 20) + 1);
-	console.log(randomNumber);
-	document.getElementById("rollResult").innerHTML = 'Enemy attack roll is ' + randomNumber;
-
-	if (randomNumber > player1.defense ) {
-		console.log("hit  player with " + randomNumber);
-		document.getElementById("result").innerHTML = 'You are HIT';
-		player1.health = player1.health - 5;
-		document.getElementById("tvLog").innerHTML = "You  got hit, health is down to " + player1.health;
-		document.getElementById("player1HealthCounter").innerHTML = player1.health;
-	
-// MIss
-	} else	{
-		console.log("miss with " + randomNumber);
-		document.getElementById("result").innerHTML = 'A fiercy attack from the peasant';
-		document.getElementById("tvLog").innerHTML = "luckily you dodged the blow";
-	};
-
-
-	// killed player dead
-	if (player1.health <= 0) {
-		deathCount = deathCount + 1;
-		player1.health = 0;
-
-		document.getElementById("player1HealthCounter").innerHTML = player1.health;
-		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
-		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
-		document.getElementById("deathPopup").innerHTML = deathCount;
-		document.getElementById("player1Dead").className = "visibleBlock";
-		console.log('player dead');
-	} 
-
+function logSlideE(){
+	console.log('logSlide');
+	document.getElementById("logSlideE").className = "hidden";
+	document.getElementById("ready").className = "visibleBlock";
 
 };
 
@@ -125,8 +116,61 @@ function nextEnemy(){
 	document.getElementById("next").className = "hidden";
 	document.getElementById("result").innerHTML = 'You look around..';
 	document.getElementById("tvLog").innerHTML = "and see an angry peasant";
+	document.getElementById("next").className = "visibleBlock";
+	document.getElementById("killLog").className = "hidden";
 
 };
+
+
+
+function fightNext(){
+	document.getElementById("ready").className = "visibleBlock";
+	document.getElementById("next").className = "hidden";
+};
+//enemy ATTACK
+
+function enemyAttack(){
+	console.log('enemyattack');
+	document.getElementById("enemyTurn").className = "hidden";
+	randomNumber = Math.floor((Math.random() * 20) + 1);
+	console.log(randomNumber);
+	document.getElementById("rollResultE").innerHTML = 'Enemy attack roll is ' + randomNumber;
+
+	if (randomNumber > player1.defense ) {
+		console.log("hit  player with " + randomNumber);
+		document.getElementById("resultE").innerHTML = 'OUCH!!';
+		player1.health = player1.health - 5;
+		document.getElementById("tvLogE").innerHTML = "You  got hit, health is down to " + player1.health;
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+	
+// MIss
+	} else	{
+		console.log("miss with " + randomNumber);
+		document.getElementById("resultE").innerHTML = 'The enemy swings..';
+		document.getElementById("tvLogE").innerHTML = "luckily you dodged the blow";
+	};
+
+
+	// killed player dead
+	if (player1.health <= 0) {
+		deathCount = deathCount + 1;
+		player1.health = 0;
+
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
+		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
+		document.getElementById("deathPopup").innerHTML = deathCount;
+		document.getElementById("deathScore").innerHTML = deathCount;
+		document.getElementById("player1Dead").className = "visibleBlock";
+		console.log('player dead');
+	};
+
+	document.getElementById("logSlideE").className = "visibleBlock";
+	document.getElementById("enemyTurn").className = "hidden";
+
+
+};
+
 
 
 
@@ -144,14 +188,17 @@ function rollDie(){
 		console.log("hit with " + randomNumber);
 		document.getElementById("result").innerHTML = 'HIT';
 		enemy.health = enemy.health - 5;
-		document.getElementById("tvLog").innerHTML = "You  hit the peasant 5, health is down to " + enemy.health;
+		document.getElementById("tvLog").innerHTML = "You hit the peasant down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+		document.getElementById("ready").className = "hidden";
+		document.getElementById("logSlide").className = "visibleBlock";
 	
 // MIss
 	} else	{
 		console.log("miss with " + randomNumber);
 		document.getElementById("result").innerHTML = 'Miss';
 		document.getElementById("tvLog").innerHTML = "pathetic...";
+		document.getElementById("ready").className = "hidden";
 	};
 
 
@@ -160,16 +207,19 @@ function rollDie(){
 		killCount = killCount + 1;
 		enemy.health = 0;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-		document.getElementById("tvLog").innerHTML = "Killed him!";
-		document.getElementById("tvLog").innerHTML = 'The peasant is DEAD, you have killed ' + killCount + ' peasants';
+		document.getElementById("tvLogK").innerHTML = 'Your blow kills the enemy';
+		document.getElementById("resultK").innerHTML = 'HIT';
+		document.getElementById("killScore").innerHTML = killCount;
+		document.getElementById("rollResultK").innerHTML = 'Your attack roll is ' + randomNumber;
 		document.getElementById("killpopup").innerHTML = killCount;
-		document.getElementById("next").className = "visibleBlock";
+		document.getElementById("logSlide").className = "hidden";
+		document.getElementById("killLog").className = "visibleBlock";
 		console.log('killed enemy');
 	} else {
 
 // enemy turn
 		console.log('enemyturn');
-		document.getElementById("enemyTurn").className = "visibleBlock";
+		document.getElementById("logSlide").className = "visibleBlock";
 
 
 	};
@@ -185,36 +235,16 @@ function changeSexMaleP1(){
 		console.log('change sex');
 		document.getElementById("player1").className = "player01a";
 		document.getElementById("genderButtonM").innerHTML = 'You the MAN';
-		document.getElementById("genderButtonF").innerHTML = 'woman weak';
+		document.getElementById("genderButtonF").innerHTML = '-';
 };
 
 function changeSexFemaleP1(){
 		console.log('change sex');
 		document.getElementById("player1").className = "player01b";
-		document.getElementById("genderButtonM").innerHTML = 'man weak';
+		document.getElementById("genderButtonM").innerHTML = '-';
 		document.getElementById("genderButtonF").innerHTML = 'You the WOMAN';
 };
 
 
 
-function peasantTalk(){
-	document.getElementById("tvLog").innerHTML = "The peasant hits you 10";
-	// alert('The peasant hits you 10');
-	player1.health = player1.health - 10;
-	document.getElementById("tvLog").innerHTML = "You got hit, Your health is down to " + player1.health;
-	document.getElementById("player1HealthCounter").innerHTML = player1.health;
 
-	// killed player dead
-	if (player1.health <= 0) {
-		deathCount = deathCount + 1;
-		player1.health = 0;
-
-		document.getElementById("player1HealthCounter").innerHTML = player1.health;
-		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
-		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
-		document.getElementById("deathPopup").innerHTML = deathCount;
-		document.getElementById("player1Dead").className = "visibleBlock";
-		console.log('player dead');
-	} ;
-
-	};
