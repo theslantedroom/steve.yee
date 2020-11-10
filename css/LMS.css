@@ -146,6 +146,24 @@ th {
 
 }
 
+#player1Dead{
+	margin: auto;
+	width: 100%
+	font-size: 4.2vw;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	position: absolute;
+	background-color: white;
+	position: bottom;
+	border: 3px solid black;
+	border-radius: 5px;
+	top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
 /*heath counter*/
 
 #player1HealthCounter{

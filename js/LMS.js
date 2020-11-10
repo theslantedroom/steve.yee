@@ -65,6 +65,17 @@ function enemyTurn(){
 	console.log('enemyturn');
 };
 
+function tryAgain(){
+	console.log('tryagain');
+	nextEnemy();
+	var killCount = 0;
+	var deathCount = 0;
+	player1.health = 20;
+	document.getElementById("player1HealthCounter").innerHTML = player1.health;
+	document.getElementById("player1Dead").className = "hidden";
+
+};
+
 //enemy ATTACK
 
 function enemyAttack(){
@@ -77,7 +88,7 @@ function enemyAttack(){
 	if (randomNumber > player1.defense ) {
 		console.log("hit  player with " + randomNumber);
 		document.getElementById("result").innerHTML = 'You are HIT';
-		player1.health = player1.health - 1;
+		player1.health = player1.health - 5;
 		document.getElementById("tvLog").innerHTML = "You  got hit, health is down to " + player1.health;
 		document.getElementById("player1HealthCounter").innerHTML = player1.health;
 	
@@ -87,6 +98,20 @@ function enemyAttack(){
 		document.getElementById("result").innerHTML = 'A fiercy attack from the peasant';
 		document.getElementById("tvLog").innerHTML = "luckily you dodged the blow";
 	};
+
+
+	// killed player dead
+	if (player1.health <= 0) {
+		deathCount = deathCount + 1;
+		player1.health = 0;
+
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
+		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
+		document.getElementById("deathPopup").innerHTML = deathCount;
+		document.getElementById("player1Dead").className = "visibleBlock";
+		console.log('player dead');
+	} 
 
 
 };
@@ -103,13 +128,7 @@ function nextEnemy(){
 
 };
 
-function peasantTalk(){
-	document.getElementById("tvLog").innerHTML = "The peasant hits you 2";
-	alert('The peasant hits you 2');
-	player1.health = player1.health - 2;
-	document.getElementById("tvLog").innerHTML = "You got hit, Your health is down to " + player1.health;
-	document.getElementById("player1.health").innerHTML = player1.health;
-};
+
 
 
 //var randomNumber = Math.round(Math.random()*10);
@@ -167,12 +186,35 @@ function changeSexMaleP1(){
 		document.getElementById("player1").className = "player01a";
 		document.getElementById("genderButtonM").innerHTML = 'You the MAN';
 		document.getElementById("genderButtonF").innerHTML = 'woman weak';
-}
+};
 
 function changeSexFemaleP1(){
 		console.log('change sex');
 		document.getElementById("player1").className = "player01b";
 		document.getElementById("genderButtonM").innerHTML = 'man weak';
 		document.getElementById("genderButtonF").innerHTML = 'You the WOMAN';
-}
+};
 
+
+
+function peasantTalk(){
+	document.getElementById("tvLog").innerHTML = "The peasant hits you 10";
+	// alert('The peasant hits you 10');
+	player1.health = player1.health - 10;
+	document.getElementById("tvLog").innerHTML = "You got hit, Your health is down to " + player1.health;
+	document.getElementById("player1HealthCounter").innerHTML = player1.health;
+
+	// killed player dead
+	if (player1.health <= 0) {
+		deathCount = deathCount + 1;
+		player1.health = 0;
+
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
+		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
+		document.getElementById("deathPopup").innerHTML = deathCount;
+		document.getElementById("player1Dead").className = "visibleBlock";
+		console.log('player dead');
+	} ;
+
+	};
