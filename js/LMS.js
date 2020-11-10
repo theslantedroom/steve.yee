@@ -304,7 +304,7 @@ function player1AttackRoll(){
 	if (attackRoll > enemy.defense && attackRoll != 20) {
 		console.log('hit enemy');
 
-		document.getElementById("player1DamageLog").innerHTML = 'Attacl roll is ' + attackRoll;
+		document.getElementById("player1DamageLog").innerHTML = 'Attack roll is ' + attackRoll;
 		document.getElementById("player1Damage").className = "visibleBlock";
 		document.getElementById("player1Turn").className = "hidden";
 	
