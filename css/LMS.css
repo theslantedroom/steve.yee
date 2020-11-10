@@ -200,6 +200,32 @@ th {
     left: 8%;
 }
 
+#player1Weapon2{
+	cursor: pointer;
+	background-image: url(../img/market/w1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 41.5%;
+    left: 64%;
+}
+
+#player1Armor{
+	cursor: pointer;
+	background-image: url(../img/market/a1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 41.5%;
+    left: 36%;
+}
+
 #player1DefenseCounter{
 	font-size: 6.2vw;
 	font-weight: bold;

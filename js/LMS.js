@@ -6,10 +6,10 @@ var player1 = {
 	alive: true,
 	healthMa: 20,
 	health: 20,
-	defense: 5,
+	defense: 6,
 	attackRoll: 'n/a',
 	damageBonus: 'n/a',
-	weapon: 8,
+	weapon: 4,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -33,9 +33,107 @@ var enemy = {
 	},
 };
 
+// weapon swap
+
+
+function swapWeapon(){
+document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+};
+
+
+var player1Weapon = 1;
+
+function nextWeapon(){
+	player1Weapon += 1;
+	if (player1Weapon >= 6) {
+		player1Weapon = 1;
+	}
+	swapWeapon();
+if (player1Weapon == 1){
+		player1.weapon = 4;
+};
+if (player1Weapon == 2){
+		player1.weapon = 6;
+};
+if (player1Weapon == 3){
+		player1.weapon = 8;
+};
+if (player1Weapon == 4){
+		player1.weapon = 10;
+};
+if (player1Weapon == 5){
+		player1.weapon = 12;
+};
+document.getElementById("player1.weapon").innerHTML = player1.weapon;
+};
+
+// weapon2
+// var player1Weapon2 = 1;
+
+// function nextWeapon2(){
+// 	player1Weapon2 += 1;
+// 	if (player1Weapon2 >= 6) {
+// 		player1Weapon2 = 1;
+// 	}
+// 	swapWeapon2();
+// if (player1Weapon2 == 1){
+// 		player1.weapon2 = 4;
+// };
+// if (player1Weapon2 == 2){
+// 		player1.weapon2 = 6;
+// };
+// if (player1Weapon2 == 3){
+// 		player1.weapon2 = 8;
+// };
+// if (player1Weapon2 == 4){
+// 		player1.weapon2 = 10;
+// };
+// if (player1Weapon2 == 5){
+// 		player1.weapon2 = 12;
+// };
+// document.getElementById("player1.weapon").innerHTML = player1.weapon;
+// };
+
+
+// next armor
+var player1Armor = 1;
+
+function swapArmor(){
+document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/a" + player1Armor + ".jpg')";
+};
+
+function nextArmor(){
+	player1Armor += 1;
+	if (player1Armor >= 8) {
+		player1Armor = 1;
+	}
+	swapArmor();
+if (player1Armor == 1){
+		player1.defense = 6;
+};
+if (player1Armor == 2){
+		player1.defense = 7;
+};
+if (player1Armor == 3){
+		player1.defense = 8;
+};
+if (player1Armor == 4){
+		player1.defense = 9;
+};
+if (player1Armor == 5){
+		player1.defense = 10;
+};
+if (player1Armor == 6){
+		player1.defense = 11;
+};
+if (player1Armor == 7){
+		player1.defense = 12;
+};
+
+document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
+};
+
 // Bootup stats
-
-
 
 document.getElementById("player1.attackRoll").innerHTML = player1.attackRoll;
 document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
@@ -239,24 +337,7 @@ function rollDie(){
 	};	
 };
 
-// weapon swap
 
-var player1Weapon = 1;
-
-function nextWeapon(){
-	player1Weapon += 1;
-	
-
-	if (player1Weapon >= 31) {
-		player1Weapon = 1;
-
-	}
-	swapWeapon();
-};
-
-function swapWeapon(){
-document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-};
 
 
 
