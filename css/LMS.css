@@ -145,6 +145,11 @@ th {
 	background-color: rgb(255, 153, 153);
 }
 
+#critSlideE{
+	border: 1px solid black;
+	background-color: rgb(255, 153, 153);
+}
+
 .lighter{
 	font-size: 30px;
 	font-weight: lighter;
@@ -226,6 +231,24 @@ th {
     left: 36%;
 }
 
+/*POPUP WEAPON*/
+
+
+#weaponPopUp{
+
+	background-image: url(../img/market/w1.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 36vw;
+	height: 36vw;
+	top: 126%;
+    left: 31%;
+    z-index: 1;
+}
+
+
 #player1DefenseCounter{
 	font-size: 6.2vw;
 	font-weight: bold;
@@ -277,6 +300,7 @@ th {
 	top: 84%;
     left: 71%;
 }
+
 
 
 /*CHARACTER CARD*/
