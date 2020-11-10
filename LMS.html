@@ -69,7 +69,9 @@
 <!-- roll -->
 
 	<div id="rollBar">
-		<a href="#" onclick="rollDie()">ROLL</a>
+		<div id="ready">
+		<p>ready to attack<br><a href="#" onclick="rollDie()">ROLL</a></p>
+		</div>
 
 		<div id="next" class="hidden">
 		<p>Another one aproaches. Prepare <br> <button onclick="nextEnemy()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
@@ -87,7 +89,7 @@
 <div class="tv">
 
 	<p>Log: <span id="rollResult">...</span> </p>
-	<p id="result">result</p>
+	<p id="result">....</p>
 
 
 

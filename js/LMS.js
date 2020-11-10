@@ -1,5 +1,5 @@
 
-var enemyDefense = 6;
+
 
 var player1 = {
 	name: 'player1',
@@ -48,6 +48,7 @@ document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
 
 document.getElementById("player1HealthCounter").innerHTML = player1.health;
 document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
+
 document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
 
@@ -69,6 +70,24 @@ function enemyTurn(){
 function enemyAttack(){
 	console.log('enemyattack');
 	document.getElementById("enemyTurn").className = "hidden";
+	randomNumber = Math.floor((Math.random() * 20) + 1);
+	console.log(randomNumber);
+	document.getElementById("rollResult").innerHTML = 'Enemy attack roll is ' + randomNumber;
+
+	if (randomNumber > player1.defense ) {
+		console.log("hit  player with " + randomNumber);
+		document.getElementById("result").innerHTML = 'You are HIT';
+		player1.health = player1.health - 1;
+		document.getElementById("tvLog").innerHTML = "You  got hit, health is down to " + player1.health;
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+	
+// MIss
+	} else	{
+		console.log("miss with " + randomNumber);
+		document.getElementById("result").innerHTML = 'A fiercy attack from the peasant';
+		document.getElementById("tvLog").innerHTML = "luckily you dodged the blow";
+	};
+
 
 };
 
@@ -86,26 +105,23 @@ function nextEnemy(){
 
 function peasantTalk(){
 	document.getElementById("tvLog").innerHTML = "The peasant hits you 2";
-
 	alert('The peasant hits you 2');
-
 	player1.health = player1.health - 2;
-
 	document.getElementById("tvLog").innerHTML = "You got hit, Your health is down to " + player1.health;
-
 	document.getElementById("player1.health").innerHTML = player1.health;
 };
 
 
 //var randomNumber = Math.round(Math.random()*10);
+// PLAYER ATTACK
 
 function rollDie(){
 	randomNumber = Math.floor((Math.random() * 20) + 1);
 	console.log(randomNumber);
-	document.getElementById("rollResult").innerHTML = randomNumber;
+	document.getElementById("rollResult").innerHTML = 'Your attack roll is ' + randomNumber;
 
 // HIT
-	if (randomNumber > enemyDefense ) {
+	if (randomNumber > enemy.defense ) {
 		console.log("hit with " + randomNumber);
 		document.getElementById("result").innerHTML = 'HIT';
 		enemy.health = enemy.health - 5;
@@ -116,7 +132,7 @@ function rollDie(){
 	} else	{
 		console.log("miss with " + randomNumber);
 		document.getElementById("result").innerHTML = 'Miss';
-		document.getElementById("tvLog").innerHTML = "You Missed";
+		document.getElementById("tvLog").innerHTML = "pathetic...";
 	};
 
 
