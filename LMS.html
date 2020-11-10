@@ -16,13 +16,12 @@
 
 <body>
 
-<div class="playArea">
-
-
 
 	<div class="healthButton">
 		<button onclick="player1.stats();">How are you feeling?</button>
 	</div>
+
+
 
 <!-- HUD -->
 <div id="hud">
@@ -33,46 +32,73 @@
 			  	<th></th>
 			    <th>player1</th>
 			    <th>Peasant</th>
-		
 			  </tr>
+
 			  <tr>
-			  	<td>healthMa/health</td>
-			    <td id="p1health">20</td>
-				<td id="enemyHealth">20</td>
-			  </tr>
-			  <tr>
-			    <td>defense</td>
+			  	<td></td>
+			    <td></td>
 				<td></td>
-				<td>n/a</td>
+			  </tr>
+			  <tr>
+			    <td></td>
+				<td ></td>
+				<td ></td>
 			  </tr>
 			  <tr>
 			    <td>attackRoll</td>
-			    <td></td>
-				<td>n/a</td>
+			    <td id="player1.attackRoll"></td>
+				<td id="enemy.attackRoll"></td>
 
 			  </tr>
 			   <tr>
 			    <td>damageBonus</td>
-			    <td></td>
-				<td>n/a</td>
+			    <td id="player1.damageBonus"></td>
+				<td id="enemy.damageBonus"></td>
 
 			  </tr>
 			   <tr>
 			    <td>weapon</td>
-			    <td></td>
-				<td>n/a</td>
+			    <td id="player1.weapon"></td>
+				<td id="enemy.weapon"></td>
 
 			  </tr>
 			</table>
 
 </div>
 
+<!-- roll -->
+
+	<div id="rollBar">
+		<a href="#" onclick="rollDie()">ROLL</a>
+
+		<div id="next" class="hidden">
+		<p>Another one aproaches. Prepare <br> <button onclick="nextEnemy()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
+		</div>
+
+		<div id="enemyTurn" class="hidden">
+		<p>The enemy attacks<br> <button onclick="enemyAttack()">Brace your self</button></p>
+		</div>
+
+	</div>
+
+
 
 <!-- Console TV -->
 <div class="tv">
 
-	<p>Log:</p>
+	<p>Log: <span id="rollResult">...</span> </p>
+	<p id="result">result</p>
+
+
+
 	<p id="tvLog">....Peasant has 6 defence. Roll higher than 6 to hit him.</p>
+
+		
+
+
+
+
+
 
 </div>
 
@@ -91,33 +117,39 @@
 
 
 
-<!-- Character  Card -->
+
+<div class="playArea">
+
+
+	<!-- Character  Card -->
 <div id="charCard">
-	<div class="player01a" id="player1">Player1</div>
+	<div class="player01a" id="player1">Player1
+	<div id="player1HealthCounter"></div>
+	<div id="player1DefenseCounter"></div>
+	</div>
 </div>
 
 
-<!-- roll -->
-	<div id="rollBar">
-		<a href="#" onclick="rollDie()">ROLL</a>
-		<p id="rollResult">your roll</p>
-		<p>must beat</p>
-		<p id="enemyDefense">6 Def</p>
-		<p id="result">result</p>
-	</div>
+</body>
 
+
+
+<div id="centerLine">V.S.</div>
 
 <!-- Enemy Card -->
 <div id="enemyCard">
-		<div class="peasant" id="enemy1">Enemy1</div>
+		<div class="peasant" id="enemy1">Enemy1
+		<div id="enemyHealthCounter"></div>
+		<div id="enemyDefenseCounter"></div>
+		</div>
 </div>
 
-<script src=js/LMS.js> </script>
-</body>
 
 
 <form class="goBack" action="index.html">
     <input type="submit" value="Go Back" />
 </form>
+
+<script src=js/LMS.js> </script>
 
 </html>
