@@ -239,7 +239,7 @@ th {
 
 #weaponPopUp{
 
-	background-image: url(../img/market/w1.jpg);
+	background-image: url(../img/market/W1.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -253,7 +253,7 @@ th {
 
 #weaponPopUpC{
 
-	background-image: url(../img/market/w1.jpg);
+	background-image: url(../img/market/W1.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -351,14 +351,6 @@ background-size: 100%;
 background-repeat: no-repeat;
 }
 
-.player01a{	
-background-image: url(../img/charcard1.jpg);
-}
-
-.player01b{	
-background-image: url(../img/charcard2.jpg);
-}
-
 
 
 /*CENTERline*/
@@ -409,9 +401,6 @@ transition: right 1000ms;
 }
 
 
-.peasant{
-background-image: url(../img/W03.jpg);
-}
 
 
 

@@ -20,14 +20,14 @@ var player1 = {
 
 
 var enemy = {
-	name: 'Peasant',
+	name: 'Zombie',
 	alive: true,
 	healthMa: 20,
 	health: 20,
 	defense: 6,
 	attackBonus: 'n/a',
 	damageBonus: 'n/a',
-	weapon: 4,
+	weapon: 6,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -50,6 +50,8 @@ var attackRollE = 0;
 var attackroll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
+var currentCharCard = 1;
+var currentEnemyCard = 3;
 
 var player1Weapon = 1;
 
@@ -155,6 +157,8 @@ document.getElementById("player1HealthCounter").innerHTML = player1.health;
 document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
+document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentCharCard + ".jpg')";
 
 // document.getElementById("player1.kills").innerHTML = killCount;
 // document.getElementById("enemy.kills").innerHTML = deathCount;
@@ -435,7 +439,7 @@ function enemy1Dead(){
 	document.getElementById("enemy1Dead").className = "visibleBlock";
 	setTimeout(function(){ 
 	document.getElementById("enemy1Dead").className = "hidden"
-	}, 2000);
+	}, 3000);
 
 };
 
@@ -443,21 +447,25 @@ function enemy1Dead(){
 
 
 
-// change Sex
-function changeSexMaleP1(){
-		console.log('change sex');
-		document.getElementById("player1").className = "player01a";
-		document.getElementById("genderButtonM").innerHTML = 'You the MAN';
-		document.getElementById("genderButtonF").innerHTML = '-';
+function changeCharacter(){
+		
+		currentCharCard += 1;
+
+		if (currentCharCard >= 33) {
+			currentCharCard = 1;
+		}
+		console.log('currentCharCard '+currentCharCard);
+		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+
+		
 };
 
-function changeSexFemaleP1(){
-		console.log('change sex');
-		document.getElementById("player1").className = "player01b";
-		document.getElementById("genderButtonM").innerHTML = '-';
-		document.getElementById("genderButtonF").innerHTML = 'You the WOMAN';
+
+function changeEnemy(){
+		currentEnemyCard += 1;
+
+		if (currentEnemyCard >= 42) {
+			currentEnemyCard = 1;
+		}
+		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 };
-
-
-
-

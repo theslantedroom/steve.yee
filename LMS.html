@@ -17,10 +17,10 @@
 <header>Hmmm.. lets seee what we can do..
 <!-- sex -->
 	<div class="floatingButton">
-		<button onclick="changeSexMaleP1()"><span id="genderButtonM">Male</span></button>
+		<button onclick="changeCharacter()"><span id="genderButtonM">Change Character</span></button>
 	</div>
 	<div class="floatingButton">
-		<button onclick="changeSexFemaleP1()"><span id="genderButtonF">Female</span></button>
+		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy</span></button>
 	</div>
 
 	<div class="healthButton">
@@ -85,7 +85,7 @@
 	<div class="playArea">
 		<!-- Character  Card -->
 		<div id="charCard">
-			<div class="player01a" id="player1">Player1
+			<div id="player1">Player1
 				<div id="player1HealthCounter"></div>
 				<div id="player1DefenseCounter"></div>
 				<div id="player1Weapon" onclick="nextWeapon()"></div>
@@ -100,7 +100,7 @@
 
 		<!-- Enemy Card -->
 		<div id="enemyCard">
-			<div class="peasant" id="enemy1">Enemy1
+			<div id="enemy1">Enemy1
 				<div id="enemyHealthCounter"></div>
 				<div id="enemyDefenseCounter"></div>
 				<div id="enemy1Dead" class="hidden"></div>
