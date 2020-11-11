@@ -370,8 +370,25 @@ width: 40vw;
 height: 62vw;
 background-size: 100%;
 background-repeat: no-repeat;
+transition: right 1000ms
 }
 
+
+#enemy1Attack {
+border: 2px solid red;
+position: relative;
+box-sizing: border-box;
+width: 42vw;
+height: 64vw;
+background-size: 100%;
+background-repeat: no-repeat;
+top: 20px;
+right: 120px;
+bottom: 0px;
+z-index: 1;
+transform: rotate(-20deg);
+transition: right 1000ms;
+}
 
 
 .peasant{

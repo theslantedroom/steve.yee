@@ -198,12 +198,15 @@ function logSlide(){
 	console.log('logSlide close / open "enemyTurn"');
 	document.getElementById("logSlide").className = "hidden";
 	document.getElementById("enemyTurn").className = "visibleBlock";
+	enemy1Attack();
 };
 
 function logSlideE(){
 	console.log('logSlideE close / open "player1Turn"');
 	document.getElementById("logSlideE").className = "hidden";
 	document.getElementById("player1Turn").className = "visibleBlock";
+
+
 };
 
 
@@ -231,6 +234,7 @@ function fightNext(){
 
 //enemy ATTACK
 function enemyAttack(){
+	enemy1AttackDone();
 	document.getElementById("enemyTurn").className = "hidden";
 	attackRollE = Math.floor((Math.random() * 20) + 1);
 	console.log('enemy Attackroll ' + attackRollE);
@@ -401,6 +405,15 @@ function weaponPopUp(){
 	document.getElementById("player1Weapon").id = "popWeaponUp";
 
 };
+
+function enemy1Attack(){
+	document.getElementById("enemy1").id = "enemy1Attack";
+};
+
+function enemy1AttackDone(){
+	document.getElementById("enemy1Attack").id = "enemy1";
+};
+
 
 
 
