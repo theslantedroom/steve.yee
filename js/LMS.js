@@ -346,6 +346,7 @@ function player1Damage(){
 		if (enemy.health <= 0) {
 		killCount = killCount + 1;
 		enemy.health = 0;
+		enemy1Dead();
 		console.log('killed enemy');
 
 		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage + '';
@@ -384,11 +385,12 @@ function player1Critical(){
 	if (enemy.health <= 0) {
 		killCount = killCount + 1;
 		enemy.health = 0;
+		enemy1Dead();
 		console.log('killed enemy with Crit');
 
 		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage;
 		document.getElementById("resultK").innerHTML = 'CRITICAL HIT - Great Glory';
-		document.getElementById("tvLogK").innerHTML = 'Your blow for ' + attackDamage +' doubles and kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Your blow doubles to' + (attackDamage*2) +' and kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
@@ -413,6 +415,16 @@ function enemy1Attack(){
 function enemy1AttackDone(){
 	document.getElementById("enemy1Attack").id = "enemy1";
 };
+
+
+function enemy1Dead(){
+	document.getElementById("enemy1Dead").className = "visibleBlock";
+	setTimeout(function(){ 
+	document.getElementById("enemy1Dead").className = "hidden"
+	}, 2000);
+
+};
+
 
 
 

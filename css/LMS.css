@@ -315,6 +315,21 @@ th {
     left: 71%;
 }
 
+#enemy1Dead{
+	position: absolute;
+	background-image: url(../img/dead.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	border: 3px solid black;
+	border-radius: 10%;
+	width: 35vw;
+	height: 35vw;
+	top: 14%;
+    left: -57%;
+    transform: rotate(30deg);
+}
+
+
 
 
 /*CHARACTER CARD*/

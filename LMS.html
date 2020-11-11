@@ -101,6 +101,7 @@
 			<div class="peasant" id="enemy1">Enemy1
 				<div id="enemyHealthCounter"></div>
 				<div id="enemyDefenseCounter"></div>
+				<div id="enemy1Dead" class="hidden"></div>
 			</div>
 		</div>
 
@@ -130,11 +131,11 @@
 			<div><p>you hit</p></div>
 			<div><p>Roll your damage</p></div>
 			<div class="border"><button onclick="player1Damage()">Deal Damage</button></div>
-			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUp"></div>
+			<div class="animate__animated animate__bounceIn" id="weaponPopUp"></div>
 		</div>
 
 		<div id="player1Critical" class="hidden">
-			<div class="vuMeter animate__animated animate__bounceIn" id="weaponPopUpC"></div>
+			<div class="animate__animated animate__bounceIn" id="weaponPopUpC"></div>
 			<div class="lighter"><p id="player1CriticalLog"></p></div>
 			<div><p>CRITICAL HIT!</p></div>
 			<div><p>Roll your damage</p></div>
