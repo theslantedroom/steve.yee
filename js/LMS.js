@@ -351,7 +351,7 @@ function player1Damage(){
 
 		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage + '';
 		document.getElementById("resultK").innerHTML = 'oh the Blood!!';
-		document.getElementById("tvLogK").innerHTML = 'Sweet Victory for ' + attackDamage +' kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Sweet Victory!  ' + attackDamage +' damage and kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
