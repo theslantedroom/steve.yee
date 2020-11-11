@@ -71,15 +71,18 @@ justify-content: center;
 
 #hud{
 	margin: auto;
-	width: 70%;
+	width: 100%;
 }
 #hud ul {
 	background-color: rgb(255, 153, 204);
 }
 
 #table {
-	background-color: rgb(255, 153, 204);
+	font-size: 16px;
+	background: rgb(87,230,230);
+background: radial-gradient(circle, rgba(87,230,230,1) 0%, rgba(164,170,32,1) 75%, rgba(28,111,110,1) 97%, rgba(14,114,120,1) 100%);
  	padding: 15px;
+ 	width: 100%;
 }
 
 table, th, td {

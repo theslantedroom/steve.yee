@@ -40,7 +40,7 @@
 <div id="hud">
 
 <!-- Statistics -->
-			<table id="table" style="width:100%">
+			<table id="table">
 			  <tr>
 			  	<th></th>
 			    <th>player1</th>
@@ -58,8 +58,8 @@
 				<td >n/a</td>
 			  </tr>
 			  <tr>
-			    <td>attackRoll</td>
-			    <td id="player1.attackRoll"></td>
+			    <td>high Score</td>
+			    <td id="highScore"></td>
 				<td id="enemy.attackRoll"></td>
 
 			  </tr>
@@ -78,6 +78,8 @@
 			</table>
 
 </div>
+
+
 
 
 	<div class="playArea">
@@ -179,6 +181,7 @@
 		
 		<div id="player1Dead" class="hidden">
 		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathPopup"></span> times</p>
+		<br><p>You have been kiled <span id="finalScore"></span> peasants></p>
 		</div>
 
 	</div>

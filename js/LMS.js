@@ -44,10 +44,12 @@ document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.y
 };
 
 
-attackRollE = 0;
-attackroll = 0;
-attackDamage = 0;
-attackDamageE = 0;
+
+var highScore = 0;
+var attackRollE = 0;
+var attackroll = 0;
+var attackDamage = 0;
+var attackDamageE = 0;
 
 var player1Weapon = 1;
 
@@ -142,7 +144,8 @@ document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 };
 
 // Bootup stats
-document.getElementById("player1.attackRoll").innerHTML = player1.attackRoll;
+
+document.getElementById("highScore").innerHTML = highScore;
 document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
 document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
 document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
@@ -163,6 +166,14 @@ document.getElementById("deathScore").innerHTML = deathCount;
 document.getElementById("killScore").innerHTML = killCount;
 document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
 
+
+function highScoreUpdate(){
+	if (killCount > highScore) {
+		highScore = killCount;
+		document.getElementById("highScore").innerHTML = highScore;
+	}
+};
+
 // enemyturn popup
 function enemyTurn(){
 	console.log('enemyturn');
@@ -179,6 +190,8 @@ function start(){
 function tryAgain(){
 	console.log('tryagain');
 	nextEnemy();
+	highScoreUpdate();
+
 	killCount = 0;
 	player1.health = 20;
 	document.getElementById("player1HealthCounter").innerHTML = player1.health;
@@ -284,6 +297,7 @@ function enemyAttack(){
 		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
 		document.getElementById("tvLog").innerHTML = 'You have been killed ' + deathCount + ' times';
 		document.getElementById("deathPopup").innerHTML = deathCount;
+		document.getElementById("finalScore").innerHTML = killCount;
 		document.getElementById("deathScore").innerHTML = deathCount;
 		document.getElementById("player1Dead").className = "visibleBlock";
 		console.log('player dead');
