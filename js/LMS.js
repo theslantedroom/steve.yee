@@ -44,7 +44,9 @@ document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.y
 };
 
 
-
+var gamesPlayed = 0;
+var killCount = 0;
+var deathCount = 0;
 var highScore = 0;
 var attackRollE = 0;
 var attackroll = 0;
@@ -145,6 +147,9 @@ if (player1Armor == 7){
 document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 };
 
+
+
+
 // Bootup stats
 
 document.getElementById("highScore").innerHTML = highScore;
@@ -158,13 +163,11 @@ document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
 document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
-document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentCharCard + ".jpg')";
+document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 
 // document.getElementById("player1.kills").innerHTML = killCount;
 // document.getElementById("enemy.kills").innerHTML = deathCount;
-var gamesPlayed = 0;
-var killCount = 0;
-var deathCount = 0;
+
 
 document.getElementById("deathScore").innerHTML = deathCount;
 document.getElementById("killScore").innerHTML = killCount;
