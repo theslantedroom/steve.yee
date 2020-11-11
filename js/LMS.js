@@ -390,7 +390,7 @@ function player1Critical(){
 
 		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage;
 		document.getElementById("resultK").innerHTML = 'CRITICAL HIT - Great Glory';
-		document.getElementById("tvLogK").innerHTML = 'Your blow doubles to' + (attackDamage*2) +' and kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Your blow doubles to ' + (attackDamage*2) +' and kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
