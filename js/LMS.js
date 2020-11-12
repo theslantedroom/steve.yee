@@ -466,7 +466,7 @@ function changeCharacter(){
 function changeEnemy(){
 		currentEnemyCard += 1;
 
-		if (currentEnemyCard >= 42) {
+		if (currentEnemyCard >= 39) {
 			currentEnemyCard = 1;
 		}
 		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
