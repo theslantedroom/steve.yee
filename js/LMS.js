@@ -54,7 +54,6 @@ var attackDamage = 0;
 var attackDamageE = 0;
 var currentCharCard = 1;
 var currentEnemyCard = 3;
-
 var player1Weapon = 1;
 
 function nextWeapon(){
