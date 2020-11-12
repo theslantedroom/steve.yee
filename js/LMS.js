@@ -55,6 +55,7 @@ var attackDamageE = 0;
 var currentCharCard = 1;
 var currentEnemyCard = 3;
 var player1Weapon = 1;
+var player1Armor = 41;
 
 function nextWeapon(){
 	player1Weapon += 1;
@@ -109,37 +110,37 @@ document.getElementById("player1.weapon").innerHTML = player1.weapon;
 
 
 // next armor
-var player1Armor = 1;
+
 
 function swapArmor(){
-document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/a" + player1Armor + ".jpg')";
+document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
 };
 
 function nextArmor(){
 	player1Armor += 1;
-	if (player1Armor >= 8) {
-		player1Armor = 1;
+	if (player1Armor >= 48) {
+		player1Armor = 41;
 	}
 	swapArmor();
-if (player1Armor == 1){
+if (player1Armor == 41){
 		player1.defense = 6;
 };
-if (player1Armor == 2){
+if (player1Armor == 42){
 		player1.defense = 7;
 };
-if (player1Armor == 3){
+if (player1Armor == 43){
 		player1.defense = 8;
 };
-if (player1Armor == 4){
+if (player1Armor == 44){
 		player1.defense = 9;
 };
-if (player1Armor == 5){
+if (player1Armor == 45){
 		player1.defense = 10;
 };
-if (player1Armor == 6){
+if (player1Armor == 46){
 		player1.defense = 11;
 };
-if (player1Armor == 7){
+if (player1Armor == 47){
 		player1.defense = 12;
 };
 
