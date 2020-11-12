@@ -195,9 +195,37 @@ th {
     left: 39%;
 }
 
+#player1HealthBonus{
+	cursor: pointer;
+	background-image: url(#);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 18.5%;
+    left: 8%;
+}
+
+#player1DamageBonus{
+	cursor: pointer;
+	background-image: url(#);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 18.5%;
+    left: 64%;
+}
+
+
+
 #player1Weapon{
 	cursor: pointer;
-	background-image: url(../img/market/w1.jpg);
+	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -210,7 +238,7 @@ th {
 
 #player1Weapon2{
 	cursor: pointer;
-	background-image: url(../img/market/w1.jpg);
+	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -223,7 +251,7 @@ th {
 
 #player1Armor{
 	cursor: pointer;
-	background-image: url(../img/market/w41.jpg);
+	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -232,6 +260,32 @@ th {
 	height: 11vw;
 	top: 41.5%;
     left: 36%;
+}
+
+#player1AttackBonus{
+	cursor: pointer;
+	background-image: url(#);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 65.5%;
+    left: 8%;
+}
+
+#player1DefenseBonus{
+	cursor: pointer;
+	background-image: url(#);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	position: absolute;
+	border: 1px solid black;
+	width: 11vw;
+	height: 11vw;
+	top: 65.5%;
+    left: 64%;
 }
 
 /*POPUP WEAPON*/

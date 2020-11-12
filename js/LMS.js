@@ -5,12 +5,20 @@
 var player1 = {
 	name: 'player1',
 	alive: true,
-	healthMa: 20,
 	health: 20,
 	defense: 6,
-	attackBonus: 'n/a',
-	damageBonus: 'n/a',
+	healthBonusArmor: 0,
+	damageBonusWeapon: 0,
+	damageBonusShield: 0,
+	attackBonusWeapon: 0,
+	defenseBonusWeapon: 0,
+	defenseBonusShield: 0,
+	healthBonusSkill: 0,
+	damageBonusSkill: 0,
+	attackBonusSkill: 0,
+	defenseBonusSkill: 0,
 	weapon: 4,
+	
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -34,15 +42,6 @@ var enemy = {
 	},
 };
 
-// weapon swap
-
-
-function swapWeapon(){
-document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-document.getElementById('weaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-};
-
 
 var gamesPlayed = 0;
 var killCount = 0;
@@ -55,73 +54,217 @@ var attackDamageE = 0;
 var currentCharCard = 1;
 var currentEnemyCard = 3;
 var player1Weapon = 1;
+var player1Weapon2 = 0;
 var player1Armor = 41;
+var player1HealthBonus = 0;
+var player1DamageBonus = 0;
+var player1AttackBonus = 0;
+var player1DefenseBonus = 0;
+
+
+// weapon swap
+
+function refresh(){
+		document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		document.getElementById('player1Weapon2').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
+		document.getElementById('player1HealthBonus').style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
+		document.getElementById('player1DamageBonus').style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1DamageBonus + ".jpg')";
+		document.getElementById('player1AttackBonus').style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1AttackBonus + ".jpg')";
+		document.getElementById('player1DefenseBonus').style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1DefenseBonus + ".jpg')";
+
+		document.getElementById('weaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
+		document.getElementById("player1.weapon").innerHTML = player1.weapon;
+		document.getElementById("highScore").innerHTML = highScore;
+		document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
+		document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
+		document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
+		document.getElementById("player1.weapon").innerHTML = player1.weapon;
+		document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
+		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+		document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
+		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+};
+
+refresh();
+
+
+
+
+function nextHealthBonus(){
+	player1HealthBonus += 1;
+	if (player1HealthBonus >= 4) {
+		player1HealthBonus = 0;
+	};
+
+	if (player1HealthBonus == 0){
+			player1.health = 20;
+	};
+	if (player1HealthBonus == 1){
+			player1.health = 24;
+	};
+	if (player1HealthBonus == 2){
+			player1.health = 28;
+	};
+
+	if (player1HealthBonus == 3){
+			player1.health = 32;
+	};
+	refresh();
+	console.log('nextHealthBonus');
+};
+
+
+function nextDamageBonus(){
+	player1DamageBonus += 1;
+	if (player1DamageBonus >= 4) {
+		player1DamageBonus = 0;
+	};
+
+	if (player1DamageBonus == 0){
+			player1.damageBonus = 0;
+	};
+	if (player1DamageBonus == 1){
+			player1.damageBonus = 1;
+	};
+	if (player1DamageBonus == 2){
+			player1.damageBonus = 2;
+	};
+
+	if (player1DamageBonus == 3){
+			player1.damageBonus = 3;
+	};
+	refresh();
+	console.log('nextDamageBonus');
+};
+
+
+function nextAttackBonus(){
+	player1AttackBonus += 1;
+	if (player1AttackBonus >= 4) {
+		player1AttackBonus = 0;
+	};
+
+	if (player1AttackBonus == 0){
+			player1.attackBonus = 0;
+	};
+	if (player1AttackBonus == 1){
+			player1.attackBonus = 1;
+	};
+	if (player1AttackBonus == 2){
+			player1.attackBonus = 2;
+	};
+
+	if (player1AttackBonus == 3){
+			player1.attackBonus = 3;
+	};
+	refresh();
+	console.log('nextattackBonus = ' + player1.attackBonus);
+};
+
+
+function nextDefenseBonus(){
+	player1DefenseBonus += 1;
+	if (player1DefenseBonus >= 4) {
+		player1DefenseBonus = 0;
+	};
+
+	if (player1DefenseBonus == 0){
+			player1.defenseBonus = 0;
+	};
+	if (player1DefenseBonus == 1){
+			player1.defenseBonus = 1;
+	};
+	if (player1DefenseBonus == 2){
+			player1.defenseBonus = 2;
+	};
+
+	if (player1DefenseBonus == 3){
+			player1.defenseBonus = 3;
+	};
+	refresh();
+	console.log('nextattackBonus = ' + player1.attackBonus);
+};
+
+
+
+
+
 
 function nextWeapon(){
 	player1Weapon += 1;
 	if (player1Weapon >= 6) {
-		player1Weapon = 1;
-	}
-	swapWeapon();
-if (player1Weapon == 1){
-		player1.weapon = 4;
-};
-if (player1Weapon == 2){
-		player1.weapon = 6;
-};
-if (player1Weapon == 3){
-		player1.weapon = 8;
-};
-if (player1Weapon == 4){
-		player1.weapon = 10;
-};
-if (player1Weapon == 5){
-		player1.weapon = 12;
-};
-document.getElementById("player1.weapon").innerHTML = player1.weapon;
+		player1Weapon = 0;
+	};
+
+	if (player1Weapon == 0){
+			player1.weapon = -1;
+	};
+	if (player1Weapon == 1){
+			player1.weapon = 4;
+	};
+	if (player1Weapon == 2){
+			player1.weapon = 6;
+	};
+	if (player1Weapon == 3){
+			player1.weapon = 8;
+	};
+	if (player1Weapon == 4){
+			player1.weapon = 10;
+	};
+	if (player1Weapon == 5){
+			player1.weapon = 12;
+	};
+	refresh();
+	console.log('weapon 1 = ' + player1Weapon)
 };
 
-// weapon2
-// var player1Weapon2 = 1;
-
-// function nextWeapon2(){
-// 	player1Weapon2 += 1;
-// 	if (player1Weapon2 >= 6) {
-// 		player1Weapon2 = 1;
-// 	}
-// 	swapWeapon2();
-// if (player1Weapon2 == 1){
-// 		player1.weapon2 = 4;
-// };
-// if (player1Weapon2 == 2){
-// 		player1.weapon2 = 6;
-// };
-// if (player1Weapon2 == 3){
-// 		player1.weapon2 = 8;
-// };
-// if (player1Weapon2 == 4){
-// 		player1.weapon2 = 10;
-// };
-// if (player1Weapon2 == 5){
-// 		player1.weapon2 = 12;
-// };
-// document.getElementById("player1.weapon").innerHTML = player1.weapon;
-// };
 
 
-// next armor
+function nextWeapon2(){
+	player1Weapon2 += 1;
+	if (player1Weapon2 >= 6) {
+		player1Weapon2 = 0;
+	};
 
-
-function swapArmor(){
-document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
+	if (player1Weapon == 0){
+			player1.weapon = 0;
+	};
+	if (player1Weapon2 == 1){
+			player1.weapon2 = 4;
+	};
+	if (player1Weapon2 == 2){
+			player1.weapon2 = 6;
+	};
+	if (player1Weapon2 == 3){
+			player1.weapon2 = 8;
+	};
+	if (player1Weapon2 == 4){
+			player1.weapon2 = 10;
+	};
+	if (player1Weapon2 == 5){
+			player1.weapon2 = 12;
+	};
+	refresh();
+	console.log('weapon 2 = ' + player1Weapon2)
 };
+
+
+
+
 
 function nextArmor(){
 	player1Armor += 1;
 	if (player1Armor >= 48) {
 		player1Armor = 41;
-	}
-	swapArmor();
+	};
+	
 if (player1Armor == 41){
 		player1.defense = 6;
 };
@@ -143,8 +286,9 @@ if (player1Armor == 46){
 if (player1Armor == 47){
 		player1.defense = 12;
 };
+refresh();
+console.log('armor = ' + player1.defense)
 
-document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 };
 
 
@@ -152,18 +296,7 @@ document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 
 // Bootup stats
 
-document.getElementById("highScore").innerHTML = highScore;
-document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
-document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
-document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
-document.getElementById("player1.weapon").innerHTML = player1.weapon;
-document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
-document.getElementById("player1HealthCounter").innerHTML = player1.health;
-document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
-document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
-document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
-document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+
 
 // document.getElementById("player1.kills").innerHTML = killCount;
 // document.getElementById("enemy.kills").innerHTML = deathCount;
@@ -320,7 +453,7 @@ function enemyAttack(){
 function player1AttackRoll(){
 	document.getElementById("player1Turn").className = "hidden";
 	attackRoll = Math.floor((Math.random() * 20) + 1);
-	swapWeapon();
+	refresh();
 	
 	console.log('player1AttackRoll ' + attackRoll);
 	document.getElementById("rollResult").innerHTML = 'Your attack roll is ' + attackRoll;
@@ -458,7 +591,7 @@ function changeCharacter(){
 			currentCharCard = 1;
 		}
 		console.log('currentCharCard '+currentCharCard);
-		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		refresh();
 
 		
 };
@@ -470,5 +603,6 @@ function changeEnemy(){
 		if (currentEnemyCard >= 39) {
 			currentEnemyCard = 1;
 		}
-		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+		console.log('change Enemy  '+currentEnemyCard);
+		refresh();
 };
