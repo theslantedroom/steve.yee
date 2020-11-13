@@ -85,7 +85,7 @@ function refresh(){
 		document.getElementById("player1HealthCounter").innerHTML = player1.health;
 		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-		document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
+		// document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
 		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
