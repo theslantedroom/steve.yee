@@ -1,5 +1,7 @@
 body{
 	position: relative;
+	height: 100vh;
+
 
 }
 
@@ -25,9 +27,8 @@ background-color: grey;
 background-image: url(#);
 border: 2px solid black;
 width: 100%;
-height: 65vw;
+height: 100vh;
 display: flex;
-flex-wrap: wrap;
 justify-content: center;
 
 }
@@ -78,10 +79,11 @@ justify-content: center;
 }
 
 #table {
-	font-size: 16px;
+	font-size: 9px;
 	background: rgb(87,230,230);
-background: radial-gradient(circle, rgba(87,230,230,1) 0%, rgba(164,170,32,1) 75%, rgba(28,111,110,1) 97%, rgba(14,114,120,1) 100%);
+	background: radial-gradient(circle, rgba(87,230,230,1) 0%, rgba(164,170,32,1) 75%, rgba(28,111,110,1) 97%, rgba(14,114,120,1) 100%);
  	padding: 15px;
+ 	height: 10vh;
  	width: 100%;
 }
 
@@ -101,20 +103,20 @@ th {
 
 /*rollbar*/
 #rollBar{
-	min-width: 550px;
 	box-sizing: border-box;
-	font-size: 4vh;
-	position: relative;
+	font-size: 2.5vh;
+	position: absolute;
+	bottom: 10px;
+	left: 0px;
+	right: 0px;
+	height: 30vh;
 	display: inline-block;
 	align-items: stretch;
 	justify-content: center;
-	margin: auto;
 	border-radius: 5px;
 	border: 3px solid black;
 	font-weight: bold;
 	background-color: rgb(225, 253, 204);
-	width: 100%;
-	
 	text-align: center;
 
 }
@@ -129,23 +131,26 @@ th {
 }
 
 #rollResult{
-	font-size: 30px;
+	font-size: 2.5vh;
 	font-weight: lighter;
 }
 
 #rollResultE{
-	font-size: 30px;
+	font-size: 2.5vh;
 	font-weight: lighter;
+	height: inherit;
 }
 
 #enemyTurn {
 	border: 1px solid black;
 	background-color: rgb(255, 153, 153);
+	height: inherit;
 }
 
 #logSlideE{
 	border: 1px solid black;
 	background-color: rgb(255, 153, 153);
+	height: inherit;
 }
 
 #critSlideE{
@@ -154,7 +159,7 @@ th {
 }
 
 .lighter{
-	font-size: 30px;
+	font-size: 2.5vh;
 	font-weight: lighter;
 }
 
@@ -180,19 +185,37 @@ th {
 /*heath counter*/
 
 #player1HealthCounter{
-	font-size: 6.2vw;
+	font-size: 4.4vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
 	position: absolute;
 	background-color: white;
 	position: bottom;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 100%;
-	width: 8vw;
-	height: 8vw;
-	top: 8.5%;
+	width: 5.5vh;
+	height: 5.5vh;
+	top: 17.5%;
+    left: 40%;
+    transform: rotate(-10deg);
+}
+
+#player1DefenseCounter{
+	font-size: 4.4vh;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+	position: absolute;
+	background-color: white;
+	position: bottom;
+	border: 1px solid black;
+	border-radius: 100%;
+	width: 5.5vh;
+	height: 5.5vh;
+	top: 72.5%;
     left: 39%;
+     transform: rotate(-15deg);
 }
 
 #player1HealthBonus{
@@ -202,10 +225,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 18.5%;
+	width: 7vh;
+	height: 7vh;
+	top: 25.5%;
     left: 8%;
+    transform: rotate(4deg);
 }
 
 #player1DamageBonus{
@@ -215,10 +239,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 18.5%;
-    left: 64%;
+	width: 7vh;
+	height: 7vh;
+	top: 25.5%;
+    left: 65%;
+    transform: rotate(11deg);
 }
 
 
@@ -230,10 +255,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 41.5%;
+	width: 7vh;
+	height: 7vh;
+	top: 43.5%;
     left: 8%;
+    transform: rotate(5deg);
 }
 
 #player1Weapon2{
@@ -243,10 +269,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 41.5%;
-    left: 64%;
+	width: 7vh;
+	height: 7vh;
+	top: 43.5%;
+    left: 65%;
+    transform: rotate(3deg);
 }
 
 #player1Armor{
@@ -256,10 +283,12 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 41.5%;
+	width: 7vh;
+	height: 7vh;
+	top: 43.5%;
     left: 36%;
+    transform: rotate(-5deg);
+
 }
 
 #player1AttackBonus{
@@ -269,10 +298,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 65.5%;
+	width: 7vh;
+	height: 7vh;
+	top: 63.5%;
     left: 8%;
+    transform: rotate(-13deg);
 }
 
 #player1DefenseBonus{
@@ -282,10 +312,11 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 11vw;
-	height: 11vw;
-	top: 65.5%;
+	width: 7vh;
+	height: 7vh;
+	top: 63.5%;
     left: 64%;
+    transform: rotate(7deg);
 }
 
 /*POPUP WEAPON*/
@@ -296,13 +327,15 @@ th {
 	background-image: url(../img/market/W1.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
+	transform: rotate(30deg);
 	position: absolute;
 	border: 1px solid black;
-	width: 36vw;
-	height: 36vw;
-	top: -30vh;
-    left: 31%;
+	width: 17vh;
+	height: 17vh;
+	top: 0vh;
+    left: 0vh;
     z-index: 1;
+
 }
 
 #weaponPopUpC{
@@ -312,33 +345,18 @@ th {
 	background-repeat: no-repeat;
 	position: absolute;
 	border: 1px solid black;
-	width: 36vw;
-	height: 36vw;
-	top: -30vh;
-    left: 31%;
+	width: 17vh;
+	height: 17vh;
+	top: 0vh;
+    left: 0vh;
     z-index: 1;
 }
 
 
-#player1DefenseCounter{
-	font-size: 6.2vw;
-	font-weight: bold;
-	color: black;
-	text-align: center;
 
-	position: absolute;
-	background-color: white;
-	position: bottom;
-	border: 3px solid black;
-	border-radius: 100%;
-	width: 8vw;
-	height: 8vw;
-	top: 76.5%;
-    left: 39%;
-}
 
 #enemyHealthCounter{
-	font-size: 4.2vw;
+	font-size: 3.2vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
@@ -346,17 +364,18 @@ th {
 	position: absolute;
 	background-color: white;
 	position: bottom;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 100%;
-	width: 5vw;
-	height: 5vw;
-	top: 6%;
+	width: 4.5vh;
+	height: 4.5vh;
+	top: 15%;
     left: 24%;
+    transform: rotate(5deg);
 }
 
 
 #enemyDefenseCounter{
-	font-size: 6.2vw;
+	font-size: 3.5vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
@@ -364,12 +383,13 @@ th {
 	position: absolute;
 	background-color: white;
 	position: bottom;
-	border: 3px solid black;
+	border: 1px solid black;
 	border-radius: 100%;
-	width: 7vw;
-	height: 7vw;
-	top: 84%;
+	width: 4.5vh;
+	height: 4.5vh;
+	top: 77.5%;
     left: 71%;
+    transform: rotate(15deg);
 }
 
 #enemy1Dead{
@@ -379,8 +399,8 @@ th {
 	background-repeat: no-repeat;
 	border: 3px solid black;
 	border-radius: 10%;
-	width: 35vw;
-	height: 35vw;
+	width: 7vh;
+	height: 7vh;
 	top: 14%;
     left: -57%;
     transform: rotate(30deg);
@@ -391,20 +411,46 @@ th {
 
 /*CHARACTER CARD*/
 #charCard{
-	display: flex;
-	justify-content: space-around;
-	color: gold;
+display: flex;
+justify-content: space-around;
+color: gold;
+
 }
 
-#player1{
 
+#enemyCard {
+display: flex;
+justify-content: space-around;
+color: red;
+
+
+}
+
+
+/*CHARCARDS*/
+
+#player1{
+background-position: center;
+/*border: 3px solid red;*/
+width: 26vh;
+height: 53vh;
 position: relative;
-width: 40vw;
-height: 62vw;
-background-size: 100%;
+background-size: contain;
 background-repeat: no-repeat;
 }
 
+
+#enemy1 {
+background-position: center;
+
+/*border: 3px solid red;*/
+position: relative;
+width: 26vh;
+height: 53vh;
+background-size: contain;
+background-repeat: no-repeat;
+transition: right 1000ms
+}
 
 
 /*CENTERline*/
@@ -419,31 +465,17 @@ background-repeat: no-repeat;
 
 
 
-#enemyCard {
-display: flex;
-justify-content: space-around;
-color: red;
-
-}
 
 
-#enemy1 {
-position: relative;
-box-sizing: border-box;
-width: 40vw;
-height: 62vw;
-background-size: 100%;
-background-repeat: no-repeat;
-transition: right 1000ms
-}
+
 
 
 #enemy1Attack {
-border: 2px solid red;
+background-position: center;
 position: relative;
 box-sizing: border-box;
-width: 42vw;
-height: 64vw;
+width: 28vh;
+height: 53vh;
 background-size: 100%;
 background-repeat: no-repeat;
 top: 20px;

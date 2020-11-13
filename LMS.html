@@ -14,17 +14,13 @@
 
 </head>
 
-<header>Hmmm.. lets seee what we can do..
+<header>
 <!-- sex -->
 	<div class="floatingButton">
 		<button onclick="changeCharacter()"><span id="genderButtonM">Change Character</span></button>
 	</div>
 	<div class="floatingButton">
 		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy</span></button>
-	</div>
-
-	<div class="healthButton">
-		<button onclick="player1.stats();">How are you feeling?</button>
 	</div>
 
 
@@ -85,7 +81,7 @@
 	<div class="playArea">
 		<!-- Character  Card -->
 		<div id="charCard">
-			<div id="player1">Player1
+			<div id="player1">
 				<div id="player1HealthCounter"></div>
 				<div id="player1DefenseCounter"></div>
 				<div id="player1Weapon" onclick="nextWeapon()"></div>
@@ -100,14 +96,16 @@
 		</div>
 
 
-		<div id="centerLine">V.S.</div>
+<!-- 		<div id="centerLine">V.S.</div> -->
 
 		<!-- Enemy Card -->
 		<div id="enemyCard" onclick="changeEnemy()">
-			<div id="enemy1">Enemy1
+			<div id="enemy1">
 				<div id="enemyHealthCounter"></div>
 				<div id="enemyDefenseCounter"></div>
 				<div id="enemy1Dead" class="hidden"></div>
+
+
 			</div>
 		</div>
 
@@ -121,7 +119,7 @@
 			<div class="lighter"><p>new game</p></div>
 			<div><p>Tap weapons and Armor to swap</p></div>
 			<div><p>defeat the enemies</p></div>
-			<div class="border"><button onclick="start()">READY</button></div>
+			<div class=""><button onclick="start()">READY</button></div>
 		</div>
 
 
@@ -129,14 +127,14 @@
 			<div class="lighter"><p>-</p></div>
 			<div><p>-</p></div>
 			<div><p>You stand ready..</p></div>
-			<div class="border"><button onclick="player1AttackRoll()">ATTACK</button></div>
+			<div class=""><button onclick="player1AttackRoll()">ATTACK</button></div>
 		</div>
 
 		<div id="player1Damage" class="hidden">
 			<div class="lighter"><p id="player1DamageLog"></p></div>
 			<div><p>you hit</p></div>
 			<div><p>Roll your damage</p></div>
-			<div class="border"><button onclick="player1Damage()">Deal Damage</button></div>
+			<div class=""><button onclick="player1Damage()">Deal Damage</button></div>
 			<div class="animate__animated animate__bounceIn" id="weaponPopUp"></div>
 		</div>
 
@@ -145,21 +143,21 @@
 			<div class="lighter"><p id="player1CriticalLog"></p></div>
 			<div><p>CRITICAL HIT!</p></div>
 			<div><p>Roll your damage</p></div>
-			<div class="border"><button onclick="player1Critical()">Deal Critical Damage</button></div>
+			<div class=""><button onclick="player1Critical()">Deal Critical Damage</button></div>
 		</div>
 
 		<div id="logSlide" class="hidden">
 			<div class="lighter"><p id="rollResult">you connect a solid blow</p> </div>
 			<div><p id="result">....</p></div>
 			<div><p id="tvLog">....</p></div>
-			<div class="border"><button onclick="logSlide()">continue to enemy turn...</button></div>
+			<div class=""><button onclick="logSlide()">continue to enemy turn...</button></div>
 		</div>
 
 		<div id="logSlideE" class="hidden">
 			<div class="lighter"><p id="rollResultE">...</p> </div>
 			<div><p id="resultE">....</p></div>
 			<div><p id="tvLogE">....loge.</p></div>
-			<div class="border"><button onclick="logSlideE()">continue to your turn...</button></div>
+			<div class=""><button onclick="logSlideE()">continue to your turn...</button></div>
 		</div>
 
 
@@ -167,14 +165,14 @@
 			<div class="lighter"><p>-</p></div>
 			<div><p>-</p></div>
 			<div><p>The enemy attacks</p></div>
-			<div class="border"><button onclick="enemyAttack()">Brace your self</button></div>
+			<div class=""><button onclick="enemyAttack()">Brace your self</button></div>
 		</div>
 
 		<div id="killLog" class="hidden">
 			<div class="lighter"><p id="rollResultK">...</p> </div>
 			<div><p id="resultK">....</p></div>
 			<div><p id="tvLogK">killloge.</p></div>
-			<div class="border"><button onclick="nextEnemy()">continue...</button></div>
+			<div class=""><button onclick="nextEnemy()">continue...</button></div>
 		</div>
 
 		<div id="next" class="hidden">
