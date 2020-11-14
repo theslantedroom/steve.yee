@@ -4,22 +4,30 @@
 
 var player1 = {
 	name: 'player1',
-	alive: true,
-	health: 20,
-	defense: 6,
+
+	
+
 	healthBonusArmor: 0,
 	damageBonusWeapon: 0,
 	attackBonusWeapon: 0,
 	defenseBonusWeapon: 0,
 	defenseBonusShield: 0,
 	damageBonusShield: 0,
+
 	healthBonusSkill: 0,
 	damageBonusSkill: 0,
 	attackBonusSkill: 0,
 	defenseBonusSkill: 0,
 	weapon: 4,
 	weapon2: -1,
-	
+	armor: 6,
+	damage: 0,
+	attack: 0,
+
+
+
+	health: 20,
+	defense: 0,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
@@ -31,74 +39,87 @@ var player1 = {
 var enemy = {
 	name: 'Zombie',
 	alive: true,
-	healthMa: 20,
 	health: 20,
 	defense: 6,
-	attackBonus: 'n/a',
-	damageBonus: 'n/a',
-	weapon: 6,
+	weapon: 4,
 
 	stats: function(){
 		alert(player1.name+ ' has ' + player1.health + '/' + player1.healthMa +' health');
 	},
 };
 
-
-var gamesPlayed = 0;
-var killCount = 0;
-var deathCount = 0;
-var highScore = 0;
-var attackRollE = 0;
-var attackroll = 0;
-var attackDamage = 0;
-var attackDamageE = 0;
-var currentCharCard = 1;
-var currentEnemyCard = 3;
-var player1Weapon = 1;
-var player1Weapon2 = 0;
-var player1Armor = 41;
 var player1HealthBonus = 0;
 var player1DamageBonus = 0;
 var player1AttackBonus = 0;
 var player1DefenseBonus = 0;
+var player1Weapon = 1;
+var player1Weapon2 = 0;
+var player1Armor = 41;
+
+var killCount = 0;
+var deathCount = 0;
+var highScore = 0;
+var gamesPlayed = 0;
+
+var attackRollE = 0;
+var attackRoll = 0;
+var attackDamage = 0;
+var attackDamageE = 0;
+var currentCharCard = 1;
+var currentEnemyCard = 3;
+
+
+
 
 
 // weapon swap
 
 function refresh(){
-		document.getElementById("player1.weapon").innerHTML = player1.weapon;
-		document.getElementById("highScore").innerHTML = highScore;
-		document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
-		document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
-		document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
-		document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
-		document.getElementById("player1HealthCounter").innerHTML = player1.health;
-		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
-		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+
+	// calculate Final Stats
+	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield + player1.armor + player1.defenseBonusSkill;
+
+	player1.damage =  player1.damageBonusWeapon + player1.damageBonusSkill;
+
+	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon;
+
+	// player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	
 
 //BACKGROUND IMAGES
 		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
-
-		document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
+		
 		document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
 		document.getElementById('player1Weapon2').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
-		document.getElementById('player1HealthBonus').style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
+		
 		document.getElementById('player1DamageBonus').style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1DamageBonus + ".jpg')";
 		document.getElementById('player1AttackBonus').style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1AttackBonus + ".jpg')";
 		document.getElementById('player1DefenseBonus').style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1DefenseBonus + ".jpg')";
+
+		document.getElementById('player1HealthBonus').style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
+		document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
 
 // popup images
 
 
 		document.getElementById('logWeaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
 		document.getElementById('logWeapon2PopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
+		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
+		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 
-// TABLE
-		document.getElementById("deathScore").innerHTML = deathCount;
+// TABLE		
 		document.getElementById("killScore").innerHTML = killCount;
+		document.getElementById("deathScore").innerHTML = deathCount;
+		document.getElementById("highScore").innerHTML = highScore;
 		document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
+		document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
+		document.getElementById("player1.damageBonusSkill").innerHTML = player1.damageBonusSkill;
+		document.getElementById("player1.attackBonusSkill").innerHTML = player1.attackBonusSkill;
+		document.getElementById("player1.defenseBonusSkill").innerHTML = player1.defenseBonusSkill;
 		document.getElementById("player1.weapon").innerHTML = player1.weapon;
 		document.getElementById("player1.weapon2").innerHTML = player1.weapon2;
+		document.getElementById("player1.armor").innerHTML = player1.armor;
+		document.getElementById("player1.healthBonusSkill").innerHTML = player1.healthBonusSkill;
 
 };
 
@@ -107,6 +128,44 @@ refresh();
 
 // BOOTUP
 document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+document.getElementById("player1HealthCounter").innerHTML = player1.health;
+
+
+
+function nextArmor(){
+	player1Armor += 1;
+	if (player1Armor >= 48) {
+		player1Armor = 41;
+	};
+	
+if (player1Armor == 41){
+		player1.armor = 6;
+};
+if (player1Armor == 42){
+		player1.armor = 7;
+};
+if (player1Armor == 43){
+		player1.armor = 8;
+};
+if (player1Armor == 44){
+		player1.armor = 9;
+};
+if (player1Armor == 45){
+		player1.armor = 10;
+};
+if (player1Armor == 46){
+		player1.armor = 11;
+};
+if (player1Armor == 47){
+		player1.armor = 12;
+};
+
+console.log('armor = ' + player1.armor)
+player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
+document.getElementById("player1HealthCounter").innerHTML = player1.health;
+refresh();
+};
+
 
 
 function nextHealthBonus(){
@@ -116,20 +175,24 @@ function nextHealthBonus(){
 	};
 
 	if (player1HealthBonus == 0){
-			player1.health = 20;
+			player1.healthBonusSkill = 0;
 	};
 	if (player1HealthBonus == 1){
-			player1.health = 24;
+			player1.healthBonusSkill = 4;
 	};
 	if (player1HealthBonus == 2){
-			player1.health = 28;
+			player1.healthBonusSkill = 8;
 	};
 
 	if (player1HealthBonus == 3){
-			player1.health = 32;
+			player1.healthBonusSkill = 12;
 	};
-	refresh();
+
 	console.log('nextHealthBonus');
+
+	player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	document.getElementById("player1HealthCounter").innerHTML = player1.health;
+	refresh();
 };
 
 
@@ -140,17 +203,17 @@ function nextDamageBonus(){
 	};
 
 	if (player1DamageBonus == 0){
-			player1.damageBonus = 0;
+			player1.damageBonusSkill = 0;
 	};
 	if (player1DamageBonus == 1){
-			player1.damageBonus = 1;
+			player1.damageBonusSkill = 1;
 	};
 	if (player1DamageBonus == 2){
-			player1.damageBonus = 2;
+			player1.damageBonusSkill = 2;
 	};
 
 	if (player1DamageBonus == 3){
-			player1.damageBonus = 3;
+			player1.damageBonusSkill = 3;
 	};
 	refresh();
 	console.log('nextDamageBonus');
@@ -164,19 +227,20 @@ function nextAttackBonus(){
 	};
 
 	if (player1AttackBonus == 0){
-			player1.attackBonus = 0;
+			player1.attackBonusSkill = 0;
 	};
 	if (player1AttackBonus == 1){
-			player1.attackBonus = 1;
+			player1.attackBonusSkill = 1;
 	};
 	if (player1AttackBonus == 2){
-			player1.attackBonus = 2;
+			player1.attackBonusSkill = 2;
 	};
 
 	if (player1AttackBonus == 3){
-			player1.attackBonus = 3;
+			player1.attackBonusSkill = 3;
 	};
 	refresh();
+
 	console.log('nextattackBonus = ' + player1.attackBonus);
 };
 
@@ -188,24 +252,21 @@ function nextDefenseBonus(){
 	};
 
 	if (player1DefenseBonus == 0){
-			player1.defenseBonus = 0;
+			player1.defenseBonusSkill = 0;
 	};
 	if (player1DefenseBonus == 1){
-			player1.defenseBonus = 1;
+			player1.defenseBonusSkill = 1;
 	};
 	if (player1DefenseBonus == 2){
-			player1.defenseBonus = 2;
+			player1.defenseBonusSkill = 2;
 	};
 
 	if (player1DefenseBonus == 3){
-			player1.defenseBonus = 3;
+			player1.defenseBonusSkill = 3;
 	};
 	refresh();
 	console.log('nextattackBonus = ' + player1.attackBonus);
 };
-
-
-
 
 
 
@@ -267,41 +328,6 @@ function nextWeapon2(){
 	console.log('weapon 2 = ' + player1Weapon2)
 };
 
-
-
-
-
-function nextArmor(){
-	player1Armor += 1;
-	if (player1Armor >= 48) {
-		player1Armor = 41;
-	};
-	
-if (player1Armor == 41){
-		player1.defense = 6;
-};
-if (player1Armor == 42){
-		player1.defense = 7;
-};
-if (player1Armor == 43){
-		player1.defense = 8;
-};
-if (player1Armor == 44){
-		player1.defense = 9;
-};
-if (player1Armor == 45){
-		player1.defense = 10;
-};
-if (player1Armor == 46){
-		player1.defense = 11;
-};
-if (player1Armor == 47){
-		player1.defense = 12;
-};
-refresh();
-console.log('armor = ' + player1.defense)
-
-};
 
 
 
@@ -414,10 +440,10 @@ function enemyAttack(){
 
 		// Enemy Deals damage
 		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
-		console.log(attackDamageE + ' x 2 player deal Damage');
-		player1.health = player1.health - (attackDamage*2);
+		console.log(attackDamageE + ' x 2 player Damage');
+		player1.health = player1.health - (attackDamageE*2);
 
-		document.getElementById("tvLogE").innerHTML = "hit (" + (attackDamageE) + " x 2) down to " + player1.health;
+		document.getElementById("tvLogE").innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
 		document.getElementById("player1HealthCounter").innerHTML = player1.health;
 		document.getElementById("logSlideE").className = "visibleBlock";
 
@@ -494,11 +520,12 @@ function player1Damage(){
 		attackDamage = player1weapon1Damage + player1weapon2Damage;
 		console.log('player1 deals ' + player1weapon1Damage + ' ' + player1weapon2Damage +' = '+ attackDamage +' damage');
 		enemy.health = enemy.health - attackDamage;
+		enemy.health = enemy.health - player1.damage;
 
 		document.getElementById("player1DamageLog").innerHTML = 'HIT';
-		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' damage';
+		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (skill)';
 		document.getElementById("result").innerHTML = 'a deep wound';
-		document.getElementById("tvLog").innerHTML = "You hit " + attackDamage + " down to " + enemy.health;
+		document.getElementById("tvLog").innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 		document.getElementById("logSlide").className = "visibleBlock";
 		document.getElementById("player1Damage").className = "hidden";
@@ -530,10 +557,11 @@ function player1Critical(){
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage);
 		console.log('player1 deals crit (' + player1weapon1Damage + ' ' + player1weapon2Damage +') x 2 = '+ attackDamage +' damage');
 		enemy.health = enemy.health - (attackDamage);
+		enemy.health = enemy.health - player1.damage;
 
-		document.getElementById("rollResult").innerHTML = 'Your attack deals damage of (' + player1weapon1Damage + ' + ' + player1weapon2Damage + ') = ' + (attackDamage/2);
-		document.getElementById("result").innerHTML = 'A devastating critical DOUBLES damage to ' + attackDamage;
-		document.getElementById("tvLog").innerHTML = "The enemy is crippled down to " + enemy.health + ' health';
+		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons)';
+		document.getElementById("result").innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' skill)';
+		document.getElementById("tvLog").innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy.health + ' health';
 		
 
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
