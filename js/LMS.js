@@ -485,13 +485,12 @@ function player1AttackRoll(){
 
 	refresh();
 	console.log('player1AttackRoll ' + attackRoll);
-	document.getElementById("rollResult").innerHTML = 'Your attack roll is ' + attackRoll;
-
+	document.getElementById("rollResult").innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
 // HIT enemy
-	if (attackRoll > enemy.defense && attackRoll != 20) {
+	if (attackRoll > (enemy.defense - player1.attack) && attackRoll != 20) {
 		console.log('hit enemy');
 
-		document.getElementById("player1DamageLog").innerHTML = 'Attack roll is ' + attackRoll;
+		document.getElementById("player1DamageLog").innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 		document.getElementById("player1Damage").className = "visibleBlock";
 		document.getElementById("player1Turn").className = "hidden";
 	
@@ -523,7 +522,7 @@ function player1Damage(){
 		enemy.health = enemy.health - player1.damage;
 
 		document.getElementById("player1DamageLog").innerHTML = 'HIT';
-		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (skill)';
+		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (bonus)';
 		document.getElementById("result").innerHTML = 'a deep wound';
 		document.getElementById("tvLog").innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
