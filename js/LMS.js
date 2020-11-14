@@ -559,7 +559,7 @@ function player1Critical(){
 		enemy.health = enemy.health - player1.damage;
 
 		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons)';
-		document.getElementById("result").innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' skill)';
+		document.getElementById("result").innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		document.getElementById("tvLog").innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy.health + ' health';
 		
 
