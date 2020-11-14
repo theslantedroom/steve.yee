@@ -523,7 +523,7 @@ function player1Damage(){
 
 		document.getElementById("player1DamageLog").innerHTML = 'HIT';
 		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (bonus)';
-		document.getElementById("result").innerHTML = 'a deep wound';
+		document.getElementById("result").innerHTML = 'a deep wound (' + (attackDamage + player1.damage) +')' ;
 		document.getElementById("tvLog").innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
 		document.getElementById("logSlide").className = "visibleBlock";
