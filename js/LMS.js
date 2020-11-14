@@ -9,15 +9,16 @@ var player1 = {
 	defense: 6,
 	healthBonusArmor: 0,
 	damageBonusWeapon: 0,
-	damageBonusShield: 0,
 	attackBonusWeapon: 0,
 	defenseBonusWeapon: 0,
 	defenseBonusShield: 0,
+	damageBonusShield: 0,
 	healthBonusSkill: 0,
 	damageBonusSkill: 0,
 	attackBonusSkill: 0,
 	defenseBonusSkill: 0,
 	weapon: 4,
+	weapon2: -1,
 	
 
 	stats: function(){
@@ -65,6 +66,20 @@ var player1DefenseBonus = 0;
 // weapon swap
 
 function refresh(){
+		document.getElementById("player1.weapon").innerHTML = player1.weapon;
+		document.getElementById("highScore").innerHTML = highScore;
+		document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
+		document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
+		document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
+		document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
+		document.getElementById("player1HealthCounter").innerHTML = player1.health;
+		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
+		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
+
+//BACKGROUND IMAGES
+		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+
+		document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
 		document.getElementById('player1Weapon').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
 		document.getElementById('player1Weapon2').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
 		document.getElementById('player1HealthBonus').style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
@@ -72,29 +87,26 @@ function refresh(){
 		document.getElementById('player1AttackBonus').style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1AttackBonus + ".jpg')";
 		document.getElementById('player1DefenseBonus').style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1DefenseBonus + ".jpg')";
 
-		document.getElementById('weaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-		document.getElementById('weaponPopUpC').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
-		document.getElementById('player1Armor').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
+// popup images
+
+
+		document.getElementById('logWeaponPopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		document.getElementById('logWeapon2PopUp').style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
+
+// TABLE
+		document.getElementById("deathScore").innerHTML = deathCount;
+		document.getElementById("killScore").innerHTML = killCount;
+		document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
 		document.getElementById("player1.weapon").innerHTML = player1.weapon;
-		document.getElementById("highScore").innerHTML = highScore;
-		document.getElementById("enemy.attackRoll").innerHTML = enemy.attackRoll;
-		document.getElementById("player1.damageBonus").innerHTML = player1.damageBonus;
-		document.getElementById("enemy.damageBonus").innerHTML = enemy.damageBonus;
-		document.getElementById("player1.weapon").innerHTML = player1.weapon;
-		document.getElementById("enemy.weapon").innerHTML = enemy.weapon;
-		document.getElementById("player1HealthCounter").innerHTML = player1.health;
-		document.getElementById("player1DefenseCounter").innerHTML = player1.defense;
-		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
-		// document.getElementById("enemyDefenseCounter").innerHTML = enemy.defense;
-		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
-		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
-		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
-		document.getElementById("player1").style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		document.getElementById("player1.weapon2").innerHTML = player1.weapon2;
+
 };
 
 refresh();
 
 
+// BOOTUP
+document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 
 
 function nextHealthBonus(){
@@ -233,8 +245,8 @@ function nextWeapon2(){
 		player1Weapon2 = 0;
 	};
 
-	if (player1Weapon == 0){
-			player1.weapon = 0;
+	if (player1Weapon2 == 0){
+			player1.weapon2 = -1;
 	};
 	if (player1Weapon2 == 1){
 			player1.weapon2 = 4;
@@ -293,20 +305,6 @@ console.log('armor = ' + player1.defense)
 
 
 
-
-// Bootup stats
-
-
-
-// document.getElementById("player1.kills").innerHTML = killCount;
-// document.getElementById("enemy.kills").innerHTML = deathCount;
-
-
-document.getElementById("deathScore").innerHTML = deathCount;
-document.getElementById("killScore").innerHTML = killCount;
-document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
-
-
 function highScoreUpdate(){
 	if (killCount > highScore) {
 		highScore = killCount;
@@ -344,7 +342,7 @@ function tryAgain(){
 	document.getElementById("deathScore").innerHTML = deathCount;
 	document.getElementById("killScore").innerHTML = killCount;
 	gamesPlayed = gamesPlayed + 1;
-	document.getElementById("gamesPlayed").innerHTML = gamesPlayed;
+	refresh();
 };
 
 function logSlide(){
@@ -390,6 +388,9 @@ function enemyAttack(){
 	enemy1AttackDone();
 	document.getElementById("enemyTurn").className = "hidden";
 	attackRollE = Math.floor((Math.random() * 20) + 1);
+
+	// attackRollE = 20; 
+
 	console.log('enemy Attackroll ' + attackRollE);
 	document.getElementById("rollResultE").innerHTML = 'Enemy attack roll is ' + attackRollE;
 
@@ -431,7 +432,7 @@ function enemyAttack(){
 	// killed player dead
 	if (player1.health <= 0) {
 		deathCount = deathCount + 1;
-		player1.health = 0;
+		// player1.health = 0;
 
 		document.getElementById("player1HealthCounter").innerHTML = player1.health;
 		document.getElementById("tvLog").innerHTML = "YOUR DEAD";
@@ -439,11 +440,12 @@ function enemyAttack(){
 		document.getElementById("deathPopup").innerHTML = deathCount;
 		document.getElementById("finalScore").innerHTML = killCount;
 		document.getElementById("deathScore").innerHTML = deathCount;
+		document.getElementById("logSlideE").className = "hidden";
 		document.getElementById("player1Dead").className = "visibleBlock";
 		console.log('player dead');
 	};
-	document.getElementById("logSlideE").className = "visibleBlock";
-	document.getElementById("enemyTurn").className = "hidden";
+	// document.getElementById("logSlideE").className = "visibleBlock";
+	// document.getElementById("enemyTurn").className = "hidden";
 };
 
 
@@ -453,8 +455,9 @@ function enemyAttack(){
 function player1AttackRoll(){
 	document.getElementById("player1Turn").className = "hidden";
 	attackRoll = Math.floor((Math.random() * 20) + 1);
+	// attackRoll = 20;
+
 	refresh();
-	
 	console.log('player1AttackRoll ' + attackRoll);
 	document.getElementById("rollResult").innerHTML = 'Your attack roll is ' + attackRoll;
 
@@ -486,11 +489,14 @@ function player1AttackRoll(){
 };
 
 function player1Damage(){
-		document.getElementById("player1DamageLog").innerHTML = 'HIT';
-		attackDamage = Math.floor((Math.random() * player1.weapon) + 1);
-		console.log('player1 deals ' + attackDamage + ' damage');
+		player1weapon1Damage = Math.floor((Math.random() * player1.weapon) + 1);
+		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
+		attackDamage = player1weapon1Damage + player1weapon2Damage;
+		console.log('player1 deals ' + player1weapon1Damage + ' ' + player1weapon2Damage +' = '+ attackDamage +' damage');
 		enemy.health = enemy.health - attackDamage;
-		document.getElementById("rollResult").innerHTML = 'Your attack deals damage';
+
+		document.getElementById("player1DamageLog").innerHTML = 'HIT';
+		document.getElementById("rollResult").innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' damage';
 		document.getElementById("result").innerHTML = 'a deep wound';
 		document.getElementById("tvLog").innerHTML = "You hit " + attackDamage + " down to " + enemy.health;
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
@@ -503,9 +509,9 @@ function player1Damage(){
 		enemy1Dead();
 		console.log('killed enemy');
 
-		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage + '';
+		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' damage';
 		document.getElementById("resultK").innerHTML = 'oh the Blood!!';
-		document.getElementById("tvLogK").innerHTML = 'Sweet Victory!  ' + attackDamage +' damage and kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Sweet Victory!  ' + attackDamage +' damage kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
@@ -519,16 +525,15 @@ function player1Damage(){
 
 function player1Critical(){
 	console.log("player deals critical hit");
-		
+		player1weapon1Damage = Math.floor((Math.random() * player1.weapon) + 1);
+		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
+		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage);
+		console.log('player1 deals crit (' + player1weapon1Damage + ' ' + player1weapon2Damage +') x 2 = '+ attackDamage +' damage');
+		enemy.health = enemy.health - (attackDamage);
 
-		// player1 damage
-		attackDamage = Math.floor((Math.random() * player1.weapon) + 1);
-		console.log(attackDamage + ' x 2 player deal Damage');
-		enemy.health = enemy.health - (attackDamage*2);
-
-		document.getElementById("rollResult").innerHTML = 'Your attack deals Critical damage of';
-		document.getElementById("result").innerHTML = attackDamage * 2;
-		document.getElementById("tvLog").innerHTML = "hit (" + (attackDamage) + " x 2) down to " + enemy.health;
+		document.getElementById("rollResult").innerHTML = 'Your attack deals damage of (' + player1weapon1Damage + ' + ' + player1weapon2Damage + ') = ' + (attackDamage/2);
+		document.getElementById("result").innerHTML = 'A devastating critical DOUBLES damage to ' + attackDamage;
+		document.getElementById("tvLog").innerHTML = "The enemy is crippled down to " + enemy.health + ' health';
 		
 
 		document.getElementById("enemyHealthCounter").innerHTML = enemy.health;
@@ -542,9 +547,9 @@ function player1Critical(){
 		enemy1Dead();
 		console.log('killed enemy with Crit');
 
-		document.getElementById("rollResultK").innerHTML = 'Your damage roll is ' + attackDamage;
+		document.getElementById("rollResultK").innerHTML = 'Your damage roll is (' + player1weapon1Damage + ' + ' + player1weapon2Damage +') = ' + (attackDamage / 2) ;
 		document.getElementById("resultK").innerHTML = 'CRITICAL HIT - Great Glory';
-		document.getElementById("tvLogK").innerHTML = 'Your blow doubles to ' + (attackDamage*2) +' and kills the enemy';
+		document.getElementById("tvLogK").innerHTML = 'Your blow DOUBLES to ' + (attackDamage) +' and kills the enemy';
 		
 		document.getElementById("killScore").innerHTML = killCount;
 		document.getElementById("killpopup").innerHTML = killCount;
@@ -557,10 +562,6 @@ function player1Critical(){
 };
 
 
-function weaponPopUp(){
-	document.getElementById("player1Weapon").id = "popWeaponUp";
-
-};
 
 function enemy1Attack(){
 	document.getElementById("enemy1").id = "enemy1Attack";
@@ -604,5 +605,5 @@ function changeEnemy(){
 			currentEnemyCard = 1;
 		}
 		console.log('change Enemy  '+currentEnemyCard);
-		refresh();
+		document.getElementById("enemy1").style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 };

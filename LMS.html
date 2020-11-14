@@ -29,85 +29,35 @@
 <body>
 
 
-	
-
-
-<!-- HUD -->
-<div id="hud">
-
-<!-- Statistics -->
-			<table id="table">
-			  <tr>
-			  	<th></th>
-			    <th>player1</th>
-			    <th>Peasant</th>
-			  </tr>
-
-			  <tr>
-			  	<td>Kills</td>
-			    <td id="killScore"></td>
-				<td id="deathScore"></td>
-			  </tr>
-			  <tr>
-			    <td>Games played</td>
-				<td id="gamesPlayed"></td>
-				<td >n/a</td>
-			  </tr>
-			  <tr>
-			    <td>high Score</td>
-			    <td id="highScore"></td>
-				<td id="enemy.attackRoll"></td>
-
-			  </tr>
-			   <tr>
-			    <td>damageBonus</td>
-			    <td id="player1.damageBonus"></td>
-				<td id="enemy.damageBonus"></td>
-
-			  </tr>
-			   <tr>
-			    <td>Weapon Die</td>
-			    <td id="player1.weapon"></td>
-				<td id="enemy.weapon"></td>
-
-			  </tr>
-			</table>
-
-</div>
 
 
 
 
 	<div class="playArea">
-		<!-- Character  Card -->
-		<div id="charCard">
-			<div id="player1">
-				<div id="player1HealthCounter"></div>
-				<div id="player1DefenseCounter"></div>
-				<div id="player1Weapon" onclick="nextWeapon()"></div>
-				<div id="player1Weapon2" onclick="nextWeapon2()"></div>
-				<div id="player1Armor" onclick="nextArmor()"></div>
-				<div id="player1HealthBonus" onclick="nextHealthBonus()"></div>
-				<div id="player1DamageBonus" onclick="nextDamageBonus()"></div>
-				<div id="player1AttackBonus" onclick="nextAttackBonus()"></div>
-				<div id="player1DefenseBonus" onclick="nextDefenseBonus()"></div>
-
-			</div>
-		</div>
 
 
-<!-- 		<div id="centerLine">V.S.</div> -->
-
-		<!-- Enemy Card -->
-		<div id="enemyCard" onclick="changeEnemy()">
-			<div id="enemy1">
-				<div id="enemyHealthCounter"></div>
-				<!-- <div id="enemyDefenseCounter"></div> -->
-				<div id="enemy1Dead" class="hidden"></div>
 
 
-			</div>
-		</div>
+				<!-- Character  Card -->
+				<div id="player1">
+					<div id="player1HealthCounter"></div>
+					<div id="player1DefenseCounter"></div>
+					<div id="player1Weapon" onclick="nextWeapon()"></div>
+					<div id="player1Weapon2" onclick="nextWeapon2()"></div>
+					<div id="player1Armor" onclick="nextArmor()"></div>
+					<div id="player1HealthBonus" onclick="nextHealthBonus()"></div>
+					<div id="player1DamageBonus" onclick="nextDamageBonus()"></div>
+					<div id="player1AttackBonus" onclick="nextAttackBonus()"></div>
+					<div id="player1DefenseBonus" onclick="nextDefenseBonus()"></div>
+				</div>
+			
+				<!-- Enemy Card -->
+				<div id="enemy1">
+					<div id="enemyHealthCounter"></div>
+					<div id="enemy1Dead" class="hidden"></div>
+				</div>
+			
+	
 
 	</div>
 
@@ -117,7 +67,7 @@
 
 		<div id="start">
 			<div class="lighter"><p>Attack roll must be > enemy defense to hit</p></div>
-			<div><p>Tap weapon and Armor squares to change them. Only first weapon and armor are coded in so far.</p></div>
+			<div><p>Tap weapon and Armor squares to change them. only weapon and armor are coded in so far.</p></div>
 			<div><p>defeat the enemies</p></div>
 			<div class=""><button onclick="start()">READY</button></div>
 		</div>
@@ -135,15 +85,19 @@
 			<div><p>you hit</p></div>
 			<div><p>Roll your damage</p></div>
 			<div class=""><button onclick="player1Damage()">Deal Damage</button></div>
-			<div class="animate__animated animate__bounceIn" id="weaponPopUp"></div>
+				<div id="hitPopupCard">
+					<div class="animate__animated animate__bounceIn" id="hitPopUp"></div>
+				</div>
 		</div>
 
 		<div id="player1Critical" class="hidden">
-			<div class="animate__animated animate__bounceIn" id="weaponPopUpC"></div>
 			<div class="lighter"><p id="player1CriticalLog"></p></div>
 			<div><p>CRITICAL HIT!</p></div>
-			<div><p>Roll your damage</p></div>
+			<div><p>Roll for double damage</p></div>
 			<div class=""><button onclick="player1Critical()">Deal Critical Damage</button></div>
+				<div id="critPopupCard">
+					<div class="animate__animated animate__bounceIn" id="critPopUp"></div>
+				</div>
 		</div>
 
 		<div id="logSlide" class="hidden">
@@ -151,6 +105,10 @@
 			<div><p id="result">....</p></div>
 			<div><p id="tvLog">....</p></div>
 			<div class=""><button onclick="logSlide()">continue to enemy turn...</button></div>
+				<div id="logWeaponPopupCard">
+					<div class="animate__animated animate__rubberBand" id="logWeaponPopUp"></div>
+					<div class="animate__animated animate__rubberBand" id="logWeapon2PopUp"></div>
+				</div>
 		</div>
 
 		<div id="logSlideE" class="hidden">
@@ -176,7 +134,7 @@
 		</div>
 
 		<div id="next" class="hidden">
-		<p>Another one aproaches. <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> peasants</p>
+		<p>Another one aproaches. <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> enemies</p>
 		</div>
 
 	
@@ -190,7 +148,58 @@
 
 
 
+<table id="table">
+			  <tr>
+			  	<th></th>
+			    <th>Score</th>
+			    <th></th>
+			    <th>Player1</th>
+			    <th>player1</th>
+			    <th>Peasant</th>
+			    <th>Peasant</th>
+			  </tr>
 
+			  <tr>
+			  	<td>Kills</td>
+			    <td id="killScore"></td>
+				<td id="">Weapon 1</td>
+				<td id="player1.weapon"></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			  <tr>
+			    <td>Games played</td>
+				<td id="gamesPlayed"></td>
+				<td id="">Weapon 2</td>
+				<td id="player1.weapon2"></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			  <tr>
+			    <td>high Score</td>
+			    <td id="highScore"></td>
+				<td id="">Strength Training</td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			   <tr>
+			    <td>Times Killed</td>
+			    <td id="deathScore"></td>
+				<td id="">Attack Training</td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			   <tr>
+			    <td></td>
+			    <td id=""></td>
+				<td id="enemy.weapon"></td>
+				<td id="enemy.attackRoll"></td>
+				<td id="player1.damageBonus"></td>
+				<td id="enemy.damageBonus"></td>
+			  </tr>
+			</table>
 
 
 
