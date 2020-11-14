@@ -24,8 +24,8 @@ box-sizing: border-box;
 margin: auto;
 padding: 10px;
 position: relative;
-background-color: grey;
-background-image: url(#);
+background-image: url(../img/lakeMountain.jpg);
+background-size: contain;
 border: 2px solid black;
 width: 100%;
 height: 42vh;
@@ -34,6 +34,37 @@ justify-content: space-around;
 
 }
 
+
+
+
+/*rollbar*/
+#rollBar{
+	box-sizing: border-box;
+	width: 100%;
+	font-size: 2.5vh;
+	margin: auto;
+	height: 30vh;
+	align-items: stretch;
+	justify-content: center;
+	border-radius: 5px;
+	border: 3px solid black;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	background-image: url(../img/forestPath.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+#rollBar a{
+	border: 1px solid black;
+	margin: auto;
+}
+
+#rollBar button{
+	font-size: 4vh;
+}
 
 /*CHARACTER CARD*/
 
@@ -47,6 +78,31 @@ color: red;
 
 }
 
+
+/*TABLE*/
+
+#table {
+	font-size: 9px;
+	background-image: url(../img/forestPath.jpg);
+	background-size: cover;
+ 	padding: 1px;
+ 	height: 10vh;
+ 	width: 100%;
+ 	margin-top: 1px;
+ 	color: white;
+	}
+
+	table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	th, td {
+	  padding: 2px;
+	}
+	th {
+	  text-align: left;
+
+	}
 
 /*CHARCARDS*/
 
@@ -117,31 +173,6 @@ transition: right 1000ms;
 
 
 
-/*rollbar*/
-#rollBar{
-	box-sizing: border-box;
-	width: 100%;
-	font-size: 2.5vh;
-	margin: auto;
-	height: 30vh;
-	align-items: stretch;
-	justify-content: center;
-	border-radius: 5px;
-	border: 3px solid black;
-	font-weight: bold;
-	background-color: rgb(225, 253, 204);
-	text-align: center;
-
-}
-
-#rollBar a{
-	border: 1px solid black;
-	margin: auto;
-}
-
-#rollBar button{
-	font-size: 4vh;
-}
 
 #rollResult{
 	font-size: 2.5vh;
@@ -438,28 +469,6 @@ transition: right 1000ms;
 
 
 
-
-#table {
-	font-size: 9px;
-	background: rgb(87,230,230);
-	background: radial-gradient(circle, rgba(87,230,230,1) 0%, rgba(164,170,32,1) 75%, rgba(28,111,110,1) 97%, rgba(14,114,120,1) 100%);
- 	padding: 1px;
- 	height: 10vh;
- 	width: 100%;
- 	margin-top: 1px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-th, td {
-  padding: 2px;
-}
-th {
-  text-align: left;
-
-}
 
 
 
