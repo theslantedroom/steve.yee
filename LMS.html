@@ -16,9 +16,7 @@
 
 <header>
 <!-- sex -->
-	<div class="floatingButton">
-		<button onclick="changeCharacter()"><span id="genderButtonM">Change Character</span></button>
-	</div>
+
 	<div class="floatingButton">
 		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy</span></button>
 	</div>
@@ -32,6 +30,11 @@
 		<p>Coming soon</p>
 		<label for="player1NameInput">Name: </label>
 		<input id="player1NameInput" type="text" placeholder="enter a name">
+			<div id="chooseCharacter">
+				<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
+				<div id="player1CharSelect"></div>
+				<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
+			</div>	
 		<button id="closeCharacterCreation">Continue to beta</button>
 
 	</div>

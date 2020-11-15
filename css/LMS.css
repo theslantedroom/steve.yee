@@ -13,7 +13,9 @@ body{
 	background-repeat: no-repeat;
 }
 
-
+#player1NameInput{
+	margin-bottom: 10px;
+}
 #characterCreation{
 	color: white;
 	background-image: url(../img/forestPath.jpg);
@@ -28,9 +30,45 @@ body{
 	left: 0px;
 	border: 10px solid black;
 	z-index: 1;
-
+	margin: auto;
 }
 
+#chooseCharacter{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#player1CharSelect{
+color: gold;
+background-position: center;
+width: 38vh;
+height: 58vh;
+position: relative;
+background-size: contain;
+background-repeat: no-repeat;
+margin: 10px;	
+}
+
+
+#player1PreviousCharacter{
+background-image: url(../img/arrow.png);
+background-size: cover;
+background-repeat: no-repeat;
+width: 10vh;
+height: 10vh;
+cursor: pointer;
+}
+
+#player1NextCharacter{
+background-image: url(../img/arrow.png);
+background-size: cover;
+background-repeat: no-repeat;
+transform: rotate(180deg);
+width: 10vh;
+height: 10vh;
+cursor: pointer;
+}
 
 .border{
 	border: 2px	solid grey;
@@ -97,6 +135,8 @@ color: red;
 
 
 }
+
+
 
 
 /*CHARCARDS*/

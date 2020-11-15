@@ -53,19 +53,41 @@ var currentEnemyCard = 3;
 
 //UI Interface
 
+var charCreationPickCharacter = document.getElementById("characterCreation");
+var player1CharSelect = document.getElementById("player1CharSelect");
 var characterCreationButton = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
 
+
+
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
-	document.getElementById("characterCreation").style.visibility = "hidden";
 	player1.name = player1NameInput.value;
-	var player1Namep = document.createElement("div");
+	var player1Namep = document.createElement("div"); //place name on card
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
+	charCreationPickCharacter.style.visibility = "hidden";
 	refresh();
 });
 
+
+function player1previousCharacter(){	
+		currentCharCard -= 1;
+		if (currentCharCard == 0) {
+			currentCharCard = 32;
+		}
+		console.log('currentCharCard '+currentCharCard);
+		player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+};
+
+function player1NextCharacter(){	
+		currentCharCard += 1;
+		if (currentCharCard == 33) {
+			currentCharCard = 1;
+		}
+		console.log('currentCharCard '+currentCharCard);
+		player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+};
 
 
 // Visual components
@@ -142,13 +164,10 @@ function refresh(){
 
 // calculate Final Stats
 	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield + player1.armor + player1.defenseBonusSkill;
-
 	player1.damage =  player1.damageBonusWeapon + player1.damageBonusSkill;
-
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon;	
 
 // CARD UPDATES
-		// player1CharCard.innerHTML = player1.name;
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
@@ -188,11 +207,7 @@ refresh();
 
 // BOOTUP
 player1HealthCounter.innerHTML = player1.health;
-
-// CharacterCreation
-
-
-
+player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 
 
 // START
@@ -499,14 +514,7 @@ function player1Dead(){
 		console.log('player dead');
 };
 
-function changeCharacter(){	
-		currentCharCard += 1;
-		if (currentCharCard >= 33) {
-			currentCharCard = 1;
-		}
-		console.log('currentCharCard '+currentCharCard);
-		refresh();	
-};
+
 
 function changeEnemy(){
 		currentEnemyCard += 1;
