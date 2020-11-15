@@ -51,6 +51,23 @@ var attackDamageE = 0;
 var currentCharCard = 1;
 var currentEnemyCard = 3;
 
+//UI Interface
+
+var characterCreationButton = document.getElementById("closeCharacterCreation");
+var player1NameInput = document.getElementById("player1NameInput");
+
+characterCreationButton.addEventListener("click", function(){
+	console.log(player1NameInput.value);
+	document.getElementById("characterCreation").style.visibility = "hidden";
+	player1.name = player1NameInput.value;
+	var player1Namep = document.createElement("div");
+	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
+	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
+	refresh();
+});
+
+
+
 // Visual components
 var player1CharCard = document.getElementById("player1CharCard");
 var player1HealthCard = document.getElementById('player1HealthCard');
@@ -131,7 +148,7 @@ function refresh(){
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon;	
 
 // CARD UPDATES
-
+		// player1CharCard.innerHTML = player1.name;
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
@@ -174,9 +191,9 @@ player1HealthCounter.innerHTML = player1.health;
 
 // CharacterCreation
 
-function closeCharacterCreation(){
-	document.getElementById("characterCreation").style.visibility = "hidden";
-};
+
+
+
 
 // START
 function start(){

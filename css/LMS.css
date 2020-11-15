@@ -102,8 +102,8 @@ color: red;
 /*CHARCARDS*/
 
 #player1CharCard{
+color: gold;
 background-position: center;
-/*border: 3px solid red;*/
 width: 26vh;
 height: 40vh;
 position: relative;
