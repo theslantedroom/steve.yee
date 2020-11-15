@@ -1,3 +1,9 @@
+header{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
 body{
 	position: relative;
 	height: 100vh;
@@ -5,15 +11,20 @@ body{
 	background-image: url(../img/forestPath.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
+}
 
+
+#characterCreation{
+	background-color: grey;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	bottom: 20px;
+	left: 20px;
+	z-index: 1;
 
 }
 
-header{
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
-}
 
 .border{
 	border: 2px	solid grey;
@@ -84,7 +95,7 @@ color: red;
 
 /*CHARCARDS*/
 
-#player1{
+#player1CharCard{
 background-position: center;
 /*border: 3px solid red;*/
 width: 26vh;

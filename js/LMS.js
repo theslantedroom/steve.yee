@@ -23,8 +23,8 @@ var player1 = {
 	defense: 0,
 };
 
-var enemy = {
-	name: 'Zombie',
+var enemy1 = {
+	name: 'peasant fool',
 	alive: true,
 	health: 20,
 	defense: 6,
@@ -52,7 +52,7 @@ var currentCharCard = 1;
 var currentEnemyCard = 3;
 
 // Visual components
-var player1CharCard = document.getElementById("player1");
+var player1CharCard = document.getElementById("player1CharCard");
 var player1HealthCard = document.getElementById('player1HealthCard');
 var player1DamageCard = document.getElementById('player1DamageCard');
 var player1Weapon1Card = document.getElementById('player1Weapon1Card');
@@ -70,6 +70,9 @@ var enemy1CharCard = document.getElementById("enemy1Idle");
 var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
 
 // TABLE Stats 
+var player1Name = document.getElementById("player1Name");
+var enemyName = document.getElementById("enemyName");
+
 var tableKillScore = document.getElementById("tableKillScore");
 var tableDeathScore = document.getElementById("tableDeathScore");
 var tableHighScore = document.getElementById("tableHighScore");
@@ -141,7 +144,7 @@ function refresh(){
 		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1AttackBonus + ".jpg')";
 		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1DefenseBonus + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
-		enemy1HealthCounter.innerHTML = enemy.health;	
+		enemy1HealthCounter.innerHTML = enemy1.health;	
 
 // Damage popup images
 
@@ -149,6 +152,8 @@ function refresh(){
 		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";	
 
 // TABLE		
+		player1Name.innerHTML = player1.name;
+		enemyName.innerHTML = enemy1.name;
 		tableKillScore.innerHTML = killCount;
 		tableDeathScore.innerHTML = deathCount;
 		tableHighScore.innerHTML = highScore;
@@ -161,7 +166,7 @@ function refresh(){
 		tablePlayer1Weapon2.innerHTML = player1.weapon2;
 		tablePlayer1Armor.innerHTML = player1.armor;
 		
-		tableEnemyWeapon.innerHTML = enemy.weapon;
+		tableEnemyWeapon.innerHTML = enemy1.weapon;
 };
 
 refresh();
@@ -415,8 +420,8 @@ function logSlideE(){
 function nextEnemy(){
 	console.log('next enemy');
 	PopUpEnemy1Dead.className = "hidden";
-	enemy.health = 20;
-	enemy1HealthCounter.innerHTML = enemy.health;
+	enemy1.health = 20;
+	enemy1HealthCounter.innerHTML = enemy1.health;
 	logSlideRollResult.innerHTML = '...';
 	logSlideResultLine2.innerHTML = 'You look around..';
 	logSlideResultLine3.innerHTML = "and see an angry peasant";
@@ -445,14 +450,24 @@ function enemy1AttackDone(){
 
 function enemy1Dead(){
 	killCount = killCount + 1;
-	enemy.health = 0;
+	enemy1.health = 0;
 	tableKillScore.innerHTML = killCount;
 	nextEnemyKillCount.innerHTML = killCount;
-	enemy1HealthCounter.innerHTML = enemy.health;
+	enemy1HealthCounter.innerHTML = enemy1.health;
 	PopUpEnemy1Dead.className = "visibleBlock";
 	console.log('enemydead()logged');
-	
+};
 
+function player1Dead(){
+		deathCount = deathCount + 1;
+		player1HealthCounter.innerHTML = player1.health;
+		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
+		deathCountPopup.innerHTML = deathCount;
+		finalScorePopup.innerHTML = killCount;
+		tableDeathScore.innerHTML = deathCount;
+		slideLogSlideE.className = "hidden";
+		slidePlayer1Dead.className = "visibleBlock";
+		console.log('player dead');
 };
 
 function changeCharacter(){	
@@ -487,7 +502,7 @@ function player1AttackRoll(){
 	console.log('player1AttackRoll ' + attackRoll);
 	logSlideRollResult.innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
 // HIT enemy 
-	if (attackRoll > (enemy.defense - player1.attack) && attackRoll != 20) {
+	if (attackRoll > (enemy1.defense - player1.attack) && attackRoll != 20) {
 		slidePlayer1Hit.className = "visibleBlock";
 		player1DamageAttackRoll.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 		console.log('hit enemy');
@@ -497,7 +512,7 @@ function player1AttackRoll(){
 		console.log('critical hit on enemy');
 		
 //MISS
-	} else if (attackRoll <= enemy.defense - player1.attack)	{
+	} else if (attackRoll <= enemy1.defense - player1.attack)	{
 		slideLogSlide.className = "visibleBlock";
 		logSlideResultLine2.innerHTML = 'Miss';
 		logSlideResultLine3.innerHTML = "pathetic...";
@@ -513,18 +528,18 @@ function player1Damage(){
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
 		attackDamage = player1weapon1Damage + player1weapon2Damage;
-		enemy.health = enemy.health - attackDamage;
-		enemy.health = enemy.health - player1.damage;
+		enemy1.health = enemy1.health - attackDamage;
+		enemy1.health = enemy1.health - player1.damage;
 
 		logSlideRollResult.innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (bonus)';
 		logSlideResultLine2.innerHTML = 'a deep wound';
-		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy.health;
+		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy1.health;
 
-		enemy1HealthCounter.innerHTML = enemy.health;
+		enemy1HealthCounter.innerHTML = enemy1.health;
 		console.log('player1 deals ' + player1weapon1Damage + ' ' + player1weapon2Damage +' = '+ attackDamage +' damage');
 		
 // Killed Enemy
-		if (enemy.health <= 0) {
+		if (enemy1.health <= 0) {
 		slideLogSlide.className = "hidden";	
 		slideKillLog.className = "visibleBlock";
 		
@@ -543,18 +558,18 @@ function player1Critical(){
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage);
-		enemy.health = enemy.health - (attackDamage);
-		enemy.health = enemy.health - player1.damage;
+		enemy1.health = enemy1.health - (attackDamage);
+		enemy1.health = enemy1.health - player1.damage;
 
 		logSlideRollResult.innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons)';
 		logSlideResultLine2.innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
-		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy.health + ' health';
+		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy1.health + ' health';
 
-		enemy1HealthCounter.innerHTML = enemy.health;
+		enemy1HealthCounter.innerHTML = enemy1.health;
 		console.log('player1 deals crit (' + player1weapon1Damage + ' ' + player1weapon2Damage +') x 2 = '+ attackDamage +' damage');
 
 // killed him Critical
-	if (enemy.health <= 0) {
+	if (enemy1.health <= 0) {
 		slidePlayer1Critical.className = "hidden";
 		slideLogSlide.className = "hidden";
 		slideKillLog.className = "visibleBlock";
@@ -563,7 +578,6 @@ function player1Critical(){
 		damageResultLine2K.innerHTML = 'CRITICAL HIT - Great Glory';
 		damageResultLine3K.innerHTML = 'Your blow DOUBLES to ' + (attackDamage) +' and kills the enemy';
 		
-	
 		enemy1Dead();
 		console.log('killed enemy with Crit');
 	};	
@@ -575,6 +589,7 @@ function player1Critical(){
 function enemyAttack(){
 	enemy1AttackDone();
 	slideEnemy1Turn.className = "hidden";
+	slideLogSlideE.className = "visibleBlock";
 	attackRollE = Math.floor((Math.random() * 20) + 1);
 
 	// attackRollE = 20; 
@@ -583,52 +598,38 @@ function enemyAttack(){
 	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE;
 
 // hit player
-	if (attackRollE > player1.defense && attackRollE != 20) {
-		console.log("hit player with attackroll " + attackRollE);
-		logSlideResultLine2E.innerHTML = 'OUCH!!';
-
-		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
-		console.log('enemy deals ' + attackDamageE +' Damage');
+	if (attackRollE > player1.defense && attackRollE != 20) {	
+		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
 		player1.health = player1.health - attackDamageE;
-
-		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.health;
-		player1HealthCounter.innerHTML = player1.health;	
-		slideLogSlideE.className = "visibleBlock";
-
-		// CRIT
-	} else if (attackRollE == 20) {
-		console.log("Enemy deals critical hit");
-		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
-
-		// Enemy Deals damage
-		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
-		console.log(attackDamageE + ' x 2 player Damage');
-		player1.health = player1.health - (attackDamageE*2);
-
-		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
 		player1HealthCounter.innerHTML = player1.health;
-		slideLogSlideE.className = "visibleBlock";
+
+		logSlideResultLine2E.innerHTML = 'OUCH!!';
+		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.health;
+	
+		console.log("hit player with attackroll " + attackRollE);
+		console.log('enemy deals ' + attackDamageE +' Damage');
+	
+// CRIT
+	} else if (attackRollE == 20) {
+		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
+		player1.health = player1.health - (attackDamageE*2);
+		player1HealthCounter.innerHTML = player1.health;
+
+		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
+		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
+
+		console.log("Enemy deals critical hit");
+		console.log(attackDamageE + ' x 2 player Damage');
 
 //enemy miss
-	} else if (attackRollE <= player1.defense)	{
-		console.log(" enemy miss with " + attackRollE);
+	} else if (attackRollE <= player1.defense)	{	
 		logSlideResultLine2E.innerHTML = 'Enemy misses..';
 		logSlideResultLine3E.innerHTML = "lucky for you";
-		slideLogSlideE.className = "visibleBlock";
+		console.log(" enemy miss with " + attackRollE);
 	};
 
 	// killed player dead
 	if (player1.health <= 0) {
-		deathCount = deathCount + 1;
-		// player1.health = 0;
-
-		player1HealthCounter.innerHTML = player1.health;
-		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
-		deathCountPopup.innerHTML = deathCount;
-		finalScorePopup.innerHTML = killCount;
-		tableDeathScore.innerHTML = deathCount;
-		slideLogSlideE.className = "hidden";
-		slidePlayer1Dead.className = "visibleBlock";
-		console.log('player dead');
+		player1Dead();
 	};
 };
