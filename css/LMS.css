@@ -139,13 +139,53 @@ z-index: 1;
 transform: rotate(-20deg);
 }
 
-
-.goBack{
-	bottom: 00px;
-	width: 70px;
-
-	padding: 10px;
+#slideStart{
 }
+
+#slidePlayer1Turn{
+	display: none;
+}
+
+#slidePlayer1Turn{
+	display: none;
+}
+
+#slidePlayer1Hit{
+	display: none;
+}
+
+#slidePlayer1Critical{
+	display: none;
+}
+
+#slideLogSlide{
+	display: none;
+}
+
+#slideLogSlideE{
+	display: none;
+}
+
+#slideEnemy1Turn{
+	display: none;
+}
+
+#slideKillLog{
+	display: none;
+}
+
+#slideNextEnemy{
+	display: none;
+}
+
+#slidePlayer1Dead{
+	display: none;
+}
+
+
+
+
+
 
 .form{
 	background-color: grey;
@@ -156,13 +196,11 @@ transform: rotate(-20deg);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-
 }
-.healthButton{
 
+.healthButton{
 	padding: 10px;
 }
-
 
 
 #rollResult{
@@ -456,6 +494,7 @@ transform: rotate(-20deg);
 	top: 14%;
     left: -57%;
     transform: rotate(30deg);
+    display: none;
 }
 
 
@@ -494,4 +533,11 @@ transform: rotate(-20deg);
 
 .visibleBlock{
 	display: 	block;
+}
+
+
+.goBack{
+	bottom: 00px;
+	width: 70px;
+	padding: 10px;
 }

@@ -30,6 +30,8 @@
 	<div id="characterCreation">
 		<h1>Character Creation</h1>
 		<p>Coming soon</p>
+
+
 		<button onclick="closeCharacterCreation()">Continue to beta</button>
 
 	</div>
@@ -50,7 +52,7 @@
 				<!-- Enemy Card -->
 				<div id="enemy1Idle">
 					<div id="enemyHealthCounter"></div>
-					<div id="PopUpEnemy1Dead" class="hidden"></div>
+					<div id="PopUpEnemy1Dead"></div>
 				</div>
 	</div>
 
@@ -66,14 +68,14 @@
 		</div>
 
 
-		<div id="slidePlayer1Turn" class="hidden">
+		<div id="slidePlayer1Turn">
 			<div class="lighter"><p>-</p></div>
 			<div><p>-</p></div>
 			<div><p>You stand ready..</p></div>
 			<div class=""><button onclick="player1AttackRoll()">ATTACK</button></div>
 		</div>
 
-		<div id="slidePlayer1Hit" class="hidden">
+		<div id="slidePlayer1Hit">
 			<div class="lighter"><p id="player1DamageAttackRoll"></p></div>
 			<div><p>you hit</p></div>
 			<div><p>Roll your damage</p></div>
@@ -83,7 +85,7 @@
 				</div>
 		</div>
 
-		<div id="slidePlayer1Critical" class="hidden">
+		<div id="slidePlayer1Critical">
 			<div class="lighter"><p>You Rolled 20!</p></div>
 			<div><p>CRITICAL HIT!</p></div>
 			<div><p>Roll for double damage</p></div>
@@ -93,7 +95,7 @@
 				</div>
 		</div>
 
-		<div id="slideLogSlide" class="hidden">
+		<div id="slideLogSlide">
 			<div class="lighter"><p id="rollResult">....</p> </div>
 			<div><p id="resultLine2">....</p></div>
 			<div><p id="resultLine3">....</p></div>
@@ -104,7 +106,7 @@
 				</div>
 		</div>
 
-		<div id="slideLogSlideE" class="hidden">
+		<div id="slideLogSlideE">
 			<div class="lighter"><p id="rollResultE">...</p> </div>
 			<div><p id="resultLine2E">....</p></div>
 			<div><p id="resultLine3E">....loge.</p></div>
@@ -112,27 +114,27 @@
 		</div>
 
 
-		<div id="slideEnemy1Turn" class="hidden">
+		<div id="slideEnemy1Turn">
 			<div class="lighter"><p>-</p></div>
 			<div><p>-</p></div>
 			<div><p>The enemy attacks</p></div>
 			<div class=""><button onclick="enemyAttack()">Brace your self</button></div>
 		</div>
 
-		<div id="slideKillLog" class="hidden">
+		<div id="slideKillLog">
 			<div class="lighter"><p id="damageRollResultK">...</p> </div>
 			<div><p id="damageResultLine2K">....</p></div>
 			<div><p id="damageResultLine3K">....</p></div>
 			<div class=""><button onclick="nextEnemy()">continue...</button></div>
 		</div>
 
-		<div id="slideNextEnemy" class="hidden">
+		<div id="slideNextEnemy">
 		<p>Another one aproaches. <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
 		</div>
 
 	
 		
-		<div id="slidePlayer1Dead" class="hidden">
+		<div id="slidePlayer1Dead">
 		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathCountPopup"></span> times</p>
 		<p>Kill Count = <span id="finalScorePopup"></span></p>
 		</div>

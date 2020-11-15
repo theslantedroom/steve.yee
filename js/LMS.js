@@ -181,9 +181,11 @@ function closeCharacterCreation(){
 // START
 function start(){
 	console.log('start');
-	slideStart.className = "hidden";
-	slidePlayer1Turn.className = "visibleBlock";
+	slideStart.style.display = "none";
+	slidePlayer1Turn.style.display = "block";
+
 };
+
 
 function nextArmor(){
 	player1Armor += 1;
@@ -394,11 +396,12 @@ function tryAgain(){
 	killCount = 0;
 	player1.health = 20;
 	player1HealthCounter.innerHTML = player1.health;
-	slidePlayer1Dead.className = "hidden";
-	slideLogSlideE.className = "hidden";
-	slideNextEnemy.className = "hidden";
-	slidePlayer1Turn.className = "hidden";
-	slideStart.className = "visibleBlock";
+	slidePlayer1Dead.style.display = "none";
+	slideLogSlideE.style.display = "none";
+	slideNextEnemy.style.display = "none";
+	slidePlayer1Turn.style.display = "none";
+	slideStart.style.display = "block";
+
 
 	tableDeathScore.innerHTML = deathCount;
 	tableKillScore.innerHTML = killCount;
@@ -408,35 +411,39 @@ function tryAgain(){
 
 function logSlide(){
 	console.log('logSlide close / open "enemyTurn"');
-	slideLogSlide.className = "hidden";
-	slideEnemy1Turn.className = "visibleBlock";
+	slideLogSlide.style.display = "none";
+	slideEnemy1Turn.style.display = "block";
+
 	enemy1Attack();
 };
 
 function logSlideE(){
 	console.log('logSlideE close / open "player1Turn"');
-	slideLogSlideE.className = "hidden";
-	slidePlayer1Turn.className = "visibleBlock";
+	slideLogSlideE.style.display = "none";
+	slidePlayer1Turn.style.display = "block";
+
 };
 
 // next enemy popup
 function nextEnemy(){
 	console.log('next enemy');
-	PopUpEnemy1Dead.className = "hidden";
+	PopUpEnemy1Dead.style.display = "none";
 	enemy1.health = 20;
 	enemy1HealthCounter.innerHTML = enemy1.health;
 	logSlideRollResult.innerHTML = '...';
 	logSlideResultLine2.innerHTML = 'You look around..';
 	logSlideResultLine3.innerHTML = "and see an angry peasant";
-	slideNextEnemy.className = "visibleBlock";
-	slideKillLog.className = "hidden";
+	slideNextEnemy.style.display = "block";
+
+	slideKillLog.style.display = "none";
 	tableDeathScore.innerHTML = deathCount;
 	tableKillScore.innerHTML = killCount;
 };
 
 function fightNext(){
-	slidePlayer1Turn.className = "visibleBlock";
-	slideNextEnemy.className = "hidden";
+	slidePlayer1Turn.style.display = "block";
+
+	slideNextEnemy.style.display = "none";
 };
 
 function enemy1Attack(){
@@ -457,7 +464,8 @@ function enemy1Dead(){
 	tableKillScore.innerHTML = killCount;
 	nextEnemyKillCount.innerHTML = killCount;
 	enemy1HealthCounter.innerHTML = enemy1.health;
-	PopUpEnemy1Dead.className = "visibleBlock";
+	PopUpEnemy1Dead.style.display = "block";
+
 	console.log('enemydead()logged');
 };
 
@@ -468,8 +476,9 @@ function player1Dead(){
 		deathCountPopup.innerHTML = deathCount;
 		finalScorePopup.innerHTML = killCount;
 		tableDeathScore.innerHTML = deathCount;
-		slideLogSlideE.className = "hidden";
-		slidePlayer1Dead.className = "visibleBlock";
+		slideLogSlideE.style.display = "none";
+		slidePlayer1Dead.style.display = "block";
+
 		console.log('player dead');
 };
 
@@ -497,7 +506,7 @@ function changeEnemy(){
 
 // PLAYER ATTACK
 function player1AttackRoll(){
-	slidePlayer1Turn.className = "hidden"; //you stand ready 
+	slidePlayer1Turn.style.display = "none"; //you stand ready 
 	attackRoll = Math.floor((Math.random() * 20) + 1);
 	// attackRoll = 20;
 
@@ -506,17 +515,20 @@ function player1AttackRoll(){
 	logSlideRollResult.innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
 // HIT enemy 
 	if (attackRoll > (enemy1.defense - player1.attack) && attackRoll != 20) {
-		slidePlayer1Hit.className = "visibleBlock";
+		slidePlayer1Hit.style.display = "block";
+
 		player1DamageAttackRoll.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 		console.log('hit enemy');
 // CRIT
 	} else if (attackRoll == 20) {
-		slidePlayer1Critical.className = "visibleBlock"; 
+		slidePlayer1Critical.style.display = "block";
+ 
 		console.log('critical hit on enemy');
 		
 //MISS
 	} else if (attackRoll <= enemy1.defense - player1.attack)	{
-		slideLogSlide.className = "visibleBlock";
+		slideLogSlide.style.display = "block";
+
 		logSlideResultLine2.innerHTML = 'Miss';
 		logSlideResultLine3.innerHTML = "pathetic...";
 		console.log(" player1 miss with " + attackRoll);
@@ -526,8 +538,9 @@ function player1AttackRoll(){
 };
 
 function player1Damage(){	
-		slidePlayer1Hit.className = "hidden";
-		slideLogSlide.className = "visibleBlock";
+		slidePlayer1Hit.style.display = "none";
+		slideLogSlide.style.display = "block";
+
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
 		attackDamage = player1weapon1Damage + player1weapon2Damage;
@@ -543,8 +556,9 @@ function player1Damage(){
 		
 // Killed Enemy
 		if (enemy1.health <= 0) {
-		slideLogSlide.className = "hidden";	
-		slideKillLog.className = "visibleBlock";
+		slideLogSlide.style.display = "none";	
+		slideKillLog.style.display = "block";
+
 		
 		damageRollResultK.innerHTML = 'Your damage roll is ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' damage';
 		damageResultLine2K.innerHTML = 'oh the Blood!!';
@@ -556,8 +570,9 @@ function player1Damage(){
 };
 
 function player1Critical(){
-		slidePlayer1Critical.className = "hidden";
-		slideLogSlide.className = "visibleBlock";
+		slidePlayer1Critical.style.display = "none";
+		slideLogSlide.style.display = "block";
+
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage);
@@ -573,9 +588,10 @@ function player1Critical(){
 
 // killed him Critical
 	if (enemy1.health <= 0) {
-		slidePlayer1Critical.className = "hidden";
-		slideLogSlide.className = "hidden";
-		slideKillLog.className = "visibleBlock";
+		slidePlayer1Critical.style.display = "none";
+		slideLogSlide.style.display = "none";
+		slideKillLog.style.display = "block";
+
 		
 		damageRollResultK.innerHTML = 'Your damage roll is (' + player1weapon1Damage + ' + ' + player1weapon2Damage +') = ' + (attackDamage / 2) ;
 		damageResultLine2K.innerHTML = 'CRITICAL HIT - Great Glory';
@@ -591,8 +607,9 @@ function player1Critical(){
 //enemy ATTACK
 function enemyAttack(){
 	enemy1AttackDone();
-	slideEnemy1Turn.className = "hidden";
-	slideLogSlideE.className = "visibleBlock";
+	slideEnemy1Turn.style.display = "none";
+	slideLogSlideE.style.display = "block";
+
 	attackRollE = Math.floor((Math.random() * 20) + 1);
 
 	// attackRollE = 20; 
