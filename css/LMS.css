@@ -20,7 +20,6 @@ justify-content: center;
 }
 
 
-
 .playArea{
 
 box-sizing: border-box;
@@ -82,31 +81,6 @@ color: red;
 
 }
 
-
-/*TABLE*/
-
-#table {
-	font-size: 9px;
-/*	background-image: url(../img/forestPath.jpg);
-	background-size: cover;*/
- 	padding: 1px;
- 	height: 10vh;
- 	width: 100%;
- 	margin-top: 1px;
- 	color: white;
-	}
-
-	table, th, td {
-	  border: 1px solid black;
-	  border-collapse: collapse;
-	}
-	th, td {
-	  padding: 2px;
-	}
-	th {
-	  text-align: left;
-
-	}
 
 /*CHARCARDS*/
 
@@ -171,8 +145,6 @@ transform: rotate(-20deg);
 
 	padding: 10px;
 }
-
-
 
 
 
@@ -471,9 +443,30 @@ transform: rotate(-20deg);
 
 
 
+/*TABLE*/
 
+#table {
+	font-size: 9px;
+/*	background-image: url(../img/forestPath.jpg);
+	background-size: cover;*/
+ 	padding: 1px;
+ 	height: 10vh;
+ 	width: 100%;
+ 	margin-top: 1px;
+ 	color: white;
+	}
 
+	table, th, td {
+	  border: 1px solid black;
+	  border-collapse: collapse;
+	}
+	th, td {
+	  padding: 2px;
+	}
+	th {
+	  text-align: left;
 
+	}
 
 
 /*toggle hidden*/

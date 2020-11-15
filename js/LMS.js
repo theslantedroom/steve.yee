@@ -104,7 +104,7 @@ var logSlideRollResultE = document.getElementById("rollResultE");
 var logSlideResultLine2E = document.getElementById("resultLine2E");
 var logSlideResultLine3E = document.getElementById("resultLine3E");
 
-var damageRollResultK = document.getElementById("rollResultK");
+var damageRollResultK = document.getElementById("damageRollResultK");
 var damageResultLine2K = document.getElementById("damageResultLine2K");
 var damageResultLine3K= document.getElementById("damageResultLine3K");
 
@@ -115,9 +115,6 @@ var deathCountPopup = document.getElementById("deathCountPopup");
 var finalScorePopup = document.getElementById("finalScore");
 var player1DamageLog = document.getElementById("player1DamageLog");
 var player1CriticalLog = document.getElementById("player1CriticalLog");
-
-
-
 
 
 
@@ -470,74 +467,11 @@ function changeEnemy(){
 
 
 
-//enemy ATTACK
-function enemyAttack(){
-	enemy1AttackDone();
-	slideEnemy1Turn.className = "hidden";
-	attackRollE = Math.floor((Math.random() * 20) + 1);
-
-	// attackRollE = 20; 
-
-	console.log('enemy Attackroll ' + attackRollE);
-	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE;
-
-// hit player
-	if (attackRollE > player1.defense && attackRollE != 20) {
-		console.log("hit player with attackroll " + attackRollE);
-		logSlideResultLine2E.innerHTML = 'OUCH!!';
-
-		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
-		console.log('enemy deals ' + attackDamageE +' Damage');
-		player1.health = player1.health - attackDamageE;
-
-		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.health;
-		player1HealthCounter.innerHTML = player1.health;	
-		slideLogSlideE.className = "visibleBlock";
-
-		// CRIT
-	} else if (attackRollE == 20) {
-		console.log("Enemy deals critical hit");
-		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
-
-		// Enemy Deals damage
-		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
-		console.log(attackDamageE + ' x 2 player Damage');
-		player1.health = player1.health - (attackDamageE*2);
-
-		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
-		player1HealthCounter.innerHTML = player1.health;
-		slideLogSlideE.className = "visibleBlock";
-
-//enemy miss
-	} else if (attackRollE <= player1.defense)	{
-		console.log(" enemy miss with " + attackRollE);
-		logSlideResultLine2E.innerHTML = 'Enemy misses..';
-		logSlideResultLine3E.innerHTML = "lucky for you";
-		slideLogSlideE.className = "visibleBlock";
-	};
-
-	// killed player dead
-	if (player1.health <= 0) {
-		deathCount = deathCount + 1;
-		// player1.health = 0;
-
-		player1HealthCounter.innerHTML = player1.health;
-		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
-		deathCountPopup.innerHTML = deathCount;
-		finalScorePopup.innerHTML = killCount;
-		tableDeathScore.innerHTML = deathCount;
-		slideLogSlideE.className = "hidden";
-		slidePlayer1Dead.className = "visibleBlock";
-		console.log('player dead');
-	};
-};
-
-
 
 
 // PLAYER ATTACK
 function player1AttackRoll(){
-	slidePlayer1Turn.className = "hidden";
+	slidePlayer1Turn.className = "hidden"; //you stand ready 
 	attackRoll = Math.floor((Math.random() * 20) + 1);
 	// attackRoll = 20;
 
@@ -546,26 +480,22 @@ function player1AttackRoll(){
 	logSlideRollResult.innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
 // HIT enemy
 	if (attackRoll > (enemy.defense - player1.attack) && attackRoll != 20) {
-		console.log('hit enemy');
-
-		player1DamageLog.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 		slidePlayer1Damage.className = "visibleBlock";
-		slidePlayer1Turn.className = "hidden";
-	
-
+		console.log('hit enemy');
+		player1DamageLog.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 // CRIT
 	} else if (attackRoll == 20) {
-		console.log('critical hit on enemy');
-		player1CriticalLog.innerHTML = 'You rolled 20';
 		slidePlayer1Critical.className = "visibleBlock";
-		slidePlayer1Turn.className = "hidden";
+		player1CriticalLog.innerHTML = 'You rolled 20';
+		console.log('critical hit on enemy');
 		
 //MISS
 	} else if (attackRoll <= enemy.defense)	{
-		console.log(" player1 miss with " + attackRoll);
+		slideLogSlide.className = "visibleBlock";
 		logSlideResultLine2.innerHTML = 'Miss';
 		logSlideResultLine3.innerHTML = "pathetic...";
-		slideLogSlide.className = "visibleBlock";
+		
+		console.log(" player1 miss with " + attackRoll);
 	};
 
 
@@ -649,3 +579,64 @@ function player1Critical(){
 
 
 
+//enemy ATTACK
+function enemyAttack(){
+	enemy1AttackDone();
+	slideEnemy1Turn.className = "hidden";
+	attackRollE = Math.floor((Math.random() * 20) + 1);
+
+	// attackRollE = 20; 
+
+	console.log('enemy Attackroll ' + attackRollE);
+	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE;
+
+// hit player
+	if (attackRollE > player1.defense && attackRollE != 20) {
+		console.log("hit player with attackroll " + attackRollE);
+		logSlideResultLine2E.innerHTML = 'OUCH!!';
+
+		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
+		console.log('enemy deals ' + attackDamageE +' Damage');
+		player1.health = player1.health - attackDamageE;
+
+		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.health;
+		player1HealthCounter.innerHTML = player1.health;	
+		slideLogSlideE.className = "visibleBlock";
+
+		// CRIT
+	} else if (attackRollE == 20) {
+		console.log("Enemy deals critical hit");
+		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
+
+		// Enemy Deals damage
+		attackDamageE = Math.floor((Math.random() * enemy.weapon) + 1);
+		console.log(attackDamageE + ' x 2 player Damage');
+		player1.health = player1.health - (attackDamageE*2);
+
+		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
+		player1HealthCounter.innerHTML = player1.health;
+		slideLogSlideE.className = "visibleBlock";
+
+//enemy miss
+	} else if (attackRollE <= player1.defense)	{
+		console.log(" enemy miss with " + attackRollE);
+		logSlideResultLine2E.innerHTML = 'Enemy misses..';
+		logSlideResultLine3E.innerHTML = "lucky for you";
+		slideLogSlideE.className = "visibleBlock";
+	};
+
+	// killed player dead
+	if (player1.health <= 0) {
+		deathCount = deathCount + 1;
+		// player1.health = 0;
+
+		player1HealthCounter.innerHTML = player1.health;
+		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
+		deathCountPopup.innerHTML = deathCount;
+		finalScorePopup.innerHTML = killCount;
+		tableDeathScore.innerHTML = deathCount;
+		slideLogSlideE.className = "hidden";
+		slidePlayer1Dead.className = "visibleBlock";
+		console.log('player dead');
+	};
+};
