@@ -427,7 +427,7 @@ transform: rotate(-20deg);
 }
 
 
-#enemy1Dead{
+#PopUpEnemy1Dead{
 	position: absolute;
 	background-image: url(../img/dead.jpg);
 	background-size: 100%;
