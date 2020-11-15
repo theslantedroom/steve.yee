@@ -42,17 +42,17 @@
 				<div id="player1">
 					<div id="player1HealthCounter"></div>
 					<div id="player1DefenseCounter"></div>
-					<div id="player1Weapon" onclick="nextWeapon()"></div>
-					<div id="player1Weapon2" onclick="nextWeapon2()"></div>
-					<div id="player1Armor" onclick="nextArmor()"></div>
-					<div id="player1HealthBonus" onclick="nextHealthBonus()"></div>
-					<div id="player1DamageBonus" onclick="nextDamageBonus()"></div>
-					<div id="player1AttackBonus" onclick="nextAttackBonus()"></div>
-					<div id="player1DefenseBonus" onclick="nextDefenseBonus()"></div>
+					<div id="player1Weapon1Card" onclick="nextWeapon()"></div>
+					<div id="player1Weapon2Card" onclick="nextWeapon2()"></div>
+					<div id="player1ArmorCard" onclick="nextArmor()"></div>
+					<div id="player1HealthCard" onclick="nextHealthBonus()"></div>
+					<div id="player1DamageCard" onclick="nextDamageBonus()"></div>
+					<div id="player1AttackCard" onclick="nextAttackBonus()"></div>
+					<div id="player1DefenseCard" onclick="nextDefenseBonus()"></div>
 				</div>
 			
 				<!-- Enemy Card -->
-				<div id="enemy1">
+				<div id="enemy1Idle">
 					<div id="enemyHealthCounter"></div>
 					<div id="enemy1Dead" class="hidden"></div>
 				</div>
@@ -102,19 +102,19 @@
 
 		<div id="logSlide" class="hidden">
 			<div class="lighter"><p id="rollResult">you connect a solid blow</p> </div>
-			<div><p id="result">....</p></div>
-			<div><p id="tvLog">....</p></div>
+			<div><p id="resultLine2">....</p></div>
+			<div><p id="resultLine3">....</p></div>
 			<div class=""><button onclick="logSlide()">continue to enemy turn...</button></div>
 				<div id="logWeaponPopupCard">
-					<div class="animate__animated animate__rubberBand" id="logWeaponPopUp"></div>
+					<div class="animate__animated animate__rubberBand" id="logWeapon1PopUp"></div>
 					<div class="animate__animated animate__rubberBand" id="logWeapon2PopUp"></div>
 				</div>
 		</div>
 
 		<div id="logSlideE" class="hidden">
 			<div class="lighter"><p id="rollResultE">...</p> </div>
-			<div><p id="resultE">....</p></div>
-			<div><p id="tvLogE">....loge.</p></div>
+			<div><p id="resultLine2E">....</p></div>
+			<div><p id="resultLine3E">....loge.</p></div>
 			<div class=""><button onclick="logSlideE()">continue to your turn...</button></div>
 		</div>
 
@@ -127,20 +127,20 @@
 		</div>
 
 		<div id="killLog" class="hidden">
-			<div class="lighter"><p id="rollResultK">...</p> </div>
-			<div><p id="resultK">....</p></div>
-			<div><p id="tvLogK">killloge.</p></div>
+			<div class="lighter"><p id="damageRollResultK">...</p> </div>
+			<div><p id="damageResultLine2K">....</p></div>
+			<div><p id="damageResultLine3K">killloge.</p></div>
 			<div class=""><button onclick="nextEnemy()">continue...</button></div>
 		</div>
 
-		<div id="next" class="hidden">
+		<div id="nextEnemy" class="hidden">
 		<p>Another one aproaches. <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="killpopup"></span> enemies</p>
 		</div>
 
 	
 		
 		<div id="player1Dead" class="hidden">
-		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathPopup"></span> times</p>
+		<p>You Died<br> <button onclick="tryAgain()">Try Again</button><br>You have been killed <span id="deathCountPopup"></span> times</p>
 		<p>Kill Count = <span id="finalScore"></span></p>
 		</div>
 
@@ -195,7 +195,7 @@
 			  	<td></td>
 			    <td id=""></td>
 				<td id="">Weapon 1</td>
-				<td id="player1.weapon"></td>
+				<td id="player1.weapon1"></td>
 				<td id=""></td>
 			  </tr>
 

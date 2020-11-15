@@ -121,9 +121,8 @@ background-repeat: no-repeat;
 }
 
 
-#enemy1 {
+#enemy1Idle {
 background-position: center;
-
 /*border: 3px solid red;*/
 position: relative;
 width: 26vh;
@@ -147,7 +146,6 @@ right: 120px;
 bottom: 0px;
 z-index: 1;
 transform: rotate(-20deg);
-transition: right 1000ms;
 }
 
 
@@ -280,7 +278,7 @@ transition: right 1000ms;
      transform: rotate(-15deg);
 }
 
-#player1HealthBonus{
+#player1HealthCard{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -294,7 +292,7 @@ transition: right 1000ms;
     transform: rotate(4deg);
 }
 
-#player1DamageBonus{
+#player1DamageCard{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -310,7 +308,7 @@ transition: right 1000ms;
 
 
 
-#player1Weapon{
+#player1Weapon1Card{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -324,7 +322,7 @@ transition: right 1000ms;
     transform: rotate(5deg);
 }
 
-#player1Weapon2{
+#player1Weapon2Card{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -338,7 +336,7 @@ transition: right 1000ms;
     transform: rotate(3deg);
 }
 
-#player1Armor{
+#player1ArmorCard{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -353,7 +351,7 @@ transition: right 1000ms;
 
 }
 
-#player1AttackBonus{
+#player1AttackCard{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -367,7 +365,7 @@ transition: right 1000ms;
     transform: rotate(-13deg);
 }
 
-#player1DefenseBonus{
+#player1DefenseCard{
 	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
@@ -410,7 +408,7 @@ transition: right 1000ms;
 }
 
 
-#logWeaponPopUp{
+#logWeapon1PopUp{
 	margin: auto;
 	position: relative;
 	background-image: url(#);
