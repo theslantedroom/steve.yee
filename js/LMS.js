@@ -121,8 +121,6 @@ var finalScorePopup = document.getElementById("finalScorePopup");
 var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll");
 
 
-
-
 function refresh(){
 
 // calculate Final Stats
@@ -174,6 +172,11 @@ refresh();
 // BOOTUP
 player1HealthCounter.innerHTML = player1.health;
 
+// CharacterCreation
+
+function closeCharacterCreation(){
+	document.getElementById("characterCreation").style.visibility = "hidden";
+};
 
 // START
 function start(){
