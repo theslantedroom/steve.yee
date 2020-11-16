@@ -13,16 +13,24 @@ body{
 	background-repeat: no-repeat;
 }
 
+button {
+	padding: 20px;
+}
+
+.border{
+	border: 2px	solid grey;
+}
+
+
 #player1NameInput{
 	margin-bottom: 10px;
 }
 #characterCreation{
 	color: white;
-	background-image: url(../img/forestPath.jpg);
+	background-image: url(../img/BG.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	text-align: center;
-	background-color: grey;
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -70,13 +78,73 @@ height: 10vh;
 cursor: pointer;
 }
 
-.border{
-	border: 2px	solid grey;
+#market {
+	display: flex;
+	flex-direction: column;
+	background-image: url(../img/white.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	border: 10px solid black;
+	z-index: 1;
+	margin: auto;
+	display: none;
 }
 
+#storeItemsWeapons{
+	width: 100%;
+	display: none;
+}
+
+#storeItemsWeapons img{
+	border: 1px solid black;
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+}
+
+#storeItemsArmor{
+	width: 100%;
+	display: none;
+}
+
+#storeItemsArmor img{
+	border: 1px solid black;
+	width: 24%;
+	height: auto;
+	cursor: pointer;
+}
+
+#storeItemsTraining{
+	width: 100%;
+	/*display: flex;*/
+	display: none;
+
+}
+
+#storeItemsTraining img{
+	border: 1px solid black;
+	width: 24%;
+	height: auto;
+	cursor: pointer;
+}
+
+#closeMarket{
+	width: 100px;
+	padding: 20px;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -50px;
+
+}
 
 .playArea{
-
 box-sizing: border-box;
 margin: auto;
 padding: 10px;
@@ -88,10 +156,7 @@ width: 100%;
 height: 42vh;
 display: flex;
 justify-content: space-around;
-
 }
-
-
 
 
 /*rollbar*/

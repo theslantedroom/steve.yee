@@ -17,9 +17,9 @@
 <header>
 <!-- sex -->
 
-	<div class="floatingButton">
+<!-- 	<div class="floatingButton">
 		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy</span></button>
-	</div>
+	</div> -->
 
 </header>
 
@@ -27,13 +27,13 @@
 
 	<div id="characterCreation">
 		<h1>Character Creation</h1>
-		<p>Coming soon</p>
+		<p>Market Coming soon</p>
 		<label for="player1NameInput">Name: </label>
 		<input id="player1NameInput" type="text" placeholder="enter a name">
 			<div id="chooseCharacter">
 				<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
 					<div id="player1CharSelect">
-					<!-- 	<div id="ccplayer1HealthCounter"></div>
+				<!-- 	<div id="ccplayer1HealthCounter"></div>
 						<div id="ccplayer1DefenseCounter"></div>
 						<div id="ccplayer1Weapon1Card" onclick="nextWeapon()"></div>
 						<div id="ccplayer1Weapon2Card" onclick="nextWeapon2()"></div>
@@ -45,8 +45,121 @@
 					</div>
 				<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
 			</div>	
-		<button id="closeCharacterCreation">Continue to beta</button>
+			<h3>You have <span id="player1Gold"></span> gold.</h3>
+		<button id="closeCharacterCreation">Continue to beta</button><br>
+		<button id="gotoMarket" onclick="openMarket()">Market (in development)</button>
+	</div>
 
+
+	<div id="market">
+		<div>
+			<h1>MARKET</h1>
+			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
+			<button id="weaponStore" onclick="weaponStore()">Weapons</button>
+			<button id="armorStore" onclick="armorStore()">Armor</button>
+			<button id="trainingStore" onclick="trainingStore()">Training</button>
+		</div>
+
+		<div id="storeItemsWeapons">
+			<div id="oneHandedA">
+					<img src="img/market/w1.jpg" alt="">
+					<img src="img/market/w2.jpg" alt="">
+					<img src="img/market/w3.jpg" alt="">
+					<img src="img/market/w4.jpg" alt="">
+					<img src="img/market/w5.jpg" alt="">		
+			</div>
+			<div id="oneHandedB">
+					<img src="img/market/w6.jpg" alt="">
+					<img src="img/market/w7.jpg" alt="">
+					<img src="img/market/w8.jpg" alt="">
+					<img src="img/market/w9.jpg" alt="">
+					<img src="img/market/w10.jpg" alt="">
+			</div>
+			<div id="twoHanded">
+					<img src="img/market/w11.jpg" alt="">
+					<img src="img/market/w12.jpg" alt="">
+					<img src="img/market/w13.jpg" alt="">
+					<img src="img/market/w14.jpg" alt="">
+					<img src="img/market/w15.jpg" alt="">
+			</div>
+			<div id="spears">
+					<img src="img/market/w16.jpg" alt="">
+					<img src="img/market/w17.jpg" alt="">
+					<img src="img/market/w18.jpg" alt="">
+					<img src="img/market/w19.jpg" alt="">
+					<img src="img/market/w20.jpg" alt="">
+			</div>
+			<div id="crossbows">
+					<img src="img/market/w21.jpg" alt="">
+					<img src="img/market/w22.jpg" alt="">
+					<img src="img/market/w23.jpg" alt="">
+					<img src="img/market/w24.jpg" alt="">
+					<img src="img/market/w25.jpg" alt="">
+			</div>
+			<div id="bows">
+					<img src="img/market/w26.jpg" alt="">
+					<img src="img/market/w27.jpg" alt="">
+					<img src="img/market/w28.jpg" alt="">
+					<img src="img/market/w29.jpg" alt="">
+					<img src="img/market/w30.jpg" alt="">
+			</div>
+			<div id="shieldsA">
+					<img src="img/market/w31.jpg" alt="">
+					<img src="img/market/w32.jpg" alt="">
+					<img src="img/market/w33.jpg" alt="">
+					<img src="img/market/w34.jpg" alt="">
+					<img src="img/market/w35.jpg" alt="">
+			</div>
+			<div id="shieldsB">
+					<img src="img/market/w36.jpg" alt="">
+					<img src="img/market/w37.jpg" alt="">
+					<img src="img/market/w38.jpg" alt="">
+					<img src="img/market/w39.jpg" alt="">
+					<img src="img/market/w40.jpg" alt="">
+			</div>
+		</div>
+
+		<div id="storeItemsArmor">
+			<div id="armorA">
+					<img src="img/market/w41.jpg" alt="">
+					<img src="img/market/w42.jpg" alt="">
+					<img src="img/market/w43.jpg" alt="">
+					<img src="img/market/w44.jpg" alt="">
+					<img src="img/market/w45.jpg" alt="">
+					<img src="img/market/w46.jpg" alt="">
+					<img src="img/market/w47.jpg" alt="">
+			</div>
+			<div id="armorB">
+					<img src="img/market/w48.jpg" alt="">
+					<img src="img/market/w49.jpg" alt="">
+					<img src="img/market/w50.jpg" alt="">
+					<img src="img/market/w51.jpg" alt="">
+					<img src="img/market/w52.jpg" alt="">
+					<img src="img/market/w53.jpg" alt="">
+					<img src="img/market/w54.jpg" alt="">					
+			</div>
+		</div>
+
+		<div id="storeItemsTraining">
+				<div id="trainingA">
+						<img src="img/market/healthBonus01.jpg" alt="">
+						<img src="img/market/healthBonus02.jpg" alt="">
+						<img src="img/market/healthBonus03.jpg" alt="">
+						<img src="img/market/damageBonus1.jpg" alt="">
+						<img src="img/market/damageBonus2.jpg" alt="">
+						<img src="img/market/damageBonus3.jpg" alt="">		
+				</div>
+				<div id="trainingB">
+						<img src="img/market/attackBonus1.jpg" alt="">
+						<img src="img/market/attackBonus2.jpg" alt="">
+						<img src="img/market/attackBonus3.jpg" alt="">
+						<img src="img/market/defenseBonus1.jpg" alt="">
+						<img src="img/market/defenseBonus2.jpg" alt="">
+						<img src="img/market/defenseBonus3.jpg" alt="">	
+				</div>
+		</div>
+
+		<button onclick="closeMarket()" id="closeMarket">Close Market</button>
 	</div>
 
 	<div class="playArea">

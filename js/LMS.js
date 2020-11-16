@@ -1,7 +1,7 @@
 
 var player1 = {
 	name: 'player1',
-
+	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon: 0,
 	attackBonusWeapon: 0,
@@ -48,7 +48,7 @@ var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
-var currentCharCard = 1;
+var currentCharCard = 9;
 var currentEnemyCard = 3;
 
 //UI Interface
@@ -57,8 +57,8 @@ var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharSelect = document.getElementById("player1CharSelect");
 var characterCreationButton = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
-
-
+var player1Gold = document.getElementById("player1Gold");
+var market = document.getElementById('market');
 
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
@@ -89,6 +89,31 @@ function player1NextCharacter(){
 		player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 };
 
+function closeMarket(){
+	market.style.display = "none";
+};
+
+function openMarket(){
+	market.style.display = "block";
+};
+
+function weaponStore(){
+	document.getElementById("storeItemsWeapons").style.display = "flex"
+	document.getElementById("storeItemsArmor").style.display = "none"
+	document.getElementById("storeItemsTraining").style.display = "none"
+};
+
+function armorStore(){
+	document.getElementById("storeItemsArmor").style.display = "flex"
+	document.getElementById("storeItemsWeapons").style.display = "none"
+	document.getElementById("storeItemsTraining").style.display = "none"
+};
+
+function trainingStore(){
+	document.getElementById("storeItemsTraining").style.display = "flex"
+	document.getElementById("storeItemsWeapons").style.display = "none"
+	document.getElementById("storeItemsArmor").style.display = "none"
+};
 
 // Visual components
 var player1CharCard = document.getElementById("player1CharCard");
@@ -205,9 +230,10 @@ function refresh(){
 
 refresh();
 
-// BOOTUP
+// BOOTUP and Character create
 player1HealthCounter.innerHTML = player1.health;
 player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+player1Gold.innerHTML = player1.gold;
 
 
 // START
