@@ -96,43 +96,21 @@ cursor: pointer;
 	display: none;
 }
 
-#storeItemsWeapons{
+
+
+#marketItems {
 	width: 100%;
-	display: none;
+
 }
 
-#storeItemsWeapons img{
+
+#marketItems img{
 	border: 1px solid black;
-	width: 100%;
+	width: 30%;
 	height: auto;
 	cursor: pointer;
 }
 
-#storeItemsArmor{
-	width: 100%;
-	display: none;
-}
-
-#storeItemsArmor img{
-	border: 1px solid black;
-	width: 24%;
-	height: auto;
-	cursor: pointer;
-}
-
-#storeItemsTraining{
-	width: 100%;
-	/*display: flex;*/
-	display: none;
-
-}
-
-#storeItemsTraining img{
-	border: 1px solid black;
-	width: 24%;
-	height: auto;
-	cursor: pointer;
-}
 
 #closeMarket{
 	width: 100px;

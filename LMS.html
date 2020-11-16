@@ -55,12 +55,16 @@
 		<div>
 			<h1>MARKET</h1>
 			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
-			<button id="weaponStore" onclick="weaponStore()">Weapons</button>
-			<button id="armorStore" onclick="armorStore()">Armor</button>
-			<button id="trainingStore" onclick="trainingStore()">Training</button>
+			<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
+			<button id="weaponStoreTwoHandButton" onclick="weaponStoreTwoHandButton()">Two Handed</button>
+			<button id="weaponStoreRangedButton" onclick="weaponStoreRangedButton()">Ranged</button>
+			<button id="weaponStoreShieldButton" onclick="weaponStoreShieldButton()">Shield</button>
+			<button id="armorStoreButton" onclick="armorStoreButton()">Armor</button>
+			<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
 		</div>
 
-		<div id="storeItemsWeapons">
+<div id="marketItems">
+		<div id="storeItemsOnehandWeapons">
 			<div id="oneHandedA">
 					<img src="img/market/w1.jpg" alt="">
 					<img src="img/market/w2.jpg" alt="">
@@ -75,6 +79,9 @@
 					<img src="img/market/w9.jpg" alt="">
 					<img src="img/market/w10.jpg" alt="">
 			</div>
+		</div>	
+
+		<div id="storeItemsTwoHanded">
 			<div id="twoHanded">
 					<img src="img/market/w11.jpg" alt="">
 					<img src="img/market/w12.jpg" alt="">
@@ -89,6 +96,9 @@
 					<img src="img/market/w19.jpg" alt="">
 					<img src="img/market/w20.jpg" alt="">
 			</div>
+		</div>
+
+		<div id="storeItemsRanged">
 			<div id="crossbows">
 					<img src="img/market/w21.jpg" alt="">
 					<img src="img/market/w22.jpg" alt="">
@@ -103,6 +113,9 @@
 					<img src="img/market/w29.jpg" alt="">
 					<img src="img/market/w30.jpg" alt="">
 			</div>
+		</div>	
+
+		<div id="storeItemsShields">
 			<div id="shieldsA">
 					<img src="img/market/w31.jpg" alt="">
 					<img src="img/market/w32.jpg" alt="">
@@ -158,6 +171,8 @@
 						<img src="img/market/defenseBonus3.jpg" alt="">	
 				</div>
 		</div>
+
+</div>
 
 		<button onclick="closeMarket()" id="closeMarket">Close Market</button>
 	</div>

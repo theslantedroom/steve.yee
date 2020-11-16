@@ -97,22 +97,44 @@ function openMarket(){
 	market.style.display = "block";
 };
 
-function weaponStore(){
-	document.getElementById("storeItemsWeapons").style.display = "flex"
-	document.getElementById("storeItemsArmor").style.display = "none"
-	document.getElementById("storeItemsTraining").style.display = "none"
+function weaponStoreOneHandButton(){
+	clearStore();
+	document.getElementById("storeItemsOnehandWeapons").style.display = "flex"	
 };
 
-function armorStore(){
+function weaponStoreTwoHandButton(){
+	clearStore();
+	document.getElementById("storeItemsTwoHanded").style.display = "flex"
+};
+
+function weaponStoreRangedButton(){
+	clearStore();
+	document.getElementById("storeItemsRanged").style.display = "flex"
+};
+
+function weaponStoreShieldButton(){
+	clearStore();
+	document.getElementById("storeItemsShields").style.display = "flex"
+};
+
+function armorStoreButton(){
+	clearStore();
 	document.getElementById("storeItemsArmor").style.display = "flex"
-	document.getElementById("storeItemsWeapons").style.display = "none"
-	document.getElementById("storeItemsTraining").style.display = "none"
 };
 
-function trainingStore(){
-	document.getElementById("storeItemsTraining").style.display = "flex"
-	document.getElementById("storeItemsWeapons").style.display = "none"
+
+function trainingStoreButton(){
+	clearStore();
+	document.getElementById("storeItemsTraining").style.display = "flex"	
+};
+
+function clearStore(){
+	document.getElementById("storeItemsOnehandWeapons").style.display = "none"
+	document.getElementById("storeItemsTwoHanded").style.display = "none"
+	document.getElementById("storeItemsRanged").style.display = "none"
+	document.getElementById("storeItemsShields").style.display = "none"
 	document.getElementById("storeItemsArmor").style.display = "none"
+	document.getElementById("storeItemsTraining").style.display = "none"
 };
 
 // Visual components
@@ -234,6 +256,8 @@ refresh();
 player1HealthCounter.innerHTML = player1.health;
 player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 player1Gold.innerHTML = player1.gold;
+clearStore();
+
 
 
 // START
