@@ -35,7 +35,7 @@ var player1HealthBonus = 0;
 var player1DamageBonus = 0;
 var player1AttackBonus = 0;
 var player1DefenseBonus = 0;
-var player1Weapon = 0;
+var player1Weapon1 = 0;
 var player1Weapon2 = 0;
 var player1Armor = 41;
 
@@ -52,7 +52,7 @@ var currentCharCard = 9;
 var currentEnemyCard = 3;
 
 //UI Interface
-
+var confirmBuy = document.getElementById("confirmBuy");
 var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
@@ -60,6 +60,7 @@ var characterCreationButton = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var market = document.getElementById('market');
+var player1AtMarket = document.getElementById('player1AtMarket');
 var playArea = document.getElementById('playArea');
 
 characterCreationButton.addEventListener("click", function(){
@@ -79,7 +80,7 @@ characterCreationButton.addEventListener("click", function(){
 // //place in this location-----------------before------------the a  ABC div----------------------before first child
 // document.getElementById("player1CharCard").insertBefore(document.createElement("div"), player1CharCard.firstChild);
 
-function player1GotoMarket(){
+function player1GotoCharacterSelect(){
 	chooseCharacter.insertBefore(player1CharCard, chooseCharacter.childNodes[2]);
 };
 
@@ -87,7 +88,14 @@ function player1GotoBattle(){
 	playArea.insertBefore(player1CharCard, playArea.childNodes[0]);
 };
 
+function player1GotoMarket(){
+	player1AtMarket.appendChild(player1CharCard);
+};
 
+function updateGold(){
+	player1Gold.innerHTML = player1.gold;
+	player1Gold2.innerHTML = player1.gold;
+};
 
 
 function player1previousCharacter(){	
@@ -109,57 +117,115 @@ function player1NextCharacter(){
 };
 
 function closeMarket(){
+	player1GotoCharacterSelect();
 	market.style.display = "none";
 };
 
 function openMarket(){
 	player1GotoMarket();
+	clearStore();
+	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	market.style.display = "block";
 };
 
 
+
+
 function weaponStoreOneHandButton(){
 	clearStore();
-	document.getElementById("storeItemsOnehandWeapons").style.display = "flex"	
+	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 };
 function weaponStoreTwoHandButton(){
 	clearStore();
-	document.getElementById("storeItemsTwoHanded").style.display = "flex"
+	document.getElementById("storeItemsTwoHanded").style.display = "flex";
 };
 function weaponStoreRangedButton(){
 	clearStore();
-	document.getElementById("storeItemsRanged").style.display = "flex"
+	document.getElementById("storeItemsRanged").style.display = "flex";
 };
 function weaponStoreShieldButton(){
 	clearStore();
-	document.getElementById("storeItemsShields").style.display = "flex"
+	document.getElementById("storeItemsShields").style.display = "flex";
 };
 function armorStoreButton(){
 	clearStore();
-	document.getElementById("storeItemsArmor").style.display = "flex"
+	document.getElementById("storeItemsArmor").style.display = "flex";
 };
 function trainingStoreButton(){
 	clearStore();
-	document.getElementById("storeItemsTraining").style.display = "flex"	
+	document.getElementById("storeItemsTraining").style.display = "flex";	
 };
 function clearStore(){
-	document.getElementById("storeItemsOnehandWeapons").style.display = "none"
-	document.getElementById("storeItemsTwoHanded").style.display = "none"
-	document.getElementById("storeItemsRanged").style.display = "none"
-	document.getElementById("storeItemsShields").style.display = "none"
-	document.getElementById("storeItemsArmor").style.display = "none"
-	document.getElementById("storeItemsTraining").style.display = "none"
+	document.getElementById("storeItemsOnehandWeapons").style.display = "none";
+	document.getElementById("storeItemsTwoHanded").style.display = "none";
+	document.getElementById("storeItemsRanged").style.display = "none";
+	document.getElementById("storeItemsShields").style.display = "none";
+	document.getElementById("storeItemsArmor").style.display = "none";
+	document.getElementById("storeItemsTraining").style.display = "none";
 };
+
+// function confirmBuyPop(){
+// confirmBuy.style.display = 'block';
+// };
+
+function cancelBuy(){
+confirmBuy.style.display = 'none';
+};
+function okBuy(){
+confirmBuy.style.display = 'none';
+};
+
+var dagger1 = {
+	code: 1,
+	gold: 0,
+	damage: 4,
+	health: 0,
+	strength: 0,
+	defense: 0,
+	attack: 0,
+};
+
+
 
 //MARKET GUTS
 var buyW1 = document.querySelectorAll("img")[0];
+var buyW2 = document.querySelectorAll("img")[1];
+var buyW3 = document.querySelectorAll("img")[2];
+var buyW4 = document.querySelectorAll("img")[3];
+var buyW5 = document.querySelectorAll("img")[4];
 
 buyW1.addEventListener("click", function() {
-	console.log('w1 buy');
-	player1.gold -= 1;
-	player1Gold.innerHTML = player1.gold;
-	market.style.display = "none";
-});
+confirmBuy;
+
+
+	if (player1Weapon1 != dagger1.code && player1Weapon2 != dagger1.code && player1.gold >= 0){
+	player1.gold -= dagger1.gold;
+	player1.weapon1 = dagger1.damage;
+	player1Weapon1 = dagger1.code;
+	confirmBuy.style.display = 'block';
+
+	refresh();
+}});
+
+// buyW2.addEventListener("click", function() {
+// 	if (player1Weapon1 != 2 && player1Weapon2 != 2 && player1.gold >= 1){
+// 	player1.gold -= 2;
+// 	player1.weapon1 = 6;
+// 	player1Weapon1 = 2;
+
+// 	refresh();
+// }});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -244,7 +310,7 @@ function refresh(){
 // CARD UPDATES
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
-		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon1 + ".jpg')";
 		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
 		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
 		player1HealthCard.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
@@ -256,7 +322,7 @@ function refresh(){
 
 // Damage popup images
 
-		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon + ".jpg')";
+		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon1 + ".jpg')";
 		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";	
 
 // TABLE		
@@ -275,6 +341,7 @@ function refresh(){
 		tablePlayer1Armor.innerHTML = player1.armor;
 		
 		tableEnemyWeapon.innerHTML = enemy1.weapon;
+		updateGold();
 };
 
 refresh();
@@ -282,9 +349,10 @@ refresh();
 // BOOTUP and Character create
 player1HealthCounter.innerHTML = player1.health;
 player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
-player1Gold.innerHTML = player1.gold;
-player1GotoMarket();
+updateGold();
+player1GotoCharacterSelect();
 clearStore();
+
 
 
 
@@ -429,31 +497,31 @@ function nextDefenseBonus(){
 };
 
 function nextWeapon(){
-	player1Weapon += 1;
-	if (player1Weapon >= 6) {
-		player1Weapon = 0;
+	player1Weapon1 += 1;
+	if (player1Weapon1 >= 6) {
+		player1Weapon1 = 0;
 	};
 
-	if (player1Weapon == 0){
+	if (player1Weapon1 == 0){
 			player1.weapon1 = -1;
 	};
-	if (player1Weapon == 1){
+	if (player1Weapon1 == 1){
 			player1.weapon1 = 4;
 	};
-	if (player1Weapon == 2){
+	if (player1Weapon1 == 2){
 			player1.weapon1 = 6;
 	};
-	if (player1Weapon == 3){
+	if (player1Weapon1 == 3){
 			player1.weapon1 = 8;
 	};
-	if (player1Weapon == 4){
+	if (player1Weapon1 == 4){
 			player1.weapon1 = 10;
 	};
-	if (player1Weapon == 5){
+	if (player1Weapon1 == 5){
 			player1.weapon1 = 12;
 	};
 	refresh();
-	console.log('weapon 1 = ' + player1Weapon)
+	console.log('weapon 1 = ' + player1Weapon1)
 };
 
 

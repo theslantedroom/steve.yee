@@ -39,7 +39,7 @@
 			</div>	
 
 			
-			
+			<h2>You have <span id='player1Gold2'></span> Gold</h2>
 		<button id="closeCharacterCreation">Continue to beta</button><br>
 		<button id="gotoMarket" onclick="openMarket()">Market (in development)</button>
 	</div>
@@ -61,6 +61,12 @@
 		</div>
 
 <div id="marketItems">
+
+		<div id="confirmBuy">
+			<button onclick="okBuy()">ok</button>
+			<button onclick="cancelBuy()">cancel</button>
+		</div>
+
 		<div id="storeItemsOnehandWeapons">
 			<div id="oneHandedA">
 					<img src="img/market/w1.jpg" alt="">
@@ -168,6 +174,8 @@
 						<img src="img/market/defenseBonus3.jpg" alt="">	
 				</div>
 		</div>
+
+		<div id="player1AtMarket"></div>
 
 </div>
 		<button onclick="closeMarket()" id="closeMarket">Close Market</button>

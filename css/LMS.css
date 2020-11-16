@@ -14,7 +14,12 @@ body{
 }
 
 button {
-	padding: 20px;
+	font-size: 20px;
+	padding: 10px;
+}
+
+input {
+	font-size: 20px;
 }
 
 .border{
@@ -45,6 +50,7 @@ button {
 display: flex;
 justify-content: center;
 align-items: center;
+height: 50vh;
 }
 
 #player1ShopInventory{
@@ -67,6 +73,7 @@ background-repeat: no-repeat;
 width: 10vh;
 height: 10vh;
 cursor: pointer;
+
 }
 
 #player1NextCharacter{
@@ -77,6 +84,7 @@ transform: rotate(180deg);
 width: 10vh;
 height: 10vh;
 cursor: pointer;
+
 }
 
 #market {
@@ -97,11 +105,13 @@ cursor: pointer;
 	display: none;
 }
 
-
+#player1AtMarket{
+	display: flex;
+	justify-content: center;
+}
 
 #marketItems {
 	width: 100%;
-
 }
 
 
@@ -115,12 +125,22 @@ cursor: pointer;
 
 #closeMarket{
 	width: 100px;
-	padding: 20px;
+	padding: 10px;
 	position: absolute;
-	bottom: 20px;
-	left: 50%;
-	margin-left: -50px;
+	top: 2px;
+	left: 2px;
+}
 
+#confirmBuy{
+	border: 5px solid black;
+	position: absolute;
+	background-color: grey;
+	width: 300px;
+	height: 200px;
+	z-index: 1;
+	left: 50%;
+	margin-left: -150px;
+	display: none;
 }
 
 #playArea{
@@ -193,6 +213,7 @@ height: 40vh;
 position: relative;
 background-size: contain;
 background-repeat: no-repeat;
+
 }
 
 
@@ -205,6 +226,7 @@ height: 40vh;
 background-size: contain;
 background-repeat: no-repeat;
 transition: right 1000ms
+
 }
 
 
