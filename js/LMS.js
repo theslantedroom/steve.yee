@@ -35,7 +35,7 @@ var player1HealthBonus = 0;
 var player1DamageBonus = 0;
 var player1AttackBonus = 0;
 var player1DefenseBonus = 0;
-var player1Weapon = 1;
+var player1Weapon = 0;
 var player1Weapon2 = 0;
 var player1Armor = 41;
 
@@ -54,11 +54,13 @@ var currentEnemyCard = 3;
 //UI Interface
 
 var charCreationPickCharacter = document.getElementById("characterCreation");
-var player1CharSelect = document.getElementById("player1CharSelect");
+var player1CharCard = document.getElementById("player1CharCard");
+var chooseCharacter = document.getElementById('chooseCharacter');
 var characterCreationButton = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
 var market = document.getElementById('market');
+var playArea = document.getElementById('playArea');
 
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
@@ -67,8 +69,25 @@ characterCreationButton.addEventListener("click", function(){
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
 	charCreationPickCharacter.style.visibility = "hidden";
+	player1GotoBattle();
 	refresh();
 });
+
+//create a  ABC div--------------add to it-------a textnode------(inputtext)
+// document.createElement("div").appendChild(document.createTextNode(player1NameInput.value));
+
+// //place in this location-----------------before------------the a  ABC div----------------------before first child
+// document.getElementById("player1CharCard").insertBefore(document.createElement("div"), player1CharCard.firstChild);
+
+function player1GotoMarket(){
+	chooseCharacter.insertBefore(player1CharCard, chooseCharacter.childNodes[2]);
+};
+
+function player1GotoBattle(){
+	playArea.insertBefore(player1CharCard, playArea.childNodes[0]);
+};
+
+
 
 
 function player1previousCharacter(){	
@@ -77,7 +96,7 @@ function player1previousCharacter(){
 			currentCharCard = 32;
 		}
 		console.log('currentCharCard '+currentCharCard);
-		player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 };
 
 function player1NextCharacter(){	
@@ -86,7 +105,7 @@ function player1NextCharacter(){
 			currentCharCard = 1;
 		}
 		console.log('currentCharCard '+currentCharCard);
-		player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 };
 
 function closeMarket(){
@@ -94,40 +113,35 @@ function closeMarket(){
 };
 
 function openMarket(){
+	player1GotoMarket();
 	market.style.display = "block";
 };
+
 
 function weaponStoreOneHandButton(){
 	clearStore();
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex"	
 };
-
 function weaponStoreTwoHandButton(){
 	clearStore();
 	document.getElementById("storeItemsTwoHanded").style.display = "flex"
 };
-
 function weaponStoreRangedButton(){
 	clearStore();
 	document.getElementById("storeItemsRanged").style.display = "flex"
 };
-
 function weaponStoreShieldButton(){
 	clearStore();
 	document.getElementById("storeItemsShields").style.display = "flex"
 };
-
 function armorStoreButton(){
 	clearStore();
 	document.getElementById("storeItemsArmor").style.display = "flex"
 };
-
-
 function trainingStoreButton(){
 	clearStore();
 	document.getElementById("storeItemsTraining").style.display = "flex"	
 };
-
 function clearStore(){
 	document.getElementById("storeItemsOnehandWeapons").style.display = "none"
 	document.getElementById("storeItemsTwoHanded").style.display = "none"
@@ -136,6 +150,19 @@ function clearStore(){
 	document.getElementById("storeItemsArmor").style.display = "none"
 	document.getElementById("storeItemsTraining").style.display = "none"
 };
+
+//MARKET GUTS
+var buyW1 = document.querySelectorAll("img")[0];
+
+buyW1.addEventListener("click", function() {
+	console.log('w1 buy');
+	player1.gold -= 1;
+	player1Gold.innerHTML = player1.gold;
+	market.style.display = "none";
+});
+
+
+
 
 // Visual components
 var player1CharCard = document.getElementById("player1CharCard");
@@ -254,8 +281,9 @@ refresh();
 
 // BOOTUP and Character create
 player1HealthCounter.innerHTML = player1.health;
-player1CharSelect.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 player1Gold.innerHTML = player1.gold;
+player1GotoMarket();
 clearStore();
 
 

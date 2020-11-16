@@ -32,20 +32,14 @@
 		<input id="player1NameInput" type="text" placeholder="enter a name">
 			<div id="chooseCharacter">
 				<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
-					<div id="player1CharSelect">
-				<!-- 	<div id="ccplayer1HealthCounter"></div>
-						<div id="ccplayer1DefenseCounter"></div>
-						<div id="ccplayer1Weapon1Card" onclick="nextWeapon()"></div>
-						<div id="ccplayer1Weapon2Card" onclick="nextWeapon2()"></div>
-						<div id="ccplayer1ArmorCard" onclick="nextArmor()"></div>
-						<div id="ccplayer1HealthCard" onclick="nextHealthBonus()"></div>
-						<div id="ccplayer1DamageCard" onclick="nextDamageBonus()"></div>
-						<div id="ccplayer1AttackCard" onclick="nextAttackBonus()"></div>
-						<div id="ccplayer1DefenseCard" onclick="nextDefenseBonus()"></div> -->
-					</div>
+
+					<!-- Market Inventory -->
+
 				<div id="player1NextCharacter" onclick="player1NextCharacter()"></div>
 			</div>	
-			<h3>You have <span id="player1Gold"></span> gold.</h3>
+
+			
+			
 		<button id="closeCharacterCreation">Continue to beta</button><br>
 		<button id="gotoMarket" onclick="openMarket()">Market (in development)</button>
 	</div>
@@ -55,12 +49,15 @@
 		<div>
 			<h1>MARKET</h1>
 			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
-			<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
-			<button id="weaponStoreTwoHandButton" onclick="weaponStoreTwoHandButton()">Two Handed</button>
-			<button id="weaponStoreRangedButton" onclick="weaponStoreRangedButton()">Ranged</button>
-			<button id="weaponStoreShieldButton" onclick="weaponStoreShieldButton()">Shield</button>
-			<button id="armorStoreButton" onclick="armorStoreButton()">Armor</button>
-			<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
+			<h3>You have <span id="player1Gold"></span> gold.</h3>
+			<div>
+				<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
+				<button id="weaponStoreTwoHandButton" onclick="weaponStoreTwoHandButton()">Two Handed</button>
+				<button id="weaponStoreRangedButton" onclick="weaponStoreRangedButton()">Ranged</button>
+				<button id="weaponStoreShieldButton" onclick="weaponStoreShieldButton()">Shield</button>
+				<button id="armorStoreButton" onclick="armorStoreButton()">Armor</button>
+				<button id="trainingStoreButton" onclick="trainingStoreButton()">Training</button>
+			</div>
 		</div>
 
 <div id="marketItems">
@@ -173,13 +170,15 @@
 		</div>
 
 </div>
-
 		<button onclick="closeMarket()" id="closeMarket">Close Market</button>
-	</div>
+</div>
 
-	<div class="playArea">
+	<div id="playArea">
 		<!-- Character  Card -->
-				<div id="player1CharCard">
+		<!-- player1CharCard
+		player1ShopInventory -->
+
+			<div id="player1CharCard">
 					<div id="player1HealthCounter"></div>
 					<div id="player1DefenseCounter"></div>
 					<div id="player1Weapon1Card" onclick="nextWeapon()"></div>
@@ -189,7 +188,7 @@
 					<div id="player1DamageCard" onclick="nextDamageBonus()"></div>
 					<div id="player1AttackCard" onclick="nextAttackBonus()"></div>
 					<div id="player1DefenseCard" onclick="nextDefenseBonus()"></div>
-				</div>			
+			</div>	
 				<!-- Enemy Card -->
 				<div id="enemy1Idle">
 					<div id="enemyHealthCounter"></div>
