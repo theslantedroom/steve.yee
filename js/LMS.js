@@ -13,14 +13,27 @@ var player1 = {
 	damageBonusSkill: 0,
 	attackBonusSkill: 0,
 	defenseBonusSkill: 0,
-	weapon1: 4,
-	weapon2: -1,
-	armor: 6,
+	
+	healthCard: 0,
+	damageCard: 0,
+	weapon1Card: 0,
+	armorCard: 41,
+	weapon2Card: 0,
+	attackCard: 0,
+	defenseCard: 0,
+
+	// in math calculation
+	health: 20,
 	damage: 0,
 	attack: 0,
-
-	health: 20,
 	defense: 0,
+	armor: 6,
+	weapon1: 4,
+	weapon2: -1,	
+
+	kills: 0,
+	deaths: 0,
+
 };
 
 var enemy1 = {
@@ -31,13 +44,7 @@ var enemy1 = {
 	weapon: 4,
 };
 
-var player1HealthBonus = 0;
-var player1DamageBonus = 0;
-var player1AttackBonus = 0;
-var player1DefenseBonus = 0;
-var player1Weapon1 = 0;
-var player1Weapon2 = 0;
-var player1Armor = 41;
+
 
 var killCount = 0;
 var deathCount = 0;
@@ -198,20 +205,20 @@ buyW1.addEventListener("click", function() {
 confirmBuy;
 
 
-	if (player1Weapon1 != dagger1.code && player1Weapon2 != dagger1.code && player1.gold >= 0){
+	if (player1.weapon1Card != dagger1.code && player1.weapon2Card != dagger1.code && player1.gold >= 0){
 	player1.gold -= dagger1.gold;
 	player1.weapon1 = dagger1.damage;
-	player1Weapon1 = dagger1.code;
+	player1.weapon1Card = dagger1.code;
 	confirmBuy.style.display = 'block';
 
 	refresh();
 }});
 
 // buyW2.addEventListener("click", function() {
-// 	if (player1Weapon1 != 2 && player1Weapon2 != 2 && player1.gold >= 1){
+// 	if (player1.weapon1Card != 2 && player1.weapon2Card != 2 && player1.gold >= 1){
 // 	player1.gold -= 2;
 // 	player1.weapon1 = 6;
-// 	player1Weapon1 = 2;
+// 	player1.weapon1Card = 2;
 
 // 	refresh();
 // }});
@@ -310,20 +317,20 @@ function refresh(){
 // CARD UPDATES
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
 		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
-		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon1 + ".jpg')";
-		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Armor + ".jpg')";
-		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";
-		player1HealthCard.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1HealthBonus + ".jpg')";
-		player1DamageCard.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1DamageBonus + ".jpg')";
-		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1AttackBonus + ".jpg')";
-		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1DefenseBonus + ".jpg')";
+		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
+		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.armorCard + ".jpg')";
+		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
+		player1HealthCard.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1.healthCard + ".jpg')";
+		player1DamageCard.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1.damageCard + ".jpg')";
+		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
+		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
 		enemy1HealthCounter.innerHTML = enemy1.health;	
 
 // Damage popup images
 
-		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon1 + ".jpg')";
-		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1Weapon2 + ".jpg')";	
+		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
+		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";	
 
 // TABLE		
 		player1Name.innerHTML = player1.name;
@@ -366,30 +373,30 @@ function start(){
 
 
 function nextArmor(){
-	player1Armor += 1;
-	if (player1Armor >= 48) {
-		player1Armor = 41;
+	player1.armorCard += 1;
+	if (player1.armorCard >= 48) {
+		player1.armorCard = 41;
 	};
 	
-if (player1Armor == 41){
+if (player1.armorCard == 41){
 		player1.armor = 6;
 };
-if (player1Armor == 42){
+if (player1.armorCard == 42){
 		player1.armor = 7;
 };
-if (player1Armor == 43){
+if (player1.armorCard == 43){
 		player1.armor = 8;
 };
-if (player1Armor == 44){
+if (player1.armorCard == 44){
 		player1.armor = 9;
 };
-if (player1Armor == 45){
+if (player1.armorCard == 45){
 		player1.armor = 10;
 };
-if (player1Armor == 46){
+if (player1.armorCard == 46){
 		player1.armor = 11;
 };
-if (player1Armor == 47){
+if (player1.armorCard == 47){
 		player1.armor = 12;
 };
 
@@ -399,158 +406,158 @@ player1HealthCounter.innerHTML = player1.health;
 refresh();
 };
 
-function nextHealthBonus(){
-	player1HealthBonus += 1;
-	if (player1HealthBonus >= 4) {
-		player1HealthBonus = 0;
+function nextHealthTraining(){
+	player1.healthCard += 1;
+	if (player1.healthCard >= 4) {
+		player1.healthCard = 0;
 	};
 
-	if (player1HealthBonus == 0){
+	if (player1.healthCard == 0){
 			player1.healthBonusSkill = 0;
 	};
-	if (player1HealthBonus == 1){
+	if (player1.healthCard == 1){
 			player1.healthBonusSkill = 4;
 	};
-	if (player1HealthBonus == 2){
+	if (player1.healthCard == 2){
 			player1.healthBonusSkill = 8;
 	};
 
-	if (player1HealthBonus == 3){
+	if (player1.healthCard == 3){
 			player1.healthBonusSkill = 12;
 	};
 
-	console.log('nextHealthBonus');
+	console.log('nextHealthTraining');
 
 	player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
 	player1HealthCounter.innerHTML = player1.health;
 	refresh();
 };
 
-function nextDamageBonus(){
-	player1DamageBonus += 1;
-	if (player1DamageBonus >= 4) {
-		player1DamageBonus = 0;
+function nextDamageTraining(){
+	player1.damageCard += 1;
+	if (player1.damageCard >= 4) {
+		player1.damageCard = 0;
 	};
 
-	if (player1DamageBonus == 0){
+	if (player1.damageCard == 0){
 			player1.damageBonusSkill = 0;
 	};
-	if (player1DamageBonus == 1){
+	if (player1.damageCard == 1){
 			player1.damageBonusSkill = 1;
 	};
-	if (player1DamageBonus == 2){
+	if (player1.damageCard == 2){
 			player1.damageBonusSkill = 2;
 	};
 
-	if (player1DamageBonus == 3){
+	if (player1.damageCard == 3){
 			player1.damageBonusSkill = 3;
 	};
 	refresh();
-	console.log('nextDamageBonus');
+	console.log('nextDamageTraining');
 };
 
-function nextAttackBonus(){
-	player1AttackBonus += 1;
-	if (player1AttackBonus >= 4) {
-		player1AttackBonus = 0;
+function nextAttackTraining(){
+	player1.attackCard += 1;
+	if (player1.attackCard >= 4) {
+		player1.attackCard = 0;
 	};
 
-	if (player1AttackBonus == 0){
+	if (player1.attackCard == 0){
 			player1.attackBonusSkill = 0;
 	};
-	if (player1AttackBonus == 1){
+	if (player1.attackCard == 1){
 			player1.attackBonusSkill = 1;
 	};
-	if (player1AttackBonus == 2){
+	if (player1.attackCard == 2){
 			player1.attackBonusSkill = 2;
 	};
 
-	if (player1AttackBonus == 3){
+	if (player1.attackCard == 3){
 			player1.attackBonusSkill = 3;
 	};
 	refresh();
 
-	console.log('nextattackBonus = ' + player1.attackBonus);
+	console.log('nextAttackTraining = ' + player1.attackBonus);
 };
 
-function nextDefenseBonus(){
-	player1DefenseBonus += 1;
-	if (player1DefenseBonus >= 4) {
-		player1DefenseBonus = 0;
+function nextDefenseTraining(){
+	player1.defenseCard += 1;
+	if (player1.defenseCard >= 4) {
+		player1.defenseCard = 0;
 	};
 
-	if (player1DefenseBonus == 0){
+	if (player1.defenseCard == 0){
 			player1.defenseBonusSkill = 0;
 	};
-	if (player1DefenseBonus == 1){
+	if (player1.defenseCard == 1){
 			player1.defenseBonusSkill = 1;
 	};
-	if (player1DefenseBonus == 2){
+	if (player1.defenseCard == 2){
 			player1.defenseBonusSkill = 2;
 	};
 
-	if (player1DefenseBonus == 3){
+	if (player1.defenseCard == 3){
 			player1.defenseBonusSkill = 3;
 	};
 	refresh();
-	console.log('nextattackBonus = ' + player1.attackBonus);
+	console.log('nextDefenseTraining = ' + player1.attackBonus);
 };
 
 function nextWeapon(){
-	player1Weapon1 += 1;
-	if (player1Weapon1 >= 6) {
-		player1Weapon1 = 0;
+	player1.weapon1Card += 1;
+	if (player1.weapon1Card >= 6) {
+		player1.weapon1Card = 0;
 	};
 
-	if (player1Weapon1 == 0){
+	if (player1.weapon1Card == 0){
 			player1.weapon1 = -1;
 	};
-	if (player1Weapon1 == 1){
+	if (player1.weapon1Card == 1){
 			player1.weapon1 = 4;
 	};
-	if (player1Weapon1 == 2){
+	if (player1.weapon1Card == 2){
 			player1.weapon1 = 6;
 	};
-	if (player1Weapon1 == 3){
+	if (player1.weapon1Card == 3){
 			player1.weapon1 = 8;
 	};
-	if (player1Weapon1 == 4){
+	if (player1.weapon1Card == 4){
 			player1.weapon1 = 10;
 	};
-	if (player1Weapon1 == 5){
+	if (player1.weapon1Card == 5){
 			player1.weapon1 = 12;
 	};
 	refresh();
-	console.log('weapon 1 = ' + player1Weapon1)
+	console.log('weapon 1 = ' + player1.weapon1Card)
 };
 
 
 function nextWeapon2(){
-	player1Weapon2 += 1;
-	if (player1Weapon2 >= 6) {
-		player1Weapon2 = 0;
+	player1.weapon2Card += 1;
+	if (player1.weapon2Card >= 6) {
+		player1.weapon2Card = 0;
 	};
 
-	if (player1Weapon2 == 0){
+	if (player1.weapon2Card == 0){
 			player1.weapon2 = -1;
 	};
-	if (player1Weapon2 == 1){
+	if (player1.weapon2Card == 1){
 			player1.weapon2 = 4;
 	};
-	if (player1Weapon2 == 2){
+	if (player1.weapon2Card == 2){
 			player1.weapon2 = 6;
 	};
-	if (player1Weapon2 == 3){
+	if (player1.weapon2Card == 3){
 			player1.weapon2 = 8;
 	};
-	if (player1Weapon2 == 4){
+	if (player1.weapon2Card == 4){
 			player1.weapon2 = 10;
 	};
-	if (player1Weapon2 == 5){
+	if (player1.weapon2Card == 5){
 			player1.weapon2 = 12;
 	};
 	refresh();
-	console.log('weapon 2 = ' + player1Weapon2)
+	console.log('weapon 2 = ' + player1.weapon2Card)
 };
 
 
