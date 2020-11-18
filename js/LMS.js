@@ -69,6 +69,13 @@ var confirmBuy = document.getElementById("confirmBuy");
 var confirmDiscard = document.getElementById("confirmDiscard");
 var okBuyRightButton = document.getElementById("okBuyRightButton");
 var okBuyLeftButton = document.getElementById("okBuyLeftButton");
+var okBuyTwoHanded = document.getElementById("okBuyTwoHanded");
+var okBuyHealth = document.getElementById("okBuyHealth");
+var okBuyDamage = document.getElementById("okBuyDamage");
+var okBuyAttack = document.getElementById("okBuyAttack");
+var okBuyDefense = document.getElementById("okBuyDefense");
+var okBuyArmor = document.getElementById("okBuyArmor");
+
 
 var discardButtonRightHand = document.getElementById("discardButtonRightHand");
 var discardButtonLeftHand = document.getElementById("discardButtonLeftHand");
@@ -275,45 +282,104 @@ function discardWeaponL(){
 
 
 
-
-
-
-
-
-function cannotAfford(){
+function okBuyClear(){
 	okBuyRightButton.style.display = "none";
 	okBuyLeftButton.style.display = "none";
+	okBuyTwoHanded.style.display = "none";
+	okBuyHealth.style.display = "none";
+	okBuyDamage.style.display = "none";
+	okBuyAttack.style.display = "none";
+	okBuyDefense.style.display = "none";
+	okBuyArmor.style.display = "none";
+};
+
+function cannotAfford(){
+	okBuyClear();
 };
 
 
 function alreadyOwn(){
-	okBuyRightButton.style.display = "none";
-	okBuyLeftButton.style.display = "none";
+	okBuyClear();
 };
 
 function dualWield(){
+	okBuyClear();
 	okBuyRightButton.style.display = "flex";
 	okBuyLeftButton.style.display = "flex";
 };
 
+function TwoHanded(){
+	okBuyClear();
+	okBuyTwoHanded.style.display = "flex";
+};
 
+function healthTraining(){
+	okBuyClear();
+	okBuyHealth.style.display = "flex";
+};
+
+function damageTraining(){
+	okBuyClear();
+	okBuyDamage.style.display = "flex";
+};
+
+function attackTraining(){
+	okBuyClear();
+	okBuyAttack.style.display = "flex";
+};
+
+function defenseTraining(){
+	okBuyClear();
+	okBuyDefense.style.display = "flex";
+};
+
+function armor(){
+	okBuyClear();
+	okBuyArmor.style.display = "flex";
+};
+
+
+
+cancelBuyButton.addEventListener("click", function() {
+	cancelBuyClose();
+});
 
 okBuyRightButton.addEventListener("click", function() {
- console.log('click okBuyRightButton');
  checkoutRightHand();
  confirmBuy.style.display = 'none';
 });
 
 okBuyLeftButton.addEventListener("click", function() {
- console.log('click okBuyLeftButton');
  checkoutLeftHand();
  confirmBuy.style.display = 'none';
 });
 
-cancelBuyButton.addEventListener("click", function() {
-	cancelBuyClose();
-	console.log('click cancelBuyButton');
+okBuyTwoHanded.addEventListener("click", function() {
+ checkoutTwoHanded();
+ confirmBuy.style.display = 'none';
 });
+
+
+function offHandClear(){
+	if (player1.weapon1Card >= 21 && player1.weapon1Card <= 40 || player1.weapon2Card >= 21 && player1.weapon2Card <= 40) {
+
+	player1.weapon1Card = 0;
+	player1.weapon1 = -1;
+	player1.weapon1Bonus = -1;
+	player1.damageBonusWeapon1 = 0;
+	player1.attackBonusWeapon1 = 0;
+	player1.defenseBonusShield1 = 0;
+	player1.damageBonusShield1 = 0;
+	player1.weapon2Card = 0;
+	player1.weapon2 = -1;
+	player1.weapon2Bonus = -1;
+	player1.damageBonusWeapon2 = 0;
+	player1.attackBonusWeapon2 = 0;
+	player1.defenseBonusShield2 = 0;
+	player1.damageBonusShield2 = 0;
+	refresh();
+}};
+
 
 
 // RIGHT HAND
@@ -329,6 +395,7 @@ var shoppingCartRightHand = {
 
 };
 function checkoutRightHand(){
+	offHandClear();
 	player1.gold -= shoppingCartRightHand.gold;
 	player1.weapon1Card = shoppingCartRightHand.weapon1Card;
 	player1.weapon1 = shoppingCartRightHand.weapon1;
@@ -354,6 +421,7 @@ var shoppingCartLeftHand = {
 
 };
 function checkoutLeftHand(){
+	offHandClear();
 	player1.gold -= shoppingCartLeftHand.gold;
 	player1.weapon2Card = shoppingCartLeftHand.weapon2Card;
 	player1.weapon2 = shoppingCartLeftHand.weapon2;
@@ -365,8 +433,48 @@ function checkoutLeftHand(){
 	refresh();
 };
 
+// TWO HAND
+var shoppingTwoHanded = {
+	gold: 0,
+	weapon1Card: 0,
+	weapon1: 0,
+	weapon1Bonus: -1,
+	damageBonusWeapon1: 0,
+	attackBonusWeapon1: 0,
+	defenseBonusShield1: 0,
+	damageBonusShield1: 0,
+	weapon2Card: 0,
+	weapon2: -1,
+	weapon2Bonus: -1,
+	damageBonusWeapon2: 0,
+	attackBonusWeapon2: 0,
+	defenseBonusShield2: 0,
+	damageBonusShield2: 0,
+
+};
+function checkoutTwoHanded(){
+	player1.gold -= shoppingTwoHanded.gold;
+	player1.weapon1Card = shoppingTwoHanded.weapon1Card;
+	player1.weapon1 = shoppingTwoHanded.weapon1;
+	player1.weapon1Bonus = shoppingTwoHanded.weapon1Bonus;
+	player1.damageBonusWeapon1 = shoppingTwoHanded.damageBonusWeapon1;
+	player1.attackBonusWeapon1 = shoppingTwoHanded.attackBonusWeapon1;
+	player1.defenseBonusShield1 = shoppingTwoHanded.defenseBonusShield1;
+	player1.damageBonusShield1 = shoppingTwoHanded.damageBonusShield1;
+	player1.weapon2Card = shoppingTwoHanded.weapon2Card;
+	player1.weapon2 = shoppingTwoHanded.weapon2;
+	player1.weapon2Bonus = shoppingTwoHanded.weapon2Bonus;
+	player1.damageBonusWeapon2 = shoppingTwoHanded.damageBonusWeapon2;
+	player1.attackBonusWeapon2 = shoppingTwoHanded.attackBonusWeapon2;
+	player1.defenseBonusShield2 = shoppingTwoHanded.defenseBonusShield2;
+	player1.damageBonusShield2 = shoppingTwoHanded.damageBonusShield2;
+
+	refresh();
+};
 
 
+// Weapon Image Buttons in MArket
+// onehand
 var buyW1 = document.querySelectorAll("img")[0];
 var buyW2 = document.querySelectorAll("img")[1];
 var buyW3 = document.querySelectorAll("img")[2];
@@ -377,7 +485,68 @@ var buyW7 = document.querySelectorAll("img")[6];
 var buyW8 = document.querySelectorAll("img")[7];
 var buyW9 = document.querySelectorAll("img")[8];
 var buyW10 = document.querySelectorAll("img")[9];
+// twohand
 var buyW11 = document.querySelectorAll("img")[10];
+var buyW12 = document.querySelectorAll("img")[11];
+var buyW13 = document.querySelectorAll("img")[12];
+var buyW14 = document.querySelectorAll("img")[13];
+var buyW15 = document.querySelectorAll("img")[14];
+var buyW16 = document.querySelectorAll("img")[15];
+var buyW17 = document.querySelectorAll("img")[16];
+var buyW18 = document.querySelectorAll("img")[17];
+var buyW19 = document.querySelectorAll("img")[18];
+var buyW20 = document.querySelectorAll("img")[19];
+// Ranged
+var buyW21 = document.querySelectorAll("img")[20];
+var buyW22 = document.querySelectorAll("img")[21];
+var buyW23 = document.querySelectorAll("img")[22];
+var buyW24 = document.querySelectorAll("img")[23];
+var buyW25 = document.querySelectorAll("img")[24];
+var buyW26 = document.querySelectorAll("img")[25];
+var buyW27 = document.querySelectorAll("img")[26];
+var buyW28 = document.querySelectorAll("img")[27];
+var buyW29 = document.querySelectorAll("img")[28];
+var buyW30 = document.querySelectorAll("img")[29];
+// Shield
+var buyW31 = document.querySelectorAll("img")[30];
+var buyW32 = document.querySelectorAll("img")[31];
+var buyW33 = document.querySelectorAll("img")[32];
+var buyW34 = document.querySelectorAll("img")[33];
+var buyW35 = document.querySelectorAll("img")[34];
+var buyW36 = document.querySelectorAll("img")[35];
+var buyW37 = document.querySelectorAll("img")[36];
+var buyW38 = document.querySelectorAll("img")[37];
+var buyW39 = document.querySelectorAll("img")[38];
+var buyW40 = document.querySelectorAll("img")[39];
+// Armor
+var buyA1 = document.querySelectorAll("img")[40];
+var buyA2 = document.querySelectorAll("img")[41];
+var buyA3 = document.querySelectorAll("img")[42];
+var buyA4 = document.querySelectorAll("img")[43];
+var buyA5 = document.querySelectorAll("img")[44];
+var buyA6 = document.querySelectorAll("img")[45];
+var buyA7 = document.querySelectorAll("img")[46];
+var buyA8 = document.querySelectorAll("img")[47];
+var buyA9 = document.querySelectorAll("img")[48];
+var buyA10 = document.querySelectorAll("img")[49];
+var buyA11 = document.querySelectorAll("img")[50];
+var buyA12 = document.querySelectorAll("img")[51];
+var buyA13 = document.querySelectorAll("img")[52];
+var buyA14 = document.querySelectorAll("img")[53];
+// Training
+var buyT1 = document.querySelectorAll("img")[54];
+var buyT2 = document.querySelectorAll("img")[55];
+var buyT3 = document.querySelectorAll("img")[56];
+var buyT4 = document.querySelectorAll("img")[57];
+var buyT5 = document.querySelectorAll("img")[58];
+var buyT6 = document.querySelectorAll("img")[59];
+var buyT7 = document.querySelectorAll("img")[60];
+var buyT8 = document.querySelectorAll("img")[61];
+var buyT9 = document.querySelectorAll("img")[62];
+var buyT10 = document.querySelectorAll("img")[63];
+var buyT11 = document.querySelectorAll("img")[64];
+var buyT12 = document.querySelectorAll("img")[65];
+
 
 
 // EVENT LISTENERS
@@ -493,7 +662,7 @@ buyW4.addEventListener("click", function() {
 		if (player1.weapon1Card != 4 && player1.weapon2Card != 4 && player1.gold >= 7){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Deadly Axe for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuyGoldCost.innerHTML = "7 gold?";
 		shoppingCartRightHand.gold = 7;
 		shoppingCartRightHand.weapon1Card = 4;
 		shoppingCartRightHand.weapon1 = 10;
@@ -527,8 +696,8 @@ buyW5.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 5 && player1.weapon2Card != 5 && player1.gold >= 10){
 		dualWield();
-		wantToBuy.innerHTML = "Do you want to buy the Deadly Axe for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuy.innerHTML = "Do you want to buy the Morning Star for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingCartRightHand.gold = 10;
 		shoppingCartRightHand.weapon1Card = 5;
 		shoppingCartRightHand.weapon1 = 12;
@@ -546,12 +715,12 @@ buyW5.addEventListener("click", function() {
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
 	} else if (player1.weapon1Card == 5 || player1.weapon2Card == 5){
-		wantToBuy.innerHTML = "You already own this Deadly Axe.  ";
+		wantToBuy.innerHTML = "You already own this Morning Star.  ";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
 	} else if (player1.gold < 10){
 		console.log('not enough gold');
-		wantToBuy.innerHTML = "You cannot afford this Deadly Axe."
+		wantToBuy.innerHTML = "You cannot afford this Morning Star."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
 	};
@@ -563,7 +732,7 @@ buyW6.addEventListener("click", function() {
 		if (player1.weapon1Card != 6 && player1.weapon2Card != 6 && player1.gold >= 2){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Smith's Hammer for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingCartRightHand.gold = 2;
 		shoppingCartRightHand.weapon1Card = 6;
 		shoppingCartRightHand.weapon1 = 4;
@@ -598,7 +767,7 @@ buyW7.addEventListener("click", function() {
 		if (player1.weapon1Card != 7 && player1.weapon2Card != 7 && player1.gold >= 3){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Expensive Mace for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingCartRightHand.gold = 3;
 		shoppingCartRightHand.weapon1Card = 7;
 		shoppingCartRightHand.weapon1 = 6;
@@ -633,7 +802,7 @@ buyW8.addEventListener("click", function() {
 		if (player1.weapon1Card != 8 && player1.weapon2Card != 8 && player1.gold >= 6){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Cat O' Nine Tails for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuyGoldCost.innerHTML = "6 gold?";
 		shoppingCartRightHand.gold = 6;
 		shoppingCartRightHand.weapon1Card = 8;
 		shoppingCartRightHand.weapon1 = 4;
@@ -668,7 +837,7 @@ buyW9.addEventListener("click", function() {
 		if (player1.weapon1Card != 9 && player1.weapon2Card != 9 && player1.gold >= 8){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Golden Axe for ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingCartRightHand.gold = 8;
 		shoppingCartRightHand.weapon1Card = 9;
 		shoppingCartRightHand.weapon1 = 8;
@@ -702,8 +871,8 @@ buyW10.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 10 && player1.weapon2Card != 10 && player1.gold >= 12){
 		dualWield();
-		wantToBuy.innerHTML = "Do you want to buy the Fast Cutlass ";
-		wantToBuyGoldCost.innerHTML = "4 gold?";
+		wantToBuy.innerHTML = "Do you want to buy the Fast Cutlass for ";
+		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingCartRightHand.gold = 12;
 		shoppingCartRightHand.weapon1Card = 10;
 		shoppingCartRightHand.weapon1 = 10;
@@ -734,9 +903,707 @@ buyW10.addEventListener("click", function() {
 });
 
 
+// SHIELDS
+buyW31.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 11 && player1.weapon2Card != 11 && player1.gold >= 0){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Wood Shield for ";
+		wantToBuyGoldCost.innerHTML = "0 gold?";
+		shoppingCartRightHand.gold = 0;
+		shoppingCartRightHand.weapon1Card = 11;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 1;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 0;
+		shoppingCartLeftHand.weapon2Card = 11;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 1;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 11 || player1.weapon2Card == 11){
+		wantToBuy.innerHTML = "You already own this Wood Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 0){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Wood Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
+buyW32.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 1){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Viking Shield for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingCartRightHand.gold = 1;
+		shoppingCartRightHand.weapon1Card = 12;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 2;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 1;
+		shoppingCartLeftHand.weapon2Card = 12;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 2;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 12 || player1.weapon2Card == 12){
+		wantToBuy.innerHTML = "You already own this Viking Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Viking Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
+buyW33.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 3){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Bronze Shield for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingCartRightHand.gold = 3;
+		shoppingCartRightHand.weapon1Card = 13;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 3;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 3;
+		shoppingCartLeftHand.weapon2Card = 13;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 3;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 13 || player1.weapon2Card == 13){
+		wantToBuy.innerHTML = "You already own this Bronze Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Bronze Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
+buyW34.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 7){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Steel Shield for ";
+		wantToBuyGoldCost.innerHTML = "7 gold?";
+		shoppingCartRightHand.gold = 7;
+		shoppingCartRightHand.weapon1Card = 14;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 4;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 7;
+		shoppingCartLeftHand.weapon2Card = 14;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 4;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 14 || player1.weapon2Card == 14){
+		wantToBuy.innerHTML = "You already own this Steel Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 7){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Steel Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW35.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 12){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Tower Shield for ";
+		wantToBuyGoldCost.innerHTML = "12 gold?";
+		shoppingCartRightHand.gold = 12;
+		shoppingCartRightHand.weapon1Card = 15;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 5;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 12;
+		shoppingCartLeftHand.weapon2Card = 15;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 5;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 15 || player1.weapon2Card == 15){
+		wantToBuy.innerHTML = "You already own this Tower Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Tower Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW36.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 2){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Sharpened Shield for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingCartRightHand.gold = 2;
+		shoppingCartRightHand.weapon1Card = 16;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 1;
+		shoppingCartRightHand.damageBonusShield1 = 1;
+		shoppingCartLeftHand.gold = 2;
+		shoppingCartLeftHand.weapon2Card = 16;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 1;
+		shoppingCartLeftHand.damageBonusShield2 = 1;
+	} else if (player1.weapon1Card == 16 || player1.weapon2Card == 16){
+		wantToBuy.innerHTML = "You already own this Sharpened Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Sharpened Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW37.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 4){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Spike Shield for ";
+		wantToBuyGoldCost.innerHTML = "4 gold?";
+		shoppingCartRightHand.gold = 4;
+		shoppingCartRightHand.weapon1Card = 17;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 2;
+		shoppingCartRightHand.damageBonusShield1 = 1;
+		shoppingCartLeftHand.gold = 4;
+		shoppingCartLeftHand.weapon2Card = 17;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 2;
+		shoppingCartLeftHand.damageBonusShield2 = 1;
+	} else if (player1.weapon1Card == 17 || player1.weapon2Card == 17){
+		wantToBuy.innerHTML = "You already own this Spike Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 4){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Spike Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW38.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 6){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Fighting Shield for ";
+		wantToBuyGoldCost.innerHTML = "6 gold?";
+		shoppingCartRightHand.gold = 6;
+		shoppingCartRightHand.weapon1Card = 18;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 3;
+		shoppingCartRightHand.damageBonusShield1 = 1;
+		shoppingCartLeftHand.gold = 6;
+		shoppingCartLeftHand.weapon2Card = 18;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 3;
+		shoppingCartLeftHand.damageBonusShield2 = 1;
+	} else if (player1.weapon1Card == 18 || player1.weapon2Card == 18){
+		wantToBuy.innerHTML = "You already own this Fighting Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 6){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Fighting Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW39.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 10){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Cruel Shield for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingCartRightHand.gold = 10;
+		shoppingCartRightHand.weapon1Card = 19;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 3;
+		shoppingCartRightHand.damageBonusShield1 = 2;
+		shoppingCartLeftHand.gold = 10;
+		shoppingCartLeftHand.weapon2Card = 19;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 3;
+		shoppingCartLeftHand.damageBonusShield2 = 2;
+	} else if (player1.weapon1Card == 19 || player1.weapon2Card == 19){
+		wantToBuy.innerHTML = "You already own this Cruel Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this  Cruel Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW40.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 14){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Brutal Shield for ";
+		wantToBuyGoldCost.innerHTML = "14 gold?";
+		shoppingCartRightHand.gold = 14;
+		shoppingCartRightHand.weapon1Card = 20;
+		shoppingCartRightHand.weapon1 = -1;
+		shoppingCartRightHand.weapon1Bonus = -1;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 4;
+		shoppingCartRightHand.damageBonusShield1 = 2;
+		shoppingCartLeftHand.gold = 14;
+		shoppingCartLeftHand.weapon2Card = 20;
+		shoppingCartLeftHand.weapon2 = -1;
+		shoppingCartLeftHand.weapon2Bonus = -1;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 4;
+		shoppingCartLeftHand.damageBonusShield2 = 2;
+	} else if (player1.weapon1Card == 20 || player1.weapon2Card == 20){
+		wantToBuy.innerHTML = "You already own this Brutal Shield.";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 14){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Brutal Shield."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+// TWO HANDED w21-w40
+buyW11.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 21 && player1.weapon2Card != 21 && player1.gold >= 1){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Giant Club for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon1Card = 21;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 21 || player1.weapon2Card == 21){
+		wantToBuy.innerHTML = "You already own this Giant Club.  ";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Giant Club."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW12.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 22 && player1.weapon2Card != 22 && player1.gold >= 3){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Wood Hammer for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingTwoHanded.gold = 3;
+		shoppingTwoHanded.weapon1Card = 22;
+		shoppingTwoHanded.weapon1 = 6;
+		shoppingTwoHanded.weapon1Bonus = 6;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 3;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 22 || player1.weapon2Card == 22){
+		wantToBuy.innerHTML = "You already own this Wood Hammer";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Wood Hammer."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW13.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 23 && player1.weapon2Card != 23 && player1.gold >= 8){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Great Sword for ";
+		wantToBuyGoldCost.innerHTML = "8 gold?";
+		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.weapon1Card = 23;
+		shoppingTwoHanded.weapon1 = 8;
+		shoppingTwoHanded.weapon1Bonus = 8;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 23 || player1.weapon2Card == 23){
+		wantToBuy.innerHTML = "You already own this Great Sword";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Great Sword."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW14.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 24 && player1.weapon2Card != 24 && player1.gold >= 10){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Battle Axe for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon1Card = 24;
+		shoppingTwoHanded.weapon1 = 10;
+		shoppingTwoHanded.weapon1Bonus = 10;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 24 || player1.weapon2Card == 24){
+		wantToBuy.innerHTML = "You already own this Battle Axe";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Battle Axe."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW15.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 25 && player1.weapon2Card != 25 && player1.gold >= 15){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Zweihander for ";
+		wantToBuyGoldCost.innerHTML = "15 gold?";
+		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.weapon1Card = 25;
+		shoppingTwoHanded.weapon1 = 12;
+		shoppingTwoHanded.weapon1Bonus = 12;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 25 || player1.weapon2Card == 25){
+		wantToBuy.innerHTML = "You already own this Zweihander";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 15){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Zweihander."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW16.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 26 && player1.weapon2Card != 26 && player1.gold >= 1){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Bamboo Spear for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon1Card = 26;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 26 || player1.weapon2Card == 26){
+		wantToBuy.innerHTML = "You already own this Bamboo Spear";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Bamboo Spear."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW17.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 27 && player1.weapon2Card != 27 && player1.gold >= 3){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the War Spear for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingTwoHanded.gold = 3;
+		shoppingTwoHanded.weapon1Card = 27;
+		shoppingTwoHanded.weapon1 = 6;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 3;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 27 || player1.weapon2Card == 27){
+		wantToBuy.innerHTML = "You already own this War Spear";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this War Spear."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW18.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 5){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Military Fork for ";
+		wantToBuyGoldCost.innerHTML = "5 gold?";
+		shoppingTwoHanded.gold = 5;
+		shoppingTwoHanded.weapon1Card = 28;
+		shoppingTwoHanded.weapon1 = 8;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 5;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 28 || player1.weapon2Card == 28){
+		wantToBuy.innerHTML = "You already own this Military Fork";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 5){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Military Fork."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW19.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 8){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Pike for ";
+		wantToBuyGoldCost.innerHTML = "8 gold?";
+		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.weapon1Card = 29;
+		shoppingTwoHanded.weapon1 = 10;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 8;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 29 || player1.weapon2Card == 29){
+		wantToBuy.innerHTML = "You already own this Pike";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Pike."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW20.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 10){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Halberd for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon1Card = 30;
+		shoppingTwoHanded.weapon1 = 12;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 0;
+		shoppingTwoHanded.defenseBonusShield1 = 3;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 30 || player1.weapon2Card == 30){
+		wantToBuy.innerHTML = "You already own this Halberd";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Halberd."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 // function resetShoppingCart(){
 // 	shoppingCart.gold = 0;
@@ -807,7 +1674,6 @@ var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
 
 // TABLE Stats 
 var player1Name = document.getElementById("player1Name");
-var enemyName = document.getElementById("enemyName");
 
 var tableKillScore = document.getElementById("tableKillScore");
 var tableDeathScore = document.getElementById("tableDeathScore");
@@ -817,9 +1683,11 @@ var tableDamageBonusSkill = document.getElementById("player1.damageBonusSkill");
 var tableAttackBonusSkill = document.getElementById("player1.attackBonusSkill");
 var tablePlayer1Weapon1 = document.getElementById("player1.weapon1");
 var tablePlayer1Weapon2 = document.getElementById("player1.weapon2");
-var tablePlayer1Armor = document.getElementById("player1.armor");
 
-var tableEnemyWeapon = document.getElementById("enemy.weapon");
+var tablePlayer1Weapon1Bonus = document.getElementById("player1.weapon1Bonus");
+var tablePlayer1Weapon2Bonus = document.getElementById("player1.weapon2Bonus");
+
+
 
 // SLIDES
 
@@ -881,7 +1749,6 @@ function refresh(){
 
 // TABLE		
 		player1Name.innerHTML = player1.name;
-		enemyName.innerHTML = enemy1.name;
 		tableKillScore.innerHTML = killCount;
 		tableDeathScore.innerHTML = deathCount;
 		tableHighScore.innerHTML = highScore;
@@ -890,9 +1757,9 @@ function refresh(){
 		tableAttackBonusSkill.innerHTML = player1.attack;
 		tablePlayer1Weapon1.innerHTML = player1.weapon1;
 		tablePlayer1Weapon2.innerHTML = player1.weapon2;
-		tablePlayer1Armor.innerHTML = player1.armor;
+		tablePlayer1Weapon1Bonus.innerHTML = player1.weapon1Bonus;
+		tablePlayer1Weapon2Bonus.innerHTML = player1.weapon2Bonus;
 		
-		tableEnemyWeapon.innerHTML = enemy1.weapon;
 		updateGold();
 };
 
