@@ -626,14 +626,15 @@ transform: rotate(-20deg);
 /*TABLE*/
 
 #table {
-	font-size: 9px;
+	background-color: black;
+	font-size: 14px;
 /*	background-image: url(../img/forestPath.jpg);
 	background-size: cover;*/
  	padding: 1px;
  	height: 10vh;
  	width: 100%;
  	margin-top: 1px;
- 	color: white;
+ 	color: yellow;
 	}
 
 	table, th, td {

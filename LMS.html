@@ -191,6 +191,115 @@
 
 		<div id="player1AtMarket"></div>
 
+
+<table id="table">
+			  <tr>
+			  	<th></th>
+			    <th>Score</th>
+			    <th></th>
+			    <th id="player1Name">Player1</th>
+			    <th id="enemyName">Peasant</th>
+			  </tr>
+		
+
+			   <tr>
+			    <td>Kills</td>
+			    <td id="tableKillScore"></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Times Killed</td>
+			    <td id="tableDeathScore"></td>
+				<td id="">Strength Bonus</td>
+				<td id="player1.damageBonusSkill"></td>
+				<td id=""></td>
+			  </tr>
+
+			   <tr>
+			    <td>high Score</td>
+			    <td id="tableHighScore"></td>
+				<td id="">Attack Bonus</td>
+				<td id="player1.attackBonusSkill"></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Games played</td>
+			    <td id="tableGamesPlayed"></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+  			   <tr>
+			  	<td></td>
+			    <td id=""></td>
+				<td id="">Weapon 1</td>
+				<td id="player1.weapon1"></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id="">Weapon 2</td>
+				<td id="player1.weapon2"></td>
+				<td id="enemy.weapon"></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id="">Armor</td>
+				<td id="player1.armor"></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+			</table>
+
+
 </div>
 		<button onclick="closeMarket()" id="closeMarket">Close Market</button>
 </div>
@@ -204,7 +313,7 @@
 					<div id="player1HealthCounter"></div>
 					<div id="player1DefenseCounter"></div>
 					<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
-					<div id="player1Weapon2Card" onclick="nextWeapon2()"></div>
+					<div id="player1Weapon2Card" onclick="discardWeaponL()"></div>
 					<div id="player1ArmorCard" onclick="nextArmor()"></div>
 					<div id="player1HealthCard" onclick="nextHealthTraining()"></div>
 					<div id="player1DamageCard" onclick="nextDamageTraining()"></div>
@@ -302,115 +411,6 @@
 		</div>
 
 	</div>
-
-<table id="table">
-			  <tr>
-			  	<th></th>
-			    <th>Score</th>
-			    <th></th>
-			    <th id="player1Name">Player1</th>
-			    <th id="enemyName">Peasant</th>
-			  </tr>
-		
-
-			   <tr>
-			    <td>Kills</td>
-			    <td id="tableKillScore"></td>
-				<td id="">Health Training</td>
-				<td id="player1.healthBonusSkill"></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td>Times Killed</td>
-			    <td id="tableDeathScore"></td>
-				<td id="">Strength Training</td>
-				<td id="player1.damageBonusSkill"></td>
-				<td id=""></td>
-			  </tr>
-
-			   <tr>
-			    <td>high Score</td>
-			    <td id="tableHighScore"></td>
-				<td id="">Attack Training</td>
-				<td id="player1.attackBonusSkill"></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td>Games played</td>
-			    <td id="tableGamesPlayed"></td>
-				<td id="">Defense Training</td>
-				<td id="player1.defenseBonusSkill"></td>
-				<td id=""></td>
-			  </tr>
-
-  			   <tr>
-			  	<td></td>
-			    <td id=""></td>
-				<td id="">Weapon 1</td>
-				<td id="player1.weapon1"></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id="">Weapon 2</td>
-				<td id="player1.weapon2"></td>
-				<td id="enemy.weapon"></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id="">Armor</td>
-				<td id="player1.armor"></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-			  </tr>
-
-
-			</table>
 
 
 </body>
