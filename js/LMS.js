@@ -89,6 +89,7 @@ var discardButtonDefense = document.getElementById("discardButtonDefense");
 
 
 var cancelBuyButton = document.getElementById("cancelBuyButton");
+var cancelDiscardButton = document.getElementById("cancelDiscardButton");
 var wantToBuy = document.getElementById("wantToBuy");
 var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
 
@@ -303,6 +304,10 @@ function cancelBuyClose(){
 	confirmBuy.style.display = 'none';
 };
 
+function cancelDiscardClose(){
+	confirmDiscard.style.display = 'none';
+};
+
 function confirmDiscardOpen(){
 	confirmDiscard.style.display = 'flex';
 };
@@ -492,6 +497,9 @@ function armor(){
 };
 
 
+cancelDiscardButton.addEventListener("click", function() {
+	cancelDiscardClose();
+});
 
 cancelBuyButton.addEventListener("click", function() {
 	cancelBuyClose();
