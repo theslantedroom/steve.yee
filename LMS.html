@@ -64,9 +64,22 @@
 <div id="marketItems">
 
 		<div id="confirmBuy">
-			<button onclick="okBuy()">ok</button>
-			<button onclick="cancelBuy()">cancel</button>
+			<p><span id="wantToBuy"></span><span id="wantToBuyGoldCost"></span></p>
+			<button id="okBuyRightButton">Buy for right hand</button>
+			<button id="okBuyLeftButton">Buy for left hand</button>
+			<button id="cancelBuyButton">cancel</button>	
 		</div>
+
+		<div id="confirmDiscard">
+			<button id="discardButtonRightHand">discard R?</button>
+			<button id="discardButtonLeftHand">discard L?</button>
+			<button id="discardButtonArmorHand">discard Armor?</button>
+			<button id="discardButtonHealth">discard HP?</button>
+			<button id="discardButtonDamage">discard Damage?</button>
+			<button id="discardButtonAttack">discard Attack?</button>
+			<button id="discardButtonDefense">discard Defense?</button>
+		</div>
+
 
 		<div id="storeItemsOnehandWeapons">
 			<div id="oneHandedA">
@@ -138,22 +151,22 @@
 
 		<div id="storeItemsArmor">
 			<div id="armorA">
-					<img src="img/market/w41.jpg" alt="">
-					<img src="img/market/w42.jpg" alt="">
-					<img src="img/market/w43.jpg" alt="">
-					<img src="img/market/w44.jpg" alt="">
-					<img src="img/market/w45.jpg" alt="">
-					<img src="img/market/w46.jpg" alt="">
-					<img src="img/market/w47.jpg" alt="">
+					<img src="img/market/a1.jpg" alt="">
+					<img src="img/market/a2.jpg" alt="">
+					<img src="img/market/a3.jpg" alt="">
+					<img src="img/market/a4.jpg" alt="">
+					<img src="img/market/a5.jpg" alt="">
+					<img src="img/market/a6.jpg" alt="">
+					<img src="img/market/a7.jpg" alt="">
 			</div>
 			<div id="armorB">
-					<img src="img/market/w48.jpg" alt="">
-					<img src="img/market/w49.jpg" alt="">
-					<img src="img/market/w50.jpg" alt="">
-					<img src="img/market/w51.jpg" alt="">
-					<img src="img/market/w52.jpg" alt="">
-					<img src="img/market/w53.jpg" alt="">
-					<img src="img/market/w54.jpg" alt="">					
+					<img src="img/market/a8.jpg" alt="">
+					<img src="img/market/a9.jpg" alt="">
+					<img src="img/market/a10.jpg" alt="">
+					<img src="img/market/a11.jpg" alt="">
+					<img src="img/market/a12.jpg" alt="">
+					<img src="img/market/a13.jpg" alt="">
+					<img src="img/market/a14.jpg" alt="">					
 			</div>
 		</div>
 
@@ -190,7 +203,7 @@
 			<div id="player1CharCard">
 					<div id="player1HealthCounter"></div>
 					<div id="player1DefenseCounter"></div>
-					<div id="player1Weapon1Card" onclick="nextWeapon()"></div>
+					<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
 					<div id="player1Weapon2Card" onclick="nextWeapon2()"></div>
 					<div id="player1ArmorCard" onclick="nextArmor()"></div>
 					<div id="player1HealthCard" onclick="nextHealthTraining()"></div>

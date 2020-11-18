@@ -137,13 +137,28 @@ margin: auto;
 #confirmBuy{
 	border: 5px solid black;
 	position: absolute;
-	background-color: grey;
+	background-color: white;
 	width: 300px;
 	height: 200px;
 	z-index: 1;
 	left: 50%;
 	margin-left: -150px;
 	display: none;
+}
+
+#confirmDiscard{
+	border: 5px solid black;
+	position: absolute;
+	background-color: white;
+	width: 300px;
+	height: 200px;
+	z-index: 1;
+	left: 50%;
+	margin-left: -150px;
+	display: none;
+}
+
+#discardButton{
 }
 
 #playArea{

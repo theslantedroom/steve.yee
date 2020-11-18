@@ -1,13 +1,18 @@
 
 var player1 = {
 	name: 'player1',
+	currentCharCard: 9,
 	gold: 5,
 	healthBonusArmor: 0,
-	damageBonusWeapon: 0,
-	attackBonusWeapon: 0,
+	damageBonusWeapon1: 0,
+	damageBonusWeapon2: 0,
+	attackBonusWeapon1: 0,
+	attackBonusWeapon2: 0,
 	defenseBonusWeapon: 0,
-	defenseBonusShield: 0,
-	damageBonusShield: 0,
+	defenseBonusShield1: 0,
+	defenseBonusShield2: 0,
+	damageBonusShield1: 0,
+	damageBonusShield2: 0,
 
 	healthBonusSkill: 0,
 	damageBonusSkill: 0,
@@ -17,7 +22,7 @@ var player1 = {
 	healthCard: 0,
 	damageCard: 0,
 	weapon1Card: 0,
-	armorCard: 41,
+	armorCard: 0,
 	weapon2Card: 0,
 	attackCard: 0,
 	defenseCard: 0,
@@ -27,13 +32,12 @@ var player1 = {
 	damage: 0,
 	attack: 0,
 	defense: 0,
-	armor: 6,
+	armor: 2,
 	weapon1: 4,
 	weapon2: -1,	
 
 	kills: 0,
 	deaths: 0,
-
 };
 
 var enemy1 = {
@@ -55,11 +59,28 @@ var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
-var currentCharCard = 9;
+
 var currentEnemyCard = 3;
 
 //UI Interface
 var confirmBuy = document.getElementById("confirmBuy");
+var confirmDiscard = document.getElementById("confirmDiscard");
+var okBuyRightButton = document.getElementById("okBuyRightButton");
+var okBuyLeftButton = document.getElementById("okBuyLeftButton");
+
+var discardButtonRightHand = document.getElementById("discardButtonRightHand");
+var discardButtonLeftHand = document.getElementById("discardButtonLeftHand");
+var discardButtonArmorHand = document.getElementById("discardButtonArmorHand");
+var discardButtonHealth = document.getElementById("discardButtonHealth");
+var discardButtonDamage = document.getElementById("discardButtonDamage");
+var discardButtonAttack = document.getElementById("discardButtonAttack");
+var discardButtonDefense = document.getElementById("discardButtonDefense");
+
+
+var cancelBuyButton = document.getElementById("cancelBuyButton");
+var wantToBuy = document.getElementById("wantToBuy");
+var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
+
 var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
 var chooseCharacter = document.getElementById('chooseCharacter');
@@ -80,6 +101,20 @@ characterCreationButton.addEventListener("click", function(){
 	player1GotoBattle();
 	refresh();
 });
+
+
+function clearDiscardPopUp(){
+	discardButtonRightHand.style.display = 'none';
+	discardButtonLeftHand.style.display = 'none';
+	discardButtonArmorHand.style.display = 'none';
+	discardButtonHealth.style.display = 'none';
+	discardButtonDamage.style.display = 'none';
+	discardButtonAttack.style.display = 'none';
+	discardButtonDefense.style.display = 'none';
+};
+clearDiscardPopUp();
+
+// MOVING THE CHAR CARD DIV
 
 //create a  ABC div--------------add to it-------a textnode------(inputtext)
 // document.createElement("div").appendChild(document.createTextNode(player1NameInput.value));
@@ -104,23 +139,22 @@ function updateGold(){
 	player1Gold2.innerHTML = player1.gold;
 };
 
-
 function player1previousCharacter(){	
-		currentCharCard -= 1;
-		if (currentCharCard == 0) {
-			currentCharCard = 32;
+		player1.currentCharCard -= 1;
+		if (player1.currentCharCard == 0) {
+			player1.currentCharCard = 32;
 		}
-		console.log('currentCharCard '+currentCharCard);
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		console.log('player1.currentCharCard '+player1.currentCharCard);
+		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
 function player1NextCharacter(){	
-		currentCharCard += 1;
-		if (currentCharCard == 33) {
-			currentCharCard = 1;
+		player1.currentCharCard += 1;
+		if (player1.currentCharCard == 33) {
+			player1.currentCharCard = 1;
 		}
-		console.log('currentCharCard '+currentCharCard);
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		console.log('player1.currentCharCard '+player1.currentCharCard);
+		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
 function closeMarket(){
@@ -134,9 +168,6 @@ function openMarket(){
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	market.style.display = "block";
 };
-
-
-
 
 function weaponStoreOneHandButton(){
 	clearStore();
@@ -169,66 +200,254 @@ function clearStore(){
 	document.getElementById("storeItemsShields").style.display = "none";
 	document.getElementById("storeItemsArmor").style.display = "none";
 	document.getElementById("storeItemsTraining").style.display = "none";
+	cancelBuyClose();
 };
 
-// function confirmBuyPop(){
-// confirmBuy.style.display = 'block';
-// };
-
-function cancelBuy(){
-confirmBuy.style.display = 'none';
-};
-function okBuy(){
-confirmBuy.style.display = 'none';
+function confirmBuyOpen(){
+	confirmBuy.style.display = 'flex';
 };
 
-var dagger1 = {
-	code: 1,
+function cancelBuyClose(){
+	confirmBuy.style.display = 'none';
+};
+
+function confirmDiscardOpen(){
+	confirmDiscard.style.display = 'flex';
+};
+
+function confirmDiscardClose(){
+	confirmDiscard.style.display = 'none';
+};
+function discardWeaponR(){
+	if (player1.weapon1Card != 0){
+	confirmDiscardOpen();
+	discardButtonRightHand.style.display = "flex";
+	refresh();
+	}};
+
+
+function cannotAfford(){
+	okBuyRightButton.style.display = "none";
+	okBuyLeftButton.style.display = "none";
+};
+
+
+function alreadyOwn(){
+	okBuyRightButton.style.display = "none";
+	okBuyLeftButton.style.display = "none";
+};
+
+function dualWield(){
+	okBuyRightButton.style.display = "flex";
+	okBuyLeftButton.style.display = "flex";
+};
+
+
+
+okBuyRightButton.addEventListener("click", function() {
+ console.log('click okBuyRightButton');
+ checkoutRightHand();
+ confirmBuy.style.display = 'none';
+});
+
+okBuyLeftButton.addEventListener("click", function() {
+ console.log('click okBuyLeftButton');
+ checkoutLeftHand();
+ confirmBuy.style.display = 'none';
+});
+
+cancelBuyButton.addEventListener("click", function() {
+	cancelBuyClose();
+	console.log('click cancelBuyButton');
+});
+
+discardButtonRightHand.addEventListener("click", function() {
+	player1.weapon1Card = 0;
+	player1.weapon1 = -1;
+	player1.damageBonusWeapon1 = 0;
+	player1.attackBonusWeapon1 = 0;
+	player1.defenseBonusShield1 = 0;
+	player1.damageBonusShield1 = 0;
+	confirmDiscardClose();
+	refresh();
+	console.log('click discard');
+});
+
+
+
+
+
+// RIGHT HAND
+var shoppingCartRightHand = {
 	gold: 0,
-	damage: 4,
-	health: 0,
-	strength: 0,
-	defense: 0,
-	attack: 0,
+	weapon1Card: 0,
+	weapon1: 0,
+	damageBonusWeapon1: 0,
+	attackBonusWeapon1: 0,
+	defenseBonusShield1: 0,
+	damageBonusShield1: 0,
+
+};
+function checkoutRightHand(){
+	player1.gold -= shoppingCartRightHand.gold;
+	player1.weapon1Card = shoppingCartRightHand.weapon1Card;
+	player1.weapon1 = shoppingCartRightHand.weapon1;
+	player1.damageBonusWeapon1 = shoppingCartRightHand.damageBonusWeapon1;
+	player1.attackBonusWeapon1 = shoppingCartRightHand.attackBonusWeapon1;
+	player1.defenseBonusShield1 = shoppingCartRightHand.defenseBonusShield1;
+	player1.damageBonusShield1 = shoppingCartRightHand.damageBonusShield1;
+	refresh();
+};
+
+
+// LEFT HAND
+var shoppingCartLeftHand = {
+	gold: 0,
+	weapon2Card: 0,
+	weapon2: 0,
+	damageBonusWeapon2: 0,
+	attackBonusWeapon2: 0,
+	defenseBonusShield2: 0,
+	damageBonusShield2: 0,
+
+};
+function checkoutLeftHand(){
+	player1.gold -= shoppingCartLeftHand.gold;
+	player1.weapon2Card = shoppingCartLeftHand.weapon2Card;
+	player1.weapon2 = shoppingCartLeftHand.weapon2;
+	player1.damageBonusWeapon2 = shoppingCartLeftHand.damageBonusWeapon2;
+	player1.attackBonusWeapon2 = shoppingCartLeftHand.attackBonusWeapon2;
+	player1.defenseBonusShield2 = shoppingCartLeftHand.defenseBonusShield2;
+	player1.damageBonusShield2 = shoppingCartLeftHand.damageBonusShield2;
+	refresh();
 };
 
 
 
-//MARKET GUTS
 var buyW1 = document.querySelectorAll("img")[0];
 var buyW2 = document.querySelectorAll("img")[1];
 var buyW3 = document.querySelectorAll("img")[2];
 var buyW4 = document.querySelectorAll("img")[3];
 var buyW5 = document.querySelectorAll("img")[4];
+var buyW6 = document.querySelectorAll("img")[5];
+var buyW7 = document.querySelectorAll("img")[6];
+var buyW8 = document.querySelectorAll("img")[7];
+var buyW9 = document.querySelectorAll("img")[8];
+var buyW10 = document.querySelectorAll("img")[9];
+var buyW11 = document.querySelectorAll("img")[10];
 
+
+// EVENT LISTENERS
+//Click on STORE ITEMS
 buyW1.addEventListener("click", function() {
-confirmBuy;
-
-
-	if (player1.weapon1Card != dagger1.code && player1.weapon2Card != dagger1.code && player1.gold >= 0){
-	player1.gold -= dagger1.gold;
-	player1.weapon1 = dagger1.damage;
-	player1.weapon1Card = dagger1.code;
-	confirmBuy.style.display = 'block';
-
+	console.log('buyW1');
+		confirmBuyOpen();
+		if (player1.weapon1Card != 1 && player1.weapon2Card != 1 && player1.gold >= 0){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Dagger for ";
+		wantToBuyGoldCost.innerHTML = "0 gold?";
+		shoppingCartRightHand.gold = 0;
+		shoppingCartRightHand.weapon1Card = 1;
+		shoppingCartRightHand.weapon1 = 4;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 0;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 0;
+		shoppingCartLeftHand.weapon2Card = 1;
+		shoppingCartLeftHand.weapon2 = 4;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 0;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this dagger."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	} else if (player1.weapon1Card == 1 || player1.weapon2Card == 1){
+		wantToBuy.innerHTML = "You already own this Dagger.  ";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	};
 	refresh();
-}});
+});
 
-// buyW2.addEventListener("click", function() {
-// 	if (player1.weapon1Card != 2 && player1.weapon2Card != 2 && player1.gold >= 1){
-// 	player1.gold -= 2;
-// 	player1.weapon1 = 6;
-// 	player1.weapon1Card = 2;
+buyW2.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 2 && player1.weapon2Card != 2 && player1.gold >= 2){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Gladius for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingCartRightHand.gold = 2;
+		shoppingCartRightHand.weapon1Card = 2;
+		shoppingCartRightHand.weapon1 = 6;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 0;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 2;
+		shoppingCartLeftHand.weapon2Card = 2;
+		shoppingCartLeftHand.weapon2 = 6;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 0;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Gladius.";
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	} else if (player1.weapon1Card == 2 || player1.weapon2Card == 2){
+		wantToBuy.innerHTML = "You already own this Gladius.  "
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	};
+	refresh();
+});
 
-// 	refresh();
-// }});
+
+// function resetShoppingCart(){
+// 	shoppingCart.gold = 0;
+// 	shoppingCart.healthCard = 0;
+// 	shoppingCart.damageCard = 0;
+// 	shoppingCart.weapon1Card = 0;
+// 	shoppingCart.armorCard = 0;
+// 	shoppingCart.weapon2Card = 0;
+// 	shoppingCart.attackCard = 0;
+// 	shoppingCart.defenseCard = 0;
+// 	shoppingCart.weapon1 = 0;
+// 	shoppingCart.weapon2 = 0;
+// 	shoppingCart.armor = 0;
+// 	shoppingCart.healthBonusArmor = 0;
+// 	shoppingCart.damageBonusWeapon1 = 0;
+// 	shoppingCart.attackBonusWeapon1 = 0;
+// 	shoppingCart.defenseBonusWeapon = 0;
+// 	shoppingCart.defenseBonusShield1 = 0;
+// 	shoppingCart.damageBonusShield1 = 0;
+// };
 
 
 
-
-
-
-
+// var shoppingCart = {
+// 	gold: 0,
+// 	healthCard: 0,
+// 	damageCard: 0,
+// 	weapon1Card: 0,
+// 	armorCard: 0,
+// 	weapon2Card: 0,
+// 	attackCard: 0,
+// 	defenseCard: 0,
+// 	weapon1: 0,
+// 	weapon2: 0,
+// 	armor: 0,
+// 	healthBonusArmor: 0,
+// 	damageBonusWeapon1: 0,
+// 	attackBonusWeapon1: 0,
+// 	defenseBonusWeapon: 0,
+// 	defenseBonusShield1: 0,
+// 	damageBonusShield1: 0,
+// };
 
 
 
@@ -310,15 +529,15 @@ var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll")
 function refresh(){
 
 // calculate Final Stats
-	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield + player1.armor + player1.defenseBonusSkill;
-	player1.damage =  player1.damageBonusWeapon + player1.damageBonusSkill;
-	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon;	
+	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield1 + player1.defenseBonusShield2 + player1.armor + player1.defenseBonusSkill;
+	player1.damage =  player1.damageBonusWeapon1 + player1.damageBonusWeapon2 + player1.damageBonusShield1 + player1.damageBonusShield2 + player1.damageBonusSkill;
+	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon1 + player1.attackBonusWeapon2;	
 
 // CARD UPDATES
-		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
 		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
-		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.armorCard + ".jpg')";
+		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
 		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
 		player1HealthCard.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1.healthCard + ".jpg')";
 		player1DamageCard.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1.damageCard + ".jpg')";
@@ -355,7 +574,7 @@ refresh();
 
 // BOOTUP and Character create
 player1HealthCounter.innerHTML = player1.health;
-player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + currentCharCard + ".jpg')";
+player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 updateGold();
 player1GotoCharacterSelect();
 clearStore();
@@ -374,29 +593,31 @@ function start(){
 
 function nextArmor(){
 	player1.armorCard += 1;
-	if (player1.armorCard >= 48) {
-		player1.armorCard = 41;
+	if (player1.armorCard >= 8) {
+		player1.armorCard = 0;
 	};
-	
-if (player1.armorCard == 41){
+if (player1.armorCard == 0){
+		player1.armor = 2;
+};	
+if (player1.armorCard == 1){
 		player1.armor = 6;
 };
-if (player1.armorCard == 42){
+if (player1.armorCard == 2){
 		player1.armor = 7;
 };
-if (player1.armorCard == 43){
+if (player1.armorCard == 3){
 		player1.armor = 8;
 };
-if (player1.armorCard == 44){
+if (player1.armorCard == 4){
 		player1.armor = 9;
 };
-if (player1.armorCard == 45){
+if (player1.armorCard == 5){
 		player1.armor = 10;
 };
-if (player1.armorCard == 46){
+if (player1.armorCard == 6){
 		player1.armor = 11;
 };
-if (player1.armorCard == 47){
+if (player1.armorCard == 7){
 		player1.armor = 12;
 };
 
