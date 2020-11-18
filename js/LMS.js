@@ -1605,6 +1605,356 @@ buyW20.addEventListener("click", function() {
 	refresh();
 });
 
+buyW21.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 31 && player1.weapon2Card != 31 && player1.gold >= 1){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Wood Crossbow for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon1Card = 31;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 1;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 31 || player1.weapon2Card == 31){
+		wantToBuy.innerHTML = "You already own this Wood Crossbow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Wood Crossbow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW22.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 32 && player1.weapon2Card != 32 && player1.gold >= 2){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Light Crossbow for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingTwoHanded.gold = 2;
+		shoppingTwoHanded.weapon1Card = 32;
+		shoppingTwoHanded.weapon1 = 6;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 2;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 32 || player1.weapon2Card == 32){
+		wantToBuy.innerHTML = "You already own this Light Crossbow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Light Crossbow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW23.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 33 && player1.weapon2Card != 33 && player1.gold >= 4){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Iron Crossbow for ";
+		wantToBuyGoldCost.innerHTML = "4 gold?";
+		shoppingTwoHanded.gold = 4;
+		shoppingTwoHanded.weapon1Card = 33;
+		shoppingTwoHanded.weapon1 = 8;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 4;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 33 || player1.weapon2Card == 33){
+		wantToBuy.innerHTML = "You already own this Iron Crossbow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 4){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Iron Crossbow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+
+buyW24.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 34 && player1.weapon2Card != 34 && player1.gold >= 7){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Heavy Crossbow for ";
+		wantToBuyGoldCost.innerHTML = "7 gold?";
+		shoppingTwoHanded.gold = 7;
+		shoppingTwoHanded.weapon1Card = 34;
+		shoppingTwoHanded.weapon1 = 10;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 7;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 34 || player1.weapon2Card == 34){
+		wantToBuy.innerHTML = "You already own this Heavy Crossbow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 7){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Heavy Crossbow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW25.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 35 && player1.weapon2Card != 35 && player1.gold >= 10){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Master Crossbow for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon1Card = 35;
+		shoppingTwoHanded.weapon1 = 12;
+		shoppingTwoHanded.weapon1Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 35 || player1.weapon2Card == 35){
+		wantToBuy.innerHTML = "You already own this Master Crossbow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Master Crossbow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW26.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 36 && player1.weapon2Card != 36 && player1.gold >= 2){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Bent Bow for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingTwoHanded.gold = 2;
+		shoppingTwoHanded.weapon1Card = 36;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 1;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 2;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = -1;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 36 || player1.weapon2Card == 36){
+		wantToBuy.innerHTML = "You already own this Bent Bow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Bent Bow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW27.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 37 && player1.weapon2Card != 37 && player1.gold >= 5){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Short Bow for ";
+		wantToBuyGoldCost.innerHTML = "5 gold?";
+		shoppingTwoHanded.gold = 5;
+		shoppingTwoHanded.weapon1Card = 37;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 1;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 5;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = 4;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 37 || player1.weapon2Card == 37){
+		wantToBuy.innerHTML = "You already own this Short Bow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 5){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Short Bow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW28.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 38 && player1.weapon2Card != 38 && player1.gold >= 10){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Horse Bow for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon1Card = 38;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 2;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 10;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = 4;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 38 || player1.weapon2Card == 38){
+		wantToBuy.innerHTML = "You already own this Horse Bow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Horse Bow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW29.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 39 && player1.weapon2Card != 39 && player1.gold >= 12){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Long Bow for ";
+		wantToBuyGoldCost.innerHTML = "12 gold?";
+		shoppingTwoHanded.gold = 12;
+		shoppingTwoHanded.weapon1Card = 39;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 12;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = 4;
+		shoppingTwoHanded.weapon2Bonus = -1;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 39 || player1.weapon2Card == 39){
+		wantToBuy.innerHTML = "You already own this Long Bow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Long Bow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW30.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 40 && player1.weapon2Card != 40 && player1.gold >= 15){
+		TwoHanded();
+		wantToBuy.innerHTML = "Do you want to buy the Flawless Bow for ";
+		wantToBuyGoldCost.innerHTML = "15 gold?";
+		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.weapon1Card = 40;
+		shoppingTwoHanded.weapon1 = 4;
+		shoppingTwoHanded.weapon1Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon1 = 0;
+		shoppingTwoHanded.attackBonusWeapon1 = 3;
+		shoppingTwoHanded.defenseBonusShield1 = 0;
+		shoppingTwoHanded.damageBonusShield1 = 0;
+		shoppingTwoHanded.gold = 15;
+		shoppingTwoHanded.weapon2Card = 0;
+		shoppingTwoHanded.weapon2 = 4;
+		shoppingTwoHanded.weapon2Bonus = 4;
+		shoppingTwoHanded.damageBonusWeapon2 = 0;
+		shoppingTwoHanded.attackBonusWeapon2 = 0;
+		shoppingTwoHanded.defenseBonusShield2 = 0;
+		shoppingTwoHanded.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 40 || player1.weapon2Card == 40){
+		wantToBuy.innerHTML = "You already own this Flawless Bow";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 15){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Flawless Bow."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 // function resetShoppingCart(){
 // 	shoppingCart.gold = 0;
 // 	shoppingCart.healthCard = 0;
@@ -2100,7 +2450,7 @@ function changeEnemy(){
 function player1AttackRoll(){
 	slidePlayer1Turn.style.display = "none"; //you stand ready 
 	attackRoll = Math.floor((Math.random() * 20) + 1);
-	attackRoll = 20;
+	// attackRoll = 20;
 
 	refresh();
 	console.log('player1AttackRoll ' + attackRoll);
