@@ -927,7 +927,7 @@ buyW10.addEventListener("click", function() {
 // SHIELDS
 buyW31.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 11 && player1.weapon2Card != 11 && player1.gold >= 0){
+		if ((player1.weapon1Card != 11 && player1.weapon2Card != 11 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Wood Shield for ";
 		wantToBuyGoldCost.innerHTML = "0 gold?";
@@ -956,13 +956,18 @@ buyW31.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Wood Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW32.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 1){
+		if ((player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Viking Shield for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
@@ -991,13 +996,18 @@ buyW32.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Viking Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW33.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 3){
+		if ((player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Bronze Shield for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
@@ -1026,13 +1036,18 @@ buyW33.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Bronze Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW34.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 7){
+		if ((player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Steel Shield for ";
 		wantToBuyGoldCost.innerHTML = "7 gold?";
@@ -1061,13 +1076,18 @@ buyW34.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Steel Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW35.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 12){
+		if ((player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Tower Shield for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
@@ -1096,13 +1116,18 @@ buyW35.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Tower Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW36.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 2){
+		if ((player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Sharpened Shield for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
@@ -1131,13 +1156,18 @@ buyW36.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Sharpened Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW37.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 4){
+		if ((player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Spike Shield for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
@@ -1166,13 +1196,18 @@ buyW37.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Spike Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW38.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 6){
+		if ((player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Fighting Shield for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
@@ -1201,13 +1236,18 @@ buyW38.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Fighting Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW39.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 10){
+		if ((player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Cruel Shield for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
@@ -1236,13 +1276,18 @@ buyW39.addEventListener("click", function() {
 		wantToBuy.innerHTML = "You cannot afford this  Cruel Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
+		cannotAfford();
 	};
 	refresh();
 });
 
 buyW40.addEventListener("click", function() {
 		confirmBuyOpen();
-		if (player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 14){
+		if ((player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Brutal Shield for ";
 		wantToBuyGoldCost.innerHTML = "14 gold?";
@@ -1270,6 +1315,11 @@ buyW40.addEventListener("click", function() {
 		console.log('not enough gold');
 		wantToBuy.innerHTML = "You cannot afford this Brutal Shield."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
+		console.log('already have a shield');
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
+		wantToBuyGoldCost.innerHTML = ""
 		cannotAfford();
 	};
 	refresh();
