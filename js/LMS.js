@@ -28,7 +28,8 @@ var player1 = {
 	defenseCard: 0,
 
 	// in math calculation
-	health: 20,
+	health: 0,
+	currentHealth: 20,
 	damage: 0,
 	attack: 0,
 	defense: 0,
@@ -146,6 +147,12 @@ function player1GotoMarket(){
 function updateGold(){
 	player1Gold.innerHTML = player1.gold;
 	player1Gold2.innerHTML = player1.gold;
+};
+
+function addHealthBonus(){
+	player1.currentHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	player1HealthCounter.innerHTML = player1.currentHealth;
+
 };
 
 function player1previousCharacter(){	
@@ -277,7 +284,7 @@ discardButtonArmor.addEventListener("click", function() {
 	player1.healthBonusArmor = 0;
 	confirmDiscardClose();
 	refresh();
-	player1HealthCounter.innerHTML = player1.health;
+	addHealthBonus();
 	console.log('click discard');
 });
 function discardArmor(){
@@ -294,7 +301,7 @@ discardButtonHealth.addEventListener("click", function() {
 	player1.healthBonusSkill = 0;
 	confirmDiscardClose();
 	refresh();
-	player1HealthCounter.innerHTML = player1.health;
+	addHealthBonus();
 	console.log('click discard');
 });
 function discardHealth(){
@@ -579,7 +586,7 @@ function checkoutArmor(){
 	player1.armor = shoppingArmor.armor;
 	player1.healthBonusArmor = shoppingArmor.healthBonusArmor;
 	refresh();
-	player1HealthCounter.innerHTML = player1.health;
+	addHealthBonus();
 };
 
 // Training
@@ -594,7 +601,7 @@ function checkoutHealth(){
 	player1.healthCard = shoppingHealth.healthCard;
 	player1.healthBonusSkill = shoppingHealth.healthBonusSkill;
 	refresh();
-	player1HealthCounter.innerHTML = player1.health;
+	addHealthBonus();
 };
 
 var shoppingDamage = {
@@ -2835,7 +2842,7 @@ function refresh(){
 // calculate Final Stats
 	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield1 + player1.defenseBonusShield2 + player1.armor + player1.defenseBonusSkill;
 	player1.damage =  player1.damageBonusWeapon1 + player1.damageBonusWeapon2 + player1.damageBonusShield1 + player1.damageBonusShield2 + player1.damageBonusSkill;
-	player1.health = player1.healthBonusArmor + 20 + player1.healthBonusSkill;
+	// player1.currentHealth = player1.healthBonusArmor + 20 + player1.healthBonusSkill;
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon1 + player1.attackBonusWeapon2;	
 
 // CARD UPDATES
@@ -2875,7 +2882,7 @@ function refresh(){
 refresh();
 
 // BOOTUP and Character create
-player1HealthCounter.innerHTML = player1.health;
+addHealthBonus();
 player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 updateGold();
 player1GotoCharacterSelect();
@@ -2893,195 +2900,195 @@ function start(){
 };
 
 
-function nextArmor(){
-	player1.armorCard += 1;
-	if (player1.armorCard >= 8) {
-		player1.armorCard = 0;
-	};
-if (player1.armorCard == 0){
-		player1.armor = 2;
-};	
-if (player1.armorCard == 1){
-		player1.armor = 6;
-};
-if (player1.armorCard == 2){
-		player1.armor = 7;
-};
-if (player1.armorCard == 3){
-		player1.armor = 8;
-};
-if (player1.armorCard == 4){
-		player1.armor = 9;
-};
-if (player1.armorCard == 5){
-		player1.armor = 10;
-};
-if (player1.armorCard == 6){
-		player1.armor = 11;
-};
-if (player1.armorCard == 7){
-		player1.armor = 12;
-};
+// function nextArmor(){
+// 	player1.armorCard += 1;
+// 	if (player1.armorCard >= 8) {
+// 		player1.armorCard = 0;
+// 	};
+// if (player1.armorCard == 0){
+// 		player1.armor = 2;
+// };	
+// if (player1.armorCard == 1){
+// 		player1.armor = 6;
+// };
+// if (player1.armorCard == 2){
+// 		player1.armor = 7;
+// };
+// if (player1.armorCard == 3){
+// 		player1.armor = 8;
+// };
+// if (player1.armorCard == 4){
+// 		player1.armor = 9;
+// };
+// if (player1.armorCard == 5){
+// 		player1.armor = 10;
+// };
+// if (player1.armorCard == 6){
+// 		player1.armor = 11;
+// };
+// if (player1.armorCard == 7){
+// 		player1.armor = 12;
+// };
 
-console.log('armor = ' + player1.armor)
-player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
-player1HealthCounter.innerHTML = player1.health;
-refresh();
-};
+// console.log('armor = ' + player1.armor)
+// player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
+// addHealthBonus();
+// refresh();
+// };
 
-function nextHealthTraining(){
-	player1.healthCard += 1;
-	if (player1.healthCard >= 4) {
-		player1.healthCard = 0;
-	};
+// function nextHealthTraining(){
+// 	player1.healthCard += 1;
+// 	if (player1.healthCard >= 4) {
+// 		player1.healthCard = 0;
+// 	};
 
-	if (player1.healthCard == 0){
-			player1.healthBonusSkill = 0;
-	};
-	if (player1.healthCard == 1){
-			player1.healthBonusSkill = 4;
-	};
-	if (player1.healthCard == 2){
-			player1.healthBonusSkill = 8;
-	};
+// 	if (player1.healthCard == 0){
+// 			player1.healthBonusSkill = 0;
+// 	};
+// 	if (player1.healthCard == 1){
+// 			player1.healthBonusSkill = 4;
+// 	};
+// 	if (player1.healthCard == 2){
+// 			player1.healthBonusSkill = 8;
+// 	};
 
-	if (player1.healthCard == 3){
-			player1.healthBonusSkill = 12;
-	};
+// 	if (player1.healthCard == 3){
+// 			player1.healthBonusSkill = 12;
+// 	};
 
-	console.log('nextHealthTraining');
+// 	console.log('nextHealthTraining');
 
-	player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
-	player1HealthCounter.innerHTML = player1.health;
-	refresh();
-};
+// 	player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
+// 	addHealthBonus();
+// 	refresh();
+// };
 
-function nextDamageTraining(){
-	player1.damageCard += 1;
-	if (player1.damageCard >= 4) {
-		player1.damageCard = 0;
-	};
+// function nextDamageTraining(){
+// 	player1.damageCard += 1;
+// 	if (player1.damageCard >= 4) {
+// 		player1.damageCard = 0;
+// 	};
 
-	if (player1.damageCard == 0){
-			player1.damageBonusSkill = 0;
-	};
-	if (player1.damageCard == 1){
-			player1.damageBonusSkill = 1;
-	};
-	if (player1.damageCard == 2){
-			player1.damageBonusSkill = 2;
-	};
+// 	if (player1.damageCard == 0){
+// 			player1.damageBonusSkill = 0;
+// 	};
+// 	if (player1.damageCard == 1){
+// 			player1.damageBonusSkill = 1;
+// 	};
+// 	if (player1.damageCard == 2){
+// 			player1.damageBonusSkill = 2;
+// 	};
 
-	if (player1.damageCard == 3){
-			player1.damageBonusSkill = 3;
-	};
-	refresh();
-	console.log('nextDamageTraining');
-};
+// 	if (player1.damageCard == 3){
+// 			player1.damageBonusSkill = 3;
+// 	};
+// 	refresh();
+// 	console.log('nextDamageTraining');
+// };
 
-function nextAttackTraining(){
-	player1.attackCard += 1;
-	if (player1.attackCard >= 4) {
-		player1.attackCard = 0;
-	};
+// function nextAttackTraining(){
+// 	player1.attackCard += 1;
+// 	if (player1.attackCard >= 4) {
+// 		player1.attackCard = 0;
+// 	};
 
-	if (player1.attackCard == 0){
-			player1.attackBonusSkill = 0;
-	};
-	if (player1.attackCard == 1){
-			player1.attackBonusSkill = 1;
-	};
-	if (player1.attackCard == 2){
-			player1.attackBonusSkill = 2;
-	};
+// 	if (player1.attackCard == 0){
+// 			player1.attackBonusSkill = 0;
+// 	};
+// 	if (player1.attackCard == 1){
+// 			player1.attackBonusSkill = 1;
+// 	};
+// 	if (player1.attackCard == 2){
+// 			player1.attackBonusSkill = 2;
+// 	};
 
-	if (player1.attackCard == 3){
-			player1.attackBonusSkill = 3;
-	};
-	refresh();
+// 	if (player1.attackCard == 3){
+// 			player1.attackBonusSkill = 3;
+// 	};
+// 	refresh();
 
-	console.log('nextAttackTraining = ' + player1.attackBonus);
-};
+// 	console.log('nextAttackTraining = ' + player1.attackBonus);
+// };
 
-function nextDefenseTraining(){
-	player1.defenseCard += 1;
-	if (player1.defenseCard >= 4) {
-		player1.defenseCard = 0;
-	};
+// function nextDefenseTraining(){
+// 	player1.defenseCard += 1;
+// 	if (player1.defenseCard >= 4) {
+// 		player1.defenseCard = 0;
+// 	};
 
-	if (player1.defenseCard == 0){
-			player1.defenseBonusSkill = 0;
-	};
-	if (player1.defenseCard == 1){
-			player1.defenseBonusSkill = 1;
-	};
-	if (player1.defenseCard == 2){
-			player1.defenseBonusSkill = 2;
-	};
+// 	if (player1.defenseCard == 0){
+// 			player1.defenseBonusSkill = 0;
+// 	};
+// 	if (player1.defenseCard == 1){
+// 			player1.defenseBonusSkill = 1;
+// 	};
+// 	if (player1.defenseCard == 2){
+// 			player1.defenseBonusSkill = 2;
+// 	};
 
-	if (player1.defenseCard == 3){
-			player1.defenseBonusSkill = 3;
-	};
-	refresh();
-	console.log('nextDefenseTraining = ' + player1.attackBonus);
-};
+// 	if (player1.defenseCard == 3){
+// 			player1.defenseBonusSkill = 3;
+// 	};
+// 	refresh();
+// 	console.log('nextDefenseTraining = ' + player1.attackBonus);
+// };
 
-function nextWeapon(){
-	player1.weapon1Card += 1;
-	if (player1.weapon1Card >= 6) {
-		player1.weapon1Card = 0;
-	};
+// function nextWeapon(){
+// 	player1.weapon1Card += 1;
+// 	if (player1.weapon1Card >= 6) {
+// 		player1.weapon1Card = 0;
+// 	};
 
-	if (player1.weapon1Card == 0){
-			player1.weapon1 = -1;
-	};
-	if (player1.weapon1Card == 1){
-			player1.weapon1 = 4;
-	};
-	if (player1.weapon1Card == 2){
-			player1.weapon1 = 6;
-	};
-	if (player1.weapon1Card == 3){
-			player1.weapon1 = 8;
-	};
-	if (player1.weapon1Card == 4){
-			player1.weapon1 = 10;
-	};
-	if (player1.weapon1Card == 5){
-			player1.weapon1 = 12;
-	};
-	refresh();
-	console.log('weapon 1 = ' + player1.weapon1Card)
-};
+// 	if (player1.weapon1Card == 0){
+// 			player1.weapon1 = -1;
+// 	};
+// 	if (player1.weapon1Card == 1){
+// 			player1.weapon1 = 4;
+// 	};
+// 	if (player1.weapon1Card == 2){
+// 			player1.weapon1 = 6;
+// 	};
+// 	if (player1.weapon1Card == 3){
+// 			player1.weapon1 = 8;
+// 	};
+// 	if (player1.weapon1Card == 4){
+// 			player1.weapon1 = 10;
+// 	};
+// 	if (player1.weapon1Card == 5){
+// 			player1.weapon1 = 12;
+// 	};
+// 	refresh();
+// 	console.log('weapon 1 = ' + player1.weapon1Card)
+// };
 
 
-function nextWeapon2(){
-	player1.weapon2Card += 1;
-	if (player1.weapon2Card >= 6) {
-		player1.weapon2Card = 0;
-	};
+// function nextWeapon2(){
+// 	player1.weapon2Card += 1;
+// 	if (player1.weapon2Card >= 6) {
+// 		player1.weapon2Card = 0;
+// 	};
 
-	if (player1.weapon2Card == 0){
-			player1.weapon2 = -1;
-	};
-	if (player1.weapon2Card == 1){
-			player1.weapon2 = 4;
-	};
-	if (player1.weapon2Card == 2){
-			player1.weapon2 = 6;
-	};
-	if (player1.weapon2Card == 3){
-			player1.weapon2 = 8;
-	};
-	if (player1.weapon2Card == 4){
-			player1.weapon2 = 10;
-	};
-	if (player1.weapon2Card == 5){
-			player1.weapon2 = 12;
-	};
-	refresh();
-	console.log('weapon 2 = ' + player1.weapon2Card)
-};
+// 	if (player1.weapon2Card == 0){
+// 			player1.weapon2 = -1;
+// 	};
+// 	if (player1.weapon2Card == 1){
+// 			player1.weapon2 = 4;
+// 	};
+// 	if (player1.weapon2Card == 2){
+// 			player1.weapon2 = 6;
+// 	};
+// 	if (player1.weapon2Card == 3){
+// 			player1.weapon2 = 8;
+// 	};
+// 	if (player1.weapon2Card == 4){
+// 			player1.weapon2 = 10;
+// 	};
+// 	if (player1.weapon2Card == 5){
+// 			player1.weapon2 = 12;
+// 	};
+// 	refresh();
+// 	console.log('weapon 2 = ' + player1.weapon2Card)
+// };
 
 
 function highScoreUpdate(){
@@ -3102,8 +3109,8 @@ function tryAgain(){
 	highScoreUpdate();
 
 	killCount = 0;
-	player1.health = 20;
-	player1HealthCounter.innerHTML = player1.health;
+	addHealthBonus();
+	player1HealthCounter.innerHTML = player1.currentHealth;
 	slidePlayer1Dead.style.display = "none";
 	slideLogSlideE.style.display = "none";
 	slideNextEnemy.style.display = "none";
@@ -3179,7 +3186,7 @@ function enemy1Dead(){
 
 function player1Dead(){
 		deathCount = deathCount + 1;
-		player1HealthCounter.innerHTML = player1.health;
+		player1HealthCounter.innerHTML = player1.currentHealth;
 		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
 		deathCountPopup.innerHTML = deathCount;
 		finalScorePopup.innerHTML = killCount;
@@ -3329,11 +3336,11 @@ function enemyAttack(){
 // hit player
 	if (attackRollE > player1.defense && attackRollE != 20) {	
 		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
-		player1.health = player1.health - attackDamageE;
-		player1HealthCounter.innerHTML = player1.health;
+		player1.currentHealth = player1.currentHealth - attackDamageE;
+		player1HealthCounter.innerHTML = player1.currentHealth;
 
 		logSlideResultLine2E.innerHTML = 'OUCH!!';
-		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.health;
+		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.currentHealth;
 	
 		console.log("hit player with attackroll " + attackRollE);
 		console.log('enemy deals ' + attackDamageE +' Damage');
@@ -3341,11 +3348,11 @@ function enemyAttack(){
 // CRIT
 	} else if (attackRollE == 20) {
 		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
-		player1.health = player1.health - (attackDamageE*2);
-		player1HealthCounter.innerHTML = player1.health;
+		player1.currentHealth = player1.currentHealth - (attackDamageE*2);
+		player1HealthCounter.innerHTML = player1.currentHealth;
 
 		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
-		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.health;
+		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.currentHealth;
 
 		console.log("Enemy deals critical hit");
 		console.log(attackDamageE + ' x 2 player Damage');
@@ -3358,7 +3365,7 @@ function enemyAttack(){
 	};
 
 	// killed player dead
-	if (player1.health <= 0) {
+	if (player1.currentHealth <= 0) {
 		player1Dead();
 	};
 };
