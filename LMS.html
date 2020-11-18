@@ -27,7 +27,7 @@
 
 	<div id="characterCreation">
 		<h1>Character Creation</h1>
-		<p>Market Coming soon</p>
+		<p>Visit the Market to buy some gear before you begin</p>
 		<label for="player1NameInput">Name: </label>
 		<input id="player1NameInput" type="text" placeholder="enter a name">
 			<div id="chooseCharacter">
@@ -40,8 +40,10 @@
 
 			
 			<h2>You have <span id='player1Gold2'></span> Gold</h2>
-		<button id="closeCharacterCreation">Continue to beta</button><br>
-		<button id="gotoMarket" onclick="openMarket()">Market (in development)</button>
+			<button id="gotoMarket" onclick="openMarket()">Market</button><br>
+		<button id="closeCharacterCreation">I'm Ready! Continue to beta</button>
+		<p>New Enemies and gold rewards coming next</p>
+		
 	</div>
 
 
@@ -50,6 +52,7 @@
 		<div>
 			<h1>MARKET</h1>
 			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
+			<p>I don't do refunds on gear under any circumstance.  So be careful what you buy.</p>
 			<h3>You have <span id="player1Gold"></span> gold.</h3>
 			<div>
 				<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
