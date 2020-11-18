@@ -57,7 +57,7 @@ var killCount = 0;
 var deathCount = 0;
 var highScore = 0;
 var gamesPlayed = 0;
-
+var battleNumber = 1
 var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
@@ -3179,13 +3179,19 @@ function enemy1Dead(){
 	tableKillScore.innerHTML = killCount;
 	nextEnemyKillCount.innerHTML = killCount;
 	enemy1HealthCounter.innerHTML = enemy1.health;
-	PopUpEnemy1Dead.style.display = "block";
+	battleNumber = battleNumber + 1
 
+	if (battleNumber <= 5) {
+	PopUpEnemy1Dead.style.display = "block";
 	console.log('enemydead()logged');
+	} else {
+		openMarket();
+	}
 };
 
 function player1Dead(){
 		deathCount = deathCount + 1;
+		battleNumber = 1;
 		player1HealthCounter.innerHTML = player1.currentHealth;
 		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
 		deathCountPopup.innerHTML = deathCount;
