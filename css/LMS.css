@@ -8,10 +8,13 @@ body{
 	position: relative;
 	height: 100vh;
 	min-width: 515px;
+	max-width: 1000px;
 	background-image: url(../img/forestPath.jpg);
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	width: 100%;
+
+	margin: auto;
 }
 
 button {
@@ -33,9 +36,9 @@ input {
 }
 #characterCreation{
 	color: white;
-	background-image: url(../img/BG.jpg);
+	background-image: url(../img/BG.jpg);file:///D:/Github/steve.yee/img/market/w6.jpg
 	background-size: cover;
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	text-align: center;
 	position: absolute;
 	top: 0px;
@@ -44,7 +47,6 @@ input {
 	left: 0px;
 	border: 10px solid black;
 	z-index: 1;
-	margin: auto;
 }
 
 #chooseCharacter{
@@ -89,9 +91,10 @@ cursor: pointer;
 }
 
 #market {
+	color: white;
 	display: flex;
 	flex-direction: column;
-	background-image: url(../img/white.jpg);
+	background-image: url(../img/BG.jpg);
 	background-size: cover;
 	background-repeat: repeat;
 	text-align: center;
@@ -113,7 +116,7 @@ cursor: pointer;
 }
 
 #marketItems {
-	width: 50vh;
+/*	width: 50vh;*/
 margin: auto;
 }
 
@@ -123,6 +126,10 @@ margin: auto;
 	width: 30%;
 	height: auto;
 	cursor: pointer;
+}
+.storeItems {
+	max-width: 700px;
+	margin: auto;
 }
 
 
