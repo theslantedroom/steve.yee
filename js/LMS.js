@@ -33,8 +33,10 @@ var player1 = {
 	attack: 0,
 	defense: 0,
 	armor: 2,
-	weapon1: 4,
-	weapon2: -1,	
+	weapon1: -1,
+	weapon2: -1,
+	weapon1Bonus: -1,
+	weapon2Bonus: -1,	
 
 	kills: 0,
 	deaths: 0,
@@ -230,6 +232,7 @@ function confirmDiscardClose(){
 discardButtonRightHand.addEventListener("click", function() {
 	player1.weapon1Card = 0;
 	player1.weapon1 = -1;
+	player1.weapon1Bonus = -1;
 	player1.damageBonusWeapon1 = 0;
 	player1.attackBonusWeapon1 = 0;
 	player1.defenseBonusShield1 = 0;
@@ -249,6 +252,7 @@ function discardWeaponR(){
 discardButtonLeftHand.addEventListener("click", function() {
 	player1.weapon2Card = 0;
 	player1.weapon2 = -1;
+	player1.weapon2Bonus = -1;
 	player1.damageBonusWeapon2 = 0;
 	player1.attackBonusWeapon2 = 0;
 	player1.defenseBonusShield2 = 0;
@@ -317,6 +321,7 @@ var shoppingCartRightHand = {
 	gold: 0,
 	weapon1Card: 0,
 	weapon1: 0,
+	weapon1Bonus: -1,
 	damageBonusWeapon1: 0,
 	attackBonusWeapon1: 0,
 	defenseBonusShield1: 0,
@@ -327,6 +332,7 @@ function checkoutRightHand(){
 	player1.gold -= shoppingCartRightHand.gold;
 	player1.weapon1Card = shoppingCartRightHand.weapon1Card;
 	player1.weapon1 = shoppingCartRightHand.weapon1;
+	player1.weapon1Bonus = shoppingCartRightHand.weapon1Bonus;
 	player1.damageBonusWeapon1 = shoppingCartRightHand.damageBonusWeapon1;
 	player1.attackBonusWeapon1 = shoppingCartRightHand.attackBonusWeapon1;
 	player1.defenseBonusShield1 = shoppingCartRightHand.defenseBonusShield1;
@@ -340,6 +346,7 @@ var shoppingCartLeftHand = {
 	gold: 0,
 	weapon2Card: 0,
 	weapon2: 0,
+	weapon2Bonus: -1,
 	damageBonusWeapon2: 0,
 	attackBonusWeapon2: 0,
 	defenseBonusShield2: 0,
@@ -350,6 +357,7 @@ function checkoutLeftHand(){
 	player1.gold -= shoppingCartLeftHand.gold;
 	player1.weapon2Card = shoppingCartLeftHand.weapon2Card;
 	player1.weapon2 = shoppingCartLeftHand.weapon2;
+	player1.weapon2Bonus = shoppingCartLeftHand.weapon2Bonus;
 	player1.damageBonusWeapon2 = shoppingCartLeftHand.damageBonusWeapon2;
 	player1.attackBonusWeapon2 = shoppingCartLeftHand.attackBonusWeapon2;
 	player1.defenseBonusShield2 = shoppingCartLeftHand.defenseBonusShield2;
@@ -384,6 +392,7 @@ buyW1.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 0;
 		shoppingCartRightHand.weapon1Card = 1;
 		shoppingCartRightHand.weapon1 = 4;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -391,6 +400,7 @@ buyW1.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 0;
 		shoppingCartLeftHand.weapon2Card = 1;
 		shoppingCartLeftHand.weapon2 = 4;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -417,6 +427,7 @@ buyW2.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 2;
 		shoppingCartRightHand.weapon1Card = 2;
 		shoppingCartRightHand.weapon1 = 6;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -424,6 +435,7 @@ buyW2.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 2;
 		shoppingCartLeftHand.weapon2Card = 2;
 		shoppingCartLeftHand.weapon2 = 6;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -450,6 +462,7 @@ buyW3.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 4;
 		shoppingCartRightHand.weapon1Card = 3;
 		shoppingCartRightHand.weapon1 = 8;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -457,6 +470,7 @@ buyW3.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 4;
 		shoppingCartLeftHand.weapon2Card = 3;
 		shoppingCartLeftHand.weapon2 = 8;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -483,6 +497,7 @@ buyW4.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 7;
 		shoppingCartRightHand.weapon1Card = 4;
 		shoppingCartRightHand.weapon1 = 10;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -490,6 +505,7 @@ buyW4.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 7;
 		shoppingCartLeftHand.weapon2Card = 4;
 		shoppingCartLeftHand.weapon2 = 10;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -516,6 +532,7 @@ buyW5.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 10;
 		shoppingCartRightHand.weapon1Card = 5;
 		shoppingCartRightHand.weapon1 = 12;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -523,6 +540,7 @@ buyW5.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 10;
 		shoppingCartLeftHand.weapon2Card = 5;
 		shoppingCartLeftHand.weapon2 = 12;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -549,6 +567,7 @@ buyW6.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 2;
 		shoppingCartRightHand.weapon1Card = 6;
 		shoppingCartRightHand.weapon1 = 4;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 1;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -556,6 +575,7 @@ buyW6.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 2;
 		shoppingCartLeftHand.weapon2Card = 6;
 		shoppingCartLeftHand.weapon2 = 4;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 1;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -582,6 +602,7 @@ buyW7.addEventListener("click", function() {
 		shoppingCartRightHand.gold = 3;
 		shoppingCartRightHand.weapon1Card = 7;
 		shoppingCartRightHand.weapon1 = 6;
+		shoppingCartRightHand.weapon1Bonus = -1;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
@@ -589,6 +610,7 @@ buyW7.addEventListener("click", function() {
 		shoppingCartLeftHand.gold = 3;
 		shoppingCartLeftHand.weapon2Card = 7;
 		shoppingCartLeftHand.weapon2 = 6;
+		shoppingCartLeftHand.weapon2Bonus = -1;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
@@ -610,35 +632,106 @@ buyW8.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 8 && player1.weapon2Card != 8 && player1.gold >= 6){
 		dualWield();
-		wantToBuy.innerHTML = "Do you want to buy the Expensive Mace for ";
+		wantToBuy.innerHTML = "Do you want to buy the Cat O' Nine Tails for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingCartRightHand.gold = 6;
 		shoppingCartRightHand.weapon1Card = 8;
-		shoppingCartRightHand.weapon1 = 100;
+		shoppingCartRightHand.weapon1 = 4;
+		shoppingCartRightHand.weapon1Bonus = 4;
 		shoppingCartRightHand.damageBonusWeapon1 = 0;
 		shoppingCartRightHand.attackBonusWeapon1 = 0;
 		shoppingCartRightHand.defenseBonusShield1 = 0;
 		shoppingCartRightHand.damageBonusShield1 = 0;
 		shoppingCartLeftHand.gold = 6;
 		shoppingCartLeftHand.weapon2Card = 8;
-		shoppingCartLeftHand.weapon2 = 100;
+		shoppingCartLeftHand.weapon2 = 4;
+		shoppingCartLeftHand.weapon2Bonus = 4;
 		shoppingCartLeftHand.damageBonusWeapon2 = 0;
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
 	} else if (player1.weapon1Card == 8 || player1.weapon2Card == 8){
-		wantToBuy.innerHTML = "You already own this Expensive Mace.  ";
+		wantToBuy.innerHTML = "You already own this Cat O' Nine Tails.  ";
 		wantToBuyGoldCost.innerHTML = "";
 		alreadyOwn();
 	} else if (player1.gold < 6){
 		console.log('not enough gold');
-		wantToBuy.innerHTML = "You cannot afford this Expensive Mace."
+		wantToBuy.innerHTML = "You cannot afford this Cat O' Nine Tails."
 		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
 		cannotAfford();
 	};
 	refresh();
 });
 
+buyW9.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 9 && player1.weapon2Card != 9 && player1.gold >= 8){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Golden Axe for ";
+		wantToBuyGoldCost.innerHTML = "4 gold?";
+		shoppingCartRightHand.gold = 8;
+		shoppingCartRightHand.weapon1Card = 9;
+		shoppingCartRightHand.weapon1 = 8;
+		shoppingCartRightHand.weapon1Bonus = 0;
+		shoppingCartRightHand.damageBonusWeapon1 = 1;
+		shoppingCartRightHand.attackBonusWeapon1 = 0;
+		shoppingCartRightHand.defenseBonusShield1 = 0;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 8;
+		shoppingCartLeftHand.weapon2Card = 9;
+		shoppingCartLeftHand.weapon2 = 8;
+		shoppingCartLeftHand.weapon2Bonus = 0;
+		shoppingCartLeftHand.damageBonusWeapon2 = 1;
+		shoppingCartLeftHand.attackBonusWeapon2 = 0;
+		shoppingCartLeftHand.defenseBonusShield2 = 0;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 9 || player1.weapon2Card == 9){
+		wantToBuy.innerHTML = "You already own this Golden Axe.  ";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Golden Axe."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyW10.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.weapon1Card != 10 && player1.weapon2Card != 10 && player1.gold >= 12){
+		dualWield();
+		wantToBuy.innerHTML = "Do you want to buy the Fast Cutlass ";
+		wantToBuyGoldCost.innerHTML = "4 gold?";
+		shoppingCartRightHand.gold = 12;
+		shoppingCartRightHand.weapon1Card = 10;
+		shoppingCartRightHand.weapon1 = 10;
+		shoppingCartRightHand.weapon1Bonus = 0;
+		shoppingCartRightHand.damageBonusWeapon1 = 0;
+		shoppingCartRightHand.attackBonusWeapon1 = 1;
+		shoppingCartRightHand.defenseBonusShield1 = 0;
+		shoppingCartRightHand.damageBonusShield1 = 0;
+		shoppingCartLeftHand.gold = 12;
+		shoppingCartLeftHand.weapon2Card = 10;
+		shoppingCartLeftHand.weapon2 = 10;
+		shoppingCartLeftHand.weapon2Bonus = 0;
+		shoppingCartLeftHand.damageBonusWeapon2 = 0;
+		shoppingCartLeftHand.attackBonusWeapon2 = 1;
+		shoppingCartLeftHand.defenseBonusShield2 = 0;
+		shoppingCartLeftHand.damageBonusShield2 = 0;
+	} else if (player1.weapon1Card == 10 || player1.weapon2Card == 10){
+		wantToBuy.innerHTML = "You already own this Fast Cutlass.  ";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford this Fast Cutlass."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
 
@@ -1140,7 +1233,7 @@ function changeEnemy(){
 function player1AttackRoll(){
 	slidePlayer1Turn.style.display = "none"; //you stand ready 
 	attackRoll = Math.floor((Math.random() * 20) + 1);
-	// attackRoll = 20;
+	attackRoll = 20;
 
 	refresh();
 	console.log('player1AttackRoll ' + attackRoll);
@@ -1175,16 +1268,20 @@ function player1Damage(){
 
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
-		attackDamage = player1weapon1Damage + player1weapon2Damage;
+
+		player1weapon1DamageBonus = Math.floor((Math.random() * player1.weapon1Bonus) + 1);
+		player1weapon2DamageBonus = Math.floor((Math.random() * player1.weapon2Bonus) + 1);
+
+		attackDamage = player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus;
 		enemy1.health = enemy1.health - attackDamage;
 		enemy1.health = enemy1.health - player1.damage;
 
-		logSlideRollResult.innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons) + ' + player1.damage + ' (bonus)';
+		logSlideRollResult.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons) + ' + player1.damage + ' (bonus)';
 		logSlideResultLine2.innerHTML = 'a deep wound';
 		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy1.health;
 
 		enemy1HealthCounter.innerHTML = enemy1.health;
-		console.log('player1 deals ' + player1weapon1Damage + ' ' + player1weapon2Damage +' = '+ attackDamage +' damage');
+		console.log('player1 deals ' + player1weapon1Damage, player1weapon1DamageBonus, player1weapon2Damage, player1weapon2DamageBonus + "damageskill = " + player1.damage);
 		
 // Killed Enemy
 		if (enemy1.health <= 0) {
@@ -1207,16 +1304,20 @@ function player1Critical(){
 
 		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
 		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
-		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage);
-		enemy1.health = enemy1.health - (attackDamage);
+
+		player1weapon1DamageBonus = Math.floor((Math.random() * player1.weapon1Bonus) + 1);
+		player1weapon2DamageBonus = Math.floor((Math.random() * player1.weapon2Bonus) + 1);
+
+		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus);
+		enemy1.health = enemy1.health - attackDamage;
 		enemy1.health = enemy1.health - player1.damage;
 
-		logSlideRollResult.innerHTML = 'Your attack deals ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' (weapons)';
+		logSlideRollResult.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons)';
 		logSlideResultLine2.innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy1.health + ' health';
 
 		enemy1HealthCounter.innerHTML = enemy1.health;
-		console.log('player1 deals crit (' + player1weapon1Damage + ' ' + player1weapon2Damage +') x 2 = '+ attackDamage +' damage');
+		console.log('player1 crit ' + player1weapon1Damage, player1weapon1DamageBonus, player1weapon2Damage, player1weapon2DamageBonus + "damageskill = " + player1.damage);
 
 // killed him Critical
 	if (enemy1.health <= 0) {
@@ -1225,9 +1326,9 @@ function player1Critical(){
 		slideKillLog.style.display = "block";
 
 		
-		damageRollResultK.innerHTML = 'Your damage roll is (' + player1weapon1Damage + ' + ' + player1weapon2Damage +') = ' + (attackDamage / 2) ;
-		damageResultLine2K.innerHTML = 'CRITICAL HIT - Great Glory';
-		damageResultLine3K.innerHTML = 'Your blow DOUBLES to ' + (attackDamage) +' and kills the enemy';
+		damageRollResultK.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons)';
+		damageResultLine2K.innerHTML = 'GLORY! Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
+		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and kills the enemy';
 		
 		enemy1Dead();
 		console.log('killed enemy with Crit');
