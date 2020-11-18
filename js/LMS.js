@@ -79,7 +79,7 @@ var okBuyArmor = document.getElementById("okBuyArmor");
 
 var discardButtonRightHand = document.getElementById("discardButtonRightHand");
 var discardButtonLeftHand = document.getElementById("discardButtonLeftHand");
-var discardButtonArmorHand = document.getElementById("discardButtonArmorHand");
+var discardButtonArmor = document.getElementById("discardButtonArmor");
 var discardButtonHealth = document.getElementById("discardButtonHealth");
 var discardButtonDamage = document.getElementById("discardButtonDamage");
 var discardButtonAttack = document.getElementById("discardButtonAttack");
@@ -115,7 +115,7 @@ characterCreationButton.addEventListener("click", function(){
 function clearDiscardPopUp(){
 	discardButtonRightHand.style.display = 'none';
 	discardButtonLeftHand.style.display = 'none';
-	discardButtonArmorHand.style.display = 'none';
+	discardButtonArmor.style.display = 'none';
 	discardButtonHealth.style.display = 'none';
 	discardButtonDamage.style.display = 'none';
 	discardButtonAttack.style.display = 'none';
@@ -230,11 +230,6 @@ function confirmDiscardClose(){
 
 // DISCARD CARDS
 
-// var discardButtonArmorHand = document.getElementById("discardButtonArmorHand");
-// var discardButtonHealth = document.getElementById("discardButtonHealth");
-// var discardButtonDamage = document.getElementById("discardButtonDamage");
-// var discardButtonAttack = document.getElementById("discardButtonAttack");
-// var discardButtonDefense = document.getElementById("discardButtonDefense");
 
 discardButtonRightHand.addEventListener("click", function() {
 	player1.weapon1Card = 0;
@@ -276,9 +271,84 @@ function discardWeaponL(){
 	refresh();
 }};
 
+discardButtonArmor.addEventListener("click", function() {
+	player1.armorCard = 0;
+	player1.armor = 2;
+	player1.healthBonusArmor = 0;
+	confirmDiscardClose();
+	refresh();
+	player1HealthCounter.innerHTML = player1.health;
+	console.log('click discard');
+});
+function discardArmor(){
+	if (player1.armorCard != 0){
+	clearDiscardPopUp();
+	confirmDiscardOpen();
+	discardButtonArmor.style.display = "flex";
+	refresh();
+}};
 
 
+discardButtonHealth.addEventListener("click", function() {
+	player1.healthCard = 0;
+	player1.healthBonusSkill = 0;
+	confirmDiscardClose();
+	refresh();
+	player1HealthCounter.innerHTML = player1.health;
+	console.log('click discard');
+});
+function discardHealth(){
+	if (player1.healthCard != 0){
+	clearDiscardPopUp();
+	confirmDiscardOpen();
+	discardButtonHealth.style.display = "flex";
+	refresh();
+}};
 
+discardButtonDamage.addEventListener("click", function() {
+	player1.damageCard = 0;
+	player1.damageBonusSkill = 0;
+	confirmDiscardClose();
+	refresh();
+	console.log('click discard');
+});
+function discardDamage(){
+	if (player1.damageCard != 0){
+	clearDiscardPopUp();
+	confirmDiscardOpen();
+	discardButtonDamage.style.display = "flex";
+	refresh();
+}};
+
+discardButtonAttack.addEventListener("click", function() {
+	player1.attackCard = 0;
+	player1.attackBonusSkill = 0;
+	confirmDiscardClose();
+	refresh();
+	console.log('click discard');
+});
+function discardAttack(){
+	if (player1.attackCard != 0){
+	clearDiscardPopUp();
+	confirmDiscardOpen();
+	discardButtonAttack.style.display = "flex";
+	refresh();
+}};
+
+discardButtonDefense.addEventListener("click", function() {
+	player1.defenseCard = 0;
+	player1.defenseBonusSkill = 0;
+	confirmDiscardClose();
+	refresh();
+	console.log('click discard');
+});
+function discardDefense(){
+	if (player1.defenseCard != 0){
+	clearDiscardPopUp();
+	confirmDiscardOpen();
+	discardButtonDefense.style.display = "flex";
+	refresh();
+}};
 
 
 
