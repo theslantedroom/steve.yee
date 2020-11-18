@@ -3365,7 +3365,10 @@ function enemyAttack(){
 		player1.currentHealth = player1.currentHealth - attackDamageE;
 		player1HealthCounter.innerHTML = player1.currentHealth;
 
-		logSlideResultLine2E.innerHTML = 'OUCH!!';
+		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
+
+
+		
 		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.currentHealth;
 	
 		console.log("hit player with attackroll " + attackRollE);
