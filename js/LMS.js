@@ -359,10 +359,14 @@ okBuyTwoHanded.addEventListener("click", function() {
  confirmBuy.style.display = 'none';
 });
 
+okBuyArmor.addEventListener("click", function() {
+ checkoutArmor();
+ confirmBuy.style.display = 'none';
+});
+
 
 function offHandClear(){
 	if (player1.weapon1Card >= 21 && player1.weapon1Card <= 40 || player1.weapon2Card >= 21 && player1.weapon2Card <= 40) {
-
 	player1.weapon1Card = 0;
 	player1.weapon1 = -1;
 	player1.weapon1Bonus = -1;
@@ -470,6 +474,23 @@ function checkoutTwoHanded(){
 	player1.damageBonusShield2 = shoppingTwoHanded.damageBonusShield2;
 
 	refresh();
+};
+
+// Armor
+var shoppingArmor = {
+	gold: 0,
+	armorCard: 0,
+	armor: 0,
+	healthBonusArmor: 0,
+};
+
+function checkoutArmor(){
+	player1.gold -= shoppingArmor.gold;
+	player1.armorCard = shoppingArmor.armorCard;
+	player1.armor = shoppingArmor.armor;
+	player1.healthBonusArmor = shoppingArmor.healthBonusArmor;
+	refresh();
+	player1HealthCounter.innerHTML = player1.health;
 };
 
 
@@ -1955,50 +1976,334 @@ buyW30.addEventListener("click", function() {
 	};
 	refresh();
 });
-// function resetShoppingCart(){
-// 	shoppingCart.gold = 0;
-// 	shoppingCart.healthCard = 0;
-// 	shoppingCart.damageCard = 0;
-// 	shoppingCart.weapon1Card = 0;
-// 	shoppingCart.armorCard = 0;
-// 	shoppingCart.weapon2Card = 0;
-// 	shoppingCart.attackCard = 0;
-// 	shoppingCart.defenseCard = 0;
-// 	shoppingCart.weapon1 = 0;
-// 	shoppingCart.weapon2 = 0;
-// 	shoppingCart.armor = 0;
-// 	shoppingCart.healthBonusArmor = 0;
-// 	shoppingCart.damageBonusWeapon1 = 0;
-// 	shoppingCart.attackBonusWeapon1 = 0;
-// 	shoppingCart.defenseBonusWeapon = 0;
-// 	shoppingCart.defenseBonusShield1 = 0;
-// 	shoppingCart.damageBonusShield1 = 0;
-// };
+
+// ARMOR
+buyA1.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 1  && player1.gold >= 0){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Cloth Armor for ";
+		wantToBuyGoldCost.innerHTML = "0 gold?";
+		shoppingArmor.gold = 0;
+		shoppingArmor.armorCard = 1;
+		shoppingArmor.armor = 6;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 1){
+		wantToBuy.innerHTML = "You already own Cloth Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 0){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Cloth Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
+buyA2.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 2  && player1.gold >= 1){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Leather Armor for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingArmor.gold = 1;
+		shoppingArmor.armorCard = 2;
+		shoppingArmor.armor = 7;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 2){
+		wantToBuy.innerHTML = "You already own Leather Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Leather Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
-// var shoppingCart = {
-// 	gold: 0,
-// 	healthCard: 0,
-// 	damageCard: 0,
-// 	weapon1Card: 0,
-// 	armorCard: 0,
-// 	weapon2Card: 0,
-// 	attackCard: 0,
-// 	defenseCard: 0,
-// 	weapon1: 0,
-// 	weapon2: 0,
-// 	armor: 0,
-// 	healthBonusArmor: 0,
-// 	damageBonusWeapon1: 0,
-// 	attackBonusWeapon1: 0,
-// 	defenseBonusWeapon: 0,
-// 	defenseBonusShield1: 0,
-// 	damageBonusShield1: 0,
-// };
+buyA3.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 3  && player1.gold >= 2){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Studded Armor for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingArmor.gold = 2;
+		shoppingArmor.armorCard = 3;
+		shoppingArmor.armor = 8;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 3){
+		wantToBuy.innerHTML = "You already own Studded Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Studded Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA4.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 4  && player1.gold >= 3){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Bronze Armor for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingArmor.gold = 3;
+		shoppingArmor.armorCard = 4;
+		shoppingArmor.armor = 9;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 4){
+		wantToBuy.innerHTML = "You already own Bronze Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Bronze Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA5.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 5  && player1.gold >= 5){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Scale Armor for ";
+		wantToBuyGoldCost.innerHTML = "5 gold?";
+		shoppingArmor.gold = 5;
+		shoppingArmor.armorCard = 5;
+		shoppingArmor.armor = 10;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 5){
+		wantToBuy.innerHTML = "You already own Scale Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 5){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Scale Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA6.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 6  && player1.gold >= 8){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Half Plate for ";
+		wantToBuyGoldCost.innerHTML = "8 gold?";
+		shoppingArmor.gold = 8;
+		shoppingArmor.armorCard = 6;
+		shoppingArmor.armor = 11;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 6){
+		wantToBuy.innerHTML = "You already own Half Plate";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Half Plate."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
+buyA7.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 7  && player1.gold >= 12){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Full Plate for ";
+		wantToBuyGoldCost.innerHTML = "12 gold?";
+		shoppingArmor.gold = 12;
+		shoppingArmor.armorCard = 7;
+		shoppingArmor.armor = 12;
+		shoppingArmor.healthBonusArmor = 0;
+	} else if (player1.armorCard == 7){
+		wantToBuy.innerHTML = "You already own Full Plate";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Full Plate."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
+
+buyA8.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 8  && player1.gold >= 1){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Comfy Cloth Armor for ";
+		wantToBuyGoldCost.innerHTML = "1 gold?";
+		shoppingArmor.gold = 1;
+		shoppingArmor.armorCard = 8;
+		shoppingArmor.armor = 6;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 8){
+		wantToBuy.innerHTML = "You already own Comfy Cloth Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 1){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Comfy Cloth Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+
+buyA9.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 9  && player1.gold >= 2){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Hard Leather Armor for ";
+		wantToBuyGoldCost.innerHTML = "2 gold?";
+		shoppingArmor.gold = 2;
+		shoppingArmor.armorCard = 9;
+		shoppingArmor.armor = 7;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 9){
+		wantToBuy.innerHTML = "You already own Hard Leather Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 2){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Hard Leather Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA10.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 10  && player1.gold >= 3){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Fine Studded Vest for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingArmor.gold = 3;
+		shoppingArmor.armorCard = 10;
+		shoppingArmor.armor = 8;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 10){
+		wantToBuy.innerHTML = "You already own Fine Studded Vest";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Fine Studded Vest."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA11.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 11  && player1.gold >= 4){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Tempered Bronze Armor for ";
+		wantToBuyGoldCost.innerHTML = "4 gold?";
+		shoppingArmor.gold = 4;
+		shoppingArmor.armorCard = 11;
+		shoppingArmor.armor = 9;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 11){
+		wantToBuy.innerHTML = "You already own Tempered Bronze Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 4){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Tempered Bronze Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA12.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 12  && player1.gold >= 6){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Shiny Scale Armor for ";
+		wantToBuyGoldCost.innerHTML = "6 gold?";
+		shoppingArmor.gold = 6;
+		shoppingArmor.armorCard = 12;
+		shoppingArmor.armor = 10;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 12){
+		wantToBuy.innerHTML = "You already own Shiny Scale Armor";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 6){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Shiny Scale Armor."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyA13.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 13  && player1.gold >= 10){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Lucky Half Plate for ";
+		wantToBuyGoldCost.innerHTML = "10 gold?";
+		shoppingArmor.gold = 10;
+		shoppingArmor.armorCard = 13;
+		shoppingArmor.armor = 11;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 13){
+		wantToBuy.innerHTML = "You already own Lucky Half Plate";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 10){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Lucky Half Plate."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+
+buyA14.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.armorCard != 14  && player1.gold >= 15){
+		armor();
+		wantToBuy.innerHTML = "Do you want to buy the Flexible Full Plate for ";
+		wantToBuyGoldCost.innerHTML = "15 gold?";
+		shoppingArmor.gold = 15;
+		shoppingArmor.armorCard = 14;
+		shoppingArmor.armor = 12;
+		shoppingArmor.healthBonusArmor = 2;
+	} else if (player1.armorCard == 14){
+		wantToBuy.innerHTML = "You already own Flexible Full Plate";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 15){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Flexible Full Plate."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
 
@@ -2077,6 +2382,7 @@ function refresh(){
 // calculate Final Stats
 	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield1 + player1.defenseBonusShield2 + player1.armor + player1.defenseBonusSkill;
 	player1.damage =  player1.damageBonusWeapon1 + player1.damageBonusWeapon2 + player1.damageBonusShield1 + player1.damageBonusShield2 + player1.damageBonusSkill;
+	player1.health = player1.healthBonusArmor + 20 + player1.healthBonusSkill;
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon1 + player1.attackBonusWeapon2;	
 
 // CARD UPDATES
