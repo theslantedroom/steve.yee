@@ -364,6 +364,26 @@ okBuyArmor.addEventListener("click", function() {
  confirmBuy.style.display = 'none';
 });
 
+okBuyHealth.addEventListener("click", function() {
+ checkoutHealth();
+ confirmBuy.style.display = 'none';
+});
+
+okBuyDamage.addEventListener("click", function() {
+ checkoutDamage();
+ confirmBuy.style.display = 'none';
+});
+
+okBuyAttack.addEventListener("click", function() {
+ checkoutAttack();
+ confirmBuy.style.display = 'none';
+});
+
+okBuyDefense.addEventListener("click", function() {
+ checkoutDefense();
+ confirmBuy.style.display = 'none';
+});
+
 
 function offHandClear(){
 	if (player1.weapon1Card >= 21 && player1.weapon1Card <= 40 || player1.weapon2Card >= 21 && player1.weapon2Card <= 40) {
@@ -472,7 +492,6 @@ function checkoutTwoHanded(){
 	player1.attackBonusWeapon2 = shoppingTwoHanded.attackBonusWeapon2;
 	player1.defenseBonusShield2 = shoppingTwoHanded.defenseBonusShield2;
 	player1.damageBonusShield2 = shoppingTwoHanded.damageBonusShield2;
-
 	refresh();
 };
 
@@ -492,6 +511,58 @@ function checkoutArmor(){
 	refresh();
 	player1HealthCounter.innerHTML = player1.health;
 };
+
+// Training
+var shoppingHealth = {
+	gold: 0,
+	healthCard: 0,
+	healthBonusSkill: 0,
+};
+
+function checkoutHealth(){
+	player1.gold -= shoppingHealth.gold;
+	player1.healthCard = shoppingHealth.healthCard;
+	player1.healthBonusSkill = shoppingHealth.healthBonusSkill;
+	refresh();
+	player1HealthCounter.innerHTML = player1.health;
+};
+
+var shoppingDamage = {
+	gold: 0,
+	damageCard: 0,
+	damageBonusSkill: 0,
+};
+function checkoutDamage(){
+	player1.gold -= shoppingDamage.gold;
+	player1.damageCard = shoppingDamage.damageCard;
+	player1.damageBonusSkill = shoppingDamage.damageBonusSkill;
+	refresh();
+};
+
+var shoppingAttack = {
+	gold: 0,
+	attackCard: 0,
+	attackBonusSkill: 0,
+};
+function checkoutAttack(){
+	player1.gold -= shoppingAttack.gold;
+	player1.attackCard = shoppingAttack.attackCard;
+	player1.attackBonusSkill = shoppingAttack.attackBonusSkill;
+	refresh();
+};
+
+var shoppingDefense = {
+	gold: 0,
+	defenseCard: 0,
+	defenseBonusSkill: 0,
+};
+function checkoutDefense(){
+	player1.gold -= shoppingDefense.gold;
+	player1.defenseCard = shoppingDefense.defenseCard;
+	player1.defenseBonusSkill = shoppingDefense.defenseBonusSkill;
+	refresh();
+};
+
 
 
 // Weapon Image Buttons in MArket
@@ -958,7 +1029,7 @@ buyW31.addEventListener("click", function() {
 		cannotAfford();
 	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
 		console.log('already have a shield');
-		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it. You may discard one by clicking on it."
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
 		wantToBuyGoldCost.innerHTML = ""
 		cannotAfford();
 	};
@@ -998,7 +1069,7 @@ buyW32.addEventListener("click", function() {
 		cannotAfford();
 	}else if ((player1.weapon1Card >= 11 || player1.weapon1Card <= 20) || (player1.weapon2Card >= 11 ||  player1.weapon2Card <= 20)){
 		console.log('already have a shield');
-		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it. You may discard one by clicking on it."
+		wantToBuy.innerHTML = "You cannot have two shields. You may discard one by clicking on it."
 		wantToBuyGoldCost.innerHTML = ""
 		cannotAfford();
 	};
@@ -2355,8 +2426,270 @@ buyA14.addEventListener("click", function() {
 	refresh();
 });
 
+buyT1.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.healthCard != 1  && player1.gold >= 3){
+		healthTraining();
+		wantToBuy.innerHTML = "Do you want to buy Basic Health Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingHealth.gold = 3;
+		shoppingHealth.healthCard = 1;
+		shoppingHealth.healthBonusSkill = 4;
+	} else if (player1.healthCard == 1){
+		wantToBuy.innerHTML = "You already have Basic Health Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Basic Health Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT2.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.healthCard != 2  && player1.gold >= 8){
+		healthTraining();
+		wantToBuy.innerHTML = "Do you want to buy Advanced Health Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingHealth.gold = 8;
+		shoppingHealth.healthCard = 2;
+		shoppingHealth.healthBonusSkill = 8;
+	} else if (player1.healthCard == 2){
+		wantToBuy.innerHTML = "You already have Advanced Health Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Advanced Health Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT3.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.healthCard != 3  && player1.gold >= 12){
+		healthTraining();
+		wantToBuy.innerHTML = "Do you want to buy Master Health Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingHealth.gold = 12;
+		shoppingHealth.healthCard = 3;
+		shoppingHealth.healthBonusSkill = 12;
+	} else if (player1.healthCard == 3){
+		wantToBuy.innerHTML = "You already have Master Health Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Master Health Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
+buyT4.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.damageCard != 1  && player1.gold >= 3){
+		damageTraining();
+		wantToBuy.innerHTML = "Do you want to buy Basic Damage Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDamage.gold = 3;
+		shoppingDamage.damageCard = 1;
+		shoppingDamage.damageBonusSkill = 1;
+	} else if (player1.damageCard == 1){
+		wantToBuy.innerHTML = "You already have Basic Damage Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Basic Damage Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT5.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.damageCard != 2  && player1.gold >= 8){
+		damageTraining();
+		wantToBuy.innerHTML = "Do you want to buy Advanced Damage Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDamage.gold = 8;
+		shoppingDamage.damageCard = 2;
+		shoppingDamage.damageBonusSkill = 2;
+	} else if (player1.damageCard == 2){
+		wantToBuy.innerHTML = "You already have Advanced Damage Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Advanced Damage Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT6.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.damageCard != 3  && player1.gold >= 12){
+		damageTraining();
+		wantToBuy.innerHTML = "Do you want to buy Master Damage Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDamage.gold = 12;
+		shoppingDamage.damageCard = 3;
+		shoppingDamage.damageBonusSkill = 3;
+	} else if (player1.damageCard == 3){
+		wantToBuy.innerHTML = "You already have Master Damage Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Master Damage Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT7.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.attackCard != 1  && player1.gold >= 3){
+		attackTraining();
+		wantToBuy.innerHTML = "Do you want to buy Basic Attack Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingAttack.gold = 3;
+		shoppingAttack.attackCard = 1;
+		shoppingAttack.attackBonusSkill = 1;
+	} else if (player1.attackCard == 1){
+		wantToBuy.innerHTML = "You already have Basic Attack Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Basic Attack Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT8.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.attackCard != 2  && player1.gold >= 8){
+		attackTraining();
+		wantToBuy.innerHTML = "Do you want to buy Advanced Attack Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingAttack.gold = 8;
+		shoppingAttack.attackCard = 2;
+		shoppingAttack.attackBonusSkill = 2;
+	} else if (player1.attackCard == 2){
+		wantToBuy.innerHTML = "You already have Advanced Attack Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Advanced Attack Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT9.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.attackCard != 3  && player1.gold >= 12){
+		attackTraining();
+		wantToBuy.innerHTML = "Do you want to buy Master Attack Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingAttack.gold = 12;
+		shoppingAttack.attackCard = 3;
+		shoppingAttack.attackBonusSkill = 3;
+	} else if (player1.attackCard == 3){
+		wantToBuy.innerHTML = "You already have Master Attack Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Master Attack Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT10.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.defenseCard != 1  && player1.gold >= 3){
+		defenseTraining();
+		wantToBuy.innerHTML = "Do you want to buy Basic Defense Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDefense.gold = 3;
+		shoppingDefense.defenseCard = 1;
+		shoppingDefense.defenseBonusSkill = 1;
+	} else if (player1.defenseCard == 1){
+		wantToBuy.innerHTML = "You already have Basic Defense Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 3){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Basic Defense Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT11.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.defenseCard != 2  && player1.gold >= 8){
+		defenseTraining();
+		wantToBuy.innerHTML = "Do you want to buy Advanced Defense Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDefense.gold = 8;
+		shoppingDefense.defenseCard = 2;
+		shoppingDefense.defenseBonusSkill = 2;
+	} else if (player1.defenseCard == 2){
+		wantToBuy.innerHTML = "You already have Advanced Defense Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 8){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Advanced Defense Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
+
+buyT12.addEventListener("click", function() {
+		confirmBuyOpen();
+		if (player1.defenseCard != 3  && player1.gold >= 12){
+		defenseTraining();
+		wantToBuy.innerHTML = "Do you want to buy Master Defense Training for ";
+		wantToBuyGoldCost.innerHTML = "3 gold?";
+		shoppingDefense.gold = 12;
+		shoppingDefense.defenseCard = 3;
+		shoppingDefense.defenseBonusSkill = 3;
+	} else if (player1.defenseCard == 3){
+		wantToBuy.innerHTML = "You already have Master Defense Training";
+		wantToBuyGoldCost.innerHTML = "";
+		alreadyOwn();
+	} else if (player1.gold < 12){
+		console.log('not enough gold');
+		wantToBuy.innerHTML = "You cannot afford Master Defense Training."
+		wantToBuyGoldCost.innerHTML = "  You only have " + player1.gold + " gold?";
+		cannotAfford();
+	};
+	refresh();
+});
 
 
 // Visual components
