@@ -226,7 +226,7 @@ function updateGold(){
 };
 
 function addHealthBonus(){
-	player1.currentHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	player1.currentHealth = player1.currentHealth + player1.healthBonusArmor + player1.healthBonusSkill;
 	player1HealthCounter.innerHTML = player1.currentHealth;
 
 };
