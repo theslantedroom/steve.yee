@@ -2,7 +2,7 @@
 var player1 = {
 	name: 'player1',
 	currentCharCard: 9,
-	gold: 30,
+	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
 	damageBonusWeapon2: 0,
@@ -57,7 +57,8 @@ var killCount = 0;
 var deathCount = 0;
 var highScore = 0;
 var gamesPlayed = 0;
-var battleNumber = 1
+var battleNumber = 1;
+var goldRewardDice = 6;
 var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
@@ -97,21 +98,95 @@ var chooseCharacter = document.getElementById('chooseCharacter');
 var characterCreationButton = document.getElementById("closeCharacterCreation");
 var player1NameInput = document.getElementById("player1NameInput");
 var player1Gold = document.getElementById("player1Gold");
+var foundGold =  document.getElementById("foundGold");
 var market = document.getElementById('market');
 var player1AtMarket = document.getElementById('player1AtMarket');
 var playArea = document.getElementById('playArea');
 
+
+
+// Visual components
+var player1CharCard = document.getElementById("player1CharCard");
+var player1HealthCard = document.getElementById('player1HealthCard');
+var player1DamageCard = document.getElementById('player1DamageCard');
+var player1Weapon1Card = document.getElementById('player1Weapon1Card');
+var player1ArmorCard = document.getElementById('player1ArmorCard');
+var player1Weapon2Card = document.getElementById('player1Weapon2Card');
+var player1AttackCard = document.getElementById('player1AttackCard');
+var player1DefenseCard = document.getElementById('player1DefenseCard');
+var player1DefenseCounter = document.getElementById("player1DefenseCounter");
+var player1HealthCounter = document.getElementById("player1HealthCounter");
+
+var logWeapon1PopUp = document.getElementById('logWeapon1PopUp');
+var logWeapon2PopUp = document.getElementById('logWeapon2PopUp');
+
+var enemy1CharCard = document.getElementById("enemy1Idle");
+var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
+
+// TABLE Stats 
+var player1Name = document.getElementById("player1Name");
+var player1GoldTable = document.getElementById("player1GoldTable");
+var tableKillScore = document.getElementById("tableKillScore");
+var tableDeathScore = document.getElementById("tableDeathScore");
+var tableHighScore = document.getElementById("tableHighScore");
+var tableGamesPlayed = document.getElementById("tableGamesPlayed");
+var tableDamageBonusSkill = document.getElementById("player1.damageBonusSkill");
+var tableAttackBonusSkill = document.getElementById("player1.attackBonusSkill");
+var tablePlayer1Weapon1 = document.getElementById("player1.weapon1");
+var tablePlayer1Weapon2 = document.getElementById("player1.weapon2");
+var goldTop = document.getElementById("goldTop");
+var battleTop = document.getElementById("battleTop");
+var tablePlayer1Weapon1Bonus = document.getElementById("player1.weapon1Bonus");
+var tablePlayer1Weapon2Bonus = document.getElementById("player1.weapon2Bonus");
+
+
+
+// SLIDES
+
+var slideStart = document.getElementById("slideStart");
+var slidePlayer1Hit= document.getElementById("slidePlayer1Hit");
+var slidePlayer1Critical= document.getElementById("slidePlayer1Critical");
+var slidePlayer1Turn = document.getElementById("slidePlayer1Turn");
+var slideEnemy1Turn = document.getElementById("slideEnemy1Turn");
+var slideLogSlide = document.getElementById("slideLogSlide");
+var slideLogSlideE = document.getElementById("slideLogSlideE");
+var slideNextEnemy = document.getElementById("slideNextEnemy");
+var slidePlayer1Dead = document.getElementById("slidePlayer1Dead");
+var slideKillLog = document.getElementById("slideKillLog");
+
+var logSlideRollResult = document.getElementById("rollResult");
+var logSlideResultLine2 = document.getElementById("resultLine2");
+var logSlideResultLine3 = document.getElementById("resultLine3");
+
+var logSlideRollResultE = document.getElementById("rollResultE");
+var logSlideResultLine2E = document.getElementById("resultLine2E");
+var logSlideResultLine3E = document.getElementById("resultLine3E");
+
+var damageRollResultK = document.getElementById("damageRollResultK");
+var damageResultLine2K = document.getElementById("damageResultLine2K");
+var damageResultLine3K= document.getElementById("damageResultLine3K");
+
+
+var nextEnemyKillCount= document.getElementById("nextEnemyKillCount");
+var popUpEnemy1Dead = document.getElementById("popUpEnemy1Dead");
+var deathCountPopup = document.getElementById("deathCountPopup");
+var finalScorePopup = document.getElementById("finalScorePopup");
+var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll");
+
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
 	player1.name = player1NameInput.value;
-	var player1Namep = document.createElement("div"); //place name on card
-	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
-	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
 	charCreationPickCharacter.style.visibility = "hidden";
+	closeMarket();
 	player1GotoBattle();
 	refresh();
 });
 
+function nameToPlayer1Card(){
+	var player1Namep = document.createElement("div"); //place name on card
+	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
+	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
+};
 
 function clearDiscardPopUp(){
 	discardButtonRightHand.style.display = 'none';
@@ -142,6 +217,7 @@ function player1GotoBattle(){
 
 function player1GotoMarket(){
 	player1AtMarket.appendChild(player1CharCard);
+	nameToPlayer1Card();
 };
 
 function updateGold(){
@@ -2769,72 +2845,7 @@ buyT12.addEventListener("click", function() {
 });
 
 
-// Visual components
-var player1CharCard = document.getElementById("player1CharCard");
-var player1HealthCard = document.getElementById('player1HealthCard');
-var player1DamageCard = document.getElementById('player1DamageCard');
-var player1Weapon1Card = document.getElementById('player1Weapon1Card');
-var player1ArmorCard = document.getElementById('player1ArmorCard');
-var player1Weapon2Card = document.getElementById('player1Weapon2Card');
-var player1AttackCard = document.getElementById('player1AttackCard');
-var player1DefenseCard = document.getElementById('player1DefenseCard');
-var player1DefenseCounter = document.getElementById("player1DefenseCounter");
-var player1HealthCounter = document.getElementById("player1HealthCounter");
 
-var logWeapon1PopUp = document.getElementById('logWeapon1PopUp');
-var logWeapon2PopUp = document.getElementById('logWeapon2PopUp');
-
-var enemy1CharCard = document.getElementById("enemy1Idle");
-var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
-
-// TABLE Stats 
-var player1Name = document.getElementById("player1Name");
-
-var tableKillScore = document.getElementById("tableKillScore");
-var tableDeathScore = document.getElementById("tableDeathScore");
-var tableHighScore = document.getElementById("tableHighScore");
-var tableGamesPlayed = document.getElementById("tableGamesPlayed");
-var tableDamageBonusSkill = document.getElementById("player1.damageBonusSkill");
-var tableAttackBonusSkill = document.getElementById("player1.attackBonusSkill");
-var tablePlayer1Weapon1 = document.getElementById("player1.weapon1");
-var tablePlayer1Weapon2 = document.getElementById("player1.weapon2");
-
-var tablePlayer1Weapon1Bonus = document.getElementById("player1.weapon1Bonus");
-var tablePlayer1Weapon2Bonus = document.getElementById("player1.weapon2Bonus");
-
-
-
-// SLIDES
-
-var slideStart = document.getElementById("slideStart");
-var slidePlayer1Hit= document.getElementById("slidePlayer1Hit");
-var slidePlayer1Critical= document.getElementById("slidePlayer1Critical");
-var slidePlayer1Turn = document.getElementById("slidePlayer1Turn");
-var slideEnemy1Turn = document.getElementById("slideEnemy1Turn");
-var slideLogSlide = document.getElementById("slideLogSlide");
-var slideLogSlideE = document.getElementById("slideLogSlideE");
-var slideNextEnemy = document.getElementById("slideNextEnemy");
-var slidePlayer1Dead = document.getElementById("slidePlayer1Dead");
-var slideKillLog = document.getElementById("slideKillLog");
-
-var logSlideRollResult = document.getElementById("rollResult");
-var logSlideResultLine2 = document.getElementById("resultLine2");
-var logSlideResultLine3 = document.getElementById("resultLine3");
-
-var logSlideRollResultE = document.getElementById("rollResultE");
-var logSlideResultLine2E = document.getElementById("resultLine2E");
-var logSlideResultLine3E = document.getElementById("resultLine3E");
-
-var damageRollResultK = document.getElementById("damageRollResultK");
-var damageResultLine2K = document.getElementById("damageResultLine2K");
-var damageResultLine3K= document.getElementById("damageResultLine3K");
-
-
-var nextEnemyKillCount= document.getElementById("nextEnemyKillCount");
-var PopUpEnemy1Dead = document.getElementById("PopUpEnemy1Dead");
-var deathCountPopup = document.getElementById("deathCountPopup");
-var finalScorePopup = document.getElementById("finalScorePopup");
-var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll");
 
 
 function refresh(){
@@ -2875,6 +2886,9 @@ function refresh(){
 		tablePlayer1Weapon2.innerHTML = player1.weapon2;
 		tablePlayer1Weapon1Bonus.innerHTML = player1.weapon1Bonus;
 		tablePlayer1Weapon2Bonus.innerHTML = player1.weapon2Bonus;
+		player1GoldTable.innerHTML = player1.gold;
+		goldTop.innerHTML = player1.gold + ' gold';
+		battleTop.innerHTML = battleNumber;
 		
 		updateGold();
 };
@@ -3107,7 +3121,6 @@ function tryAgain(){
 	console.log('tryagain');
 	nextEnemy();
 	highScoreUpdate();
-
 	killCount = 0;
 	addHealthBonus();
 	player1HealthCounter.innerHTML = player1.currentHealth;
@@ -3116,12 +3129,11 @@ function tryAgain(){
 	slideNextEnemy.style.display = "none";
 	slidePlayer1Turn.style.display = "none";
 	slideStart.style.display = "block";
-
-
 	tableDeathScore.innerHTML = deathCount;
 	tableKillScore.innerHTML = killCount;
 	gamesPlayed = gamesPlayed + 1;
 	refresh();
+	location.reload();
 };
 
 function logSlide(){
@@ -3139,25 +3151,30 @@ function logSlideE(){
 
 };
 
+
+
 // next enemy popup
 function nextEnemy(){
 	console.log('next enemy');
-	PopUpEnemy1Dead.style.display = "none";
+	popUpEnemy1Dead.style.display = "none";
+	slideKillLog.style.display = "none";
+	slideNextEnemy.style.display = "block";
+	var winGold = Math.floor((Math.random() * goldRewardDice) + 1);
+	foundGold.innerHTML = winGold;
+	player1.gold += winGold;
+	refresh();
+
 	enemy1.health = 20;
 	enemy1HealthCounter.innerHTML = enemy1.health;
 	logSlideRollResult.innerHTML = '...';
 	logSlideResultLine2.innerHTML = 'You look around..';
 	logSlideResultLine3.innerHTML = "and see an angry peasant";
-	slideNextEnemy.style.display = "block";
-
-	slideKillLog.style.display = "none";
 	tableDeathScore.innerHTML = deathCount;
 	tableKillScore.innerHTML = killCount;
 };
 
 function fightNext(){
 	slidePlayer1Turn.style.display = "block";
-
 	slideNextEnemy.style.display = "none";
 };
 
@@ -3180,13 +3197,8 @@ function enemy1Dead(){
 	nextEnemyKillCount.innerHTML = killCount;
 	enemy1HealthCounter.innerHTML = enemy1.health;
 	battleNumber = battleNumber + 1
-
-	if (battleNumber <= 5) {
-	PopUpEnemy1Dead.style.display = "block";
+	popUpEnemy1Dead.style.display = "block";
 	console.log('enemydead()logged');
-	} else {
-		openMarket();
-	}
 };
 
 function player1Dead(){

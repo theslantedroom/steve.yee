@@ -17,19 +17,28 @@
 <header>
 <!-- sex -->
 
-	<div class="floatingButton">
-		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy</span></button>
-	</div>
+
+<!-- ENEMY BUTTON -->
+<!-- 	<div class="floatingButton">
+		<button onclick="changeEnemy()"><span id="genderButtonF">Change Enemy / Experimental dev tool</span></button>
+	</div> -->
 
 </header>
-
+<div style="text-align: center;">
+<h3>Battle # <span id='battleTop'></span>. You have <span id="goldTop" style="color: yellow;"></span></h3>
+</div>
 <body>
 
 	<div id="characterCreation">
-		<h1>Character Creation</h1>
-		<p>Visit the Market to buy some gear before you begin</p>
-		<label for="player1NameInput">Name: </label>
+		<h1>Last Man Standing - Alpha Testing</h1>
+				<h4>Mobile Mini Game - In Development</h4>
+
+				
+		<label class="tooltip" for="player1NameInput">Name:  <span class="tooltiptext">Give Yourself a cool name!</span></label>
 		<input id="player1NameInput" type="text" placeholder="enter a name">
+
+	<h5>&#8678; Choose a Character &#8680;</h5>
+
 			<div id="chooseCharacter">
 				<div id="player1PreviousCharacter" onclick="player1previousCharacter()"></div>
 
@@ -40,9 +49,9 @@
 
 			
 			<h2>You have <span id='player1Gold2'></span> Gold</h2>
-			<button id="gotoMarket" onclick="openMarket()">Market</button><br>
-		<button id="closeCharacterCreation">I'm Ready! Continue to beta</button>
-		<p>New Enemies and gold rewards coming next</p>
+			<p>Visit the Market to buy some gear before you begin</p>
+			<button id="gotoMarket" onclick="openMarket()">Continue to MARKET</button><br>
+			<p>New Enemies and gold rewards coming next</p>
 		
 	</div>
 
@@ -52,8 +61,8 @@
 		<div>
 			<h1>MARKET</h1>
 			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
-			<p>I don't do refunds on gear under any circumstance.  So be careful what you buy.</p>
-			<h3>You have <span id="player1Gold"></span> gold.</h3>
+			<p>I don't do refunds on gear under any circumstance. You will discard replaced gear.</p>
+			<h2>You have <span id="player1Gold"></span> gold.</h2>
 			<div>
 				<button id="weaponStoreOneHandButton" onclick="weaponStoreOneHandButton()">One Handed</button>
 				<button id="weaponStoreTwoHandButton" onclick="weaponStoreTwoHandButton()">Two Handed</button>
@@ -200,11 +209,14 @@
 				</div>
 		</div>
 
+				<button id="closeCharacterCreation">I'm Ready! Continue to beta</button>
 		<div id="player1AtMarket"></div>
+		<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
+
 
 
 </div>
-		<button onclick="closeMarket()" id="closeMarket">Close Market</button>
+		<button onclick="closeMarket()" id="closeMarket">Back to character Selection</button>
 </div>
 
 	<div id="playArea">
@@ -226,7 +238,7 @@
 				<!-- Enemy Card -->
 				<div id="enemy1Idle">
 					<div id="enemyHealthCounter"></div>
-					<div id="PopUpEnemy1Dead"></div>
+					<div id="popUpEnemy1Dead"></div>
 				</div>
 	</div>
 
@@ -235,9 +247,9 @@
 	<div id="rollBar">
 
 		<div id="slideStart">
-			<div class="lighter"><p>Attack roll must be > enemy defense to hit</p></div>
-			<div><p>Tap weapon and Armor squares to change them. alternate enemies coming soon</p></div>
-			<div><p>defeat the enemies</p></div>
+			<div class="lighter"><h5>Attack roll is a 20 sided Dice (1D20) and must be > enemy 'Defense Total' to deal your weapons damage</h5></div>
+			<div><p>You will find more gold after defeating each enemy</p></div>
+			<div><p>You can upgrade your equipment at the Market after battle</p></div>
 			<div class=""><button onclick="start()">READY</button></div>
 		</div>
 
@@ -299,11 +311,14 @@
 			<div class="lighter"><p id="damageRollResultK">...</p> </div>
 			<div><p id="damageResultLine2K">....</p></div>
 			<div><p id="damageResultLine3K">....</p></div>
-			<div class=""><button onclick="nextEnemy()">continue...</button></div>
+			<div class=""><button onclick="nextEnemy()">Search remains...</button></div>
 		</div>
 
 		<div id="slideNextEnemy">
-		<p>Another one aproaches. <br> <button onclick="fightNext()">READY</button><br>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
+			<p>Searching the body you find <span id="foundGold">x gold</span> gold.</p>
+			<button onclick="openMarket()">Go to Market</button>
+			<button onclick="fightNext()">READY</button>
+			<p>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
 		</div>
 
 	
@@ -318,10 +333,10 @@
 
 <table id="table">
 			  <tr>
-			  	<th></th>
-			    <th>Score</th>
+			  	<th id="player1Name"></th>
 			    <th></th>
-			    <th id="player1Name">Player1</th>
+			    <th></th>
+			    <th></th>
 			    <th id=""></th>
 			  </tr>
 		
@@ -329,24 +344,24 @@
 			   <tr>
 			    <td>Kills</td>
 			    <td id="tableKillScore"></td>
-				<td id=""></td>
-				<td id=""></td>
+				<td id="">Gold</td>
+				<td id="player1GoldTable"></td>
 				<td id=""></td>
 			  </tr>
 
 			  <tr>
 			    <td>Times Killed</td>
 			    <td id="tableDeathScore"></td>
-				<td id="">Strength Bonus</td>
-				<td id="player1.damageBonusSkill"></td>
+				<td id=""></td>
+				<td id=""></td>
 				<td id=""></td>
 			  </tr>
 
 			   <tr>
 			    <td>high Score</td>
 			    <td id="tableHighScore"></td>
-				<td id="">Attack Bonus</td>
-				<td id="player1.attackBonusSkill"></td>
+				<td id=""></td>
+				<td id=""></td>
 				<td id=""></td>
 			  </tr>
 
@@ -361,25 +376,25 @@
   			   <tr>
 			  	<td></td>
 			    <td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+				<td id=""></td>
+			  </tr>
+
+			  <tr>
+			    <td>Strength Bonus</td>
+				<td id="player1.damageBonusSkill"></td>
 				<td id="">Weapon 1</td>
 				<td id="player1.weapon1"></td>
 				<td id="player1.weapon1Bonus"></td>
 			  </tr>
 
 			  <tr>
-			    <td></td>
-				<td id=""></td>
+			    <td>Attack Bonus</td>
+				<td id="player1.attackBonusSkill"></td>
 				<td id="">Weapon 2</td>
 				<td id="player1.weapon2"></td>
 				<td id="player1.weapon2Bonus"></td>
-			  </tr>
-
-			  <tr>
-			    <td></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
-				<td id=""></td>
 			  </tr>
 
 			  <tr>
@@ -425,7 +440,7 @@
 </body>
 
 <form class="goBack" action="test.html">
-    <input type="submit" value="Go Back" />
+    <input type="submit" value="EXIT" />
 </form>
 
 <script src=js/LMS.js> </script>

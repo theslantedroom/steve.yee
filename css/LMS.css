@@ -25,7 +25,37 @@ button {
 input {
 	font-size: 20px;
 }
+p {
+	font-size: 2vh;
+	padding: 1px 15px;
+	margin: 15px;
+}
+h1{
+	font-size: 2.7vh;
+	margin-bottom: 2px;
+}
+h2{
+	font-size: 2.2vh;
+	color: yellow;
+}
+h3{
+	font-size: 1.5vh;
+	color: grey;
+}
 
+h4{
+	font-size: 1.2vh;
+	color: grey;
+	padding: 2px;
+	margin: 1px;
+}
+
+h5{
+	font-size: 1.3vh;
+	padding: 2px;
+	margin: 1px;
+
+}
 .border{
 	border: 2px	solid grey;
 }
@@ -33,6 +63,7 @@ input {
 
 #player1NameInput{
 	margin-bottom: 10px;
+	margin-top: 10px;
 }
 #characterCreation{
 	color: white;
@@ -134,22 +165,25 @@ margin: auto;
 
 
 #closeMarket{
-	width: 100px;
-	padding: 10px;
+	font-size: 12px;
+	padding: 5px;
 	position: absolute;
 	top: 2px;
 	left: 2px;
+}
+
+#closeMarket button {
+	font-size: 16px;
 }
 
 #confirmBuy{
 	border: 5px solid black;
 	position: absolute;
 	background-color: white;
-	width: 300px;
-	height: 200px;
+	width: 500px;
 	z-index: 1;
 	left: 50%;
-	margin-left: -150px;
+	margin-left: -250px;
 	display: none;
 }
 
@@ -197,7 +231,6 @@ justify-content: space-around;
 	font-weight: bold;
 	color: black;
 	text-align: center;
-
 	background-image: url(../img/white.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -299,6 +332,8 @@ transform: rotate(-20deg);
 
 #slideEnemy1Turn{
 	display: none;
+	color: red;
+	font-weight: bold;
 }
 
 #slideKillLog{
@@ -437,7 +472,6 @@ transform: rotate(-20deg);
 }
 
 #player1HealthCard{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -451,7 +485,6 @@ transform: rotate(-20deg);
 }
 
 #player1DamageCard{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -467,7 +500,6 @@ transform: rotate(-20deg);
 
 
 #player1Weapon1Card{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -481,7 +513,6 @@ transform: rotate(-20deg);
 }
 
 #player1Weapon2Card{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -495,7 +526,6 @@ transform: rotate(-20deg);
 }
 
 #player1ArmorCard{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -510,7 +540,6 @@ transform: rotate(-20deg);
 }
 
 #player1AttackCard{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -524,7 +553,6 @@ transform: rotate(-20deg);
 }
 
 #player1DefenseCard{
-	cursor: pointer;
 	background-image: url(#);
 	background-size: 100%;
 	background-repeat: no-repeat;
@@ -537,6 +565,46 @@ transform: rotate(-20deg);
     transform: rotate(7deg);
 }
 
+/*toolstip*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  z-index: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 /*POPUP WEAPON*/
 
 
@@ -641,18 +709,25 @@ transform: rotate(-20deg);
  	height: 10vh;
  	width: 100%;
  	margin-top: 1px;
- 	color: yellow;
+ 	table-layout: fixed;
+    width: 500px;
+    margin: auto;
+
+
 	}
 
 	table, th, td {
-	  border: 1px solid black;
+	  border: 1px solid #2d2d2d;
 	  border-collapse: collapse;
 	}
 	th, td {
+		color: white;
 	  padding: 2px;
 	}
 	th {
 	  text-align: left;
+	  background-color: #4CAF50;
+	  color: black;
 
 	}
 
