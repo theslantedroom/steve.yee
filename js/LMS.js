@@ -170,6 +170,8 @@ var damageResultLine3K= document.getElementById("damageResultLine3K");
 
 var nextEnemyKillCount= document.getElementById("nextEnemyKillCount");
 var popUpEnemy1Dead = document.getElementById("popUpEnemy1Dead");
+var popUpOuch = document.getElementById("popUpOuch");
+var popUpHitEnemy = document.getElementById("popUpHitEnemy");
 var deathCountPopup = document.getElementById("deathCountPopup");
 var finalScorePopup = document.getElementById("finalScorePopup");
 var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll");
@@ -2874,13 +2876,18 @@ function refresh(){
 		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
 		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
-		enemy1HealthCounter.innerHTML = enemy1.health;	
+		enemy1HealthCounter.innerHTML = enemy1.health;
+
+		
+
 
 // Damage popup images
 
 		logWeapon1PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
 		logWeapon2PopUp.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";	
-
+		popUpOuch.style.display = 'none';
+		popUpHitEnemy.style.display = 'none';
+		deathCountPopup.style.display = 'none';
 // TABLE		
 		player1Name.innerHTML = player1.name;
 		tableKillScore.innerHTML = killCount;
@@ -3147,7 +3154,9 @@ function tryAgain(){
 function logSlide(){
 	console.log('logSlide close / open "enemyTurn"');
 	slideLogSlide.style.display = "none";
+	popUpHitEnemy.style.display = "none";
 	slideEnemy1Turn.style.display = "block";
+
 
 	enemy1Attack();
 };
@@ -3156,6 +3165,7 @@ function logSlideE(){
 	console.log('logSlideE close / open "player1Turn"');
 	slideLogSlideE.style.display = "none";
 	slidePlayer1Turn.style.display = "block";
+	popUpOuch.style.display = "none";
 
 };
 
@@ -3165,6 +3175,7 @@ function logSlideE(){
 function nextEnemy(){
 	console.log('next enemy');
 	popUpEnemy1Dead.style.display = "none";
+	// popUpOuch.style.display = "none";
 	slideKillLog.style.display = "none";
 	slideNextEnemy.style.display = "block";
 	var winGold = Math.floor((Math.random() * goldRewardDice) + 1);
@@ -3207,6 +3218,14 @@ function enemy1Dead(){
 	battleNumber = battleNumber + 1
 	popUpEnemy1Dead.style.display = "block";
 	console.log('enemydead()logged');
+};
+
+function player1Ouch(){
+	popUpOuch.style.display = "block";
+};
+
+function Enemy1Ouch(){
+	popUpHitEnemy.style.display = "block";
 };
 
 function player1Dead(){
@@ -3283,6 +3302,7 @@ function player1DamageRoll(){
 function player1Damage(){	
 		slidePlayer1Hit.style.display = "none";
 		slideLogSlide.style.display = "block";
+		Enemy1Ouch();
 		player1DamageRoll();
 
 		attackDamage = player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus;
@@ -3317,6 +3337,7 @@ function player1Damage(){
 function player1Critical(){
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "block";
+		Enemy1Ouch();
 		player1DamageRoll();
 		
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus);
@@ -3367,13 +3388,11 @@ function enemyAttack(){
 		player1HealthCounter.innerHTML = player1.currentHealth;
 
 		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
-
-
-		
 		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.currentHealth;
 	
 		console.log("hit player with attackroll " + attackRollE);
 		console.log('enemy deals ' + attackDamageE +' Damage');
+		player1Ouch();
 	
 // CRIT
 	} else if (attackRollE == 20) {
@@ -3386,6 +3405,7 @@ function enemyAttack(){
 
 		console.log("Enemy deals critical hit");
 		console.log(attackDamageE + ' x 2 player Damage');
+		player1Ouch();
 
 //enemy miss
 	} else if (attackRollE <= player1.defense)	{	

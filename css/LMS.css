@@ -639,9 +639,37 @@ transform: rotate(-20deg);
 }
 
 
-#PopUpEnemy1Dead{
+#popUpOuch{
 	position: absolute;
-	background-image: url(../img/dead.jpg);
+	background-image: url(../img/ouch.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 27vh;
+	height: 27vh;
+	top: 14%;
+    left: -1%;
+    transform: rotate(101deg);
+    display: none;
+    z-index: 2;
+}
+
+#popUpHitEnemy{
+	position: absolute;
+	background-image: url(../img/ouch.png);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	width: 27vh;
+	height: 27vh;
+	top: 14%;
+    left: -1%;
+    transform: rotate(-101deg);
+    display: none;
+    z-index: 2;
+}
+
+#popUpEnemy1Dead{
+	position: absolute;
+	background-image: url(../img/dead2.png);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	border: 3px solid black;
@@ -651,11 +679,9 @@ transform: rotate(-20deg);
 	top: 14%;
     left: -57%;
     transform: rotate(30deg);
-    display: block;
-    z-index: 0;
+    display: none;
+    z-index: 2;
 }
-
-
 
 /*TABLE*/
 
@@ -795,18 +821,4 @@ justify-content: space-between;
 }
 
 
-#popUpEnemy1Dead{
-	position: absolute;
-	background-image: url(../img/dead.jpg);
-	background-size: 100%;
-	background-repeat: no-repeat;
-	border: 3px solid black;
-	border-radius: 10%;
-	width: 27vh;
-	height: 27vh;
-	top: 14%;
-    left: -57%;
-    transform: rotate(30deg);
-    display: none;
-    z-index: 5;
-}
+
