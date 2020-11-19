@@ -7,7 +7,7 @@ justify-content: center;
 body{
 	position: relative;
 	height: 100vh;
-	min-width: 800px;
+	min-width: 550px;
 	max-width: 1700px;
 	background-image: url(../img/forestPath.jpg);
 	background-size: cover;
@@ -124,12 +124,6 @@ cursor: pointer;
 #player1AtMarket{
 	display: flex;
 	justify-content: center;
-	position: absolute;
-
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
 }
 
 
@@ -723,21 +717,21 @@ transform: rotate(-20deg);
 #marketItems {
 color: black;
 margin: auto;
+
 }
 
 #storeImages img{
 	margin: 2px;
-	width: 100%;
-	height: auto;
+  	width: 7vh;
+  	height: 7vh;
 	cursor: pointer;
 	border: 1px solid black;
+	border-radius: 8px;
 
-
-	background-size: 100%;
-	background-repeat: no-repeat;
 }
 
 #storeImages{
+
 
 }
 
@@ -758,6 +752,7 @@ margin: auto;
 	margin: auto;
 	display: none;
 	width: 100%;
+	min-width: 550px;
 }
 
 
@@ -765,25 +760,36 @@ margin: auto;
 	max-width: 1700px;
 	margin: auto;
 	display: flex;
-justify-content: space-around;
+justify-content: space-between;
 
 }
 
 .floatLeft{
-/*		border: 10px solid black;*/
-	display: flex;
-	flex-direction: column;
-	width: 10vh;
-	height: 50vh;
+
+	width: 80vh;
+	height: 16vh;
 	z-index: 1;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+
 }
 
 
 .floatRight{
-/*		border: 10px solid black;*/
-	display: flex;
-	flex-direction: column;
-	width: 10vh;
-	height: 50vh;
+
+	width: 80vh;
+	height: 16vh;
 	z-index: 1;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+
+}
+
+#marketCharShift{
+	position: relative;
+	top: -96px;
 }
