@@ -145,7 +145,7 @@ cursor: pointer;
 	position: absolute;
 	background-color: white;
 	width: 500px;
-	z-index: 1;
+	z-index: 3;
 	left: 50%;
 	margin-left: -250px;
 	display: none;
@@ -770,7 +770,7 @@ justify-content: space-between;
 
 	width: 80vh;
 	height: 16vh;
-	z-index: 1;
+	z-index: 2;
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -784,7 +784,7 @@ justify-content: space-between;
 
 	width: 80vh;
 	height: 16vh;
-	z-index: 1;
+	z-index: 2;
 	display: inline-flex;
 	flex-direction: row;
 	flex-wrap: wrap;
