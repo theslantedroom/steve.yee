@@ -7,8 +7,8 @@ justify-content: center;
 body{
 	position: relative;
 	height: 100vh;
-	min-width: 515px;
-	max-width: 1000px;
+	min-width: 800px;
+	max-width: 1700px;
 	background-image: url(../img/forestPath.jpg);
 	background-size: cover;
 	background-repeat: repeat-y;
@@ -121,47 +121,17 @@ cursor: pointer;
 
 }
 
-#market {
-	color: white;
-	display: flex;
-	flex-direction: column;
-	background-image: url(../img/BG.jpg);
-	background-size: cover;
-	background-repeat: repeat;
-	text-align: center;
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 0px;
-	border: 10px solid black;
-	z-index: 1;
-	margin: auto;
-	display: none;
-	width: 100%;
-}
-
 #player1AtMarket{
 	display: flex;
 	justify-content: center;
+	position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
-#marketItems {
-color: black;
-margin: auto;
-}
-
-
-#marketItems img{
-	border: 1px solid black;
-	width: 30%;
-	height: auto;
-	cursor: pointer;
-}
-.storeItems {
-	max-width: 700px;
-	margin: auto;
-}
 
 
 #closeMarket{
@@ -746,4 +716,74 @@ transform: rotate(-20deg);
 	bottom: 00px;
 	width: 70px;
 	padding: 10px;
+}
+
+
+
+#marketItems {
+color: black;
+margin: auto;
+}
+
+#storeImages img{
+	margin: 2px;
+	width: 100%;
+	height: auto;
+	cursor: pointer;
+	border: 1px solid black;
+
+
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+#storeImages{
+
+}
+
+
+#market {
+	color: white;
+	background-image: url(../img/BG.jpg);
+	background-size: cover;
+	background-repeat: repeat;
+	text-align: center;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	border: 10px solid black;
+	z-index: 1;
+	margin: auto;
+	display: none;
+	width: 100%;
+}
+
+
+.storeItems {
+	max-width: 1700px;
+	margin: auto;
+	display: flex;
+justify-content: space-around;
+
+}
+
+.floatLeft{
+/*		border: 10px solid black;*/
+	display: flex;
+	flex-direction: column;
+	width: 10vh;
+	height: 50vh;
+	z-index: 1;
+}
+
+
+.floatRight{
+/*		border: 10px solid black;*/
+	display: flex;
+	flex-direction: column;
+	width: 10vh;
+	height: 50vh;
+	z-index: 1;
 }
