@@ -45,9 +45,10 @@ var player1 = {
 
 var enemy1 = {
 	name: 'Ant',
-	health: 4,
-	defense: 4,
-	weapon: 4,
+	health: 15,
+	maxHealth: 15,
+	defense: 5,
+	weapon: 6,
 };
 
 
@@ -2860,7 +2861,6 @@ function refresh(){
 // calculate Final Stats
 	player1.defense = player1.defenseBonusWeapon + player1.defenseBonusShield1 + player1.defenseBonusShield2 + player1.armor + player1.defenseBonusSkill;
 	player1.damage =  player1.damageBonusWeapon1 + player1.damageBonusWeapon2 + player1.damageBonusShield1 + player1.damageBonusShield2 + player1.damageBonusSkill;
-	// player1.currentHealth = player1.healthBonusArmor + 20 + player1.healthBonusSkill;
 	player1.attack =  player1.attackBonusSkill + player1.attackBonusWeapon1 + player1.attackBonusWeapon2;	
 
 // CARD UPDATES
@@ -3171,7 +3171,7 @@ function nextEnemy(){
 	player1.gold += winGold;
 	refresh();
 
-	enemy1.health = 20;
+	enemy1.health = enemy1.maxHealth;
 	enemy1HealthCounter.innerHTML = enemy1.health;
 	logSlideRollResult.innerHTML = '...';
 	logSlideResultLine2.innerHTML = 'You look around..';
