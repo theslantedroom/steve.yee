@@ -64,7 +64,7 @@ var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
 
-var currentEnemyCard = 1;
+var currentEnemyCard = 4;
 
 //UI Interface
 var confirmBuy = document.getElementById("confirmBuy");
