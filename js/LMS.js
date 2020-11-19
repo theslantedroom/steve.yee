@@ -3129,6 +3129,7 @@ function tryAgain(){
 	nextEnemy();
 	highScoreUpdate();
 	killCount = 0;
+	player1.currentHealth = 20;
 	addHealthBonus();
 	player1HealthCounter.innerHTML = player1.currentHealth;
 	slidePlayer1Dead.style.display = "none";
@@ -3140,7 +3141,7 @@ function tryAgain(){
 	tableKillScore.innerHTML = killCount;
 	gamesPlayed = gamesPlayed + 1;
 	refresh();
-	location.reload();
+	// location.reload();
 };
 
 function logSlide(){
