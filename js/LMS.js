@@ -1201,7 +1201,7 @@ buyW31.addEventListener("click", function() {
 
 buyW32.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 1 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Viking Shield for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
@@ -1241,7 +1241,7 @@ buyW32.addEventListener("click", function() {
 
 buyW33.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 3 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Bronze Shield for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
@@ -1281,7 +1281,7 @@ buyW33.addEventListener("click", function() {
 
 buyW34.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 7 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Steel Shield for ";
 		wantToBuyGoldCost.innerHTML = "7 gold?";
@@ -1321,7 +1321,7 @@ buyW34.addEventListener("click", function() {
 
 buyW35.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 12 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Tower Shield for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
@@ -1361,7 +1361,7 @@ buyW35.addEventListener("click", function() {
 
 buyW36.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 2 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Sharpened Shield for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
@@ -1401,7 +1401,7 @@ buyW36.addEventListener("click", function() {
 
 buyW37.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 4 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Spike Shield for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
@@ -1441,7 +1441,7 @@ buyW37.addEventListener("click", function() {
 
 buyW38.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 6 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Fighting Shield for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
@@ -1481,7 +1481,7 @@ buyW38.addEventListener("click", function() {
 
 buyW39.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 10 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Cruel Shield for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
@@ -1521,7 +1521,7 @@ buyW39.addEventListener("click", function() {
 
 buyW40.addEventListener("click", function() {
 		confirmBuyOpen();
-		if ((player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
+		if ((player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 14 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
 		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Brutal Shield for ";
 		wantToBuyGoldCost.innerHTML = "14 gold?";
