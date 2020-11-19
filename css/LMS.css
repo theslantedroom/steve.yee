@@ -727,6 +727,8 @@ margin: auto;
 	cursor: pointer;
 	border: 1px solid black;
 	border-radius: 8px;
+	min-height: 84px;
+	min-width: 84px;
 
 }
 
@@ -773,6 +775,7 @@ justify-content: space-between;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-start;
+	margin-left: 10px;
 
 }
 
@@ -786,6 +789,7 @@ justify-content: space-between;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: flex-end;
+	margin-right: 10px;
 
 }
 
