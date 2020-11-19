@@ -44,10 +44,9 @@ var player1 = {
 };
 
 var enemy1 = {
-	name: 'peasant fool',
-	alive: true,
-	health: 20,
-	defense: 6,
+	name: 'Ant',
+	health: 4,
+	defense: 4,
 	weapon: 4,
 };
 
@@ -64,7 +63,7 @@ var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
 
-var currentEnemyCard = 3;
+var currentEnemyCard = 1;
 
 //UI Interface
 var confirmBuy = document.getElementById("confirmBuy");
@@ -3271,26 +3270,32 @@ function player1AttackRoll(){
 
 };
 
+
+function player1DamageRoll(){
+		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
+		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
+		player1weapon1DamageBonus = Math.floor((Math.random() * player1.weapon1Bonus) + 1);
+		player1weapon2DamageBonus = Math.floor((Math.random() * player1.weapon2Bonus) + 1);
+};
+
+	
 function player1Damage(){	
 		slidePlayer1Hit.style.display = "none";
 		slideLogSlide.style.display = "block";
-
-		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
-		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
-
-		player1weapon1DamageBonus = Math.floor((Math.random() * player1.weapon1Bonus) + 1);
-		player1weapon2DamageBonus = Math.floor((Math.random() * player1.weapon2Bonus) + 1);
+		player1DamageRoll();
 
 		attackDamage = player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus;
+
 		enemy1.health = enemy1.health - attackDamage;
 		enemy1.health = enemy1.health - player1.damage;
 
-		logSlideRollResult.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons) + ' + player1.damage + ' (bonus)';
+		logSlideRollResult.innerHTML = 'Your attack deals ' + attackDamage + ' (weapons) + ' + 
+		player1.damage + ' (bonus)';
+
 		logSlideResultLine2.innerHTML = 'a deep wound';
 		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy1.health;
 
 		enemy1HealthCounter.innerHTML = enemy1.health;
-		console.log('player1 deals ' + player1weapon1Damage, player1weapon1DamageBonus, player1weapon2Damage, player1weapon2DamageBonus + "damageskill = " + player1.damage);
 		
 // Killed Enemy
 		if (enemy1.health <= 0) {
@@ -3298,9 +3303,10 @@ function player1Damage(){
 		slideKillLog.style.display = "block";
 
 		
-		damageRollResultK.innerHTML = 'Your damage roll is ' + player1weapon1Damage + ' + ' + player1weapon2Damage + ' damage';
+		damageRollResultK.innerHTML = 'A quick attack inflicts ' + attackDamage + ' (weapons) + ' + 
+		player1.damage + ' (bonus)';
 		damageResultLine2K.innerHTML = 'oh the Blood!!';
-		damageResultLine3K.innerHTML = 'Sweet Victory!  ' + attackDamage +' damage kills the enemy';	
+		damageResultLine3K.innerHTML = 'Sweet Victory!  ' + (attackDamage+player1.damage) +' damage kills the enemy';	
 
 		enemy1Dead();
 		console.log('killed enemy');
@@ -3310,23 +3316,17 @@ function player1Damage(){
 function player1Critical(){
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "block";
-
-		player1weapon1Damage = Math.floor((Math.random() * player1.weapon1) + 1);
-		player1weapon2Damage = Math.floor((Math.random() * player1.weapon2) + 1);
-
-		player1weapon1DamageBonus = Math.floor((Math.random() * player1.weapon1Bonus) + 1);
-		player1weapon2DamageBonus = Math.floor((Math.random() * player1.weapon2Bonus) + 1);
-
+		player1DamageRoll();
+		
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus);
 		enemy1.health = enemy1.health - attackDamage;
 		enemy1.health = enemy1.health - player1.damage;
 
-		logSlideRollResult.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons)';
+		logSlideRollResult.innerHTML = 'Your attack deals ' + (attackDamage/2) + ' (weapons)';
 		logSlideResultLine2.innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy1.health + ' health';
 
 		enemy1HealthCounter.innerHTML = enemy1.health;
-		console.log('player1 crit ' + player1weapon1Damage, player1weapon1DamageBonus, player1weapon2Damage, player1weapon2DamageBonus + "damageskill = " + player1.damage);
 
 // killed him Critical
 	if (enemy1.health <= 0) {
@@ -3335,7 +3335,7 @@ function player1Critical(){
 		slideKillLog.style.display = "block";
 
 		
-		damageRollResultK.innerHTML = 'Your attack deals ' + (player1weapon1Damage + player1weapon1DamageBonus) + ' + ' + (player1weapon2Damage+player1weapon2DamageBonus) + ' (weapons)';
+		damageRollResultK.innerHTML = 'Your attack is impressive!';
 		damageResultLine2K.innerHTML = 'GLORY! Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and kills the enemy';
 		
