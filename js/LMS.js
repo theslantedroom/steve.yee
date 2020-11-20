@@ -243,6 +243,18 @@ function player1previousCharacter(){
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
+
+// ES6 Syntax ^^^^
+
+// const player1previousCharacter = () => {	
+// 		player1.currentCharCard -= 1;
+// 		if (player1.currentCharCard == 0) {
+// 			player1.currentCharCard = 32;
+// 		}
+// 		console.log('player1.currentCharCard '+player1.currentCharCard);
+// 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
+// };
+
 function player1NextCharacter(){	
 		player1.currentCharCard += 1;
 		if (player1.currentCharCard == 33) {
