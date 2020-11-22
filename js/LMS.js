@@ -3422,7 +3422,7 @@ function enemyAttack(){
 		console.log('damage bonus E',enemyArray[currentEnemyCard].damage);
 
 		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
-		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.currentHealth;
+		logSlideResultLine3E.innerHTML = "You  got hit " + (attackDamageE+enemyArray[currentEnemyCard].damage) +" down to " + player1.currentHealth;
 	
 		console.log("hit player with attackroll " + attackRollE);
 		console.log('enemy deals ' + (attackDamageE+enemyArray[currentEnemyCard].damage)+' Damage');
@@ -3439,7 +3439,7 @@ function enemyAttack(){
 		player1CurrentHp.innerHTML = player1.currentHealth;
 
 		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
-		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE) +", down to " + player1.currentHealth;
+		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE)+ " + " + enemyArray[currentEnemyCard].damage +", down to " + player1.currentHealth;
 
 		console.log("Enemy deals critical hit");
 		console.log(attackDamageE + ' x 2 player Damage');
