@@ -3285,7 +3285,7 @@ function player1AttackRoll(){
 
 	refresh();
 	console.log('player1AttackRoll ' + attackRoll);
-	logSlideRollResult.innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
+	logSlideRollResult.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 // HIT enemy 
 	if (attackRoll > (enemyArray[currentEnemyCard].defense - player1.attack) && attackRoll != 20) {
 		slidePlayer1Hit.style.display = "block";
