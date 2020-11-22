@@ -3186,7 +3186,7 @@ function nextEnemy(){
 	enemy1CharCard.style.display = 'none'
 	slideNextEnemy.style.display = "block";
 
-	var winGold = (Math.round(currentEnemyCard/5)) + Math.floor((Math.random() * goldRewardDice) + 1);
+	var winGold = (Math.round(currentEnemyCard/4)) + Math.floor((Math.random() * goldRewardDice) + 1);
 	foundGold.innerHTML = winGold;
 	player1.gold += winGold;
 
@@ -3201,22 +3201,6 @@ function nextEnemy(){
 	tableKillScore.innerHTML = killCount;
 };
 
-function fightNext(){
-	newEnemyApproaches(currentEnemyCard);
-	slidePlayer1Turn.style.display = "block";
-	slideNextEnemy.style.display = "none";
-};
-
-function enemy1Attack(){
-	enemy1CharCard.id = "enemy1Attack";
-};
-
-
-function enemy1AttackDone(){
-	document.getElementById("enemy1Attack").id = "enemy1Idle";
-	// cannot make Var for document.getElementById("enemy1Attack") because is doesnt exist in the html at time of variable declaraton.
-	// make a  slide instead of a class change for attacking enemy to fix
-};
 
 
 function enemy1Dead(){
@@ -3239,6 +3223,25 @@ function enemy1Dead(){
 
 	console.log('enemydead()logged');
 };
+
+
+function fightNext(){
+	newEnemyApproaches(currentEnemyCard);
+	slidePlayer1Turn.style.display = "block";
+	slideNextEnemy.style.display = "none";
+};
+
+function enemy1Attack(){
+	enemy1CharCard.id = "enemy1Attack";
+};
+
+
+function enemy1AttackDone(){
+	document.getElementById("enemy1Attack").id = "enemy1Idle";
+	// cannot make Var for document.getElementById("enemy1Attack") because is doesnt exist in the html at time of variable declaraton.
+	// make a  slide instead of a class change for attacking enemy to fix
+};
+
 
 function player1Ouch(){
 	popUpOuch.style.display = "block";
