@@ -28,8 +28,8 @@ var player1 = {
 	defenseCard: 0,
 
 	// in math calculation
-	maxHealth: 21,
-	currentHealth: 20,
+	maxHealth: 30,
+	currentHealth: 30,
 	damage: 0,
 	attack: 0,
 	defense: 0,
@@ -393,7 +393,7 @@ function updateGold(){
 };
 
 function addHealthBonus(){
-	player1.maxHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	player1.maxHealth = 30 + player1.healthBonusArmor + player1.healthBonusSkill;
 	player1MaxHp.innerHTML = '/'+ player1.maxHealth;
 	player1CurrentHp.innerHTML = player1.currentHealth;
 	if (player1.currentHealth > player1.maxHealth) {
@@ -3177,7 +3177,7 @@ function logSlideE(){
 
 };
 
-
+// balance
 
 // Search REMAINS button
 function nextEnemy(){
@@ -3186,7 +3186,7 @@ function nextEnemy(){
 	enemy1CharCard.style.display = 'none'
 	slideNextEnemy.style.display = "block";
 
-	var winGold = (Math.round(currentEnemyCard/4)) + Math.floor((Math.random() * goldRewardDice) + 1);
+	var winGold = (Math.round(currentEnemyCard/5)) + Math.floor((Math.random() * goldRewardDice) + 1);
 	foundGold.innerHTML = winGold;
 	player1.gold += winGold;
 
