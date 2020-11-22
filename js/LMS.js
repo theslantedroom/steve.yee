@@ -53,7 +53,7 @@ var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
-var healCostGold = 5;
+var healCostGold = 2;
 var enemyLoopCard = 1;
 var currentEnemyCard = 0;
 
@@ -3218,7 +3218,7 @@ function enemy1AttackDone(){
 
 function enemy1Dead(){
 	currentEnemyCard += 1;
-	healCostGold += Math.round(currentEnemyCard/2);
+	healCostGold = Math.round(currentEnemyCard/2) + 2;
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
@@ -3401,7 +3401,7 @@ function enemyAttack(){
 	slideLogSlideE.style.display = "block";
 	attackRollE = Math.floor((Math.random() * 20) + 1);
 	// attackRollE = 20; 
-	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE;
+	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE + ' + ' + enemyArray[currentEnemyCard].attack +' (skill)';
 	console.log('attack bonus E',enemyArray[currentEnemyCard].attack);
 
 // hit player***********
