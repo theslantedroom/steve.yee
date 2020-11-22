@@ -3186,7 +3186,7 @@ function nextEnemy(){
 	enemy1CharCard.style.display = 'none'
 	slideNextEnemy.style.display = "block";
 
-	var winGold = Math.floor((Math.random() * goldRewardDice) + 1);
+	var winGold = (Math.round(currentEnemyCard/5)) + Math.floor((Math.random() * goldRewardDice) + 1);
 	foundGold.innerHTML = winGold;
 	player1.gold += winGold;
 
