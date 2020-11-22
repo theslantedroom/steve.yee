@@ -3156,7 +3156,7 @@ function tryAgain(){
 	tableKillScore.innerHTML = killCount;
 	gamesPlayed = gamesPlayed + 1;
 	refresh();
-	// location.reload();
+	location.reload();
 };
 
 function logSlide(){
