@@ -2,7 +2,7 @@
 var player1 = {
 	name: 'player1',
 	currentCharCard: 9,
-	gold: 50,
+	gold: 5,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
 	damageBonusWeapon2: 0,
@@ -3218,6 +3218,7 @@ function enemy1AttackDone(){
 
 function enemy1Dead(){
 	currentEnemyCard += 1;
+	healCostGold += Math.round(currentEnemyCard/2);
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
