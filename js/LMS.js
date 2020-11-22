@@ -3205,7 +3205,7 @@ function nextEnemy(){
 
 function enemy1Dead(){
 	currentEnemyCard += 1;
-	healCostGold = Math.round(currentEnemyCard/2) + 2;
+	healCostGold = Math.round(currentEnemyCard/3) + 2;
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
