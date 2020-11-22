@@ -382,7 +382,7 @@ function player1GotoBattle(){
 
 function player1GotoMarket(){
 	player1AtMarket.appendChild(player1CharCard);
-	nameToPlayer1Card();
+	
 };
 
 function updateGold(){
@@ -3141,8 +3141,9 @@ function tryAgain(){
 	nextEnemy();
 	highScoreUpdate();
 	killCount = 0;
-	player1.currentHealth = 20;
+
 	addHealthBonus();
+	player1.currentHealth = player1.maxHealth
 	player1CurrentHp.innerHTML = player1.currentHealth;
 	slidePlayer1Dead.style.display = "none";
 	slideLogSlideE.style.display = "none";
