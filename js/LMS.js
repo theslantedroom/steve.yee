@@ -98,7 +98,7 @@ enemyArray.push(spearSister);
 const gladiator = new Enemy1(6,20,20,10,6,-1,-1,-1,0,0,'gladiator');
 enemyArray.push(gladiator);
 
-const stoneDevil = new Enemy1(7,15,15,9,6,-4,-1,-1,0,0,'stoneDevil');
+const stoneDevil = new Enemy1(7,15,15,9,6,4,-1,-1,0,0,'stoneDevil');
 enemyArray.push(stoneDevil);
 
 const werewolf = new Enemy1(8,20,20,8,4,-1,-1,-1,0,4,'werewolf');
