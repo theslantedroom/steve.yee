@@ -353,7 +353,6 @@ function nameToPlayer1Card(){
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
 	nameConfirm.style.display = 'none';
-
 };
 
 function clearDiscardPopUp(){
