@@ -262,6 +262,7 @@ var enemy1CharCard = document.getElementById("enemy1Idle");
 var enemy1HealthCounter = document.getElementById("enemyHealthCounter");
 
 // TABLE Stats 
+var nameConfirm = document.getElementById("nameConfirm");
 var player1Name = document.getElementById("player1Name");
 var player1GoldTable = document.getElementById("player1GoldTable");
 var tableKillScore = document.getElementById("tableKillScore");
@@ -351,6 +352,8 @@ function nameToPlayer1Card(){
 	var player1Namep = document.createElement("div"); //place name on card
 	player1Namep.appendChild(document.createTextNode(player1NameInput.value));
 	player1CharCard.insertBefore(player1Namep, player1CharCard.firstChild);
+	nameConfirm.style.display = 'none';
+
 };
 
 function clearDiscardPopUp(){
