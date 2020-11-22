@@ -73,8 +73,10 @@
 
 			<p id="welcomeMarket">Welcome, you need weapons, armor or training?</p>
 			<p>I don't do refunds on gear under any circumstance. You will discard replaced gear.</p>
-					<button id="closeCharacterCreation">I'm Ready! Continue to battle</button>
+			<button id="closeCharacterCreation">I'm Ready! Leave the market</button>
+
 			<h2>You have <span id="player1Gold"></span> gold.</h2>
+
 
 		
 		</div>
@@ -215,42 +217,43 @@
 						<img src="img/market/defenseBonus3.jpg" alt="">	
 				</div>
 		</div>
+	</div>
+		<div id="marketCharShift">
+			
+				<div id="player1AtMarket"></div>
+				<button id="buyHealing">Rest and Heal for <span id="healCost">...</span> gold?</button>
+				<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
 		</div>
-<div id="marketCharShift">
-	
-		<div id="player1AtMarket"></div>
-		<h3>click on owned gear to discard - You will NOT recieve any refund</h3>
 </div>
 
-<!-- BACK BUTTON -->
-</div>
+<!-- BACK BUTTON HIDDEN -->
 		<p onclick="closeMarket()" id="closeMarket"></p>
 </div>
 
-	<div id="playArea">
+<div id="playArea">
 		<!-- Character  Card -->
 		<!-- player1CharCard
 		player1ShopInventory -->
 
-			<div id="player1CharCard">
-					<div id="player1HealthCounter"></div>
-					<div id="player1DefenseCounter"></div>
-					<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
-					<div id="player1Weapon2Card" onclick="discardWeaponL()"></div>
-					<div id="player1ArmorCard" onclick="discardArmor()"></div>
-					<div id="player1HealthCard" onclick="discardHealth()"></div>
-					<div id="player1DamageCard" onclick="discardDamage()"></div>
-					<div id="player1AttackCard" onclick="discardAttack()"></div>
-					<div id="player1DefenseCard" onclick="discardDefense()"></div>
-					<div id="popUpOuch"></div>
-			</div>	
-				<!-- Enemy Card -->
-				<div id="enemy1Idle">
-					<div id="enemyHealthCounter"></div>
-					<div id="popUpEnemy1Dead"></div>
-					<div id="popUpHitEnemy"></div>
-				</div>
+	<div id="player1CharCard">
+			<div id="player1HealthCounter"><span id="player1CurrentHp"></span><span id="player1MaxHp"></span></div>
+			<div id="player1DefenseCounter"></div>
+			<div id="player1Weapon1Card" onclick="discardWeaponR()"></div>
+			<div id="player1Weapon2Card" onclick="discardWeaponL()"></div>
+			<div id="player1ArmorCard" onclick="discardArmor()"></div>
+			<div id="player1HealthCard" onclick="discardHealth()"></div>
+			<div id="player1DamageCard" onclick="discardDamage()"></div>
+			<div id="player1AttackCard" onclick="discardAttack()"></div>
+			<div id="player1DefenseCard" onclick="discardDefense()"></div>
+			<div id="popUpOuch"></div>
+	</div>	
+		<!-- Enemy Card -->
+	<div id="enemy1Idle">
+		<div id="enemyHealthCounter"></div>
+		<div id="popUpEnemy1Dead"></div>
+		<div id="popUpHitEnemy"></div>
 	</div>
+</div>
 
 <!-- roll -->
 
@@ -328,7 +331,7 @@
 			<p>Searching the body you find <span id="foundGold">x gold</span> gold.</p>
 			<button onclick="openMarket()">Go to Market</button>
 			<p>You have killed <span id="nextEnemyKillCount"></span> enemies</p>
-			<button onclick="fightNext()">READY</button>
+			<button onclick="fightNext()">READY for next enemy</button>
 			
 		</div>
 

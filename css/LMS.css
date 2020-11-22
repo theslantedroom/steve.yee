@@ -233,6 +233,7 @@ position: relative;
 background-size: contain;
 background-repeat: no-repeat;
 
+
 }
 
 
@@ -243,7 +244,8 @@ width: 26vh;
 height: 40vh;
 background-size: contain;
 background-repeat: no-repeat;
-transition: right 1000ms
+transition: right 1000ms;
+display: none;
 }
 
 
@@ -271,6 +273,7 @@ transform: rotate(-20deg);
 
 #slidePlayer1Turn{
 	display: none;
+
 }
 
 #slidePlayer1Hit{
@@ -396,7 +399,9 @@ transform: rotate(-20deg);
 /*heath counter*/
 
 #player1HealthCounter{
-	font-size: 4.4vh;
+	text-align: center;
+	  line-height: 2.4;
+	font-size: 2.8vh;
 	font-weight: bold;
 	color: black;
 	text-align: center;
@@ -405,12 +410,15 @@ transform: rotate(-20deg);
 	position: bottom;
 	border: 1px solid black;
 	border-radius: 100%;
-	width: 5.5vh;
-	height: 5.5vh;
-	top: 8.5%;
-    left: 40%;
+	width: 7vh;
+	height: 7vh;
+	top: 4.5%;
+    left: 37%;
     transform: rotate(-10deg);
 }
+
+
+
 
 #player1DefenseCounter{
 	font-size: 4.4vh;
@@ -754,9 +762,9 @@ margin: auto;
 
 }
 
-#storeImages{
-
-
+#buyHealing{
+	width: 500px;
+	height: auto;
 }
 
 

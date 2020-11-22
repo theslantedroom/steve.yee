@@ -2,7 +2,7 @@
 var player1 = {
 	name: 'player1',
 	currentCharCard: 9,
-	gold: 5,
+	gold: 50,
 	healthBonusArmor: 0,
 	damageBonusWeapon1: 0,
 	damageBonusWeapon2: 0,
@@ -28,7 +28,7 @@ var player1 = {
 	defenseCard: 0,
 
 	// in math calculation
-	health: 0,
+	maxHealth: 21,
 	currentHealth: 20,
 	damage: 0,
 	attack: 0,
@@ -43,16 +43,6 @@ var player1 = {
 	deaths: 0,
 };
 
-var enemy1 = {
-	name: 'Ant',
-	health: 15,
-	maxHealth: 15,
-	defense: 5,
-	weapon: 6,
-};
-
-
-
 var killCount = 0;
 var deathCount = 0;
 var highScore = 0;
@@ -63,8 +53,154 @@ var attackRollE = 0;
 var attackRoll = 0;
 var attackDamage = 0;
 var attackDamageE = 0;
+var healCostGold = 5;
+var enemyLoopCard = 1;
+var currentEnemyCard = 0;
 
-var currentEnemyCard = 4;
+
+// CONTRUCT ENEMIES
+const enemyArray = [];
+class Enemy1 {
+  constructor(card, health, currentHealth, defense, weapon1, weapon2, weapon1Bonus, weapon2Bonus, attack, damage, name) {  // Constructor
+   	this.card = card;
+    this.health = health;
+    this.currentHealth = currentHealth;
+    this.defense = defense;
+    this.weapon1 = weapon1;
+    this.weapon2 = weapon2;
+    this.weapon1Bonus = weapon1Bonus;
+    this.weapon2Bonus = weapon2Bonus;
+    this.attack = attack;
+    this.damage = damage;
+    this.name = name;
+  }
+}
+
+
+const giantAnt = new Enemy1(0,4,4,4,4,-1,-1,-1,0,0,'Giant Ant');
+enemyArray.push(giantAnt);
+
+const wolf = new Enemy1(1,10,10,6,4,-1,-1,-1,0,0,'Wolf');
+enemyArray.push(wolf);
+
+const peasant = new Enemy1(2,20,20,6,4,-1,-1,-1,0,0,'Peasant');
+enemyArray.push(peasant);
+
+const intelligentZombie = new Enemy1(3,15,15,5,6,-1,-1,-1,0,0,'intelligentZombie');
+enemyArray.push(intelligentZombie);
+
+const automaton = new Enemy1(4,10,10,10,8,-1,-1,-1,3,0,'automaton');
+enemyArray.push(automaton);
+
+const spearSister = new Enemy1(5,20,20,9,6,-1,-1,-1,0,0,'spearSister');
+enemyArray.push(spearSister);
+
+const gladiator = new Enemy1(6,20,20,10,6,-1,-1,-1,0,0,'gladiator');
+enemyArray.push(gladiator);
+
+const stoneDevil = new Enemy1(7,15,15,9,6,-4,-1,-1,0,0,'stoneDevil');
+enemyArray.push(stoneDevil);
+
+const werewolf = new Enemy1(8,20,20,8,4,-1,-1,-1,0,4,'werewolf');
+enemyArray.push(werewolf);
+
+const bandit = new Enemy1(9,20,20,7,6,6,-1,-1,0,0,'bandit');
+enemyArray.push(bandit);
+
+const armoredMidget = new Enemy1(10,20,20,13,4,-1,-1,-1,0,0,'armoredMidget');
+enemyArray.push(armoredMidget);
+
+const mercenary = new Enemy1(11,20,20,10,8,-1,-1,-1,0,0,'mercenary');
+enemyArray.push(mercenary);
+
+const amazon = new Enemy1(12,20,20,11,8,-1,-1,-1,0,0,'amazon');
+enemyArray.push(amazon);
+
+const thug = new Enemy1(13,20,20,10,10,-1,-1,-1,0,0,'thug');
+enemyArray.push(thug);
+
+const assasin = new Enemy1(14,20,20,8,8,8,-1,-1,0,0,'assasin');
+enemyArray.push(assasin);
+
+const berserker = new Enemy1(15,20,20,8,10,10,-1,-1,0,0,'berserker');
+enemyArray.push(berserker);
+
+const pikeQueen = new Enemy1(16,20,20,14,10,-1,-1,-1,0,0,'pikeQueen');
+enemyArray.push(pikeQueen);
+
+const unicorn = new Enemy1(17,20,20,9,20,-1,-1,-1,0,0,'unicorn');
+enemyArray.push(unicorn);
+
+const evilAngel = new Enemy1(18,20,20,12,8,8,-1,-1,0,0,'evilAngel');
+enemyArray.push(evilAngel);
+
+const knight = new Enemy1(19,20,20,15,6,-1,-1,-1,0,0,'knight');
+enemyArray.push(knight);
+
+const darkCleric = new Enemy1(20,20,20,14,12,-1,-1,-1,3,0,'darkCleric');
+enemyArray.push(darkCleric);
+
+const youngDominator = new Enemy1(21,25,25,11,12,12,-1,-1,0,0,'youngDominator');
+enemyArray.push(youngDominator);
+
+const hydra = new Enemy1(22,30,30,10,6,6,6,-1,0,0,'hydra');
+enemyArray.push(hydra);
+
+const archer = new Enemy1(23,16,16,7,4,4,4,-1,2,0,'archer');
+enemyArray.push(archer);
+
+const centurion = new Enemy1(24,20,20,16,6,-1,-1,-1,1,1,'centurion');
+enemyArray.push(centurion);
+
+const murderer = new Enemy1(25,22,22,11,8,4,-1,-1,0,1,'murderer');
+enemyArray.push(murderer);
+
+const horseman = new Enemy1(26,22,22,12,8,8,-1,-1,0,0,'horseman');
+enemyArray.push(horseman);
+
+const gaurd = new Enemy1(27,20,20,12,8,-1,-1,-1,1,0,'gaurd');
+enemyArray.push(gaurd);
+
+const catWarrior = new Enemy1(28,20,20,14,10,-1,-1,-1,1,0,'Peasant');
+enemyArray.push(peasant);
+
+const bladeMaid = new Enemy1(29,22,22,10,8,-1,-1,-1,0,2,'bladeMaid');
+enemyArray.push(bladeMaid);
+
+const abuser = new Enemy1(30,20,20,13,8,-1,-1,-1,3,0,'abuser');
+enemyArray.push(abuser);
+
+const devilGirl = new Enemy1(31,20,20,13,8,-1,-1,-1,2,0,'devilGirl');
+enemyArray.push(devilGirl);
+
+const fallenAngel = new Enemy1(32,22,22,16,12,-1,-1,-1,1,2,'fallenAngel');
+enemyArray.push(fallenAngel);
+
+const huntress = new Enemy1(33,22,22,10,4,4,4,4,3,0,'huntress');
+enemyArray.push(huntress);
+
+const dominatorA = new Enemy1(34,40,40,15,12,12,-1,-1,0,0,'dominatorA');
+enemyArray.push(dominatorA);
+
+const dominatorB = new Enemy1(35,40,40,17,12,-1,-1,-1,4,5,'dominatorB');
+enemyArray.push(dominatorB);
+
+
+
+
+
+
+// var enemy1 = {
+// 	name: 'Ant',
+// 	health: 15,
+// 	maxHealth: 15,
+// 	defense: 5,
+// 	weapon: 6,
+// };
+
+
+
+
 
 //UI Interface
 var confirmBuy = document.getElementById("confirmBuy");
@@ -116,7 +252,8 @@ var player1Weapon2Card = document.getElementById('player1Weapon2Card');
 var player1AttackCard = document.getElementById('player1AttackCard');
 var player1DefenseCard = document.getElementById('player1DefenseCard');
 var player1DefenseCounter = document.getElementById("player1DefenseCounter");
-var player1HealthCounter = document.getElementById("player1HealthCounter");
+var player1CurrentHp = document.getElementById("player1CurrentHp");
+var player1MaxHp = document.getElementById("player1MaxHp");
 
 var logWeapon1PopUp = document.getElementById('logWeapon1PopUp');
 var logWeapon2PopUp = document.getElementById('logWeapon2PopUp');
@@ -165,7 +302,7 @@ var logSlideResultLine3E = document.getElementById("resultLine3E");
 
 var damageRollResultK = document.getElementById("damageRollResultK");
 var damageResultLine2K = document.getElementById("damageResultLine2K");
-var damageResultLine3K= document.getElementById("damageResultLine3K");
+var damageResultLine3K = document.getElementById("damageResultLine3K");
 
 
 var nextEnemyKillCount= document.getElementById("nextEnemyKillCount");
@@ -176,6 +313,26 @@ var deathCountPopup = document.getElementById("deathCountPopup");
 var finalScorePopup = document.getElementById("finalScorePopup");
 var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll");
 
+var healCost = document.getElementById("healCost");
+var buyHealing = document.getElementById("buyHealing");
+// IM READY CONTINUE TO BATTLE BUTTON
+
+buyHealing.addEventListener("click", function(){
+	if (player1.gold >= healCostGold && player1.currentHealth != player1.maxHealth){
+				player1.currentHealth = player1.maxHealth;
+				player1.gold -= healCostGold;
+				updateGold();
+				player1CurrentHp.innerHTML = player1.currentHealth;
+				buyHealing.innerHTML = 'All healed! Ready for battle!';
+		} else if (player1.currentHealth == player1.maxHealth){
+				buyHealing.innerHTML = 'You are at full health already!';
+		}else {
+			buyHealing.innerHTML = 'You can not afford to this!';
+		};
+	});
+
+
+
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
 	player1.name = player1NameInput.value;
@@ -184,6 +341,11 @@ characterCreationButton.addEventListener("click", function(){
 	player1GotoBattle();
 	refresh();
 });
+
+const resetHealButton = () => {
+	buyHealing.innerHTML = 'Rest and Heal for <span id="healCost">...</span> gold?';
+	document.getElementById("healCost").innerHTML = healCostGold;
+};
 
 function nameToPlayer1Card(){
 	var player1Namep = document.createElement("div"); //place name on card
@@ -229,9 +391,13 @@ function updateGold(){
 };
 
 function addHealthBonus(){
-	player1.currentHealth = player1.currentHealth + player1.healthBonusArmor + player1.healthBonusSkill;
-	player1HealthCounter.innerHTML = player1.currentHealth;
-
+	player1.maxHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
+	player1MaxHp.innerHTML = '/'+ player1.maxHealth;
+	player1CurrentHp.innerHTML = player1.currentHealth;
+	if (player1.currentHealth > player1.maxHealth) {
+		player1.currentHealth = player1.maxHealth;
+		player1CurrentHp.innerHTML = player1.currentHealth;
+	};
 };
 
 function player1previousCharacter(){	
@@ -243,17 +409,6 @@ function player1previousCharacter(){
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
 };
 
-
-// ES6 Syntax ^^^^
-
-// const player1previousCharacter = () => {	
-// 		player1.currentCharCard -= 1;
-// 		if (player1.currentCharCard == 0) {
-// 			player1.currentCharCard = 32;
-// 		}
-// 		console.log('player1.currentCharCard '+player1.currentCharCard);
-// 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
-// };
 
 function player1NextCharacter(){	
 		player1.currentCharCard += 1;
@@ -271,6 +426,7 @@ function closeMarket(){
 
 function openMarket(){
 	player1GotoMarket();
+	resetHealButton();
 	clearStore();
 	document.getElementById("storeItemsOnehandWeapons").style.display = "flex";
 	market.style.display = "block";
@@ -378,8 +534,8 @@ discardButtonArmor.addEventListener("click", function() {
 	player1.armor = 2;
 	player1.healthBonusArmor = 0;
 	confirmDiscardClose();
-	refresh();
 	addHealthBonus();
+	refresh();
 	console.log('click discard');
 });
 function discardArmor(){
@@ -387,6 +543,7 @@ function discardArmor(){
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonArmor.style.display = "flex";
+	
 	refresh();
 }};
 
@@ -395,8 +552,8 @@ discardButtonHealth.addEventListener("click", function() {
 	player1.healthCard = 0;
 	player1.healthBonusSkill = 0;
 	confirmDiscardClose();
-	refresh();
 	addHealthBonus();
+	refresh();
 	console.log('click discard');
 });
 function discardHealth(){
@@ -676,6 +833,7 @@ var shoppingArmor = {
 	armorCard: 0,
 	armor: 0,
 	healthBonusArmor: 0,
+	topupHP: 0,
 };
 
 function checkoutArmor(){
@@ -683,6 +841,7 @@ function checkoutArmor(){
 	player1.armorCard = shoppingArmor.armorCard;
 	player1.armor = shoppingArmor.armor;
 	player1.healthBonusArmor = shoppingArmor.healthBonusArmor;
+	player1.currentHealth += shoppingArmor.topupHP;
 	refresh();
 	addHealthBonus();
 };
@@ -692,12 +851,14 @@ var shoppingHealth = {
 	gold: 0,
 	healthCard: 0,
 	healthBonusSkill: 0,
+	topupHP: 0,
 };
 
 function checkoutHealth(){
 	player1.gold -= shoppingHealth.gold;
 	player1.healthCard = shoppingHealth.healthCard;
 	player1.healthBonusSkill = shoppingHealth.healthBonusSkill;
+	player1.currentHealth += shoppingHealth.topupHP;
 	refresh();
 	addHealthBonus();
 };
@@ -2284,6 +2445,7 @@ buyA1.addEventListener("click", function() {
 		shoppingArmor.armorCard = 1;
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 1){
 		wantToBuy.innerHTML = "You already own Cloth Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2308,6 +2470,7 @@ buyA2.addEventListener("click", function() {
 		shoppingArmor.armorCard = 2;
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 2){
 		wantToBuy.innerHTML = "You already own Leather Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2331,6 +2494,7 @@ buyA3.addEventListener("click", function() {
 		shoppingArmor.armorCard = 3;
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 3){
 		wantToBuy.innerHTML = "You already own Studded Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2354,6 +2518,7 @@ buyA4.addEventListener("click", function() {
 		shoppingArmor.armorCard = 4;
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 4){
 		wantToBuy.innerHTML = "You already own Bronze Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2377,6 +2542,7 @@ buyA5.addEventListener("click", function() {
 		shoppingArmor.armorCard = 5;
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 5){
 		wantToBuy.innerHTML = "You already own Scale Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2400,6 +2566,7 @@ buyA6.addEventListener("click", function() {
 		shoppingArmor.armorCard = 6;
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 6){
 		wantToBuy.innerHTML = "You already own Half Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2424,6 +2591,7 @@ buyA7.addEventListener("click", function() {
 		shoppingArmor.armorCard = 7;
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 0;
+		shoppingArmor.topupHP = 0;
 	} else if (player1.armorCard == 7){
 		wantToBuy.innerHTML = "You already own Full Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2448,6 +2616,7 @@ buyA8.addEventListener("click", function() {
 		shoppingArmor.armorCard = 8;
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 8){
 		wantToBuy.innerHTML = "You already own Comfy Cloth Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2472,6 +2641,7 @@ buyA9.addEventListener("click", function() {
 		shoppingArmor.armorCard = 9;
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 9){
 		wantToBuy.innerHTML = "You already own Hard Leather Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2495,6 +2665,7 @@ buyA10.addEventListener("click", function() {
 		shoppingArmor.armorCard = 10;
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 10){
 		wantToBuy.innerHTML = "You already own Fine Studded Vest";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2518,6 +2689,7 @@ buyA11.addEventListener("click", function() {
 		shoppingArmor.armorCard = 11;
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 11){
 		wantToBuy.innerHTML = "You already own Tempered Bronze Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2541,6 +2713,7 @@ buyA12.addEventListener("click", function() {
 		shoppingArmor.armorCard = 12;
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 12){
 		wantToBuy.innerHTML = "You already own Shiny Scale Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2564,6 +2737,7 @@ buyA13.addEventListener("click", function() {
 		shoppingArmor.armorCard = 13;
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 13){
 		wantToBuy.innerHTML = "You already own Lucky Half Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2588,6 +2762,7 @@ buyA14.addEventListener("click", function() {
 		shoppingArmor.armorCard = 14;
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 2;
+		shoppingArmor.topupHP = 2;
 	} else if (player1.armorCard == 14){
 		wantToBuy.innerHTML = "You already own Flexible Full Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2610,6 +2785,7 @@ buyT1.addEventListener("click", function() {
 		shoppingHealth.gold = 3;
 		shoppingHealth.healthCard = 1;
 		shoppingHealth.healthBonusSkill = 4;
+		shoppingHealth.topupHP = 4;
 	} else if (player1.healthCard == 1){
 		wantToBuy.innerHTML = "You already have Basic Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2632,6 +2808,7 @@ buyT2.addEventListener("click", function() {
 		shoppingHealth.gold = 8;
 		shoppingHealth.healthCard = 2;
 		shoppingHealth.healthBonusSkill = 8;
+		shoppingHealth.topupHP = 8;
 	} else if (player1.healthCard == 2){
 		wantToBuy.innerHTML = "You already have Advanced Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2654,6 +2831,7 @@ buyT3.addEventListener("click", function() {
 		shoppingHealth.gold = 12;
 		shoppingHealth.healthCard = 3;
 		shoppingHealth.healthBonusSkill = 12;
+		shoppingHealth.topupHP = 12;
 	} else if (player1.healthCard == 3){
 		wantToBuy.innerHTML = "You already have Master Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2879,7 +3057,7 @@ function refresh(){
 
 // CARD UPDATES
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
-		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+		// enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
 		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
 		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
 		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
@@ -2888,7 +3066,7 @@ function refresh(){
 		player1AttackCard.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
 		player1DefenseCard.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 		player1DefenseCounter.innerHTML = player1.defense;
-		enemy1HealthCounter.innerHTML = enemy1.health;
+		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 
 		
 
@@ -2916,6 +3094,7 @@ function refresh(){
 		goldTop.innerHTML = player1.gold + ' gold';
 		battleTop.innerHTML = battleNumber;
 		
+		healCost.innerHTML = healCostGold;
 		updateGold();
 };
 
@@ -2929,206 +3108,20 @@ player1GotoCharacterSelect();
 clearStore();
 
 
+const newEnemyApproaches = (enemyCode) => {
+	enemy1CharCard.style.display = 'block'
+	enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
 
+};
 
 // START
 function start(){
 	console.log('start');
+	newEnemyApproaches(currentEnemyCard);
 	slideStart.style.display = "none";
 	slidePlayer1Turn.style.display = "block";
 
 };
-
-
-// function nextArmor(){
-// 	player1.armorCard += 1;
-// 	if (player1.armorCard >= 8) {
-// 		player1.armorCard = 0;
-// 	};
-// if (player1.armorCard == 0){
-// 		player1.armor = 2;
-// };	
-// if (player1.armorCard == 1){
-// 		player1.armor = 6;
-// };
-// if (player1.armorCard == 2){
-// 		player1.armor = 7;
-// };
-// if (player1.armorCard == 3){
-// 		player1.armor = 8;
-// };
-// if (player1.armorCard == 4){
-// 		player1.armor = 9;
-// };
-// if (player1.armorCard == 5){
-// 		player1.armor = 10;
-// };
-// if (player1.armorCard == 6){
-// 		player1.armor = 11;
-// };
-// if (player1.armorCard == 7){
-// 		player1.armor = 12;
-// };
-
-// console.log('armor = ' + player1.armor)
-// player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
-// addHealthBonus();
-// refresh();
-// };
-
-// function nextHealthTraining(){
-// 	player1.healthCard += 1;
-// 	if (player1.healthCard >= 4) {
-// 		player1.healthCard = 0;
-// 	};
-
-// 	if (player1.healthCard == 0){
-// 			player1.healthBonusSkill = 0;
-// 	};
-// 	if (player1.healthCard == 1){
-// 			player1.healthBonusSkill = 4;
-// 	};
-// 	if (player1.healthCard == 2){
-// 			player1.healthBonusSkill = 8;
-// 	};
-
-// 	if (player1.healthCard == 3){
-// 			player1.healthBonusSkill = 12;
-// 	};
-
-// 	console.log('nextHealthTraining');
-
-// 	player1.health =  20 + player1.healthBonusArmor + player1.healthBonusSkill;
-// 	addHealthBonus();
-// 	refresh();
-// };
-
-// function nextDamageTraining(){
-// 	player1.damageCard += 1;
-// 	if (player1.damageCard >= 4) {
-// 		player1.damageCard = 0;
-// 	};
-
-// 	if (player1.damageCard == 0){
-// 			player1.damageBonusSkill = 0;
-// 	};
-// 	if (player1.damageCard == 1){
-// 			player1.damageBonusSkill = 1;
-// 	};
-// 	if (player1.damageCard == 2){
-// 			player1.damageBonusSkill = 2;
-// 	};
-
-// 	if (player1.damageCard == 3){
-// 			player1.damageBonusSkill = 3;
-// 	};
-// 	refresh();
-// 	console.log('nextDamageTraining');
-// };
-
-// function nextAttackTraining(){
-// 	player1.attackCard += 1;
-// 	if (player1.attackCard >= 4) {
-// 		player1.attackCard = 0;
-// 	};
-
-// 	if (player1.attackCard == 0){
-// 			player1.attackBonusSkill = 0;
-// 	};
-// 	if (player1.attackCard == 1){
-// 			player1.attackBonusSkill = 1;
-// 	};
-// 	if (player1.attackCard == 2){
-// 			player1.attackBonusSkill = 2;
-// 	};
-
-// 	if (player1.attackCard == 3){
-// 			player1.attackBonusSkill = 3;
-// 	};
-// 	refresh();
-
-// 	console.log('nextAttackTraining = ' + player1.attackBonus);
-// };
-
-// function nextDefenseTraining(){
-// 	player1.defenseCard += 1;
-// 	if (player1.defenseCard >= 4) {
-// 		player1.defenseCard = 0;
-// 	};
-
-// 	if (player1.defenseCard == 0){
-// 			player1.defenseBonusSkill = 0;
-// 	};
-// 	if (player1.defenseCard == 1){
-// 			player1.defenseBonusSkill = 1;
-// 	};
-// 	if (player1.defenseCard == 2){
-// 			player1.defenseBonusSkill = 2;
-// 	};
-
-// 	if (player1.defenseCard == 3){
-// 			player1.defenseBonusSkill = 3;
-// 	};
-// 	refresh();
-// 	console.log('nextDefenseTraining = ' + player1.attackBonus);
-// };
-
-// function nextWeapon(){
-// 	player1.weapon1Card += 1;
-// 	if (player1.weapon1Card >= 6) {
-// 		player1.weapon1Card = 0;
-// 	};
-
-// 	if (player1.weapon1Card == 0){
-// 			player1.weapon1 = -1;
-// 	};
-// 	if (player1.weapon1Card == 1){
-// 			player1.weapon1 = 4;
-// 	};
-// 	if (player1.weapon1Card == 2){
-// 			player1.weapon1 = 6;
-// 	};
-// 	if (player1.weapon1Card == 3){
-// 			player1.weapon1 = 8;
-// 	};
-// 	if (player1.weapon1Card == 4){
-// 			player1.weapon1 = 10;
-// 	};
-// 	if (player1.weapon1Card == 5){
-// 			player1.weapon1 = 12;
-// 	};
-// 	refresh();
-// 	console.log('weapon 1 = ' + player1.weapon1Card)
-// };
-
-
-// function nextWeapon2(){
-// 	player1.weapon2Card += 1;
-// 	if (player1.weapon2Card >= 6) {
-// 		player1.weapon2Card = 0;
-// 	};
-
-// 	if (player1.weapon2Card == 0){
-// 			player1.weapon2 = -1;
-// 	};
-// 	if (player1.weapon2Card == 1){
-// 			player1.weapon2 = 4;
-// 	};
-// 	if (player1.weapon2Card == 2){
-// 			player1.weapon2 = 6;
-// 	};
-// 	if (player1.weapon2Card == 3){
-// 			player1.weapon2 = 8;
-// 	};
-// 	if (player1.weapon2Card == 4){
-// 			player1.weapon2 = 10;
-// 	};
-// 	if (player1.weapon2Card == 5){
-// 			player1.weapon2 = 12;
-// 	};
-// 	refresh();
-// 	console.log('weapon 2 = ' + player1.weapon2Card)
-// };
 
 
 function highScoreUpdate(){
@@ -3150,7 +3143,7 @@ function tryAgain(){
 	killCount = 0;
 	player1.currentHealth = 20;
 	addHealthBonus();
-	player1HealthCounter.innerHTML = player1.currentHealth;
+	player1CurrentHp.innerHTML = player1.currentHealth;
 	slidePlayer1Dead.style.display = "none";
 	slideLogSlideE.style.display = "none";
 	slideNextEnemy.style.display = "none";
@@ -3183,20 +3176,21 @@ function logSlideE(){
 
 
 
-// next enemy popup
+// Search REMAINS button
 function nextEnemy(){
-	console.log('next enemy');
 	popUpEnemy1Dead.style.display = "none";
-	// popUpOuch.style.display = "none";
 	slideKillLog.style.display = "none";
+	enemy1CharCard.style.display = 'none'
 	slideNextEnemy.style.display = "block";
+
 	var winGold = Math.floor((Math.random() * goldRewardDice) + 1);
 	foundGold.innerHTML = winGold;
 	player1.gold += winGold;
+
 	refresh();
 
-	enemy1.health = enemy1.maxHealth;
-	enemy1HealthCounter.innerHTML = enemy1.health;
+	enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].health;
+	enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 	logSlideRollResult.innerHTML = '...';
 	logSlideResultLine2.innerHTML = 'You look around..';
 	logSlideResultLine3.innerHTML = "and see an angry peasant";
@@ -3205,6 +3199,7 @@ function nextEnemy(){
 };
 
 function fightNext(){
+	newEnemyApproaches(currentEnemyCard);
 	slidePlayer1Turn.style.display = "block";
 	slideNextEnemy.style.display = "none";
 };
@@ -3222,13 +3217,22 @@ function enemy1AttackDone(){
 
 
 function enemy1Dead(){
+	currentEnemyCard += 1;
+
+	if (currentEnemyCard >= 36){
+		popUpEnemy1Dead.style.display = "block";
+		alert("YOU WIN, this is as far as i am in develpoment so far. Thanks for playin");
+		currentEnemyCard = 0;
+	};
+
 	killCount = killCount + 1;
-	enemy1.health = 0;
+	enemyArray[currentEnemyCard].currentHealth = 0;
 	tableKillScore.innerHTML = killCount;
 	nextEnemyKillCount.innerHTML = killCount;
-	enemy1HealthCounter.innerHTML = enemy1.health;
+	enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 	battleNumber = battleNumber + 1
 	popUpEnemy1Dead.style.display = "block";
+
 	console.log('enemydead()logged');
 };
 
@@ -3243,7 +3247,7 @@ function Enemy1Ouch(){
 function player1Dead(){
 		deathCount = deathCount + 1;
 		battleNumber = 1;
-		player1HealthCounter.innerHTML = player1.currentHealth;
+		player1CurrentHp.innerHTML = player1.currentHealth;
 		logSlideResultLine3.innerHTML = 'You have been killed ' + deathCount + ' times';
 		deathCountPopup.innerHTML = deathCount;
 		finalScorePopup.innerHTML = killCount;
@@ -3262,7 +3266,7 @@ function changeEnemy(){
 			currentEnemyCard = 1;
 		}
 		console.log('change Enemy  '+currentEnemyCard);
-		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemy" + currentEnemyCard + ".jpg')";
+		enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
 };
 
 
@@ -3279,7 +3283,7 @@ function player1AttackRoll(){
 	console.log('player1AttackRoll ' + attackRoll);
 	logSlideRollResult.innerHTML = 'Your attack total is ' + attackRoll + ' (+ ' + player1.attack +' skill)';
 // HIT enemy 
-	if (attackRoll > (enemy1.defense - player1.attack) && attackRoll != 20) {
+	if (attackRoll > (enemyArray[currentEnemyCard].defense - player1.attack) && attackRoll != 20) {
 		slidePlayer1Hit.style.display = "block";
 
 		player1DamageAttackRoll.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
@@ -3291,7 +3295,7 @@ function player1AttackRoll(){
 		console.log('critical hit on enemy');
 		
 //MISS
-	} else if (attackRoll <= enemy1.defense - player1.attack)	{
+	} else if (attackRoll <= enemyArray[currentEnemyCard].defense - player1.attack)	{
 		slideLogSlide.style.display = "block";
 
 		logSlideResultLine2.innerHTML = 'Miss';
@@ -3319,19 +3323,19 @@ function player1Damage(){
 
 		attackDamage = player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus;
 
-		enemy1.health = enemy1.health - attackDamage;
-		enemy1.health = enemy1.health - player1.damage;
+		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - attackDamage;
+		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - player1.damage;
 
 		logSlideRollResult.innerHTML = 'Your attack deals ' + attackDamage + ' (weapons) + ' + 
 		player1.damage + ' (bonus)';
 
 		logSlideResultLine2.innerHTML = 'a deep wound';
-		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemy1.health;
+		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemyArray[currentEnemyCard].currentHealth;
 
-		enemy1HealthCounter.innerHTML = enemy1.health;
+		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 		
 // Killed Enemy
-		if (enemy1.health <= 0) {
+		if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slideLogSlide.style.display = "none";	
 		slideKillLog.style.display = "block";
 
@@ -3353,17 +3357,17 @@ function player1Critical(){
 		player1DamageRoll();
 		
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus);
-		enemy1.health = enemy1.health - attackDamage;
-		enemy1.health = enemy1.health - player1.damage;
+		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - attackDamage;
+		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - player1.damage;
 
 		logSlideRollResult.innerHTML = 'Your attack deals ' + (attackDamage/2) + ' (weapons)';
 		logSlideResultLine2.innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
-		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemy1.health + ' health';
+		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemyArray[currentEnemyCard].currentHealth + ' health';
 
-		enemy1HealthCounter.innerHTML = enemy1.health;
+		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 
 // killed him Critical
-	if (enemy1.health <= 0) {
+	if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "none";
 		slideKillLog.style.display = "block";
@@ -3379,51 +3383,68 @@ function player1Critical(){
 };
 
 
-
 //enemy ATTACK
+
+function enemy1DamageRoll(){
+		enemy1weapon1Damage = Math.floor((Math.random() * enemyArray[currentEnemyCard].weapon1) + 1);
+		enemy1weapon2Damage = Math.floor((Math.random() * enemyArray[currentEnemyCard].weapon2) + 1);
+		enemy1weapon1DamageBonus = Math.floor((Math.random() * enemyArray[currentEnemyCard].weapon1Bonus) + 1);
+		enemy1weapon2DamageBonus = Math.floor((Math.random() * enemyArray[currentEnemyCard].weapon2Bonus) + 1);
+};
+
+
+
 function enemyAttack(){
-	enemy1AttackDone();
+	enemy1AttackDone(); //enemy card goes back to home position 
 	slideEnemy1Turn.style.display = "none";
 	slideLogSlideE.style.display = "block";
-
 	attackRollE = Math.floor((Math.random() * 20) + 1);
-
 	// attackRollE = 20; 
-
-	console.log('enemy Attackroll ' + attackRollE);
 	logSlideRollResultE.innerHTML = 'Enemy attack roll is ' + attackRollE;
+	console.log('attack bonus E',enemyArray[currentEnemyCard].attack);
 
-// hit player
-	if (attackRollE > player1.defense && attackRollE != 20) {	
-		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
+// hit player***********
+
+	if (attackRollE > (player1.defense - enemyArray[currentEnemyCard].attack) && attackRollE != 20) {	
+
+		enemy1DamageRoll();
+		attackDamageE = enemy1weapon1Damage + enemy1weapon2Damage + enemy1weapon1DamageBonus + enemy1weapon2DamageBonus;
+
 		player1.currentHealth = player1.currentHealth - attackDamageE;
-		player1HealthCounter.innerHTML = player1.currentHealth;
+		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
+		player1CurrentHp.innerHTML = player1.currentHealth;
+
+		console.log('w1 w2 w3 w4 ',enemy1weapon1Damage,enemy1weapon2Damage,enemy1weapon1DamageBonus,enemy1weapon2DamageBonus);
+		console.log('damage bonus E',enemyArray[currentEnemyCard].damage);
 
 		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
 		logSlideResultLine3E.innerHTML = "You  got hit " + attackDamageE +" down to " + player1.currentHealth;
 	
 		console.log("hit player with attackroll " + attackRollE);
-		console.log('enemy deals ' + attackDamageE +' Damage');
+		console.log('enemy deals ' + (attackDamageE+enemyArray[currentEnemyCard].damage)+' Damage');
 		player1Ouch();
 	
 // CRIT
 	} else if (attackRollE == 20) {
-		attackDamageE = Math.floor((Math.random() * enemy1.weapon) + 1);
-		player1.currentHealth = player1.currentHealth - (attackDamageE*2);
-		player1HealthCounter.innerHTML = player1.currentHealth;
+
+		enemy1DamageRoll();
+		attackDamageE = 2 * (enemy1weapon1Damage + enemy1weapon2Damage + enemy1weapon1DamageBonus + enemy1weapon2DamageBonus);
+
+		player1.currentHealth = player1.currentHealth - attackDamageE;
+		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
+		player1CurrentHp.innerHTML = player1.currentHealth;
 
 		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
-		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE) + " x 2)="+ (attackDamageE*2) +", down to " + player1.currentHealth;
+		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE) +", down to " + player1.currentHealth;
 
 		console.log("Enemy deals critical hit");
 		console.log(attackDamageE + ' x 2 player Damage');
 		player1Ouch();
 
 //enemy miss
-	} else if (attackRollE <= player1.defense)	{	
+	} else if (attackRollE + enemyArray[currentEnemyCard].attack <= player1.defense)	{	
 		logSlideResultLine2E.innerHTML = 'Enemy misses..';
 		logSlideResultLine3E.innerHTML = "lucky for you";
-		console.log(" enemy miss with " + attackRollE);
 	};
 
 	// killed player dead
