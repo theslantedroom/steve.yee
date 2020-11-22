@@ -28,8 +28,8 @@ var player1 = {
 	defenseCard: 0,
 
 	// in math calculation
-	maxHealth: 30,
-	currentHealth: 30,
+	maxHealth: 20,
+	currentHealth: 20,
 	damage: 0,
 	attack: 0,
 	defense: 0,
@@ -393,7 +393,7 @@ function updateGold(){
 };
 
 function addHealthBonus(){
-	player1.maxHealth = 30 + player1.healthBonusArmor + player1.healthBonusSkill;
+	player1.maxHealth = 20 + player1.healthBonusArmor + player1.healthBonusSkill;
 	player1MaxHp.innerHTML = '/'+ player1.maxHealth;
 	player1CurrentHp.innerHTML = player1.currentHealth;
 	if (player1.currentHealth > player1.maxHealth) {
@@ -3186,7 +3186,7 @@ function nextEnemy(){
 	enemy1CharCard.style.display = 'none'
 	slideNextEnemy.style.display = "block";
 
-	var winGold = (Math.round(currentEnemyCard/5)) + Math.floor((Math.random() * goldRewardDice) + 1);
+	var winGold = (Math.round(currentEnemyCard/10)) + Math.floor((Math.random() * goldRewardDice) + 1);
 	foundGold.innerHTML = winGold;
 	player1.gold += winGold;
 
@@ -3205,7 +3205,7 @@ function nextEnemy(){
 
 function enemy1Dead(){
 	currentEnemyCard += 1;
-	healCostGold = Math.round(currentEnemyCard/3) + 2;
+	healCostGold = Math.round(currentEnemyCard/10) + 2;
 
 	if (currentEnemyCard >= 36){
 		popUpEnemy1Dead.style.display = "block";
@@ -3455,7 +3455,10 @@ function enemyAttack(){
 	};
 
 	// killed player dead
-	if (player1.currentHealth <= 0) {
+	if (player1.currentHealth <= 0 && attackRollE != 20 ) {
 		player1Dead();
+	} else if (player1.currentHealth <= 0 && attackRollE == 20 ){
+	alert("Oh snap! You got Rocked with a critical hit of (" + (attackDamageE/2) + " x 2)="+ (attackDamageE)+ " + " + enemyArray[currentEnemyCard].damage +" and died instantly.. poor luck");
+	player1Dead();
 	};
 };
