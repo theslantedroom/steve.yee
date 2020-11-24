@@ -16,6 +16,8 @@ margin: auto;
 button {
 font-size: 20px;
 padding: 10px;
+justify-content: center;
+margin: 5px;
 }
 input {
 font-size: 20px;
@@ -239,7 +241,14 @@ border-radius: 8px;
 min-height: 84px;
 min-width: 84px;
 }
-#confirmBuy{
+#buyPreview{
+width: 200px;
+height: 200px;
+background-color: grey;
+margin: auto;
+}
+#confirmBuyWindow{
+flex-direction: column;
 border: 5px solid black;
 position: absolute;
 background-color: white;
@@ -248,6 +257,18 @@ z-index: 3;
 left: 50%;
 margin-left: -250px;
 display: none;
+}
+#confirmBuyButtons {
+margin: auto;
+padding: 20px;
+}
+#okBuyLeftButton{
+	float: right;
+	margin: 5px 4px;
+}
+#okBuyRightButton{
+	float: left;
+	margin: 5px 4px;
 }
 #confirmDiscard{
 border: 5px solid black;

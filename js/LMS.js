@@ -186,7 +186,7 @@ const dominatorB = new Enemy1(35,40,40,17,12,-1,-1,-1,4,5,'dominatorB');
 enemyArray.push(dominatorB);
 
 //UI Interface
-var confirmBuy = document.getElementById("confirmBuy");
+var confirmBuyWindow = document.getElementById("confirmBuyWindow");
 var confirmDiscard = document.getElementById("confirmDiscard");
 var okBuyRightButton = document.getElementById("okBuyRightButton");
 var okBuyLeftButton = document.getElementById("okBuyLeftButton");
@@ -448,11 +448,11 @@ function clearStore(){
 };
 
 function confirmBuyOpen(){
-	confirmBuy.style.display = 'flex';
+	confirmBuyWindow.style.display = 'flex';
 };
 
 function cancelBuyClose(){
-	confirmBuy.style.display = 'none';
+	confirmBuyWindow.style.display = 'none';
 };
 
 function cancelDiscardClose(){
@@ -659,42 +659,42 @@ cancelBuyButton.addEventListener("click", function() {
 
 okBuyRightButton.addEventListener("click", function() {
  checkoutRightHand();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyLeftButton.addEventListener("click", function() {
  checkoutLeftHand();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyTwoHanded.addEventListener("click", function() {
  checkoutTwoHanded();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyArmor.addEventListener("click", function() {
  checkoutArmor();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyHealth.addEventListener("click", function() {
  checkoutHealth();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyDamage.addEventListener("click", function() {
  checkoutDamage();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyAttack.addEventListener("click", function() {
  checkoutAttack();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 okBuyDefense.addEventListener("click", function() {
  checkoutDefense();
- confirmBuy.style.display = 'none';
+ confirmBuyWindow.style.display = 'none';
 });
 
 
