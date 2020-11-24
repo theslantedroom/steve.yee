@@ -185,23 +185,6 @@ enemyArray.push(dominatorA);
 const dominatorB = new Enemy1(35,40,40,17,12,-1,-1,-1,4,5,'dominatorB');
 enemyArray.push(dominatorB);
 
-
-
-
-
-
-// var enemy1 = {
-// 	name: 'Ant',
-// 	health: 15,
-// 	maxHealth: 15,
-// 	defense: 5,
-// 	weapon: 6,
-// };
-
-
-
-
-
 //UI Interface
 var confirmBuy = document.getElementById("confirmBuy");
 var confirmDiscard = document.getElementById("confirmDiscard");
@@ -214,7 +197,6 @@ var okBuyAttack = document.getElementById("okBuyAttack");
 var okBuyDefense = document.getElementById("okBuyDefense");
 var okBuyArmor = document.getElementById("okBuyArmor");
 
-
 var discardButtonRightHand = document.getElementById("discardButtonRightHand");
 var discardButtonLeftHand = document.getElementById("discardButtonLeftHand");
 var discardButtonArmor = document.getElementById("discardButtonArmor");
@@ -222,8 +204,6 @@ var discardButtonHealth = document.getElementById("discardButtonHealth");
 var discardButtonDamage = document.getElementById("discardButtonDamage");
 var discardButtonAttack = document.getElementById("discardButtonAttack");
 var discardButtonDefense = document.getElementById("discardButtonDefense");
-
-
 var cancelBuyButton = document.getElementById("cancelBuyButton");
 var cancelDiscardButton = document.getElementById("cancelDiscardButton");
 var wantToBuy = document.getElementById("wantToBuy");
@@ -239,8 +219,6 @@ var foundGold =  document.getElementById("foundGold");
 var market = document.getElementById('market');
 var player1AtMarket = document.getElementById('player1AtMarket');
 var playArea = document.getElementById('playArea');
-
-
 
 // Visual components
 var player1CharCard = document.getElementById("player1CharCard");
@@ -316,8 +294,9 @@ var player1DamageAttackRoll = document.getElementById("player1DamageAttackRoll")
 
 var healCost = document.getElementById("healCost");
 var buyHealing = document.getElementById("buyHealing");
-// IM READY CONTINUE TO BATTLE BUTTON
 
+
+// HEALING MARKET BUTTON
 buyHealing.addEventListener("click", function(){
 	if (player1.gold >= healCostGold && player1.currentHealth != player1.maxHealth){
 				player1.currentHealth = player1.maxHealth;
@@ -3298,7 +3277,6 @@ function player1AttackRoll(){
 // CRIT
 	} else if (attackRoll == 20) {
 		slidePlayer1Critical.style.display = "block";
- 
 		console.log('critical hit on enemy');
 		
 //MISS
@@ -3336,7 +3314,7 @@ function player1Damage(){
 		logSlideRollResult.innerHTML = 'Your attack deals ' + attackDamage + ' (weapons) + ' + 
 		player1.damage + ' (bonus)';
 
-		logSlideResultLine2.innerHTML = 'a deep wound';
+		logSlideResultLine2.innerHTML = '<span style="color: red">a deep wound</span>';
 		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemyArray[currentEnemyCard].currentHealth;
 
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
@@ -3368,9 +3346,9 @@ function player1Critical(){
 		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - player1.damage;
 
 		logSlideRollResult.innerHTML = 'Your attack deals ' + (attackDamage/2) + ' (weapons)';
-		logSlideResultLine2.innerHTML = 'Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
+		logSlideResultLine2.innerHTML = 'Critical hit <span style="color: red">DOUBLES </span>damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
 		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemyArray[currentEnemyCard].currentHealth + ' health';
-
+		
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
 
 // killed him Critical
@@ -3381,8 +3359,8 @@ function player1Critical(){
 
 		
 		damageRollResultK.innerHTML = 'Your attack is impressive!';
-		damageResultLine2K.innerHTML = 'GLORY! Critical hit DOUBLES damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
-		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and kills the enemy';
+		damageResultLine2K.innerHTML = 'GLORY! Critical hit <span style="color: red">DOUBLES</span> damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
+		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and <span style="color: red">kills</span> the enemy';
 		
 		enemy1Dead();
 		console.log('killed enemy with Crit');
@@ -3426,7 +3404,7 @@ function enemyAttack(){
 
 		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
 		logSlideResultLine3E.innerHTML = "You  got hit " + (attackDamageE+enemyArray[currentEnemyCard].damage) +" down to " + player1.currentHealth;
-	
+		slideLogSlideE.style.backgroundColor = "rgba(255, 153, 153, .85)";
 		console.log("hit player with attackroll " + attackRollE);
 		console.log('enemy deals ' + (attackDamageE+enemyArray[currentEnemyCard].damage)+' Damage');
 		player1Ouch();
@@ -3441,9 +3419,9 @@ function enemyAttack(){
 		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
 		player1CurrentHp.innerHTML = player1.currentHealth;
 
-		logSlideResultLine2E.innerHTML = 'CRITICAL HIT';
+		logSlideResultLine2E.innerHTML = '<span style="color: rgb(121, 0, 0)">OH NO!! CRITICAL HIT</span>';
 		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE)+ " + " + enemyArray[currentEnemyCard].damage +", down to " + player1.currentHealth;
-
+		slideLogSlideE.style.backgroundColor = "rgba(182, 0, 0, 0.59)";
 		console.log("Enemy deals critical hit");
 		console.log(attackDamageE + ' x 2 player Damage');
 		player1Ouch();
@@ -3452,6 +3430,7 @@ function enemyAttack(){
 	} else if (attackRollE + enemyArray[currentEnemyCard].attack <= player1.defense)	{	
 		logSlideResultLine2E.innerHTML = 'Enemy misses..';
 		logSlideResultLine3E.innerHTML = "lucky for you";
+		slideLogSlideE.style.backgroundColor = "rgba(255, 153, 153, 00)";
 	};
 
 	// killed player dead
