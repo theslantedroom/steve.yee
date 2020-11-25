@@ -187,7 +187,7 @@ enemyArray.push(dominatorB);
 
 //UI Interface
 var confirmBuyWindow = document.getElementById("confirmBuyWindow");
-var confirmDiscard = document.getElementById("confirmDiscard");
+var confirmDiscardWindow = document.getElementById("confirmDiscardWindow");
 var okBuyRightButton = document.getElementById("okBuyRightButton");
 var okBuyLeftButton = document.getElementById("okBuyLeftButton");
 var okBuyTwoHanded = document.getElementById("okBuyTwoHanded");
@@ -209,6 +209,7 @@ var cancelDiscardButton = document.getElementById("cancelDiscardButton");
 var wantToBuy = document.getElementById("wantToBuy");
 var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
 const buyPreview = document.getElementById("buyPreview");
+const discardPreview = document.getElementById("discardPreview");
 
 var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
@@ -304,7 +305,7 @@ buyHealing.addEventListener("click", function(){
 				player1.gold -= healCostGold;
 				updateGold();
 				player1CurrentHp.innerHTML = player1.currentHealth;
-				buyHealing.innerHTML = 'All healed! Ready for battle!';
+				buyHealing.innerHTML = 'All healed!';
 		} else if (player1.currentHealth == player1.maxHealth){
 				buyHealing.innerHTML = 'You are at full health already!';
 		}else {
@@ -457,20 +458,18 @@ function cancelBuyClose(){
 };
 
 function cancelDiscardClose(){
-	confirmDiscard.style.display = 'none';
+	confirmDiscardWindow.style.display = 'none';
 };
 
 function confirmDiscardOpen(){
-	confirmDiscard.style.display = 'flex';
+	confirmDiscardWindow.style.display = 'flex';
 };
 
 function confirmDiscardClose(){
-	confirmDiscard.style.display = 'none';
+	confirmDiscardWindow.style.display = 'none';
 };
 
 // DISCARD CARDS
-
-
 discardButtonRightHand.addEventListener("click", function() {
 	player1.weapon1Card = 0;
 	player1.weapon1 = -1;
@@ -485,6 +484,7 @@ discardButtonRightHand.addEventListener("click", function() {
 });
 function discardWeaponR(){
 	if (player1.weapon1Card != 0){
+	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonRightHand.style.display = "flex";
@@ -505,6 +505,7 @@ discardButtonLeftHand.addEventListener("click", function() {
 });
 function discardWeaponL(){
 	if (player1.weapon2Card != 0){
+	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonLeftHand.style.display = "flex";
@@ -522,10 +523,10 @@ discardButtonArmor.addEventListener("click", function() {
 });
 function discardArmor(){
 	if (player1.armorCard != 0){
+	discardPreview.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonArmor.style.display = "flex";
-	
 	refresh();
 }};
 
@@ -540,6 +541,7 @@ discardButtonHealth.addEventListener("click", function() {
 });
 function discardHealth(){
 	if (player1.healthCard != 0){
+		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + player1.healthCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonHealth.style.display = "flex";
@@ -555,6 +557,7 @@ discardButtonDamage.addEventListener("click", function() {
 });
 function discardDamage(){
 	if (player1.damageCard != 0){
+		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + player1.damageCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonDamage.style.display = "flex";
@@ -570,6 +573,7 @@ discardButtonAttack.addEventListener("click", function() {
 });
 function discardAttack(){
 	if (player1.attackCard != 0){
+		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + player1.attackCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonAttack.style.display = "flex";
@@ -585,6 +589,7 @@ discardButtonDefense.addEventListener("click", function() {
 });
 function discardDefense(){
 	if (player1.defenseCard != 0){
+		discardPreview.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + player1.defenseCard + ".jpg')";
 	clearDiscardPopUp();
 	confirmDiscardOpen();
 	discardButtonDefense.style.display = "flex";
