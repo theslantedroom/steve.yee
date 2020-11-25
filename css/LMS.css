@@ -117,10 +117,15 @@ h5{
 #player1CharCard{
 	color: gold;
 	background-position: center;
+	background-repeat: no-repeat;
+	min-width: 480px;
 	width: 26vh;
 	height: 40vh;
 	position: relative;
 	background-size: contain;
+}
+#player1CharCard:hover{
+z-index: 5;
 }
 
 #player1CharCard div{
@@ -236,7 +241,7 @@ h5{
 	color: black;
 }
 .storeItems{
-justify-content: space-between;
+justify-content: center;
 }
 #storeImages img{
 	margin: 2px;
@@ -313,7 +318,6 @@ justify-content: space-between;
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	margin-left: 10px;
-	border: 1px solid white;
 }
 .floatRight{
 	width: 80vh;
@@ -324,7 +328,6 @@ justify-content: space-between;
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	margin-right: 10px;
-	border: 1px solid white;
 }
 #playArea{
 	box-sizing: border-box;
@@ -343,6 +346,7 @@ justify-content: space-between;
 	height: 40vh;
 	background-size: contain;
 	background-repeat: no-repeat;
+	background-position: center;
 	display: none;
 }
 #enemy1Attack {
