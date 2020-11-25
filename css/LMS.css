@@ -74,7 +74,7 @@ h5{
 	background-repeat: repeat-y;
 	min-width: 620px;
 	text-align: center;
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
@@ -224,7 +224,7 @@ z-index: 5;
 	background-size: cover;
 	background-repeat: repeat;
 	text-align: center;
-	position: absolute;
+	position: fixed;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
