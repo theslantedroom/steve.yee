@@ -246,6 +246,7 @@ width: 200px;
 height: 200px;
 background-color: grey;
 margin: auto;
+background-size: cover;
 }
 #confirmBuyWindow{
 flex-direction: column;

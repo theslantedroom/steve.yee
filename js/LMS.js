@@ -208,6 +208,7 @@ var cancelBuyButton = document.getElementById("cancelBuyButton");
 var cancelDiscardButton = document.getElementById("cancelDiscardButton");
 var wantToBuy = document.getElementById("wantToBuy");
 var wantToBuyGoldCost = document.getElementById("wantToBuyGoldCost");
+const buyPreview = document.getElementById("buyPreview");
 
 var charCreationPickCharacter = document.getElementById("characterCreation");
 var player1CharCard = document.getElementById("player1CharCard");
@@ -612,40 +613,48 @@ function alreadyOwn(){
 	okBuyClear();
 };
 
+
 function dualWield(){
 	okBuyClear();
 	okBuyRightButton.style.display = "flex";
 	okBuyLeftButton.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + shoppingCartRightHand.weapon1Card + ".jpg')";
 };
 
 function TwoHanded(){
 	okBuyClear();
 	okBuyTwoHanded.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/w" + shoppingTwoHanded.weapon1Card + ".jpg')";
 };
 
 function healthTraining(){
 	okBuyClear();
 	okBuyHealth.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/healthBonus0" + shoppingHealth.healthCard + ".jpg')";
 };
 
 function damageTraining(){
 	okBuyClear();
 	okBuyDamage.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/damageBonus" + shoppingDamage.damageCard + ".jpg')";
 };
 
 function attackTraining(){
 	okBuyClear();
 	okBuyAttack.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/attackBonus" + shoppingAttack.attackCard + ".jpg')";
 };
 
 function defenseTraining(){
 	okBuyClear();
 	okBuyDefense.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/defenseBonus" + shoppingDefense.defenseCard + ".jpg')";
 };
 
 function armor(){
 	okBuyClear();
 	okBuyArmor.style.display = "flex";
+	buyPreview.style.backgroundImage = "url('../steve.yee/img/market/a" + shoppingArmor.armorCard + ".jpg')";
 };
 
 
@@ -964,8 +973,7 @@ buyW1.addEventListener("click", function() {
 	console.log('buyW1');
 		confirmBuyOpen();
 		if (player1.weapon1Card != 1 && player1.weapon2Card != 1 && player1.gold >= 0){
-		dualWield();
-		wantToBuy.innerHTML = "Do you want to buy the Dagger for ";
+		wantToBuy.innerHTML = "A trusty and reliable Dagger for ";
 		wantToBuyGoldCost.innerHTML = "0 gold?";
 		shoppingCartRightHand.gold = 0;
 		shoppingCartRightHand.weapon1Card = 1;
@@ -983,6 +991,7 @@ buyW1.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 1 || player1.weapon2Card == 1){
 		wantToBuy.innerHTML = "You already own this Dagger.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -999,7 +1008,6 @@ buyW1.addEventListener("click", function() {
 buyW2.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 2 && player1.weapon2Card != 2 && player1.gold >= 2){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Gladius for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingCartRightHand.gold = 2;
@@ -1018,6 +1026,7 @@ buyW2.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 2 || player1.weapon2Card == 2){
 		wantToBuy.innerHTML = "You already own this Gladius.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1034,7 +1043,6 @@ buyW2.addEventListener("click", function() {
 buyW3.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 3 && player1.weapon2Card != 3 && player1.gold >= 4){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Long Sword for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingCartRightHand.gold = 4;
@@ -1053,6 +1061,7 @@ buyW3.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 3 || player1.weapon2Card == 3){
 		wantToBuy.innerHTML = "You already own this Long Sword.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1069,7 +1078,6 @@ buyW3.addEventListener("click", function() {
 buyW4.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 4 && player1.weapon2Card != 4 && player1.gold >= 7){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Deadly Axe for ";
 		wantToBuyGoldCost.innerHTML = "7 gold?";
 		shoppingCartRightHand.gold = 7;
@@ -1088,6 +1096,7 @@ buyW4.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 4 || player1.weapon2Card == 4){
 		wantToBuy.innerHTML = "You already own this Deadly Axe.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1104,7 +1113,6 @@ buyW4.addEventListener("click", function() {
 buyW5.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 5 && player1.weapon2Card != 5 && player1.gold >= 10){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Morning Star for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingCartRightHand.gold = 10;
@@ -1123,6 +1131,7 @@ buyW5.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 5 || player1.weapon2Card == 5){
 		wantToBuy.innerHTML = "You already own this Morning Star.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1139,7 +1148,6 @@ buyW5.addEventListener("click", function() {
 buyW6.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 6 && player1.weapon2Card != 6 && player1.gold >= 2){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Smith's Hammer for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingCartRightHand.gold = 2;
@@ -1158,6 +1166,7 @@ buyW6.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 6 || player1.weapon2Card == 6){
 		wantToBuy.innerHTML = "You already own this Smith's Hammer.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1174,7 +1183,6 @@ buyW6.addEventListener("click", function() {
 buyW7.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 7 && player1.weapon2Card != 7 && player1.gold >= 3){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Expensive Mace for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingCartRightHand.gold = 3;
@@ -1193,6 +1201,7 @@ buyW7.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 7 || player1.weapon2Card == 7){
 		wantToBuy.innerHTML = "You already own this Expensive Mace.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1209,7 +1218,6 @@ buyW7.addEventListener("click", function() {
 buyW8.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 8 && player1.weapon2Card != 8 && player1.gold >= 6){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Cat O' Nine Tails for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
 		shoppingCartRightHand.gold = 6;
@@ -1228,6 +1236,7 @@ buyW8.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 8 || player1.weapon2Card == 8){
 		wantToBuy.innerHTML = "You already own this Cat O' Nine Tails.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1244,7 +1253,6 @@ buyW8.addEventListener("click", function() {
 buyW9.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 9 && player1.weapon2Card != 9 && player1.gold >= 8){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Golden Axe for ";
 		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingCartRightHand.gold = 8;
@@ -1263,6 +1271,7 @@ buyW9.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 9 || player1.weapon2Card == 9){
 		wantToBuy.innerHTML = "You already own this Golden Axe.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1279,7 +1288,6 @@ buyW9.addEventListener("click", function() {
 buyW10.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 10 && player1.weapon2Card != 10 && player1.gold >= 12){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Fast Cutlass for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingCartRightHand.gold = 12;
@@ -1298,6 +1306,7 @@ buyW10.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 1;
 		shoppingCartLeftHand.defenseBonusShield2 = 0;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 10 || player1.weapon2Card == 10){
 		wantToBuy.innerHTML = "You already own this Fast Cutlass.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1316,7 +1325,6 @@ buyW10.addEventListener("click", function() {
 buyW31.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 11 && player1.weapon2Card != 11 && player1.gold >= 0 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Wood Shield for ";
 		wantToBuyGoldCost.innerHTML = "0 gold?";
 		shoppingCartRightHand.gold = 0;
@@ -1335,6 +1343,7 @@ buyW31.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 1;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 11 || player1.weapon2Card == 11){
 		wantToBuy.innerHTML = "You already own this Wood Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1356,7 +1365,6 @@ buyW31.addEventListener("click", function() {
 buyW32.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 12 && player1.weapon2Card != 12 && player1.gold >= 1 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Viking Shield for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingCartRightHand.gold = 1;
@@ -1375,6 +1383,7 @@ buyW32.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 2;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 12 || player1.weapon2Card == 12){
 		wantToBuy.innerHTML = "You already own this Viking Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1396,7 +1405,6 @@ buyW32.addEventListener("click", function() {
 buyW33.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 13 && player1.weapon2Card != 13 && player1.gold >= 3 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Bronze Shield for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingCartRightHand.gold = 3;
@@ -1415,6 +1423,7 @@ buyW33.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 3;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 13 || player1.weapon2Card == 13){
 		wantToBuy.innerHTML = "You already own this Bronze Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1436,7 +1445,6 @@ buyW33.addEventListener("click", function() {
 buyW34.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 14 && player1.weapon2Card != 14 && player1.gold >= 7 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Steel Shield for ";
 		wantToBuyGoldCost.innerHTML = "7 gold?";
 		shoppingCartRightHand.gold = 7;
@@ -1455,6 +1463,7 @@ buyW34.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 4;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 14 || player1.weapon2Card == 14){
 		wantToBuy.innerHTML = "You already own this Steel Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1476,7 +1485,6 @@ buyW34.addEventListener("click", function() {
 buyW35.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 15 && player1.weapon2Card != 15 && player1.gold >= 12 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Tower Shield for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingCartRightHand.gold = 12;
@@ -1495,6 +1503,7 @@ buyW35.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 5;
 		shoppingCartLeftHand.damageBonusShield2 = 0;
+		dualWield();
 	} else if (player1.weapon1Card == 15 || player1.weapon2Card == 15){
 		wantToBuy.innerHTML = "You already own this Tower Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1516,7 +1525,6 @@ buyW35.addEventListener("click", function() {
 buyW36.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 16 && player1.weapon2Card != 16 && player1.gold >= 2 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Sharpened Shield for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingCartRightHand.gold = 2;
@@ -1535,6 +1543,7 @@ buyW36.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 1;
 		shoppingCartLeftHand.damageBonusShield2 = 1;
+		dualWield();
 	} else if (player1.weapon1Card == 16 || player1.weapon2Card == 16){
 		wantToBuy.innerHTML = "You already own this Sharpened Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1556,7 +1565,6 @@ buyW36.addEventListener("click", function() {
 buyW37.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 17 && player1.weapon2Card != 17 && player1.gold >= 4 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Spike Shield for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingCartRightHand.gold = 4;
@@ -1575,6 +1583,7 @@ buyW37.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 2;
 		shoppingCartLeftHand.damageBonusShield2 = 1;
+		dualWield();
 	} else if (player1.weapon1Card == 17 || player1.weapon2Card == 17){
 		wantToBuy.innerHTML = "You already own this Spike Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1596,7 +1605,6 @@ buyW37.addEventListener("click", function() {
 buyW38.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 18 && player1.weapon2Card != 18 && player1.gold >= 6 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Fighting Shield for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
 		shoppingCartRightHand.gold = 6;
@@ -1615,6 +1623,7 @@ buyW38.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 3;
 		shoppingCartLeftHand.damageBonusShield2 = 1;
+		dualWield();
 	} else if (player1.weapon1Card == 18 || player1.weapon2Card == 18){
 		wantToBuy.innerHTML = "You already own this Fighting Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1636,7 +1645,6 @@ buyW38.addEventListener("click", function() {
 buyW39.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 19 && player1.weapon2Card != 19 && player1.gold >= 10 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Cruel Shield for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingCartRightHand.gold = 10;
@@ -1655,6 +1663,7 @@ buyW39.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 3;
 		shoppingCartLeftHand.damageBonusShield2 = 2;
+		dualWield();
 	} else if (player1.weapon1Card == 19 || player1.weapon2Card == 19){
 		wantToBuy.innerHTML = "You already own this Cruel Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1676,7 +1685,6 @@ buyW39.addEventListener("click", function() {
 buyW40.addEventListener("click", function() {
 		confirmBuyOpen();
 		if ((player1.weapon1Card != 20 && player1.weapon2Card != 20 && player1.gold >= 14 ) && (player1.weapon1Card > 20 || player1.weapon1Card < 11) && (player1.weapon2Card > 20 ||  player1.weapon2Card < 11)){
-		dualWield();
 		wantToBuy.innerHTML = "Do you want to buy the Brutal Shield for ";
 		wantToBuyGoldCost.innerHTML = "14 gold?";
 		shoppingCartRightHand.gold = 14;
@@ -1695,6 +1703,7 @@ buyW40.addEventListener("click", function() {
 		shoppingCartLeftHand.attackBonusWeapon2 = 0;
 		shoppingCartLeftHand.defenseBonusShield2 = 4;
 		shoppingCartLeftHand.damageBonusShield2 = 2;
+		dualWield();
 	} else if (player1.weapon1Card == 20 || player1.weapon2Card == 20){
 		wantToBuy.innerHTML = "You already own this Brutal Shield.";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1717,7 +1726,6 @@ buyW40.addEventListener("click", function() {
 buyW11.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 21 && player1.weapon2Card != 21 && player1.gold >= 1){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Giant Club for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingTwoHanded.gold = 1;
@@ -1736,6 +1744,7 @@ buyW11.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 21 || player1.weapon2Card == 21){
 		wantToBuy.innerHTML = "You already own this Giant Club.  ";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1752,7 +1761,6 @@ buyW11.addEventListener("click", function() {
 buyW12.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 22 && player1.weapon2Card != 22 && player1.gold >= 3){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Wood Hammer for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingTwoHanded.gold = 3;
@@ -1771,6 +1779,7 @@ buyW12.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 22 || player1.weapon2Card == 22){
 		wantToBuy.innerHTML = "You already own this Wood Hammer";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1787,7 +1796,6 @@ buyW12.addEventListener("click", function() {
 buyW13.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 23 && player1.weapon2Card != 23 && player1.gold >= 8){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Great Sword for ";
 		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingTwoHanded.gold = 8;
@@ -1806,6 +1814,7 @@ buyW13.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 23 || player1.weapon2Card == 23){
 		wantToBuy.innerHTML = "You already own this Great Sword";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1822,7 +1831,6 @@ buyW13.addEventListener("click", function() {
 buyW14.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 24 && player1.weapon2Card != 24 && player1.gold >= 10){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Battle Axe for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingTwoHanded.gold = 10;
@@ -1841,6 +1849,7 @@ buyW14.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 24 || player1.weapon2Card == 24){
 		wantToBuy.innerHTML = "You already own this Battle Axe";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1857,7 +1866,6 @@ buyW14.addEventListener("click", function() {
 buyW15.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 25 && player1.weapon2Card != 25 && player1.gold >= 15){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Zweihander for ";
 		wantToBuyGoldCost.innerHTML = "15 gold?";
 		shoppingTwoHanded.gold = 15;
@@ -1876,6 +1884,7 @@ buyW15.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 25 || player1.weapon2Card == 25){
 		wantToBuy.innerHTML = "You already own this Zweihander";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1892,7 +1901,6 @@ buyW15.addEventListener("click", function() {
 buyW16.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 26 && player1.weapon2Card != 26 && player1.gold >= 1){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Bamboo Spear for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingTwoHanded.gold = 1;
@@ -1911,6 +1919,7 @@ buyW16.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 26 || player1.weapon2Card == 26){
 		wantToBuy.innerHTML = "You already own this Bamboo Spear";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1927,7 +1936,6 @@ buyW16.addEventListener("click", function() {
 buyW17.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 27 && player1.weapon2Card != 27 && player1.gold >= 3){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the War Spear for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingTwoHanded.gold = 3;
@@ -1946,6 +1954,7 @@ buyW17.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 27 || player1.weapon2Card == 27){
 		wantToBuy.innerHTML = "You already own this War Spear";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1962,7 +1971,6 @@ buyW17.addEventListener("click", function() {
 buyW18.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 28 && player1.weapon2Card != 28 && player1.gold >= 5){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Military Fork for ";
 		wantToBuyGoldCost.innerHTML = "5 gold?";
 		shoppingTwoHanded.gold = 5;
@@ -1981,6 +1989,7 @@ buyW18.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 28 || player1.weapon2Card == 28){
 		wantToBuy.innerHTML = "You already own this Military Fork";
 		wantToBuyGoldCost.innerHTML = "";
@@ -1997,7 +2006,6 @@ buyW18.addEventListener("click", function() {
 buyW19.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 29 && player1.weapon2Card != 29 && player1.gold >= 8){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Pike for ";
 		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingTwoHanded.gold = 8;
@@ -2016,6 +2024,7 @@ buyW19.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 29 || player1.weapon2Card == 29){
 		wantToBuy.innerHTML = "You already own this Pike";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2032,7 +2041,6 @@ buyW19.addEventListener("click", function() {
 buyW20.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 30 && player1.weapon2Card != 30 && player1.gold >= 10){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Halberd for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingTwoHanded.gold = 10;
@@ -2051,6 +2059,7 @@ buyW20.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 30 || player1.weapon2Card == 30){
 		wantToBuy.innerHTML = "You already own this Halberd";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2067,7 +2076,6 @@ buyW20.addEventListener("click", function() {
 buyW21.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 31 && player1.weapon2Card != 31 && player1.gold >= 1){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Wood Crossbow for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingTwoHanded.gold = 1;
@@ -2086,6 +2094,7 @@ buyW21.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 31 || player1.weapon2Card == 31){
 		wantToBuy.innerHTML = "You already own this Wood Crossbow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2102,7 +2111,6 @@ buyW21.addEventListener("click", function() {
 buyW22.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 32 && player1.weapon2Card != 32 && player1.gold >= 2){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Light Crossbow for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingTwoHanded.gold = 2;
@@ -2121,6 +2129,7 @@ buyW22.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 32 || player1.weapon2Card == 32){
 		wantToBuy.innerHTML = "You already own this Light Crossbow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2137,7 +2146,6 @@ buyW22.addEventListener("click", function() {
 buyW23.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 33 && player1.weapon2Card != 33 && player1.gold >= 4){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Iron Crossbow for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingTwoHanded.gold = 4;
@@ -2156,6 +2164,7 @@ buyW23.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 33 || player1.weapon2Card == 33){
 		wantToBuy.innerHTML = "You already own this Iron Crossbow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2173,7 +2182,6 @@ buyW23.addEventListener("click", function() {
 buyW24.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 34 && player1.weapon2Card != 34 && player1.gold >= 7){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Heavy Crossbow for ";
 		wantToBuyGoldCost.innerHTML = "7 gold?";
 		shoppingTwoHanded.gold = 7;
@@ -2192,6 +2200,7 @@ buyW24.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 34 || player1.weapon2Card == 34){
 		wantToBuy.innerHTML = "You already own this Heavy Crossbow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2208,7 +2217,6 @@ buyW24.addEventListener("click", function() {
 buyW25.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 35 && player1.weapon2Card != 35 && player1.gold >= 10){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Master Crossbow for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingTwoHanded.gold = 10;
@@ -2227,6 +2235,7 @@ buyW25.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 35 || player1.weapon2Card == 35){
 		wantToBuy.innerHTML = "You already own this Master Crossbow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2243,7 +2252,6 @@ buyW25.addEventListener("click", function() {
 buyW26.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 36 && player1.weapon2Card != 36 && player1.gold >= 2){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Bent Bow for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingTwoHanded.gold = 2;
@@ -2262,6 +2270,7 @@ buyW26.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 36 || player1.weapon2Card == 36){
 		wantToBuy.innerHTML = "You already own this Bent Bow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2278,7 +2287,6 @@ buyW26.addEventListener("click", function() {
 buyW27.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 37 && player1.weapon2Card != 37 && player1.gold >= 5){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Short Bow for ";
 		wantToBuyGoldCost.innerHTML = "5 gold?";
 		shoppingTwoHanded.gold = 5;
@@ -2297,6 +2305,7 @@ buyW27.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 37 || player1.weapon2Card == 37){
 		wantToBuy.innerHTML = "You already own this Short Bow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2313,7 +2322,6 @@ buyW27.addEventListener("click", function() {
 buyW28.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 38 && player1.weapon2Card != 38 && player1.gold >= 10){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Horse Bow for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingTwoHanded.gold = 10;
@@ -2332,6 +2340,7 @@ buyW28.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 38 || player1.weapon2Card == 38){
 		wantToBuy.innerHTML = "You already own this Horse Bow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2348,7 +2357,6 @@ buyW28.addEventListener("click", function() {
 buyW29.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 39 && player1.weapon2Card != 39 && player1.gold >= 12){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Long Bow for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingTwoHanded.gold = 12;
@@ -2367,6 +2375,7 @@ buyW29.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 39 || player1.weapon2Card == 39){
 		wantToBuy.innerHTML = "You already own this Long Bow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2383,7 +2392,6 @@ buyW29.addEventListener("click", function() {
 buyW30.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.weapon1Card != 40 && player1.weapon2Card != 40 && player1.gold >= 15){
-		TwoHanded();
 		wantToBuy.innerHTML = "Do you want to buy the Flawless Bow for ";
 		wantToBuyGoldCost.innerHTML = "15 gold?";
 		shoppingTwoHanded.gold = 15;
@@ -2402,6 +2410,7 @@ buyW30.addEventListener("click", function() {
 		shoppingTwoHanded.attackBonusWeapon2 = 0;
 		shoppingTwoHanded.defenseBonusShield2 = 0;
 		shoppingTwoHanded.damageBonusShield2 = 0;
+		TwoHanded();
 	} else if (player1.weapon1Card == 40 || player1.weapon2Card == 40){
 		wantToBuy.innerHTML = "You already own this Flawless Bow";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2419,7 +2428,6 @@ buyW30.addEventListener("click", function() {
 buyA1.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 1  && player1.gold >= 0){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Cloth Armor for ";
 		wantToBuyGoldCost.innerHTML = "0 gold?";
 		shoppingArmor.gold = 0;
@@ -2427,6 +2435,7 @@ buyA1.addEventListener("click", function() {
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 1){
 		wantToBuy.innerHTML = "You already own Cloth Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2444,7 +2453,6 @@ buyA1.addEventListener("click", function() {
 buyA2.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 2  && player1.gold >= 1){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Leather Armor for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingArmor.gold = 1;
@@ -2452,6 +2460,7 @@ buyA2.addEventListener("click", function() {
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 2){
 		wantToBuy.innerHTML = "You already own Leather Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2468,7 +2477,6 @@ buyA2.addEventListener("click", function() {
 buyA3.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 3  && player1.gold >= 2){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Studded Armor for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingArmor.gold = 2;
@@ -2476,6 +2484,7 @@ buyA3.addEventListener("click", function() {
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 3){
 		wantToBuy.innerHTML = "You already own Studded Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2492,7 +2501,6 @@ buyA3.addEventListener("click", function() {
 buyA4.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 4  && player1.gold >= 3){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Bronze Armor for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingArmor.gold = 3;
@@ -2500,6 +2508,7 @@ buyA4.addEventListener("click", function() {
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 4){
 		wantToBuy.innerHTML = "You already own Bronze Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2516,7 +2525,6 @@ buyA4.addEventListener("click", function() {
 buyA5.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 5  && player1.gold >= 5){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Scale Armor for ";
 		wantToBuyGoldCost.innerHTML = "5 gold?";
 		shoppingArmor.gold = 5;
@@ -2524,6 +2532,7 @@ buyA5.addEventListener("click", function() {
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 5){
 		wantToBuy.innerHTML = "You already own Scale Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2540,7 +2549,6 @@ buyA5.addEventListener("click", function() {
 buyA6.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 6  && player1.gold >= 8){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Half Plate for ";
 		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingArmor.gold = 8;
@@ -2548,6 +2556,7 @@ buyA6.addEventListener("click", function() {
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 6){
 		wantToBuy.innerHTML = "You already own Half Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2565,7 +2574,6 @@ buyA6.addEventListener("click", function() {
 buyA7.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 7  && player1.gold >= 12){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Full Plate for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingArmor.gold = 12;
@@ -2573,6 +2581,7 @@ buyA7.addEventListener("click", function() {
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
+		armor();
 	} else if (player1.armorCard == 7){
 		wantToBuy.innerHTML = "You already own Full Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2590,7 +2599,6 @@ buyA7.addEventListener("click", function() {
 buyA8.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 8  && player1.gold >= 1){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Comfy Cloth Armor for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingArmor.gold = 1;
@@ -2598,6 +2606,7 @@ buyA8.addEventListener("click", function() {
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 8){
 		wantToBuy.innerHTML = "You already own Comfy Cloth Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2615,7 +2624,6 @@ buyA8.addEventListener("click", function() {
 buyA9.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 9  && player1.gold >= 2){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Hard Leather Armor for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingArmor.gold = 2;
@@ -2623,6 +2631,7 @@ buyA9.addEventListener("click", function() {
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 9){
 		wantToBuy.innerHTML = "You already own Hard Leather Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2639,7 +2648,6 @@ buyA9.addEventListener("click", function() {
 buyA10.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 10  && player1.gold >= 3){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Fine Studded Vest for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingArmor.gold = 3;
@@ -2647,6 +2655,7 @@ buyA10.addEventListener("click", function() {
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 10){
 		wantToBuy.innerHTML = "You already own Fine Studded Vest";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2663,7 +2672,6 @@ buyA10.addEventListener("click", function() {
 buyA11.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 11  && player1.gold >= 4){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Tempered Bronze Armor for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingArmor.gold = 4;
@@ -2671,6 +2679,7 @@ buyA11.addEventListener("click", function() {
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 11){
 		wantToBuy.innerHTML = "You already own Tempered Bronze Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2687,7 +2696,6 @@ buyA11.addEventListener("click", function() {
 buyA12.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 12  && player1.gold >= 6){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Shiny Scale Armor for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
 		shoppingArmor.gold = 6;
@@ -2695,6 +2703,7 @@ buyA12.addEventListener("click", function() {
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 12){
 		wantToBuy.innerHTML = "You already own Shiny Scale Armor";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2711,7 +2720,6 @@ buyA12.addEventListener("click", function() {
 buyA13.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 13  && player1.gold >= 10){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Lucky Half Plate for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingArmor.gold = 10;
@@ -2719,6 +2727,7 @@ buyA13.addEventListener("click", function() {
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 13){
 		wantToBuy.innerHTML = "You already own Lucky Half Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2736,7 +2745,6 @@ buyA13.addEventListener("click", function() {
 buyA14.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.armorCard != 14  && player1.gold >= 15){
-		armor();
 		wantToBuy.innerHTML = "Do you want to buy the Flexible Full Plate for ";
 		wantToBuyGoldCost.innerHTML = "15 gold?";
 		shoppingArmor.gold = 15;
@@ -2744,6 +2752,7 @@ buyA14.addEventListener("click", function() {
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
+		armor();
 	} else if (player1.armorCard == 14){
 		wantToBuy.innerHTML = "You already own Flexible Full Plate";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2760,13 +2769,13 @@ buyA14.addEventListener("click", function() {
 buyT1.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.healthCard != 1  && player1.gold >= 3){
-		healthTraining();
 		wantToBuy.innerHTML = "Do you want to buy Basic Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 3;
 		shoppingHealth.healthCard = 1;
 		shoppingHealth.healthBonusSkill = 4;
 		shoppingHealth.topupHP = 4;
+		healthTraining();
 	} else if (player1.healthCard == 1){
 		wantToBuy.innerHTML = "You already have Basic Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2783,13 +2792,13 @@ buyT1.addEventListener("click", function() {
 buyT2.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.healthCard != 2  && player1.gold >= 8){
-		healthTraining();
 		wantToBuy.innerHTML = "Do you want to buy Advanced Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 8;
 		shoppingHealth.healthCard = 2;
 		shoppingHealth.healthBonusSkill = 8;
 		shoppingHealth.topupHP = 8;
+		healthTraining();
 	} else if (player1.healthCard == 2){
 		wantToBuy.innerHTML = "You already have Advanced Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2806,13 +2815,13 @@ buyT2.addEventListener("click", function() {
 buyT3.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.healthCard != 3  && player1.gold >= 12){
-		healthTraining();
 		wantToBuy.innerHTML = "Do you want to buy Master Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 12;
 		shoppingHealth.healthCard = 3;
 		shoppingHealth.healthBonusSkill = 12;
 		shoppingHealth.topupHP = 12;
+		healthTraining();
 	} else if (player1.healthCard == 3){
 		wantToBuy.innerHTML = "You already have Master Health Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2830,12 +2839,12 @@ buyT3.addEventListener("click", function() {
 buyT4.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.damageCard != 1  && player1.gold >= 3){
-		damageTraining();
 		wantToBuy.innerHTML = "Do you want to buy Basic Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 3;
 		shoppingDamage.damageCard = 1;
 		shoppingDamage.damageBonusSkill = 1;
+		damageTraining();
 	} else if (player1.damageCard == 1){
 		wantToBuy.innerHTML = "You already have Basic Damage Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2852,12 +2861,12 @@ buyT4.addEventListener("click", function() {
 buyT5.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.damageCard != 2  && player1.gold >= 8){
-		damageTraining();
 		wantToBuy.innerHTML = "Do you want to buy Advanced Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 8;
 		shoppingDamage.damageCard = 2;
 		shoppingDamage.damageBonusSkill = 2;
+		damageTraining();
 	} else if (player1.damageCard == 2){
 		wantToBuy.innerHTML = "You already have Advanced Damage Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2874,12 +2883,12 @@ buyT5.addEventListener("click", function() {
 buyT6.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.damageCard != 3  && player1.gold >= 12){
-		damageTraining();
 		wantToBuy.innerHTML = "Do you want to buy Master Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 12;
 		shoppingDamage.damageCard = 3;
 		shoppingDamage.damageBonusSkill = 3;
+		damageTraining();
 	} else if (player1.damageCard == 3){
 		wantToBuy.innerHTML = "You already have Master Damage Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2896,12 +2905,12 @@ buyT6.addEventListener("click", function() {
 buyT7.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.attackCard != 1  && player1.gold >= 3){
-		attackTraining();
 		wantToBuy.innerHTML = "Do you want to buy Basic Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 3;
 		shoppingAttack.attackCard = 1;
 		shoppingAttack.attackBonusSkill = 1;
+		attackTraining();
 	} else if (player1.attackCard == 1){
 		wantToBuy.innerHTML = "You already have Basic Attack Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2918,12 +2927,12 @@ buyT7.addEventListener("click", function() {
 buyT8.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.attackCard != 2  && player1.gold >= 8){
-		attackTraining();
 		wantToBuy.innerHTML = "Do you want to buy Advanced Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 8;
 		shoppingAttack.attackCard = 2;
 		shoppingAttack.attackBonusSkill = 2;
+		attackTraining();
 	} else if (player1.attackCard == 2){
 		wantToBuy.innerHTML = "You already have Advanced Attack Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2940,12 +2949,12 @@ buyT8.addEventListener("click", function() {
 buyT9.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.attackCard != 3  && player1.gold >= 12){
-		attackTraining();
 		wantToBuy.innerHTML = "Do you want to buy Master Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 12;
 		shoppingAttack.attackCard = 3;
 		shoppingAttack.attackBonusSkill = 3;
+		attackTraining();
 	} else if (player1.attackCard == 3){
 		wantToBuy.innerHTML = "You already have Master Attack Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2962,12 +2971,12 @@ buyT9.addEventListener("click", function() {
 buyT10.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.defenseCard != 1  && player1.gold >= 3){
-		defenseTraining();
 		wantToBuy.innerHTML = "Do you want to buy Basic Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 3;
 		shoppingDefense.defenseCard = 1;
 		shoppingDefense.defenseBonusSkill = 1;
+		defenseTraining();
 	} else if (player1.defenseCard == 1){
 		wantToBuy.innerHTML = "You already have Basic Defense Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -2984,12 +2993,12 @@ buyT10.addEventListener("click", function() {
 buyT11.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.defenseCard != 2  && player1.gold >= 8){
-		defenseTraining();
 		wantToBuy.innerHTML = "Do you want to buy Advanced Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 8;
 		shoppingDefense.defenseCard = 2;
 		shoppingDefense.defenseBonusSkill = 2;
+		defenseTraining();
 	} else if (player1.defenseCard == 2){
 		wantToBuy.innerHTML = "You already have Advanced Defense Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -3006,12 +3015,12 @@ buyT11.addEventListener("click", function() {
 buyT12.addEventListener("click", function() {
 		confirmBuyOpen();
 		if (player1.defenseCard != 3  && player1.gold >= 12){
-		defenseTraining();
 		wantToBuy.innerHTML = "Do you want to buy Master Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 12;
 		shoppingDefense.defenseCard = 3;
 		shoppingDefense.defenseBonusSkill = 3;
+		defenseTraining();
 	} else if (player1.defenseCard == 3){
 		wantToBuy.innerHTML = "You already have Master Defense Training";
 		wantToBuyGoldCost.innerHTML = "";
@@ -3038,7 +3047,6 @@ function refresh(){
 
 // CARD UPDATES
 		player1CharCard.style.backgroundImage = "url('../steve.yee/img/charCard" + player1.currentCharCard + ".jpg')";
-		// enemy1CharCard.style.backgroundImage = "url('../steve.yee/img/enemyCard" + currentEnemyCard + ".jpg')";
 		player1Weapon1Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon1Card + ".jpg')";
 		player1ArmorCard.style.backgroundImage = "url('../steve.yee/img/market/a" + player1.armorCard + ".jpg')";
 		player1Weapon2Card.style.backgroundImage = "url('../steve.yee/img/market/w" + player1.weapon2Card + ".jpg')";
