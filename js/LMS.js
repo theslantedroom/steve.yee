@@ -2441,11 +2441,12 @@ buyW30.addEventListener("click", function() {
 // ARMOR
 buyA1.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 1;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 1  && player1.gold >= 0){
 		wantToBuy.innerHTML = "Do you want to buy the Cloth Armor for ";
 		wantToBuyGoldCost.innerHTML = "0 gold?";
 		shoppingArmor.gold = 0;
-		shoppingArmor.armorCard = 1;
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2466,11 +2467,12 @@ buyA1.addEventListener("click", function() {
 
 buyA2.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 2;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 2  && player1.gold >= 1){
 		wantToBuy.innerHTML = "Do you want to buy the Leather Armor for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingArmor.gold = 1;
-		shoppingArmor.armorCard = 2;
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2490,11 +2492,12 @@ buyA2.addEventListener("click", function() {
 
 buyA3.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 3;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 3  && player1.gold >= 2){
 		wantToBuy.innerHTML = "Do you want to buy the Studded Armor for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingArmor.gold = 2;
-		shoppingArmor.armorCard = 3;
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2514,11 +2517,12 @@ buyA3.addEventListener("click", function() {
 
 buyA4.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 4;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 4  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy the Bronze Armor for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingArmor.gold = 3;
-		shoppingArmor.armorCard = 4;
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2538,11 +2542,12 @@ buyA4.addEventListener("click", function() {
 
 buyA5.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 5;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 5  && player1.gold >= 5){
 		wantToBuy.innerHTML = "Do you want to buy the Scale Armor for ";
 		wantToBuyGoldCost.innerHTML = "5 gold?";
 		shoppingArmor.gold = 5;
-		shoppingArmor.armorCard = 5;
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2562,11 +2567,12 @@ buyA5.addEventListener("click", function() {
 
 buyA6.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 6;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 6  && player1.gold >= 8){
 		wantToBuy.innerHTML = "Do you want to buy the Half Plate for ";
 		wantToBuyGoldCost.innerHTML = "8 gold?";
 		shoppingArmor.gold = 8;
-		shoppingArmor.armorCard = 6;
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2587,11 +2593,12 @@ buyA6.addEventListener("click", function() {
 
 buyA7.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 7;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 7  && player1.gold >= 12){
 		wantToBuy.innerHTML = "Do you want to buy the Full Plate for ";
 		wantToBuyGoldCost.innerHTML = "12 gold?";
 		shoppingArmor.gold = 12;
-		shoppingArmor.armorCard = 7;
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 0;
 		shoppingArmor.topupHP = 0;
@@ -2612,11 +2619,12 @@ buyA7.addEventListener("click", function() {
 
 buyA8.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 8;		
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 8  && player1.gold >= 1){
 		wantToBuy.innerHTML = "Do you want to buy the Comfy Cloth Armor for ";
 		wantToBuyGoldCost.innerHTML = "1 gold?";
 		shoppingArmor.gold = 1;
-		shoppingArmor.armorCard = 8;
 		shoppingArmor.armor = 6;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2637,11 +2645,12 @@ buyA8.addEventListener("click", function() {
 
 buyA9.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 9;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 9  && player1.gold >= 2){
 		wantToBuy.innerHTML = "Do you want to buy the Hard Leather Armor for ";
 		wantToBuyGoldCost.innerHTML = "2 gold?";
 		shoppingArmor.gold = 2;
-		shoppingArmor.armorCard = 9;
 		shoppingArmor.armor = 7;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2661,11 +2670,12 @@ buyA9.addEventListener("click", function() {
 
 buyA10.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 10;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 10  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy the Fine Studded Vest for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingArmor.gold = 3;
-		shoppingArmor.armorCard = 10;
 		shoppingArmor.armor = 8;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2685,11 +2695,12 @@ buyA10.addEventListener("click", function() {
 
 buyA11.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 11;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 11  && player1.gold >= 4){
 		wantToBuy.innerHTML = "Do you want to buy the Tempered Bronze Armor for ";
 		wantToBuyGoldCost.innerHTML = "4 gold?";
 		shoppingArmor.gold = 4;
-		shoppingArmor.armorCard = 11;
 		shoppingArmor.armor = 9;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2709,11 +2720,12 @@ buyA11.addEventListener("click", function() {
 
 buyA12.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 12;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 12  && player1.gold >= 6){
 		wantToBuy.innerHTML = "Do you want to buy the Shiny Scale Armor for ";
 		wantToBuyGoldCost.innerHTML = "6 gold?";
 		shoppingArmor.gold = 6;
-		shoppingArmor.armorCard = 12;
 		shoppingArmor.armor = 10;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2733,11 +2745,12 @@ buyA12.addEventListener("click", function() {
 
 buyA13.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 13;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 13  && player1.gold >= 10){
 		wantToBuy.innerHTML = "Do you want to buy the Lucky Half Plate for ";
 		wantToBuyGoldCost.innerHTML = "10 gold?";
 		shoppingArmor.gold = 10;
-		shoppingArmor.armorCard = 13;
 		shoppingArmor.armor = 11;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2758,11 +2771,12 @@ buyA13.addEventListener("click", function() {
 
 buyA14.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingArmor.armorCard = 14;
+		updateBuyPreviewArmor();
 		if (player1.armorCard != 14  && player1.gold >= 15){
 		wantToBuy.innerHTML = "Do you want to buy the Flexible Full Plate for ";
 		wantToBuyGoldCost.innerHTML = "15 gold?";
 		shoppingArmor.gold = 15;
-		shoppingArmor.armorCard = 14;
 		shoppingArmor.armor = 12;
 		shoppingArmor.healthBonusArmor = 2;
 		shoppingArmor.topupHP = 2;
@@ -2782,11 +2796,12 @@ buyA14.addEventListener("click", function() {
 
 buyT1.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingHealth.healthCard = 1;
+		updateBuyPreviewHealth();
 		if (player1.healthCard != 1  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy Basic Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 3;
-		shoppingHealth.healthCard = 1;
 		shoppingHealth.healthBonusSkill = 4;
 		shoppingHealth.topupHP = 4;
 		healthTraining();
@@ -2805,11 +2820,12 @@ buyT1.addEventListener("click", function() {
 
 buyT2.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingHealth.healthCard = 2;
+		updateBuyPreviewHealth();
 		if (player1.healthCard != 2  && player1.gold >= 8){
 		wantToBuy.innerHTML = "Do you want to buy Advanced Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 8;
-		shoppingHealth.healthCard = 2;
 		shoppingHealth.healthBonusSkill = 8;
 		shoppingHealth.topupHP = 8;
 		healthTraining();
@@ -2828,11 +2844,12 @@ buyT2.addEventListener("click", function() {
 
 buyT3.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingHealth.healthCard = 3;
+		updateBuyPreviewHealth();
 		if (player1.healthCard != 3  && player1.gold >= 12){
 		wantToBuy.innerHTML = "Do you want to buy Master Health Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingHealth.gold = 12;
-		shoppingHealth.healthCard = 3;
 		shoppingHealth.healthBonusSkill = 12;
 		shoppingHealth.topupHP = 12;
 		healthTraining();
@@ -2852,11 +2869,12 @@ buyT3.addEventListener("click", function() {
 
 buyT4.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDamage.damageCard = 1;
+		updateBuyPreviewDamage();
 		if (player1.damageCard != 1  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy Basic Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 3;
-		shoppingDamage.damageCard = 1;
 		shoppingDamage.damageBonusSkill = 1;
 		damageTraining();
 	} else if (player1.damageCard == 1){
@@ -2874,11 +2892,12 @@ buyT4.addEventListener("click", function() {
 
 buyT5.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDamage.damageCard = 2;
+		updateBuyPreviewDamage();
 		if (player1.damageCard != 2  && player1.gold >= 8){
 		wantToBuy.innerHTML = "Do you want to buy Advanced Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 8;
-		shoppingDamage.damageCard = 2;
 		shoppingDamage.damageBonusSkill = 2;
 		damageTraining();
 	} else if (player1.damageCard == 2){
@@ -2896,11 +2915,12 @@ buyT5.addEventListener("click", function() {
 
 buyT6.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDamage.damageCard = 3;
+		updateBuyPreviewDamage();
 		if (player1.damageCard != 3  && player1.gold >= 12){
 		wantToBuy.innerHTML = "Do you want to buy Master Damage Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDamage.gold = 12;
-		shoppingDamage.damageCard = 3;
 		shoppingDamage.damageBonusSkill = 3;
 		damageTraining();
 	} else if (player1.damageCard == 3){
@@ -2918,11 +2938,12 @@ buyT6.addEventListener("click", function() {
 
 buyT7.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingAttack.attackCard = 1;
+		updateBuyPreviewAttack();
 		if (player1.attackCard != 1  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy Basic Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 3;
-		shoppingAttack.attackCard = 1;
 		shoppingAttack.attackBonusSkill = 1;
 		attackTraining();
 	} else if (player1.attackCard == 1){
@@ -2940,11 +2961,12 @@ buyT7.addEventListener("click", function() {
 
 buyT8.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingAttack.attackCard = 2;
+		updateBuyPreviewAttack();
 		if (player1.attackCard != 2  && player1.gold >= 8){
 		wantToBuy.innerHTML = "Do you want to buy Advanced Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 8;
-		shoppingAttack.attackCard = 2;
 		shoppingAttack.attackBonusSkill = 2;
 		attackTraining();
 	} else if (player1.attackCard == 2){
@@ -2962,11 +2984,12 @@ buyT8.addEventListener("click", function() {
 
 buyT9.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingAttack.attackCard = 3;
+		updateBuyPreviewAttack();
 		if (player1.attackCard != 3  && player1.gold >= 12){
 		wantToBuy.innerHTML = "Do you want to buy Master Attack Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingAttack.gold = 12;
-		shoppingAttack.attackCard = 3;
 		shoppingAttack.attackBonusSkill = 3;
 		attackTraining();
 	} else if (player1.attackCard == 3){
@@ -2984,11 +3007,12 @@ buyT9.addEventListener("click", function() {
 
 buyT10.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDefense.defenseCard = 1;
+		updateBuyPreviewDefense();
 		if (player1.defenseCard != 1  && player1.gold >= 3){
 		wantToBuy.innerHTML = "Do you want to buy Basic Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 3;
-		shoppingDefense.defenseCard = 1;
 		shoppingDefense.defenseBonusSkill = 1;
 		defenseTraining();
 	} else if (player1.defenseCard == 1){
@@ -3006,11 +3030,12 @@ buyT10.addEventListener("click", function() {
 
 buyT11.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDefense.defenseCard = 2;
+		updateBuyPreviewDefense();
 		if (player1.defenseCard != 2  && player1.gold >= 8){
 		wantToBuy.innerHTML = "Do you want to buy Advanced Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 8;
-		shoppingDefense.defenseCard = 2;
 		shoppingDefense.defenseBonusSkill = 2;
 		defenseTraining();
 	} else if (player1.defenseCard == 2){
@@ -3028,11 +3053,12 @@ buyT11.addEventListener("click", function() {
 
 buyT12.addEventListener("click", function() {
 		confirmBuyOpen();
+		shoppingDefense.defenseCard = 3;
+		updateBuyPreviewDefense();
 		if (player1.defenseCard != 3  && player1.gold >= 12){
 		wantToBuy.innerHTML = "Do you want to buy Master Defense Training for ";
 		wantToBuyGoldCost.innerHTML = "3 gold?";
 		shoppingDefense.gold = 12;
-		shoppingDefense.defenseCard = 3;
 		shoppingDefense.defenseBonusSkill = 3;
 		defenseTraining();
 	} else if (player1.defenseCard == 3){
