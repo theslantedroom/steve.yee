@@ -311,9 +311,7 @@ buyHealing.addEventListener("click", function(){
 		}else {
 			buyHealing.innerHTML = 'You can not afford to this!';
 		};
-	});
-
-
+});
 
 characterCreationButton.addEventListener("click", function(){
 	console.log(player1NameInput.value);
@@ -597,7 +595,6 @@ function discardDefense(){
 }};
 
 
-
 function okBuyClear(){
 	okBuyRightButton.style.display = "none";
 	okBuyLeftButton.style.display = "none";
@@ -613,11 +610,9 @@ function cannotAfford(){
 	okBuyClear();
 };
 
-
 function alreadyOwn(){
 	okBuyClear();
 };
-
 
 function dualWield(){
 	okBuyClear();
@@ -731,8 +726,6 @@ function offHandClear(){
 	refresh();
 }};
 
-
-
 // RIGHT HAND
 var shoppingCartRightHand = {
 	gold: 0,
@@ -743,7 +736,6 @@ var shoppingCartRightHand = {
 	attackBonusWeapon1: 0,
 	defenseBonusShield1: 0,
 	damageBonusShield1: 0,
-
 };
 function checkoutRightHand(){
 	offHandClear();
@@ -758,7 +750,6 @@ function checkoutRightHand(){
 	refresh();
 };
 
-
 // LEFT HAND
 var shoppingCartLeftHand = {
 	gold: 0,
@@ -769,7 +760,6 @@ var shoppingCartLeftHand = {
 	attackBonusWeapon2: 0,
 	defenseBonusShield2: 0,
 	damageBonusShield2: 0,
-
 };
 function checkoutLeftHand(){
 	offHandClear();
@@ -801,7 +791,6 @@ var shoppingTwoHanded = {
 	attackBonusWeapon2: 0,
 	defenseBonusShield2: 0,
 	damageBonusShield2: 0,
-
 };
 function checkoutTwoHanded(){
 	player1.gold -= shoppingTwoHanded.gold;
@@ -969,8 +958,6 @@ var buyT9 = document.querySelectorAll("img")[62];
 var buyT10 = document.querySelectorAll("img")[63];
 var buyT11 = document.querySelectorAll("img")[64];
 var buyT12 = document.querySelectorAll("img")[65];
-
-
 
 // EVENT LISTENERS
 //Click on STORE ITEMS
@@ -3277,31 +3264,25 @@ function player1AttackRoll(){
 	slidePlayer1Turn.style.display = "none"; //you stand ready 
 	attackRoll = Math.floor((Math.random() * 20) + 1);
 	// attackRoll = 20;
-
 	refresh();
 	console.log('player1AttackRoll ' + attackRoll);
 	logSlideRollResult.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 // HIT enemy 
 	if (attackRoll > (enemyArray[currentEnemyCard].defense - player1.attack) && attackRoll != 20) {
 		slidePlayer1Hit.style.display = "block";
-
 		player1DamageAttackRoll.innerHTML = 'Attack total is ' + (attackRoll + player1.attack) +'  (' + attackRoll + ' + ' + player1.attack +' skill)';
 		console.log('hit enemy');
 // CRIT
 	} else if (attackRoll == 20) {
 		slidePlayer1Critical.style.display = "block";
-		console.log('critical hit on enemy');
-		
+		console.log('critical hit on enemy');	
 //MISS
 	} else if (attackRoll <= enemyArray[currentEnemyCard].defense - player1.attack)	{
 		slideLogSlide.style.display = "block";
-
 		logSlideResultLine2.innerHTML = 'Miss';
 		logSlideResultLine3.innerHTML = "pathetic...";
 		console.log(" player1 miss with " + attackRoll);
 	};
-
-
 };
 
 
@@ -3318,31 +3299,22 @@ function player1Damage(){
 		slideLogSlide.style.display = "block";
 		Enemy1Ouch();
 		player1DamageRoll();
-
 		attackDamage = player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus;
-
 		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - attackDamage;
 		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - player1.damage;
-
 		logSlideRollResult.innerHTML = 'Your attack deals ' + attackDamage + ' (weapons) + ' + 
 		player1.damage + ' (bonus)';
-
 		logSlideResultLine2.innerHTML = '<span style="color: red">a deep wound</span>';
 		logSlideResultLine3.innerHTML = "You hit " + (attackDamage + player1.damage) + " down to " + enemyArray[currentEnemyCard].currentHealth;
-
-		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
-		
+		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;	
 // Killed Enemy
 		if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slideLogSlide.style.display = "none";	
 		slideKillLog.style.display = "block";
-
-		
 		damageRollResultK.innerHTML = 'A quick attack inflicts ' + attackDamage + ' (weapons) + ' + 
 		player1.damage + ' (bonus)';
 		damageResultLine2K.innerHTML = 'oh the Blood!!';
 		damageResultLine3K.innerHTML = 'Sweet Victory!  ' + (attackDamage+player1.damage) +' damage kills the enemy';	
-
 		enemy1Dead();
 		console.log('killed enemy');
 	};
@@ -3352,29 +3324,22 @@ function player1Critical(){
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "block";
 		Enemy1Ouch();
-		player1DamageRoll();
-		
+		player1DamageRoll();	
 		attackDamage = 2 * (player1weapon1Damage + player1weapon2Damage + player1weapon1DamageBonus + player1weapon2DamageBonus);
 		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - attackDamage;
 		enemyArray[currentEnemyCard].currentHealth = enemyArray[currentEnemyCard].currentHealth - player1.damage;
-
 		logSlideRollResult.innerHTML = 'Your attack deals ' + (attackDamage/2) + ' (weapons)';
 		logSlideResultLine2.innerHTML = 'Critical hit <span style="color: red">DOUBLES </span>damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
-		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemyArray[currentEnemyCard].currentHealth + ' health';
-		
+		logSlideResultLine3.innerHTML = "The enemy is crippled by " + (attackDamage+player1.damage) +" down to " + enemyArray[currentEnemyCard].currentHealth + ' health';	
 		enemy1HealthCounter.innerHTML = enemyArray[currentEnemyCard].currentHealth;
-
 // killed him Critical
 	if (enemyArray[currentEnemyCard].currentHealth <= 0) {
 		slidePlayer1Critical.style.display = "none";
 		slideLogSlide.style.display = "none";
-		slideKillLog.style.display = "block";
-
-		
+		slideKillLog.style.display = "block";		
 		damageRollResultK.innerHTML = 'Your attack is impressive!';
 		damageResultLine2K.innerHTML = 'GLORY! Critical hit <span style="color: red">DOUBLES</span> damage to ' + attackDamage + ', (+ ' + player1.damage + ' bonus)';
-		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and <span style="color: red">kills</span> the enemy';
-		
+		damageResultLine3K.innerHTML = 'Your blow inflicts ' + (attackDamage + player1.damage ) +' and <span style="color: red">kills</span> the enemy';		
 		enemy1Dead();
 		console.log('killed enemy with Crit');
 	};	
@@ -3404,34 +3369,27 @@ function enemyAttack(){
 // hit player***********
 
 	if (attackRollE > (player1.defense - enemyArray[currentEnemyCard].attack) && attackRollE != 20) {	
-
 		enemy1DamageRoll();
 		attackDamageE = enemy1weapon1Damage + enemy1weapon2Damage + enemy1weapon1DamageBonus + enemy1weapon2DamageBonus;
-
 		player1.currentHealth = player1.currentHealth - attackDamageE;
 		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
 		player1CurrentHp.innerHTML = player1.currentHealth;
-
 		console.log('w1 w2 w3 w4 ',enemy1weapon1Damage,enemy1weapon2Damage,enemy1weapon1DamageBonus,enemy1weapon2DamageBonus);
 		console.log('damage bonus E',enemyArray[currentEnemyCard].damage);
-
 		logSlideResultLine2E.innerHTML = '<span style="color: red">OUCH!!</span>';
 		logSlideResultLine3E.innerHTML = "You  got hit " + (attackDamageE+enemyArray[currentEnemyCard].damage) +" down to " + player1.currentHealth;
 		slideLogSlideE.style.backgroundColor = "rgba(255, 153, 153, .85)";
 		console.log("hit player with attackroll " + attackRollE);
 		console.log('enemy deals ' + (attackDamageE+enemyArray[currentEnemyCard].damage)+' Damage');
-		player1Ouch();
-	
+		player1Ouch();	
 // CRIT
 	} else if (attackRollE == 20) {
 
 		enemy1DamageRoll();
 		attackDamageE = 2 * (enemy1weapon1Damage + enemy1weapon2Damage + enemy1weapon1DamageBonus + enemy1weapon2DamageBonus);
-
 		player1.currentHealth = player1.currentHealth - attackDamageE;
 		player1.currentHealth = player1.currentHealth - enemyArray[currentEnemyCard].damage;
 		player1CurrentHp.innerHTML = player1.currentHealth;
-
 		logSlideResultLine2E.innerHTML = '<span style="color: rgb(121, 0, 0)">OH NO!! CRITICAL HIT</span>';
 		logSlideResultLine3E.innerHTML = "hit (" + (attackDamageE/2) + " x 2)="+ (attackDamageE)+ " + " + enemyArray[currentEnemyCard].damage +", down to " + player1.currentHealth;
 		slideLogSlideE.style.backgroundColor = "rgba(182, 0, 0, 0.59)";
