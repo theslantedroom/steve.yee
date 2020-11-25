@@ -235,6 +235,9 @@ h5{
 #marketItems div {
 	color: black;
 }
+.storeItems{
+justify-content: space-between;
+}
 #storeImages img{
 	margin: 2px;
 	width: 11vh;
@@ -310,6 +313,7 @@ h5{
 	flex-wrap: wrap;
 	justify-content: flex-start;
 	margin-left: 10px;
+	border: 1px solid white;
 }
 .floatRight{
 	width: 80vh;
@@ -320,6 +324,7 @@ h5{
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	margin-right: 10px;
+	border: 1px solid white;
 }
 #playArea{
 	box-sizing: border-box;
