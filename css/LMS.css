@@ -75,6 +75,7 @@ h5{
 	min-width: 620px;
 	text-align: center;
 	position: fixed;
+	height: 100vh;
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
@@ -235,6 +236,7 @@ z-index: 5;
 	display: none;
 	width: 100%;
 	min-width: 550px;
+	height: 100vh;
 }
 #marketItems div {
 	color: black;
