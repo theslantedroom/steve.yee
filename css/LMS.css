@@ -637,11 +637,10 @@ th {
 	line-height: 56px;
 }
 .splashScreen a{
-	color: white;
+	color: rgb(150, 145, 13);
 	margin: 20px;
-	text-decoration: none;
+	font-style: italic;
 }
-
 .splashScreen a:hover{
 	color: rgb(250, 193, 193);
 
