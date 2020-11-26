@@ -75,7 +75,6 @@ nav .nametag{
 
 .nametag:hover{
 	color: grey;
-
 }
 
 nav ul{
@@ -84,7 +83,6 @@ nav ul{
 	position: absolute;
 	right: 10px;
 	margin-top: 20px;
-
 }
 
 nav ul li{
@@ -109,7 +107,6 @@ font-size: 30px;
 @media screen and (max-width: 900px) {
   .links li {
   	font-size: 25px;
-
   }
 }
 
@@ -117,14 +114,12 @@ font-size: 30px;
 @media screen and (max-width: 775px) {
   .links li {
   	font-size: 20px;
-
   }
 }
 
 @media screen and (max-width: 700px) {
   .links li {
   	font-size: 15px;
-
   }
 }
 
@@ -140,11 +135,6 @@ font-size: 30px;
 	height: 999px;
 	box-shadow: 12px 10px 5px rgba(0,0,0,.4);
 }
-
-/*NAV Links*/
-	
-
-	/*ABOUT*/
 .about-info{
 	border-radius: 5px;
 	background-color: black;
@@ -152,14 +142,10 @@ font-size: 30px;
 	size: 30px;
 	padding: 15px 10px 50px 10px
 }
-
 .about-info h1{
 	color: white;
 	size: 30px;
 }
-
-
-
 /*sound engineer*/
 .soundengineer-info{
 	background-color: black;
@@ -167,18 +153,13 @@ font-size: 30px;
 	size: 30px;
 	padding: 15px 10px 50px 10px
 }
-
 .soundengineer-info h1{
 	color: white;
 	size: 30px;
 }
-
-
 .concertbanner{
 	width: 100%;
 }
-
-
 /*MUSIC*/
 .music-info{
 	border-radius: 5px;
@@ -230,29 +211,6 @@ font-size: 30px;
 	border-radius: 15px;
 	max-width: 555px;
 }
-
-
-/*Photography*/
-.photography-info{
-	border-radius: 5px;
-	background-color: black;
-	color: grey;
-	size: 30px;
-	width: 100%;
-	justify-content: center;
-	padding: 15px 10px 50px 10px
-}
-
-.photography-info h1{
-	color: white;
-	size: 30px;
-}
-
-.photography-info img{
-	width: 100%;
-	height: auto;
-}
-
 .gallery{
   line-height: 0;
   -webkit-column-count: 3;
@@ -261,7 +219,6 @@ font-size: 30px;
   -moz-column-gap:      0px;
   column-count:         3;
   column-gap:           0px;  
-
 }
 
 .gallery-info img{
@@ -285,8 +242,6 @@ font-size: 30px;
   }
 }
 
-
-
 /*Webdeveloper*/
 .web-development-info{
 	border-radius: 5px;
@@ -302,20 +257,10 @@ font-size: 30px;
 	size: 30px;
 }
 
-
-
-.footerpic{
-	display: block;
-	 margin-left: auto;
- 	 margin-right: auto;
-	width: 50%;
-}
-
 footer{
 	text-align: center;
 	padding: 15px 10px 50px 10px
 }
-
 
 .magicbutton{
 	padding: 30px;
