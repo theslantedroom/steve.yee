@@ -1,0 +1,28 @@
+
+//Get all updates - First thing
+git pull
+
+
+//BRANCHES
+git branch testingbranch	 //Create Branch
+git checkout testingbranch   //Switch Branch
+git branch --show-current
+
+git status
+
+git add -A
+git add .
+
+git commit -m "v1" 
+
+git commit -am "v1" 
+
+git push
+
+git merge master  //merge 'Master' into current branch
+
+
+
+//CMD
+
+cls  - Clear console

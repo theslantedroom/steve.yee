@@ -1,9 +1,11 @@
 body{
-	background-color: black;
+	font-family: 'Dhurjati', sans-serif;
+	background: #191919;
 	text-align: center;
-	color: white;
-	font-size: 20px;
+	color: #191919;
+	font-size: 30px;
 	padding: 5px 30px;
+	width: 100vw;
 }
 
 .strong{
@@ -15,21 +17,22 @@ a:link {
 }
 
 a{
-
-	color: white;
+	background: -webkit-linear-gradient(#fdf5a6, #b88746);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 a:hover {
-	color: grey;
+	color: rgb(178, 228, 0);
 }
 
 h1{
 	text-align: center;
+	margin: 5px;
+	padding: 1px;
+	font-size: 40px;
 }
 
-p a {
-	font-size: 100%;
-}
 
 p a:hover {
 	font-size: 100%;
@@ -37,68 +40,21 @@ p a:hover {
 }
 
 p{
-	line-height: 1.6;
+	line-height: 1.3;
+	margin: 0;
+	padding: 0;
 }
 
 /*NAVBAR*/
 
-nav{
-	width: 100%;
-	min-width: 560px;
-	background: rgb(7,15,15);
-	background: linear-gradient(0deg, rgba(7,15,15,1) 0%, rgba(0,0,0,1) 7%,
-	rgba(43,18,18,1) 44%, rgba(0,0,0,1) 100%);
-	height: 80px;
-	margin: 0px;
-	border: 5px solid rgba(0 0 0 .5);
-	box-shadow: 5px 10px rgba(0,0,0,.4);
+.sticky{
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	z-index: 1;
-}
-
-nav .nametag{
-	font-family: 'Dhurjati', sans-serif;
-	font-size:  40px;
-	color: white;
-	display: block;
-	height: 50px;
-	width: 250px;
-	cursor: pointer;
-	top: 50%;
-	left: 10px;
-	margin-top: -33px;
-	position: absolute;
+	z-index: 2;
 }
 
 
-.nametag:hover{
-	color: grey;
-}
-
-nav ul{
-	padding: 0;
-	margin: 0;	
-	position: absolute;
-	right: 10px;
-	margin-top: 20px;
-}
-
-nav ul li{
-	display: inline;
-	margin-right: 20px;
-}
-
-nav ul li a{
-	right: 20px;
-	top: 50%
-	margin: 40px;
-	cursor: pointer;
-}
-ul{
-	 list-style: none; 
-}
 
 .links li{
 font-size: 30px;
@@ -137,19 +93,82 @@ font-size: 30px;
 }
 .about-info{
 	border-radius: 5px;
-	background-color: black;
-	color: grey;
+	background: rgb(46,88,29);
+	background: -moz-radial-gradient(circle, rgba(46,88,29,1) 2%, rgba(25,25,25,1) 100%);
+	background: -webkit-radial-gradient(circle, rgba(46,88,29,1) 2%, rgba(25,25,25,1) 100%);
+	background: radial-gradient(circle, rgba(46,88,29,1) 2%, rgba(25,25,25,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e581d",endColorstr="#191919",GradientType=1);
+	color: rgb(101, 157, 114);
 	size: 30px;
-	padding: 15px 10px 50px 10px
+	padding: 5px 10px 10px 10px;
+	z-index: 1;
+	
 }
 .about-info h1{
-	color: white;
+	color: #00070c;
+	font-size: 40px;
+	line-height: .8;
+}
+.about-info a{
+	color: rgb(0, 0, 0);
+
+}
+
+/* banner */
+.banner{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	width: 100%;
+	background-image: url(../img/code1.jpg);
+}
+.banner span{
+	font-size: 80px;
+	overflow: hidden;
+	background: -webkit-linear-gradient(#fdf5a6, #9c723c);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	z-index: 0;
+	margin: 0;
+	padding: 2px;
+
+}
+
+/*Webdeveloper*/
+.web-development-info{
+	border-radius: 5px;
+	/* background-color: black; */
+	clear: both;
+	color: #fdf5a6;
+	padding: 15px 10px 50px 10px
+}
+
+.web-development-info h1{
+	color: #b88746;
 	size: 30px;
 }
+.responsiveThumb{
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-around;
+	
+}
+.responsiveThumb div{
+	margin: 0;
+	width: 45%;
+}
+.responsiveThumb img{
+	width: 95%;
+}
+
 /*sound engineer*/
 .soundengineer-info{
-	background-color: black;
-	color: grey;
+	background: rgb(253,245,166);
+	background: -moz-linear-gradient(0deg, rgba(253,245,166,1) 2%, rgba(184,135,70,1) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(253,245,166,1) 2%, rgba(184,135,70,1) 100%);
+	background: linear-gradient(0deg, rgba(253,245,166,1) 2%, rgba(184,135,70,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdf5a6",endColorstr="#b88746",GradientType=1);
 	size: 30px;
 	padding: 15px 10px 50px 10px
 }
@@ -157,13 +176,17 @@ font-size: 30px;
 	color: white;
 	size: 30px;
 }
+
+.soundengineer-info p{
+	color: white;
+}
 .concertbanner{
 	width: 100%;
 }
 /*MUSIC*/
 .music-info{
 	border-radius: 5px;
-	background-color: black;
+	/* background-color: black; */
 	color: grey;
 	size: 30px;
 	padding: 15px 10px 20px 10px
@@ -242,20 +265,6 @@ font-size: 30px;
   }
 }
 
-/*Webdeveloper*/
-.web-development-info{
-	border-radius: 5px;
-	background-color: black;
-	clear: both;
-	color: grey;
-	size: 30px;
-	padding: 15px 10px 50px 10px
-}
-
-.web-development-info h1{
-	color: white;
-	size: 30px;
-}
 
 footer{
 	text-align: center;

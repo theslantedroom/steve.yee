@@ -1,107 +1,98 @@
 <!DOCTYPE html>
+<html lang="en"></html>
 <html>
 <head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Steve Yee - Portfolio</title>
-<!-- ICON -->
 	<link rel="icon" href="img/profile2.jpg">
-
-	<!-- bootstrap -->
 	<link rel="stylesheet" type="text/css" href=css/bootstrap.css>
-	<!-- css Animate -->
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<!-- css -->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!-- fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Dhurjati&display=swap" rel="stylesheet">
-
 </head>
+
+
 <body>
 
-	<nav class="animate__animated animate__backInRight">
-		<a href="#" class="nametag animate__animated animate__backInRight">Steve Yee</a>
-		<ul class="links">
-			<li><a href="#web-development-nav">Web Developer</a></li>
-			<li><a href="#soundengineer-nav">Sound Engineer</a></li>
-			<li><a href=#music-nav>Music</a></li>
-	<!-- 		<li><a href="#photography-nav">Photography</a></li> -->
-		</ul>
-	</nav> 
 
-<!-- SLIDEshow -->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img src="img/music.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/camera.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/webdev.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-</div>
+	
+	<div class="sticky">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+			<a class="navbar-brand" href="#"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+			  <ul class="navbar-nav">
+				<li class="nav-item active">
+				  <a class="nav-link" href="#web-development-nav">Web Developer <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#soundengineer-nav">Sound Engineer</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#music-nav">Music</a>
+				</li>
+			  </ul>
+			</div>
+		  </nav>
+		</div> 
+
+<div class="banner"><span>Steve Yee</span></div>
 
 	<div id="about" class="about-info">
 		<h1>About</h1>
-		<p class="about">I am a <a href="#soundengineer-nav">sound engineer</a> and <a href="https://www.pond5.com/artist/theslantedroom" target="blank">composer</a> who enjoys <a href="#photography-nav">photography</a> and has discovered a new passion for <a href="#web-development-nav">web development</a>.  I enjoy creating <a href="#music-nav">music</a> and making games. I am currently focusing on developing my skills in these areas through continued education. With the concert / entertainment industry on a temporary hiatus,  I believe now is the time to finally enter the world of web development. </p>
+		<p class="about">I am a developer who enjoys <a href="#soundengineer-nav">sound engineering</a> and writing <a href="#music-nav" target="blank">music.</a>  I enjoy creating responsive interactive apps and making games. I am currently focusing on developing a game and building websites.  My main languages are HTML/CSS JavaScript and Python. </p>
 
 	</div> 
 
-
-	<!-- Wed Dev -->
-<div id="web-development-nav" class="anchor"></div>
 	<div class="web-development-info">	
-		<h1>
-			Web Development
-		</h1>
-		<p>I am currently advancing my web development skills in JavaScript, HTML and CSS. I will soon begin Git, Node.js and React, later Java and possibly C# or C++. On Nov 10, 2020, I began studying web development and I am in the process of applying my new-found knowledge by building a web app <a href="https://theslantedroom.github.io/Last-Man-Standing-Mini-Game/" target="blank">(Last Man Standing)</a> and this will be packaged (via Electron or Phonegap) for distribution on the Playstore/App Store and Steam. Having had zero knowlegde of coding, I am proud of my rapid pace of grasping coding concepts as I have created this in such a short time, and will continue to improve it.</p>	<br>
-		<a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game">LMS Github Repo</a>
+		<div id="web-development-nav" class="anchor"></div>
+		<h1>Web Development</h1>
+		<p>I am currently advancing my skills in JavaScript, HTML and CSS, Electron, Git and Python. Nov 2020, I began the process of applying these skills by building a web app <a href="https://theslantedroom.github.io/Last-Man-Standing-Mini-Game/" target="blank">(Last Man Standing)</a> and this will be packaged (via Electron) for distribution on the Playstore/App Store and Steam. </p>	<br>
+		
+		<div class="responsiveThumb">
+			<div><img src="img/responsiveLMS.png" alt="LMS">
+				<a href="https://theslantedroom.github.io/Last-Man-Standing-Mini-Game/" 
+				target="blank">Last Man Standing</a>
+				<p> An Interactive Game 
+				<br>JavaScript - 81.3%
+				<br>HTML - 11.1%
+				<br>CSS - 7.6%/
+				</p>	
+				<a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target="blank">LMS Github Repo</a>
+			</div>
+			<div><img src="img/responsiveMush.png" alt="LMS">
+				<a href="https://theslantedroom.github.io/MagicMushroomsDirect/" 
+				target="blank">MMD Site</a>
+				<p> An Interactive Game 
+				<br>JavaScript - 94.1%
+				<br>HTML - 4.4.1%
+				<br>CSS - 1.5%/
+				</p>	
+				<a href="https://github.com/theslantedroom/MagicMushroomsDirect" target="blank">MMD Github Repo</a>
+			</div>
+
+		</div>
 	</div>
+</div>
 
 
-	<!-- Sound Engineer  -->
-<div id="soundengineer-nav" class="anchor"></div>
 	<div class="soundengineer-info">	
-		<h1>
-			Sound Engineer
-		</h1>	
+		<div id="soundengineer-nav" class="anchor"></div>
+		<h1>Sound Engineer</h1>	
 
 		<p>I have over 15 years experience producing, writing, recording, editing, mixing and mastering in studio as well as mixing touring bands at concerts and festivals with crowds up to 15,000 people. 
 		</p>
 
 		<img src="img/concertbanner.jpg" alt="concert" class="concertbanner">
 
-			<ul>
-				<li>
-					As a child in Vancouver, I experimented with my parents VCRs, 8mm video camera and record player, making rudimentary films with overdubbed sound.	
-				</li>
-				<li>
-					As a teenager I began to play guitar, before making it my goal to collect as many different instruments as possible.
-				</li>
-				<li>
-					I have been working with DAW’s and computer audio since my first 386 DOS computer.
-				</li>
-				<li>
-					In 2003, during my time studying music and sound at The Arts Institute of Vancouver I began working with large PA systems at concerts and events.
-				</li>
-					<li>
-				After completing my studies I continued to work as a freelance engineer while learning about cinematic music production and building a library of music. 
-				</li>
-					<li>
-				I am very happy and grateful to have had the chance to work with every one of the amazing artists and engineers over these past years!
-				</li>
-
-			</ul>
-
 	</div>
 
-<!-- music  -->
-<div id="music-nav" class="anchor"></div>
 	<div class="music-info">	
-			<h1>
-				Music Producer
-			</h1>	
+		
+<div id="music-nav" class="anchor"></div>
+			<h1>Music Producer</h1>	
 	
 			<p>I have been producing music for media in various genres, with focus on instrumental, orchestral, cinematic, hip-hop, and fanstasy video game music.
 			</p>
@@ -116,20 +107,18 @@
 				<div class="musiclinks">
 					<ul>
 						<li>
-							<a href="https://theslantedroom.ca/" target="blank">The Slanted Room</a>
+							<a href="https://theslantedroom.ca/" target="blank">theSlantedRoom.ca</a>	
 						</li>
-					<!-- 	<li>
-							<a href="https://theslantedroom.bandcamp.com/" target="blank">Bandcamp</a>
-						</li> -->
+						<li>
+							<a href="https://www.pond5.com/artist/theslantedroom" target="blank">Music Licensing</a>
+						</li>
 					
 					</ul>
 				</div>
 		
 	</div>
-
-<!-- JAVAscript -->
-<script src=js/jquery.js></script>
-<script src=js/bootstrap.js></script>
+	<script src=js/jquery.js></script>
+	<script src=js/bootstrap.js></script>
 <script src=js/script.js> </script>
 
 </body>
