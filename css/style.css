@@ -3,7 +3,7 @@ body{
 	background: #191919;
 	text-align: center;
 	color: #191919;
-	font-size: 30px;
+	font-size: 25px;
 	padding: 0px;
 	width: 100vw;
 }
@@ -52,6 +52,12 @@ p{
 	position: sticky;
 	top: 0;
 	z-index: 2;
+
+	background: rgb(35,66,22);
+	background: -moz-linear-gradient(180deg, rgba(35,66,22,1) 0%, rgba(25,25,25,1) 66%);
+	background: -webkit-linear-gradient(180deg, rgba(35,66,22,1) 0%, rgba(25,25,25,1) 66%);
+	background: linear-gradient(180deg, rgba(35,66,22,1) 0%, rgba(25,25,25,1) 66%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#234216",endColorstr="#191919",GradientType=1);
 }
 
 
@@ -100,7 +106,7 @@ font-size: 30px;
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e581d",endColorstr="#191919",GradientType=1);
 	color: rgb(101, 157, 114);
 	size: 30px;
-	padding: 5px 50px 10px 50px;
+	padding: 5px 15px 10px 15px;
 	z-index: 1;
 	
 }
@@ -142,7 +148,7 @@ font-size: 30px;
 	/* background-color: black; */
 	clear: both;
 	color: #fdf5a6;
-	padding: 15px 50px 50px 50px
+	padding: 15px 15px 30px 15px
 }
 
 .web-development-info h1{
@@ -152,15 +158,21 @@ font-size: 30px;
 .responsiveThumb{
 	width: 100%;
 	display: inline-flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	
 }
+
 .responsiveThumb div{
-	margin: 0;
-	width: 45%;
+	margin: 25px 0 0 0 ;
+	width: 400px
 }
 .responsiveThumb img{
-	width: 95%;
+	width: 100%;
+	margin-bottom: -30px;
+}
+.responsiveThumb p{
+	line-height: .8;
 }
 
 /*sound engineer*/
@@ -204,11 +216,16 @@ font-size: 30px;
 	size: 30px;
 }
 .music-info p{
-	padding: 5px 50px 10px 50px;
+	padding: 5px 5px 10px 5px;
 }
 .player{
 	display: flex;
+	flex-wrap: wrap;
+
 	justify-content: space-around;
+}
+.player div{
+	width: 400px;
 }
 
 
@@ -247,7 +264,7 @@ font-size: 30px;
 
 footer{
 	text-align: center;
-	padding: 15px 10px 50px 10px
+	padding: 15px 5px 50px 5px
 }
 
 .magicbutton{
