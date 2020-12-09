@@ -103,15 +103,12 @@ function init() {
                 let positionY = y + adjustY;
                 particleArray.push(new Particle(positionX * textScale ,positionY * textScale));
             }
-           
-
         }
     }
 }
 init();
 
 function animate(){
-    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for  (let i = 0; i < particleArray.length; i++){
         particleArray[i].update();
