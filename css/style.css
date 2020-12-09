@@ -1,3 +1,8 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
 body{
 	font-family: 'Dhurjati', sans-serif;
 	background: #191919;
@@ -125,22 +130,25 @@ font-size: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 200px;
+	max-height: 200px;
+	height: 25vw;
 	width: 100%;
 	background-image: url(../img/code1.jpg);
-}
-.banner span{
-	font-size: 80px;
 	overflow: hidden;
-	background: -webkit-linear-gradient(#fdf5a6, #9c723c);
+}
+.banner canvas{
+	font-size: 80px;
+	/* overflow: hidden; */
+	/* background: -webkit-linear-gradient(#fdf5a6, #9c723c);
 	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+	-webkit-text-fill-color: transparent; */
 	z-index: 0;
 	margin: 0;
 	padding: 2px;
 	transform: rotate(8deg);
 	line-height: .8;
 }
+
 
 /*Webdeveloper*/
 .web-development-info{
@@ -225,7 +233,7 @@ font-size: 30px;
 	justify-content: space-around;
 }
 .player div{
-	width: 400px;
+	width: 100vw;
 }
 
 
@@ -249,7 +257,7 @@ font-size: 30px;
 }
 
 .soundcloud{
-	width: 40%;
+	width: 80%;
 	float: left;
 }
 
