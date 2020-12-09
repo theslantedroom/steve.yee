@@ -82,7 +82,6 @@ class Particle {
     }
 }
 
-console.log('adx', adjustX)
 window.addEventListener("resize", windowReSize);
 function windowReSize(){
     particleArray = [];
@@ -92,7 +91,6 @@ function windowReSize(){
     adjustX = (window.innerWidth/(2*textScale))-70;
     textScale = window.innerWidth/400 +1;
     if  (textScale > 5.5) {textScale = 5.5};
-    console.log('adjustY', adjustY, 'scale', textScale)
     init();
 };
 
@@ -124,7 +122,6 @@ function animate(){
 }
 
 animate();
-console.log('red 1', red);
 
 
 // UNUSED
