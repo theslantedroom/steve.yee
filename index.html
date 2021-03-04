@@ -35,31 +35,19 @@
 
 	<div id="about" class="about-info">
 		<h1>About</h1>
-		<p class="about">I am a self taught <a href="#web-development-nav">web developer</a> coming from a long and successful career as a <a href="#soundengineer-nav">sound engineer</a>. I enjoy writing and composing <a href="#music-nav" target="blank">music for games and media.</a>  I enjoy creating responsive interactive apps and making both physical and digital games. I am currently focusing on developing a game, building websites and doing whatever I can to be the best developer I can be. </p>
+		<p class="about">I am a self taught <a href="#web-development-nav">web developer</a> coming from a career as a <a href="#soundengineer-nav">sound engineer</a>. I enjoy writing and composing <a href="#music-nav" target="blank">music for games and media.</a>  I enjoy creating responsive interactive apps and making both physical and digital games. I am currently focusing on Harvards CS50 for computer science, building websites and doing whatever I can to learn software development </p>
 
 	</div> 
 
 	<div class="web-development-info">	
 		<div id="web-development-nav" class="anchor"></div>
 		<h1>Web Development</h1>
-		<p>As of now I am focusing on playing with JavaScript, React.js, HTML and CSS, C, Git and Python/Django. I am enrolled in Harvard's CS50x 2021, as well as self educating in these langauges on SkillShare. Recently I dscovered particle systems and fractals, started a second new App called Idle Billionaire (where I carry forward lessons I learned from LMS, to write cleaner and more extensible code.)<br> See some of my work below.</p>	
+		<p>As of now I am focusing on playing with JavaScript, React.js, HTML and CSS, C, Python, Flask, GIT, Sqlite3 and Postgres. I am enrolled in Harvard's CS50x 2021, as well as self educating in these technologies on SkillShare and Youtube. Recently I have started a third new App called Stock Picker <br> See some of my work below.</p>	
 		
 		<div class="responsiveThumb">
-			<div>
-				<img src="img/responsiveLMS.png" alt="LMS">
-				<a href="https://theslantedroom.github.io/Last-Man-Standing-Mini-Game/" 
-				target="blank">Last Man Standing</a>
-				<p> An Interactive Game - Vanilla JavaScript
-				<br>Coding highlights: 
-				<br>- a market and inventory system
-				<br>- combat logic and enemies systems
-				<br>- music and SFX triggers
-				</p>	
-				<a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target="blank">LMS Github Repo</a>
-			</div>
 
-			<div>
-				<img src="img/responsiveTrillionaire.png" alt="idleB=Trillionaire">
+			<div class="portfolioLink">
+				<img src="img/responsiveTrillionaire.png" alt="idleB=Trillionaire" onclick="trillion();">
 				<a href="https://www.idletrillionaire.com/" 
 				target="blank">Idle Trillionaire</a>
 				<p> Idle Game built in React. 
@@ -68,11 +56,24 @@
 				<br>Extensible code design allows quick expansion of card assets.
 				<br>Will be ported to the App store one day.
 				</p>	
-				<a href="https://github.com/theslantedroom/idle-Trillionaire" target="blank">Idle Billionaire Github Repo</a>
+				<!-- <a href="https://github.com/theslantedroom/idle-Trillionaire" target="blank">Idle Billionaire Github Repo</a> -->
 			</div>
 
-			<div>
-				<img src="img/responsiveMush.png" alt="MDD">
+			<div class="portfolioLink">
+				<img src="img/responsiveStock.png" alt="Stock Picker" onclick="stockPicker();">
+				<a href="http://stockpicker-theslantedroom.herokuapp.com/" 
+				target="blank">Stock Picker</a>
+				<p> Buy and Sell Stocks in a full stack App. Built with Python and Flask.
+				<br>Coding highlights:
+				<br>User accounts and login <br> Postgres Database Queries
+				<br>Fetches Stock Data from API at <a href="https://iextrading.com/developer">IEX</a>
+				<br>Scrolling Wrapper component for card list.
+				</p>	
+				<!-- <a href="https://github.com/theslantedroom/RoboBuds" target="blank">Github Repo</a> -->
+			</div>
+			
+			<div class="portfolioLink">
+				<img src="img/responsiveMush.png" alt="MDD" onclick="mmd();">
 				<a href="https://theslantedroom.github.io/MagicMushroomsDirect/" 
 				target="blank">MDD Site</a>
 				<p> E-commerce Store Template
@@ -81,23 +82,24 @@
 				<br>Recreated to resemble a shopify theme
 				<br>Front end responsive design
 				</p>	
-				<a href="https://github.com/theslantedroom/MagicMushroomsDirect" target="blank">MMD Github Repo</a>
+				<!-- <a href="https://github.com/theslantedroom/MagicMushroomsDirect" target="blank">MMD Github Repo</a> -->
 			</div>
 
-<!-- 			<div>
-				<img src="img/responsiveRobo.png" alt="Robobuds">
-				<a href="https://theslantedroom.github.io/RoboBuds/" 
-				target="blank">RoboBuds</a>
-				<p> A React.js App
-				<br>Coding highlights:
-				<br>Search Bar
-				<br>Fetches JSON from a REST API (Jsonplaceholder.com)
-				<br>Scrolling Wrapper component for card list.
+			<div class="portfolioLink">
+				<img  src="img/responsiveLMS.png" alt="LMS" title="Last Man Standing" onclick="lms();">
+				<a href="https://theslantedroom.github.io/Last-Man-Standing-Mini-Game/" 
+				target="blank">Last Man Standing</a>
+				<p> An Interactive Game - Vanilla JavaScript
+				<br>Coding highlights: 
+				<br>- a market and inventory system
+				<br>- combat logic and enemies systems
+				<br>- music and SFX triggers
 				</p>	
-				<a href="https://github.com/theslantedroom/RoboBuds" target="blank">Github Repo</a>
-			</div> -->
+				<!-- <a href="https://github.com/theslantedroom/Last-Man-Standing-Mini-Game" target="blank">LMS Github Repo</a> -->
+			</div>
 
-			<div><img src="img/responsiveCard.png" alt="LMS">
+			<div class="portfolioLink">
+				<img src="img/responsiveCard.png" alt="LMS" onclick="card();">
 				<a href="https://theslantedroom.github.io/ChristmasGreetings/" 
 				target="blank">Holiday Greeting Card</a>
 				<p> JavaScript Interactive Holiday Card
@@ -106,7 +108,7 @@
 				<br>Dual Langauge
 				<br>Basic animations
 				</p>	
-				<a href="https://github.com/theslantedroom/ChristmasGreetings" target="blank">Github Repo</a>
+				<!-- <a href="https://github.com/theslantedroom/ChristmasGreetings" target="blank">Github Repo</a> -->
 			</div>
 
 		</div>
