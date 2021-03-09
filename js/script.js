@@ -6,8 +6,8 @@ function trillion() {
   window.location.href = "https://www.idletrillionaire.com/";
 }
 
-function mmd() {
-  window.location.href = "https://theslantedroom.github.io/MagicMushroomsDirect/";
+function kite() {
+  window.location.href = "https://theslantedroom.github.io/Kite-Supply/";
 }
 
 function stockPicker() {
