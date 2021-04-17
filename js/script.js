@@ -17,3 +17,11 @@ function stockPicker() {
 function card() {
   window.location.href = "https://theslantedroom.github.io/ChristmasGreetings/";
 }
+
+function algoPractise() {
+  window.location.href = "https://theslantedroom.github.io/Pascals-Triangle/";
+}
+
+function boxing() {
+  window.location.href = "http://legitdev.herokuapp.com/login";
+}
