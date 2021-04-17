@@ -23,5 +23,5 @@ function algoPractise() {
 }
 
 function boxing() {
-  window.location.href = "http://legitdev.herokuapp.com/login";
+  window.location.href = "http://legitdev.herokuapp.com";
 }
