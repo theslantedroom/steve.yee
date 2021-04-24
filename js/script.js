@@ -25,3 +25,7 @@ function algoPractise() {
 function boxing() {
   window.location.href = "http://legitdev.herokuapp.com";
 }
+
+function stalk() {
+  window.location.href = "https://theslantedroom.github.io/StalkTok/";
+}
